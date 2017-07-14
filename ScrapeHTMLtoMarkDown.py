@@ -12,22 +12,22 @@ import os
 
 #_______________________________________________________________________________
 
-#_______________________________________________________________________________
-
 def scrapeFromURL():
+    # Required to make multiple requests
     hdr = { 'User-Agent' : 'bot by /u/_Zagan_' }
-    count = 0
-    # Set up resources to fetch the webpages
+    count = 0   # For informational purposes
+
     with open(sys.argv[1], 'r') as listOfURLs:
         for url in listOfURLs:
-            # currentURL = listOfURLs.readline()
-            # # print(url)
+            print(str(count), url)
+
+            # Set up resources to fetch the webpage
             req = urllib2.Request(url, headers = hdr)
             currentPage = urllib2.urlopen(req).read()
+
             # Scrape the contacts to target .md file
-            scrapeHTML(currentPage)
-            if count % 20 == 0:
-                print(str(count), url)
+            scrapeHTML(currentPage, url)
+
             count += 1
     print(str(count), "docs created!")
 
@@ -37,11 +37,11 @@ def scrapeLocalHTML():
     with open(sys.argv[1], 'r') as fileToRead:
         # Read in HTML Doc from command line
         myHTMLDoc = fileToRead.read()
-        scrapeHTML(myHTMLDoc)
+        scrapeHTML(myHTMLDoc, "local_file")
 
 #_______________________________________________________________________________
 
-def scrapeHTML(myHTMLDoc):
+def scrapeHTML(myHTMLDoc, url):
     # Prepare Beautiful Soup object from the HTML file
     mySoup = BeautifulSoup(myHTMLDoc, "lxml")
 
@@ -55,12 +55,15 @@ def scrapeHTML(myHTMLDoc):
     except IndexError:
         title = title.strip()
 
+    # Necessary to avoid messing up the file path in OSX
+    title = title.replace("/", " ")
+
     # Prepare document for writing the data to
     pathAndFileName = getPathAndName(title)
-    # # print(pathAndFileName)
     outputFile = open(pathAndFileName, 'w')
-    # # print(title)
-    outputFile.write("#" + title + "\n\n")
+
+    # Write the document's title
+    writeTitle(outputFile, title, url)
 
     # Extract the prompt
     try:
@@ -84,12 +87,17 @@ def scrapeHTML(myHTMLDoc):
                 writeParagraph(outputFile, child)
             if myTag == 'table':
                 writeTable(outputFile, child)
+        writeDisclaimer(outputFile, title, url)
+
+    # Some of the URLs don't contain programming prompts
     except AttributeError:
         print("Error", title)
 
 #_______________________________________________________________________________
 
 def getPathAndName(title):
+
+    # Place the file in the correct folder
     fileName = title + ".md"
     if '[Easy]' in title:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Easy/"
@@ -100,78 +108,83 @@ def getPathAndName(title):
     else:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Uncategorized/"
 
+    # Return the file path
     return os.path.join(relativePath, fileName)
 
+#_______________________________________________________________________________
+
+def writeTitle(outputFile, title, url):
+    outputFile.write("# [" + title + "](" + url + ")\n")
+    outputFile.write("For the original " +
+                    "[r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)"
+                     + " post and discussion, click the link in the title.\n\n")
+
+#_______________________________________________________________________________
+
 def writeCode(outputFile, item):
-    # # print("```")
     outputFile.write("\n```\n")
     for descendant in item.descendants:
         text = descendant.strip()
         if text != "":
-            # # print(text)
             outputFile.write(text)
-    # # print("```")
     outputFile.write("\n```\n")
 
 #_______________________________________________________________________________
 
 def writeHeading(outputFile, header, level):
     for i in range(level):
-        # # print("#", end = "")
         outputFile.write("#")
-    # # print(" ", end = "")
     outputFile.write(" ")
-    # # print(''.join(header.findAll(text=True)))
     outputFile.write(''.join(header.findAll(text=True)))
     outputFile.write("\n")
 
 #_______________________________________________________________________________
 
 def writeLink(outputFile, aTag):
-    # # print("(", end = "")
     outputFile.write("(")
-    # # print(aTag['href'], end = "")
     outputFile.write(aTag['href'])
-    # # # print(")")
     outputFile.write(")\n")
 
 #_______________________________________________________________________________
 
 def writeParagraph(outputFile, pTag):
-    # # print(''.join(pTag.findAll(text=True)))
     outputFile.write(''.join(pTag.findAll(text=True)))
     outputFile.write("\n\n")
 
+#_______________________________________________________________________________
+
 def writeTable(outputFile, table):
-    # print()
     outputFile.write("\n|")
-    # print("|", end = "")
 
     headers = table.findAll('th')
     numberOfCols = len(headers)
 
     for headerItem in headers:
-         # print(headerItem.text, end = "|")
          outputFile.write(headerItem.text + "|")
     underLineTable(outputFile, numberOfCols)
 
-    # print("\n| ", end = "")
     outputFile.write("\n|")
     tableBody = table.find('tbody')
     for row in tableBody.findAll('tr'):
         for cell in row.findAll('td'):
-             # print(cell.text, end = "|")
              outputFile.write(cell.text + "|")
         underLineTable(outputFile, numberOfCols)
-        # print("\n| ", end = "")
         outputFile.write("\n|")
 
+#_______________________________________________________________________________
+
 def underLineTable(outputFile, numberOfCols):
-    # print("\n| ", end = "")
     outputFile.write("\n|")
     for i in range(numberOfCols):
-        # print(" --- ", end = "|")
         outputFile.write(" --- |")
+
+#_______________________________________________________________________________
+
+def writeDisclaimer(outputFile, title, url):
+    outputFile.write("\n----\n")
+    outputFile.write("## **DISCLAIMER**\n")
+    outputFile.write("This prompt has been adapted from [" +
+                    title + "](" + url + ")\n")
 #_______________________________________________________________________________
 
 if __name__ == "__main__":
