@@ -114,7 +114,11 @@ def getPathAndName(title):
 #_______________________________________________________________________________
 
 def writeTitle(outputFile, title, url):
-    outputFile.write("# [" + title + "](" + url + ")\n")
+    # outputFile.write("This prompt has been adapted from [" +
+    #                 title + "](" + url + ")\n")
+    title = title.replace("[", "(")
+    title = title.replace("]", ")")
+    outputFile.write("# [" + title + "](" + url.strip() + ")\n\n")
     outputFile.write("For the original " +
                     "[r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)"
                      + " post and discussion, click the link in the title.\n\n")

@@ -1,5 +1,5 @@
-# [282 [Hard] Hidato](https://www.reddit.com/r/dailyprogrammer/comments/51wg0j/20160909_challenge_282_hard_hidato/
-)
+# [282 (Hard) Hidato](https://www.reddit.com/r/dailyprogrammer/comments/51wg0j/20160909_challenge_282_hard_hidato/)
+
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.
 
 # Description
