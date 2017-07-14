@@ -111,7 +111,7 @@ def writeLink(outputFile, aTag):
 def writeParagraph(outputFile, pTag):
     print(''.join(pTag.findAll(text=True)))
     outputFile.write(''.join(pTag.findAll(text=True)))
-    outputFile.write("\n")
+    outputFile.write("\n\n")
 
 def writeTable(outputFile, table):
     print()
