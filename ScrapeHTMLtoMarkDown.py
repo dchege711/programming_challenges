@@ -99,11 +99,11 @@ def getPathAndName(title):
 
     # Place the file in the correct folder
     fileName = title + ".md"
-    if '[Easy]' in title:
+    if '[Easy]' in title or '[easy]' in title:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Easy/"
-    elif '[Intermediate]' in title:
+    elif '[Intermediate]' in title or '[intermediate]' in title:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Intermediate/"
-    elif '[Hard]' in title:
+    elif '[Hard]' in title or '[hard]' in title:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Hard/"
     else:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Uncategorized/"
@@ -114,10 +114,11 @@ def getPathAndName(title):
 #_______________________________________________________________________________
 
 def writeTitle(outputFile, title, url):
-    # outputFile.write("This prompt has been adapted from [" +
-    #                 title + "](" + url + ")\n")
+    # Markdown won't let me hyperlink when I have nested square brackets
     title = title.replace("[", "(")
     title = title.replace("]", ")")
+
+    # Write the title and diclaimer
     outputFile.write("# [" + title + "](" + url.strip() + ")\n\n")
     outputFile.write("For the original " +
                     "[r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)"

@@ -1,0 +1,123 @@
+# [165 (Easy) ASCII Game of Life](https://www.reddit.com/r/dailyprogrammer/comments/271xyp/622014_challenge_165_easy_ascii_game_of_life/)
+
+For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.
+
+#  (Easy): ASCII Game of Life
+(#EasyIcon)
+Hello people. Sorry for submitting this early, but I have exams this week and the next so I'll have to submit these challenges a little bit early - I'm sure that's not an issue though! Welcome to June, and it's time for a run of similarly themed challenges - all of them will be based on ASCII data. Not too dissimilar to this challenge from a while ago.
+
+(http://www.reddit.com/r/dailyprogrammer/comments/236va2/4162014_challenge_158_intermediate_part_1_the/)
+This first challenge is based on a game (the mathematical variety - not quite as fun!) called Conway's Game of Life. This is called a cellular automaton. This means it is based on a 'playing field' of sorts, made up of lots of little cells or spaces. For Conway's game of life, the grid is square - but other shapes like hexagonal ones could potentially exist too. Each cell can have a value - in this case, on or off - and for each 'iteration' or loop of the game, the value of each cell will change depending on the other cells around it. This might sound confusing at first, but looks easier when you break it down a bit.
+
+(http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+A cell's "neighbours" are the 8 cells around it.
+
+If a cell is 'off' but exactly 3 of its neighbours are on, that cell will also turn on - like reproduction.
+
+If a cell is 'on' but less than two of its neighbours are on, it will die out - like underpopulation.
+
+If a cell is 'on' but more than three of its neighbours are on, it will die out - like overcrowding.
+
+Fairly simple, right? This might sound boring, but it can generate fairly complex patterns - this one, for example, is called the Gosper Glider Gun and is designed in such a way that it generates little patterns that fly away from it. There are other examples of such patterns, like ones which grow indefinitely.
+
+(http://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif)
+Your challenge is, given an initial 'state' of 'on' and 'off' cells, and a number, simulate that many steps of the Game of Life.
+
+# Formal Inputs and Outputs
+## Input Description
+You will be given a number N, and then two more numbers X and Y. After that you will be given a textual ASCII grid of 'on' and 'off' states that is X cells wide and Y cells tall. On the grid, a period or full-stop . will represent 'off', and a hash sign # will represent 'on'.
+
+
+```
+.
+```
+
+```
+#
+```
+The grid that you are using must 'wrap around'. That means, if something goes off the bottom of the playing field, then it will wrap around to the top, like this: http://upload.wikimedia.org/wikipedia/en/d/d1/Long_gun.gif See how those cells act like the top and bottom, and the left and right of the field are joined up? In other words, the neighbours of a cell can look like this - where the lines coming out are the neighbours:
+
+(http://upload.wikimedia.org/wikipedia/en/d/d1/Long_gun.gif)
+
+```
+#-...-  ......  ../|\.
+|\.../  ......  ......
+......  |/...\  ......
+......  #-...-  ......
+......  |\.../  ..\|/.
+|/...\  ......  ..-#-.
+```
+## Output Description
+Using that starting state, simulate N iterations of Conway's Game of Life. Print the final state in the same format as above - . is off and # is on.
+
+
+```
+.
+```
+
+```
+#
+```
+# Sample Inputs & Output
+## Sample Input
+
+```
+7 10 10
+..........
+..........
+..#.......
+...#......
+.###......
+..........
+..........
+..........
+..........
+..........
+```
+## Sample Output
+
+```
+..........
+..........
+..........
+..........
+...#......
+....##....
+...##.....
+..........
+..........
+..........
+```
+# Challenge
+## Challenge Input
+
+```
+32 17 17
+.................
+.................
+....###...###....
+.................
+..#....#.#....#..
+..#....#.#....#..
+..#....#.#....#..
+....###...###....
+.................
+....###...###....
+..#....#.#....#..
+..#....#.#....#..
+..#....#.#....#..
+.................
+....###...###....
+.................
+.................
+```
+(just for laughs, see how the output changes when you change N. Cool, eh?)
+
+# Notes
+To test your program, use one of the many online simulation programs. There are plenty written in JavaScript you can get at with a Google search (or Bing, if you'd prefer. I wouldn't.)
+
+
+----
+## **DISCLAIMER**
+This prompt has been adapted from [165 [Easy] ASCII Game of Life](https://www.reddit.com/r/dailyprogrammer/comments/271xyp/622014_challenge_165_easy_ascii_game_of_life/
+)
