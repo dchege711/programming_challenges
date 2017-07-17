@@ -31,4 +31,3 @@ def updateReadme():
                 filePath = filePath.replace(']', '%5D')
                 readme.write("* [" + name.split('.md')[0] + "](" + filePath + ")\n")
 
-updateReadme()
