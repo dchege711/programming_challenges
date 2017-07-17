@@ -1,4 +1,10 @@
-* [README](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/README.md)
+# Last Update (Sunday, 17th July, 2017)
+* Note: These hyperlinks have been created using OrganizeScriptsToFolders.py. If they don't work, look at the intended url and manually navigate to the folder.
+
+------
+
+## Bonus Challenges
+
 * [174 [Extra] Functional Thinking](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/174%20%5BExtra%5D%20Functional%20Thinking/174%20%5BExtra%5D%20Functional%20Thinking.md)
 * [186 [Special] Code or Treat - Halloween 2014](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/186%20%5BSpecial%5D%20Code%20or%20Treat%20-%20Halloween%202014/186%20%5BSpecial%5D%20Code%20or%20Treat%20-%20Halloween%202014.md)
 * [190 [Practical Exercise] The Complex Number](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/190%20%5BPractical%20Exercise%5D%20The%20Complex%20Number/190%20%5BPractical%20Exercise%5D%20The%20Complex%20Number.md)
@@ -11,6 +17,11 @@
 * [217 [Practical Exercise] TeXSCII](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/217%20%5BPractical%20Exercise%5D%20TeXSCII/217%20%5BPractical%20Exercise%5D%20TeXSCII.md)
 * [[025] Escape the trolls](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/%5B025%5D%20Escape%20the%20trolls/%5B025%5D%20Escape%20the%20trolls.md)
 * [[Extra] Poetic Justice](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Bonus/%5BExtra%5D%20Poetic%20Justice/%5BExtra%5D%20Poetic%20Justice.md)
+
+-------
+
+## Easy Challenges
+
 * [1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/1/1.md)
 * [10 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/10%20%5Beasy%5D/10%20%5Beasy%5D.md)
 * [100 [easy] (Sleep Cycle Estimator)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/100%20%5Beasy%5D%20(Sleep%20Cycle%20Estimator)/100%20%5Beasy%5D%20(Sleep%20Cycle%20Estimator).md)
@@ -329,6 +340,11 @@
 * [99 [easy] (Words with letters in alphabetical order)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/99%20%5Beasy%5D%20(Words%20with%20letters%20in%20alphabetical%20order)/99%20%5Beasy%5D%20(Words%20with%20letters%20in%20alphabetical%20order).md)
 * [[Discussion] Challenge tags [Easy] [Intermediate] [Hard]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/%5BDiscussion%5D%20Challenge%20tags%20%5BEasy%5D%20%5BIntermediate%5D%20%5BHard%5D/%5BDiscussion%5D%20Challenge%20tags%20%5BEasy%5D%20%5BIntermediate%5D%20%5BHard%5D.md)
 * [[Easy] Longest Two-Character Sub-String](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/%5BEasy%5D%20Longest%20Two-Character%20Sub-String/%5BEasy%5D%20Longest%20Two-Character%20Sub-String.md)
+
+-----
+
+## Difficult Challenges
+
 * [10 [difficult]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/10%20%5Bdifficult%5D/10%20%5Bdifficult%5D.md)
 * [100 [difficult] (Min-Max of N-Dimensional Quadratic)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/100%20%5Bdifficult%5D%20(Min-Max%20of%20N-Dimensional%20Quadratic)/100%20%5Bdifficult%5D%20(Min-Max%20of%20N-Dimensional%20Quadratic).md)
 * [101 [difficult] (Boolean Minimization)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/101%20%5Bdifficult%5D%20(Boolean%20Minimization)/101%20%5Bdifficult%5D%20(Boolean%20Minimization).md)
@@ -605,6 +621,10 @@
 * [97 [difficult] (Markdown to HTML)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/97%20%5Bdifficult%5D%20(Markdown%20to%20HTML)/97%20%5Bdifficult%5D%20(Markdown%20to%20HTML).md)
 * [98 [difficult] (Reading digital displays)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/98%20%5Bdifficult%5D%20(Reading%20digital%20displays)/98%20%5Bdifficult%5D%20(Reading%20digital%20displays).md)
 * [99 [difficult] (Animated unemployment map of the United States)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/99%20%5Bdifficult%5D%20(Animated%20unemployment%20map%20of%20the%20United%20States)/99%20%5Bdifficult%5D%20(Animated%20unemployment%20map%20of%20the%20United%20States).md)
+
+------
+## Intermediate 
+
 * [10 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/10%20%5Bintermediate%5D/10%20%5Bintermediate%5D.md)
 * [100 [intermediate] ("Bad" Word Filter)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/100%20%5Bintermediate%5D%20("Bad"%20Word%20Filter)/100%20%5Bintermediate%5D%20("Bad"%20Word%20Filter).md)
 * [101 [intermediate] (Image Stenography)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/101%20%5Bintermediate%5D%20(Image%20Stenography)/101%20%5Bintermediate%5D%20(Image%20Stenography).md)
@@ -903,6 +923,10 @@
 * [97 [intermediate] (Sierpinski carpet)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/97%20%5Bintermediate%5D%20(Sierpinski%20carpet)/97%20%5Bintermediate%5D%20(Sierpinski%20carpet).md)
 * [98 [intermediate] (Multiple cycling)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/98%20%5Bintermediate%5D%20(Multiple%20cycling)/98%20%5Bintermediate%5D%20(Multiple%20cycling).md)
 * [99 [intermediate] (Unemployment map of the United States)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States)/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States).md)
+
+-----
+## Timeless_Discussions
+
 * [1 - IDE Intellisense](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Timeless_Discussions/1%20-%20IDE%20Intellisense/1%20-%20IDE%20Intellisense.md)
 * [1 -- Handling Console Input](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Timeless_Discussions/1%20--%20Handling%20Console%20Input/1%20--%20Handling%20Console%20Input.md)
 * [10] The Future](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Timeless_Discussions/10%5D%20The%20Future/10%5D%20The%20Future.md)
