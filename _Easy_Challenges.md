@@ -244,6 +244,7 @@
 * [321 [Easy] Talking Clock](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/321%20%5BEasy%5D%20Talking%20Clock/321%20%5BEasy%5D%20Talking%20Clock.md)
 * [322 [Easy] All Pairs Test Generator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/322%20%5BEasy%5D%20All%20Pairs%20Test%20Generator/322%20%5BEasy%5D%20All%20Pairs%20Test%20Generator.md)
 * [323 [Easy] 3SUM](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/323%20%5BEasy%5D%203SUM/323%20%5BEasy%5D%203SUM.md)
+* [324 [Easy] Manual Square Root](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/324%20%5BEasy%5D%20Manual%20Square%20Root/324%20%5BEasy%5D%20%22manual%22%20square%20root%20procedure%20(intermediate).md)
 * [33 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/33%20%5Beasy%5D/33%20%5Beasy%5D.md)
 * [34 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/34%20%5Beasy%5D/34%20%5Beasy%5D.md)
 * [35 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/35%20%5Beasy%5D/35%20%5Beasy%5D.md)
