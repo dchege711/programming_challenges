@@ -7,5 +7,3 @@
     * [_Hard_Or_Difficult_Challenges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Hard_Or_Difficult_Challenges.md)
     * [_Bonus_Challenges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Bonus_Challenges.md)
     * [_Timeless_Discussions](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Timeless_Discussions.md)
-
-* Trying to see if there are any changes that I can make.
