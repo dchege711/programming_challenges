@@ -1,4 +1,4 @@
-## Challenges Last Updated on Monday, 17th July, 2017 00:50 EST
+## Challenges Last Updated on Tuesday, 17th July, 2017 00:50 EST
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
 * The hyperlinks can be found at:
