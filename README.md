@@ -1,5 +1,5 @@
-## README
-* Latest Challenge Update: #324 [Easy] Manual Square Root Procedure
+### Latest Challenge Update: #324 [Easy] Manual Square Root Procedure
+
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
 * The hyperlinks can be found at:
@@ -8,3 +8,8 @@
     * [_Hard_Or_Difficult_Challenges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Hard_Or_Difficult_Challenges.md)
     * [_Bonus_Challenges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Bonus_Challenges.md)
     * [_Timeless_Discussions](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/_Timeless_Discussions.md)
+
+### Using the Reddit_Daily_Programmer repo
+* Clone the repository.
+* Create your own branch which will contain your attempts at the challenges.
+* Occasionally, pull updates from the master branch so as to receive new challenges.
