@@ -131,4 +131,4 @@ def printListOfPalindromes(N):
 
 if __name__ == '__main__':
     # main()
-    printListOfPalindromes(10)
+    # printListOfPalindromes(10)
