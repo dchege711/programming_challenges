@@ -15,23 +15,29 @@ Explanation: 9009 has factors 99 and 91
 #_______________________________________________________________________________
 
 import sys
+import time
 
 #_______________________________________________________________________________
 
-def getPalindrome(n):
+def getPalindromeDeluxe(n):
+    '''
+    Given an integer n, this method returns the greatest palindrome product
+    formed by two n-digit integers
+    '''
     # Brute force:
     # 99x99, 99x98, 99x97, ... , 98x98, 98x97, 98x96,...
     # Inefficiency: We are not looking at the largest first
-
-    # Inspection shows that the optimum traversal method is...
-    #   99x99
-    #     |
-    #   99x98 --> 98x98
-    #               |
-    #             99x97 --> 98x97 --> 97x97
-    #                                   |
-    #                                 99x96 --> 98x96 --> 97x96 --> 96x96
     #
+    # Inspection shows that there's an optimum traversal method
+    #   ...
+    #   ...     9216
+    #   ...     9312    9409
+    #   ...     9408    9506    9604
+    #   ...     9504    9603    9702    9801
+    #
+    # If we make diagonal visits towards the lower-left corner, we'll
+    # encounter the products in strictly decreasing order
+    # That way, the first product that is a palindrome is our answer
 
     numberOfFactors = int(n)
     highestFactor = (10 ** numberOfFactors) - 1
@@ -39,20 +45,39 @@ def getPalindrome(n):
     factorOne = highestFactor
     factorTwo = highestFactor
 
-    while factorOne >= lowestFactor and factorTwo >= lowestFactor:
-        product = factorOne * factorTwo
-        print(factorOne, "x", factorTwo, "=", product)
-        if checkIfPalindrome(product):
-            return str(product)
-        if (factorOne == factorTwo):    # 99x99 --> 99x98, 97x97 --> 99x96
-            factorTwo += -1
-            factorOne = highestFactor
-        elif (factorTwo < factorOne):
-            factorOne += -1
-    return None
+    # Look for the largest palindrome product.
+    currentResult = -1
+    while currentResult == -1:
+        currentResult = visitLLNeighbors(lowestFactor, highestFactor, factorOne, factorTwo)
+        factorOne, factorTwo = tryUpThenTryLeft(factorOne, factorTwo)
+
+    return str(currentResult)
+
 #_______________________________________________________________________________
 
-def checkIfPalindrome(candidate):
+def tryUpThenTryLeft(x, y):
+    # Try giving the upper neighbor
+    if (y - 1 <= x):
+        return (x, y-1)
+    # If there's no upper neighbor, return the left neighbor
+    return (x-1, y)
+
+#_______________________________________________________________________________
+
+def visitLLNeighbors(lowestFactor, highestFactor, x, y):
+    while (x >= lowestFactor and y <= highestFactor):
+        product = x * y
+        # print(str(x), "x", str(y), "=", str(product))
+        if (isPalindrome(product)):
+            return product
+        x += -1
+        y += 1
+    return -1
+
+
+#_______________________________________________________________________________
+
+def isPalindrome(candidate):
     '''
     Given an integer, this returns True if the integer is a palindrome.
     Returns False otherwise
@@ -78,7 +103,7 @@ def main():
     with open(sys.argv[1], 'r') as inputFile:
         for line in inputFile:
             items = line.split()
-            myPalindrome = getPalindrome(items[0])
+            myPalindrome = getPalindromeDeluxe(items[0])
             # Note down any failed tests
             if myPalindrome != items[1]:
                 print(str(myPalindrome), "should be", items[1])
@@ -87,11 +112,23 @@ def main():
             count += 1
 
     # Print a summary of the tests
-    print("\n____________________")
+    print("____________________\n")
     print(str(passed), "/", str(count), "tests passed!")
-    print("\n____________________")
+    print("____________________\n")
 
 #_______________________________________________________________________________
 
+def printListOfPalindromes(N):
+    outputFile = open('palindromes.txt', 'w')
+    n = 2
+    while n <= N:
+        startTime = time.time()
+        palindrome = getPalindromeDeluxe(n)
+        stopTime = time.time()
+        outputFile.write(str(n) + "\t" + palindrome + "\t" + str(stopTime-startTime) + "\n")
+        print(str(n), "\t", palindrome, "\t", str(stopTime-startTime))
+        n += 1
+
 if __name__ == '__main__':
-    main()
+    # main()
+    printListOfPalindromes(10)
