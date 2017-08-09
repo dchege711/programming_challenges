@@ -109,6 +109,7 @@ def getPathAndName(title):
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Uncategorized/"
 
     # Return the file path
+    print(relativePath)
     return os.path.join(relativePath, fileName)
 
 #_______________________________________________________________________________
