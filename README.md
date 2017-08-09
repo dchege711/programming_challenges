@@ -1,4 +1,4 @@
-### Latest Challenge Update: #324 [Easy] Manual Square Root Procedure
+### Latest Challenge Update: # 326 [Intermediate] Scrabble In Reverse 
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
