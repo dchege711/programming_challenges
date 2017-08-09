@@ -8,13 +8,14 @@ For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) 
 
 Imagine you've got a square in 2D space, with axis values between 0 and 1, like this diagram. The challenge today is conceptually simple: can you place a circle within the square such that exactly half of the points in the square lie within the circle and half lie outside the circle, like here? You're going to write a program which does this - but you also need to find the smallest circle which solves the challenge, ie. has the minimum area of any circle containing exactly half the points in the square.
 
-(http://i.imgur.com/5K0HZEk.png)
-(http://i.imgur.com/n7BDeyg.png)
+![Image_1](http://i.imgur.com/5K0HZEk.png)
+![Image_2](http://i.imgur.com/n7BDeyg.png)
+
 This is a hard challenge so we have a few constraints:
 
 There are some inputs which cannot be solved. If there is no solution to this challenge then your solver must indicate this - for example, in this scenaro, there's no "dividing sphere" which lies entirely within the square.
 
-(http://i.imgur.com/fDGPvX3.png)
+![Image_3](http://i.imgur.com/fDGPvX3.png)
 # Input & Output Description
 ## Input
 On the first line, enter a number N. Then enter N further lines of the format x y which is the (x, y) coordinate of one point in the square. Both x and y should be between 0 and 1 inclusive. This describes a set of N points within the square. The coordinate space is R2 (ie. x and y need not be whole numbers).
