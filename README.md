@@ -1,4 +1,4 @@
-### Latest Challenge Update: [# 326 (Intermediate) Scrabble In Reverse](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/326%20%5BIntermediate%5D%20Scrabble%20in%20Reverse/326%20%5BIntermediate%5D%20Scrabble%20in%20Reverse.md)
+### Latest Challenge Update: [# 326 (Hard) Multifacted Alphabet Blocks](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/326%20%5BIntermediate%5D%20Scrabble%20in%20Reverse/326%20%5BIntermediate%5D%20Scrabble%20in%20Reverse.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
