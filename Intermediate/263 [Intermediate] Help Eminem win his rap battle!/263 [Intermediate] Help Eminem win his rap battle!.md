@@ -11,17 +11,12 @@ E.g. "solution" and "apprehension", though their last syllable is not spelled th
 For this challenge, we won't concern ourselves with syllables proper, only with the last vowel sound and whatever comes afterwards.
 E.g. "gentleman" rhymes with "solution" because their phonetic definitions end in "AH N". Similarly, "form" (F AO R M) and "storm" (S T AO R M) also rhyme.
 
-Our good friends from the SPHINX project at Carnegie Mellon University have produced all the tools we need.
-Use this pronouncing dictionary in conjunction
-with this phoneme description to find rhyming words.
-
-(http://cmusphinx.sourceforge.net/)
-(http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b)
-(http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b.phones)
-Note that the dictionary uses the ARPAbet phonetic transcription code and
+Our good friends from the [SPHINX project]((http://cmusphinx.sourceforge.net/)) at Carnegie Mellon University have produced all the tools we need.
+Use this [pronouncing dictionary]((http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b)) in conjunction
+with this [phoneme description](http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b.phones) to find rhyming words.
+Note that the dictionary uses the [ARPAbet phonetic transcription code](https://en.wikipedia.org/wiki/Arpabet) and
 includes stress indicators for the vowel sounds. Make sure to match the stress indicator of the input word.
 
-(https://en.wikipedia.org/wiki/Arpabet)
 # Input
 A word from the pronouncing dictionary
 
@@ -65,7 +60,7 @@ noir
 [2] SOIR    S OY1 R
 ```
 # Credit
-This challenge was suggested by /u/lt_algorithm_gt. If you have a challenge idea, please share it in /r/dailyprogrammer_ideas and there's a chance we'll use it. 
+This challenge was suggested by /u/lt_algorithm_gt. If you have a challenge idea, please share it in /r/dailyprogrammer_ideas and there's a chance we'll use it.
 
 (/u/lt_algorithm_gt)
 (/r/dailyprogrammer_ideas)
