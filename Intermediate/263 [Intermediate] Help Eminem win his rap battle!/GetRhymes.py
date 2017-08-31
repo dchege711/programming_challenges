@@ -109,7 +109,7 @@ class RhymeMaster:
         listOfRhymes.append(nextWord)
 
         for i in range(limit):
-            if i % 2 != 0:
+            if i % 2 != 1:
                 phoneticArray = list(reversed(self.wordToSounds[nextWord]))
             else:
                 phoneticArray = self.wordToSounds[nextWord]
@@ -117,24 +117,31 @@ class RhymeMaster:
             print(i, ':', phoneticArray)
             vowelIndex = self.getSyllableIndex(phoneticArray)
             relevantPhonetics = '/'.join(phoneticArray[0:vowelIndex+1])
+
+            print(nextWord, ':', relevantPhonetics, vowelIndex)
+
             matches = self.soundsToWords[relevantPhonetics:]
             try:
                 nextWord = self.rankByCommonSyllables(nextWord, matches)[0][0]
                 listOfRhymes.append(nextWord)
             except KeyError as e:
-                #print(e)
-                #print(nextWord, ':', relevantPhonetics)
+                print("Error : ", e)
+
+            print()
 
         return listOfRhymes
 
-    def getSyllableIndex(self, phoneticArray):
-        vowelIndex = 0
+    def getSyllableIndex(self, phoneticArray, i = 1):
+        index = 0
+        orderOfVowel = 0
         for phonetic in phoneticArray:
             nonStressedPhonetic = re.split('(\d+)', phonetic)[0]
             if self.syllableTypes[nonStressedPhonetic] == 'vowel':
+                orderOfVowel += 1
+            if orderOfVowel == i:
                 break
-            vowelIndex += 1
-        return vowelIndex
+            index += 1
+        return index
 
 
     def peek(self, query, isPhonetic = True):
@@ -151,7 +158,7 @@ if __name__ == '__main__':
     # for rhyme in rhymes:
     #     print(rhyme[0])
 
-    chain = test.getRhymeChain('SOLUTION')
+    chain = test.getRhymeChain('WISTFUL')
     for word in chain:
         print(word, end = ' ... ')
     print()
