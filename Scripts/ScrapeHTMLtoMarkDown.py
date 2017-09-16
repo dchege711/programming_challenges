@@ -106,7 +106,7 @@ def getPathAndName(title):
     elif '[Hard]' in title or '[hard]' in title:
         relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Hard/"
     else:
-        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Uncategorized/"
+        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Bonus/"
 
     # Return the file path
     print(relativePath)
