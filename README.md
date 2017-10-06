@@ -1,4 +1,4 @@
-### Latest Challenge Update: [331 (Hard) Interactive Interpreter](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/331%20%5BHard%5D%20Interactive%20Interpreter/331%20%5BHard%5D%20Interactive%20Interpreter.md)
+### Latest Challenge Update: [334 (Intermediate) Carpet Fractals](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Hard/331%20%5BHard%5D%20Interactive%20Interpreter/331%20%5BHard%5D%20Interactive%20Interpreter.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
