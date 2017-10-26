@@ -1,4 +1,4 @@
-### [334 (Intermediate) Scrambled Images](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/337%20%5BIntermediate%5D%20Scrambled%20images/337%20%5BIntermediate%5D%20Scrambled%20images.md)
+### [337 (Intermediate) Scrambled Images](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/337%20%5BIntermediate%5D%20Scrambled%20images/337%20%5BIntermediate%5D%20Scrambled%20images.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
