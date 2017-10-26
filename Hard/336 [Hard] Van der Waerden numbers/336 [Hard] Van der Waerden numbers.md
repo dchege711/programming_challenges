@@ -1,0 +1,60 @@
+# [336 (Hard) Van der Waerden numbers](https://www.reddit.com/r/dailyprogrammer/comments/77m6l4/20171020_challenge_336_hard_van_der_waerden/)
+
+For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.
+
+# Description
+This one came to me via the always interesting Data Genetics blog. 
+
+(http://datagenetics.com/blog/august12017/index.html)
+Van der Waerden's theorem relates to ways that collections can be colored, in order, avoiding spacing of colors that are a defined length arithmetic progression apart. They are named after the Dutch mathematician B. L. van der Waerden. W(c,k) can be defined as the smallest value where c represents the number of colors in the sequence, and k represents the number of elements in the arithmetic progression.
+
+In mathematics, an arithmetic progression is a sequence of numbers such that the difference between the consecutive terms is constant. For instance, the sequence 5, 7, 9, 11, 13, 15, ... is an arithmetic progression with common difference of 2.
+
+Van der Waerden numbers (W) are defined as the smallest arrangement of c different colors such that there exists an arithmetic sequence of length k. The simplest non-trivial example is W(2,3). Consider two colors, B and R:
+
+(https://en.wikipedia.org/wiki/Van_der_Waerden_number)
+
+```
+B R R B B R R B
+```
+If we add a B to the sequence, we already have B at positions 1, 5 and 9 - a difference of 4. If we add an R to the sequence, we have an R at positions 3, 6 and 9 - a difference of 3. There is no way of coloring 1 through 9 without creating a three step progression of one color or another, so W(2,3)=9. 
+
+Adding a color - W(3,3) - causes the value to jump to 27; adding a length requirement to the arithmetic sequence - W(2,4) - causes the value to increase to 35. 
+
+Van der Waerden numbers are an open area of research, with exact values known for only a limited number of combinations. 
+
+Your challenge today is to write a program that can calculate the Van der Waerden number for some small values.
+
+# Input Description
+You'll be given two integers per line indicating c and k. Example:
+
+
+```
+2 3
+```
+# Output Description
+Your program should emit the Van der Waerden number W(c,k) for that input. Example:
+
+
+```
+W(2,3) = 9
+```
+# Challenge Input
+
+```
+2 6
+4 3
+3 4
+```
+# Challenge Output
+
+```
+W(2,6) = 1132
+W(4,3) = 76
+W(3,4) = 293
+```
+
+----
+## **DISCLAIMER**
+This prompt has been adapted from [336 [Hard] Van der Waerden numbers](https://www.reddit.com/r/dailyprogrammer/comments/77m6l4/20171020_challenge_336_hard_van_der_waerden/
+)
