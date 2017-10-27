@@ -12,16 +12,24 @@ You get a scrambled image, which you will have to unscramble to get the original
 
 ![Image_1](http://i.imgur.com/rMYBq14.png)
 ![Image_2](http://i.imgur.com/wKaiHpv.png)
+
+
 ### Input description
 Challenge 1:  input 
 
 ![Image_3](http://i.imgur.com/F4SlYMn.png)
+
+
 Challenge 2: input 
 
 ![Image_4](http://i.imgur.com/ycDwgXA.png)
+
+
 Challenge 3: input
 
 ![Image_5](http://i.imgur.com/hg9iVXA.png)
+
+
 ### Output description
 You should post the correct images or words.
 
@@ -32,6 +40,8 @@ The colored pixels are red (#FF0000, rgb(255, 0, 0))
 Bonus: input
 
 ![Bonus_Image](http://i.imgur.com/HLc1UHv.png)
+
+
 This image is scrambled both horizontally and vertically.
 The colored pixels are a gradient from green to red ((255, 0, _), (254, 1, _), ..., (1, 254, _), (0, 255, _)).
 
