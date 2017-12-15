@@ -17,7 +17,7 @@ Summary (from Challenge #157)
 * A notation such as X' (pronounced prime) means you turn the X face anticlockwise 90'. So R U' means turn the right face clockwise 90', then the top face anticlockwise 90'.
 * notation such as X2 means you turn the X face 180'.
 
-Example (each line is a separate challenge):
+Example (each line is a separate challenge): 
 
 
 ```
