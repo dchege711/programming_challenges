@@ -1,4 +1,4 @@
-### Latest Challenge Update: [344 [Intermediate] Banker's Algorithm](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/344%20%5BIntermediate%5D%20Banker's%20Algorithm/344%20%5BIntermediate%5D%20Banker's%20Algorithm.md)
+### Latest Challenge Update: [344 (Hard) Write a Web Client](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/344%20%5BHard%5D%20Write%20a%20Web%20Client/344%20%5BHard%5D%20Write%20a%20Web%20Client.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
