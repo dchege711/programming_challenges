@@ -1,4 +1,4 @@
-### Latest Challenge Update: [344 (Hard) Write a Web Client](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/344%20%5BHard%5D%20Write%20a%20Web%20Client/344%20%5BHard%5D%20Write%20a%20Web%20Client.md)
+### Latest Challenge Update: [348 (Easy) The Rabbit Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/348%20%5BEasy%5D%20The%20rabbit%20problem/348%20%5BEasy%5D%20The%20rabbit%20problem.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
