@@ -9,7 +9,6 @@ public class LFSR347 {
     public LFSR347(int[] initialValues, int[] tapPositions) {
         this.lfsr = new LinkedList<Integer>();
         this.tapPositions = tapPositions;
-        
         for (int n: initialValues) {
             this.lfsr.add(n);
         }
@@ -22,10 +21,12 @@ public class LFSR347 {
         return sb.toString();
     }
     
-    public String xorStep() {
+    public String step(String operation) {
         int result = this.lfsr.get(this.tapPositions[0]);
         for (int i = 1; i < this.tapPositions.length; i++) {
             result = xor(result, this.lfsr.get(this.tapPositions[i]));
+            if (operation == "XNOR") result = !result
+            elif (operation != "XOR") throw new IllegalArgumentException();
         }
         this.lfsr.removeLast();
         this.lfsr.addFirst(result);
@@ -42,7 +43,7 @@ public class LFSR347 {
         LFSR347 testLFSR = new LFSR347(initialValues, tapPositions);
         System.out.println(testLFSR.toString());
         for (int i = 1; i < 8; i++) {
-            System.out.println(i + " " + testLFSR.xorStep());
+            System.out.println(i + " " + testLFSR.step("XdOR"));
         }
     }
     
