@@ -1,17 +1,27 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class UnitTestLFSR {
     
     public static void main(String[] args) {
         
+        System.out.println(new File(".").getAbsoluteFile());
+        System.out.println("Yeah!");
+        
         String[] testFiles = {
-            "347_test_1", "347_test_2",
-            "347_test_3", "347_test_4" 
+            "test_cases/347_test_1.txt", "test_cases/347_test_2.txt",
+            "test_cases/347_test_3.txt", "test_cases/347_test_4.txt" 
         };
         
         for (String fileName: testFiles) {
-            FileReader fileReader = new FileReader(fileName);
+            FileReader fileReader;
+            try {
+                fileReader = new FileReader(fileName);
+            } catch (FileNotFoundException e) {
+                throw e;
+            }
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
             String[] tapPositionsStrings = bufferedReader.readLine().split(",");
