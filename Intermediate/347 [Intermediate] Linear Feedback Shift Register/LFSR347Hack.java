@@ -44,11 +44,11 @@ public class LFSR347Hack {
     }
     
     public static void main(String[] args) {
-        int[] initialValues = {0, 0, 1};
-        int[] tapPositions = {0, 2};
+        int[] initialValues = {0, 0, 0, 0, 0, 0, 0, 1};
+        int[] tapPositions = {1, 2, 3, 7};
         LFSR347Hack testLFSR = new LFSR347Hack(initialValues, tapPositions);
-        for (int i = 1; i < 8; i++) {
-            System.out.println(i + " " + testLFSR.step("XNOR"));
+        for (int i = 1; i < 17; i++) {
+            System.out.println(i + " " + testLFSR.step("XOR"));
         }
     }
     
