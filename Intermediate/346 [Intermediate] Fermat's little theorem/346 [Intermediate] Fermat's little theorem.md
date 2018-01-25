@@ -63,7 +63,7 @@ There are variants of the Fermat test that cannot be fooled by these. Implement 
 
 # Futher reading
 
-* [SICP 1.2.6 (Testing for Primality)]((https://mitpress.mit.edu/sicp/toc/toc.html))
+* [SICP 1.2.6 (Testing for Primality)](https://mitpress.mit.edu/sicp/toc/toc.html)
 * [Wiki Modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation)
 
 # Finally
