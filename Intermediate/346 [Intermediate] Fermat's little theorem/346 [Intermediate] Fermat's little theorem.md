@@ -3,36 +3,36 @@
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.
 
 # Description
-Most introductionary implementations for testing the primality of a number have a time complexity ofO(n**0.5).
-
+Most introductionary implementations for testing the primality of a number have a time complexity of O(n**0.5).
 
 ```
 O(n**0.5)
 ```
-For large numbers this is not a feasible strategy, for example testing a 400 digit number.
+For large numbers this is not a feasible strategy, for example testing a [400 digit number](https://en.wikipedia.org/wiki/Largest_known_prime_number), Fermat's little theorem states:
 
-(https://en.wikipedia.org/wiki/Largest_known_prime_number)
-Fermat's little theorem states:
-
-If p is a prime number, then for any integer a, the number a**p − a is an integer multiple of p. 
-
+> If p is a prime number, then for any integer a, the number a**p − a is an integer multiple of p. 
 
 ```
 a**p − a
 ```
-This can also be stated as (a**p) % p = a
 
+This can also be stated as (a**p) % p = a
 
 ```
 (a**p) % p = a
 ```
-If n is not prime, then, in general, most of the numbers a < n will not satisfy the above relation. This leads to the following algorithm for testing primality: Given a number n, pick a random number a < n and compute the remainder of a**n modulo n. If the result is not equal to a, then n is certainly not prime. If it is a, then chances are good that n is prime. Now pick another random number a and test it with the same method. If it also satisfies the equation, then we can be even more confident that n is prime. By trying more and more values of a, we can increase our confidence in the result. This algorithm is known as the Fermat test.
+If n is not prime, then, in general, most of the numbers a < n will not satisfy the above relation. This leads to the following algorithm for testing primality: 
+    * Given a number n, pick a random number a < n and compute the remainder of a**n modulo n. 
+    * If the result is not equal to a, then n is certainly not prime. If it is a, then chances are good that n is prime. 
+    * Now pick another random number a and test it with the same method. If it also satisfies the equation, then we can be even more confident that n is prime. 
+By trying more and more values of a, we can increase our confidence in the result. This algorithm is known as the Fermat test.
 
 If n passes the test for some random choice of a, the chances are better than even that n is prime. If n passes the test for two random choices of a, the chances are better than 3 out of 4 that n is prime. By running the test with more and more randomly chosen values of a we can make the probability of error as small as we like.
 
 Create a program to do Fermat's test on a number, given a required certainty. Let the power of the modulo guide you.
 
 # Formal Inputs & Outputs
+
 ## Input description
 Each line a number to test, and the required certainty.
 
@@ -44,7 +44,7 @@ There do exist numbers that fool the Fermat test: numbers n that are not prime a
 
 There are variants of the Fermat test that cannot be fooled by these. Implement one.
 
-# Challange
+# Challenge
 
 ```
 29497513910652490397 0.9
@@ -60,21 +60,19 @@ There are variants of the Fermat test that cannot be fooled by these. Implement 
 2887 0.9
 2821 0.9
 ```
+
 # Futher reading
-SICP 1.2.6 (Testing for Primality)
 
-(https://mitpress.mit.edu/sicp/toc/toc.html)
-Wiki Modular exponentiation
+* [SICP 1.2.6 (Testing for Primality)](https://mitpress.mit.edu/sicp/toc/toc.html)
+* [Wiki Modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation)
 
-(https://en.wikipedia.org/wiki/Modular_exponentiation)
 # Finally
-Have a good challenge idea?
 
-Consider submitting it to /r/dailyprogrammer_ideas
+Have a good challenge idea? Consider submitting it to /r/dailyprogrammer_ideas
 
 (/r/dailyprogrammer_ideas)
 
 ----
 ## **DISCLAIMER**
-This prompt has been adapted from [346 [Intermediate] Fermat's little theorem](https://www.reddit.com/r/dailyprogrammer/comments/7pmt9c/20180110_challenge_346_intermediate_fermats/
+This prompt has been adapted from [346 (Intermediate) Fermat's little theorem](https://www.reddit.com/r/dailyprogrammer/comments/7pmt9c/20180110_challenge_346_intermediate_fermats/
 )
