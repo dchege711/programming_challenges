@@ -1,7 +1,8 @@
 import sys 
 sys.path.insert(0, "/Users/dchege711/utilities/")
 
-import random
+from random import sample, randint
+from math import log, ceil
 from test_utilities import test_utilities
 
 class primality_test():
@@ -20,13 +21,28 @@ class primality_test():
             return self._run_fermats_test(possible_prime, required_accuracy)
         
     def _run_fermats_test(self, possible_prime, required_accuracy):
-        random_number = random.randint(1, possible_prime-1)
-        # pow(random_number, possible_prime) % possible_prime is inefficient
-        remainder = pow(random_number, possible_prime, possible_prime)
-        if remainder != random_number:
-            return False, 1
-        else:
-            return True, 1
+        
+        # Because (1 - required_accuracy) = 2^(-num_samples_needed)
+        num_samples = ceil(log(1/(1-required_accuracy), 2))
+        if num_samples > possible_prime:
+            num_samples = possible_prime
+        
+        try:
+            sample_ints = sample(range(2, possible_prime), k=num_samples)
+        except OverflowError:
+            # I assume that if the number is large enough to create an overflow 
+            # the chance that a random number gets picked twice is negligible.
+            sample_ints = []
+            for i in range(num_samples):
+                sample_ints.append(randint(2, possible_prime))
+        
+        for sample_int in sample_ints:
+            remainder = pow(sample_int, possible_prime, possible_prime)
+            if remainder != sample_int:
+                return False, 1
+        accuracy = 1 - pow(2, -num_samples)
+        print(accuracy)
+        return True, accuracy
     
 def main():
     fermats_test = primality_test()
@@ -36,7 +52,7 @@ def main():
             possible_prime, required_accuracy, expected_answer = line.split()
             possible_prime = int(possible_prime)
             required_accuracy = float(required_accuracy)
-            answer = str(fermats_test.is_prime(possible_prime, required_accuracy))
+            answer = str(fermats_test.is_prime(possible_prime, required_accuracy)[0])
             test_utility.check(possible_prime, expected_answer, answer)
     print(test_utility.summary())
     
