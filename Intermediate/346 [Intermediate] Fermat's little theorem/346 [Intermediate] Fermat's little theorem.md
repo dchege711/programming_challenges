@@ -4,7 +4,6 @@ For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) 
 
 # Description
 Most introductionary implementations for testing the primality of a number have a time complexity of O(n**0.5).
-
 ```
 O(n**0.5)
 ```
@@ -12,24 +11,22 @@ For large numbers this is not a feasible strategy, for example testing a [400 di
 
 > If p is a prime number, then for any integer a, the number a**p − a is an integer multiple of p. 
 
-```
-a**p − a
-```
-
-This can also be stated as (a**p) % p = a
-
+This can also be stated as:
 ```
 (a**p) % p = a
 ```
 If n is not prime, then, in general, most of the numbers a < n will not satisfy the above relation. This leads to the following algorithm for testing primality: 
-    * Given a number n, pick a random number a < n and compute the remainder of a**n modulo n. 
-    * If the result is not equal to a, then n is certainly not prime. If it is a, then chances are good that n is prime. 
-    * Now pick another random number a and test it with the same method. If it also satisfies the equation, then we can be even more confident that n is prime. 
+
+* Given a number n, pick a random number a < n and compute the remainder of a**n modulo n. 
+* If the result is not equal to a, then n is certainly not prime. If it is a, then chances are good that n is prime. 
+* Now pick another random number a and test it with the same method. If it also satisfies the equation, then we can be even more confident that n is prime.
+ 
 By trying more and more values of a, we can increase our confidence in the result. This algorithm is known as the Fermat test.
 
-If n passes the test for some random choice of a, the chances are better than even that n is prime. If n passes the test for two random choices of a, the chances are better than 3 out of 4 that n is prime. By running the test with more and more randomly chosen values of a we can make the probability of error as small as we like.
+* If n passes the test for some random choice of a, the chances are better than even that n is prime. 
+* If n passes the test for two random choices of a, the chances are better than 3 out of 4 that n is prime. 
 
-Create a program to do Fermat's test on a number, given a required certainty. Let the power of the modulo guide you.
+By running the test with more and more randomly chosen values of a we can make the probability of error as small as we like. Create a program to do Fermat's test on a number, given a required certainty. Let the power of the modulo guide you.
 
 # Formal Inputs & Outputs
 
@@ -69,9 +66,7 @@ There are variants of the Fermat test that cannot be fooled by these. Implement 
 
 # Finally
 
-Have a good challenge idea? Consider submitting it to /r/dailyprogrammer_ideas
-
-(/r/dailyprogrammer_ideas)
+Have a good challenge idea? Consider submitting it to [/r/dailyprogrammer_ideas](https://www.reddit.com/r/dailyprogrammer_ideas)
 
 ----
 ## **DISCLAIMER**
