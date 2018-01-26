@@ -41,7 +41,6 @@ class primality_test():
             if remainder != sample_int:
                 return False, 1
         accuracy = 1 - pow(2, -num_samples)
-        print(accuracy)
         return True, accuracy
     
 def main():
