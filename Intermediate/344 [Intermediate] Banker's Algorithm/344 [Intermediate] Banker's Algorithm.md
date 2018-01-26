@@ -11,17 +11,12 @@ Ex:
 |Process|Allocation|Max|Available|
 | --- | --- | --- | --- |
 ||A B C|A B C|A B C|
-| --- | --- | --- | --- |
 |P0|0   1   0|7   5   3|3   3   2|
-| --- | --- | --- | --- |
 |P1|2   0   0|3   2   2||
-| --- | --- | --- | --- |
 |P2|3   0   2|9   0   2||
-| --- | --- | --- | --- |
 |P3|2   1   1|2   2   2||
-| --- | --- | --- | --- |
 |P4|0   0   2|4   3   3||
-| --- | --- | --- | --- |
+
 |Since there is 3, 3, 2 available, P1 or P3 would be able to go first.  Let’s pick P1 for the example.  Next, P1 will release the resources that it held, so the next available would be 5, 3, 2.
 
 # The Challenge:
