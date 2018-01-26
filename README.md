@@ -1,4 +1,4 @@
-### Latest Challenge Update: [348 (Easy) The Rabbit Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/348%20%5BEasy%5D%20The%20rabbit%20problem/348%20%5BEasy%5D%20The%20rabbit%20problem.md)
+### Latest Challenge Update: [348 (Intermediate) Bowling Frames Display](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
