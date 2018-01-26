@@ -20,8 +20,15 @@ class primality_test():
         if method == "fermats_little_theorem":
             return self._run_fermats_test(possible_prime, required_accuracy)
         
-    def _run_fermats_test(self, possible_prime, required_accuracy):
+    def _run_fermats_test(self, possible_prime, required_accuracy=0.99):
+        """
+        Tests for primality using Fermat's Little Theorem.
+        http://mathworld.wolfram.com/FermatsLittleTheorem.html
         
+        Susceptible to Carmichael numbers: 
+        http://mathworld.wolfram.com/CarmichaelNumber.html
+        
+        """
         # Because (1 - required_accuracy) = 2^(-num_samples_needed)
         num_samples = ceil(log(1/(1-required_accuracy), 2))
         if num_samples > possible_prime:
@@ -39,7 +46,8 @@ class primality_test():
         for sample_int in sample_ints:
             remainder = pow(sample_int, possible_prime, possible_prime)
             if remainder != sample_int:
-                return False, 1
+                return False, 1 # If it fails we're sure the # is not prime
+        
         accuracy = 1 - pow(2, -num_samples)
         return True, accuracy
     
