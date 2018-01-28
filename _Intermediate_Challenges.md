@@ -305,5 +305,5 @@
 * [006 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/006%20%5Bintermediate%5D/006%20%5Bintermediate%5D.md)
 * [005 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/005%20%5Bintermediate%5D/005%20%5Bintermediate%5D.md)
 * [004 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/004%20%5Bintermediate%5D/004%20%5Bintermediate%5D.md)
-* :o: [003 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/003%20%5Bintermediate%5D/003%20%5Bintermediate%5D.md)
+* :white_check_mark: [003 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/003%20%5Bintermediate%5D/003%20%5Bintermediate%5D.md)
 -----
