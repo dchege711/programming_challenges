@@ -15,7 +15,7 @@
 * [333 [Easy] Packet Assember](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/333%20%5BEasy%5D%20Packet%20Assembler/333%20%5BEasy%5D%20Packet%20Assembler.md)
 * [331 [Easy] The Adding Calculator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/331%20%5BEasy%5D%20The%20Adding%20Calculator/331%20%5BEasy%5D%20The%20Adding%20Calculator.md)
 * [330 [Easy] Surround the circles](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/330%20%5BEasy%5D%20Surround%20the%20circles/330%20%5BEasy%5D%20Surround%20the%20circles.md)
-* :o: [329 [Easy] Nearest Lucky Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers.md)
+* :white_check_mark: [329 [Easy] Nearest Lucky Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers.md)
 * [328 [Easy] Latin Squares](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/328%20%5BEasy%5D%20Latin%20Squares/328%20%5BEasy%5D%20Latin%20Squares.md)
 * [326 [Easy] Nearest Prime Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers.md)
 * [325 [Easy] Color Maze](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/325%20%5BEasy%5D%20Color%20Maze/325%20%5BEasy%5D%20Color%20maze.md)
