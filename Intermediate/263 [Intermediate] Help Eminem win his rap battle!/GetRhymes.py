@@ -7,7 +7,6 @@ My solution to Challenge #263: Help Eminem win his rap battle.
 import sys
 import pygtrie
 import re
-from difflib import SequenceMatcher as sequence
 
 #_______________________________________________________________________________
 
@@ -71,7 +70,6 @@ class RhymeMaster:
         wordRevPhonetic = self.wordToSounds[word]
         wordLen = len(wordRevPhonetic)
         wordsAndMatches = []
-
         count = 0
 
         for result in results:
@@ -84,7 +82,6 @@ class RhymeMaster:
                 maxIndex = wordLen
 
             numMatches = 0
-
             for i in range(maxIndex):
                 if wordRevPhonetic[i] != resultRevPhonetic[i]:
                     break
@@ -92,10 +89,6 @@ class RhymeMaster:
                     numMatches += 1
 
             wordsAndMatches.append((result, numMatches))
-
-            # if count % 100 == 0:
-            #    print(wordRevPhonetic, 'vs', resultRevPhonetic, '=', numMatches)
-
             count += 1
 
         wordsAndMatches = list(reversed(sorted(wordsAndMatches, key = lambda item: item[1])))
@@ -154,7 +147,7 @@ class RhymeMaster:
 
 if __name__ == '__main__':
     test = RhymeMaster('phonemes_description.txt', 'pronunciations.txt')
-    # rhymes = test.getRhymingWords('AGANBEGYAN')
+    # rhymes = test.getRhymingWords('ABSALOM')
     # for rhyme in rhymes:
     #     print(rhyme[0])
 
