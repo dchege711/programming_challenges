@@ -100,17 +100,21 @@ def getPathAndName(title):
     # Place the file in the correct folder
     fileName = title + ".md"
     if '[Easy]' in title or '[easy]' in title:
-        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Easy/"
+        filePath = "/Users/dchege711/Reddit_Daily_Programmer/Easy/"
     elif '[Intermediate]' in title or '[intermediate]' in title:
-        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Intermediate/"
+        filePath = "/Users/dchege711/Reddit_Daily_Programmer/Intermediate/"
     elif '[Hard]' in title or '[hard]' in title:
-        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Hard/"
+        filePath = "/Users/dchege711/Reddit_Daily_Programmer/Hard/"
     else:
-        relativePath = "/Users/dchege711/Reddit_Daily_Programmer/Bonus/"
+        filePath = "/Users/dchege711/Reddit_Daily_Programmer/Bonus/"
 
     # Return the file path
-    print(relativePath)
-    return os.path.join(relativePath, fileName)
+    filePath = os.path.join(relativePath, title, fileName)
+    if not os.path.exists(filePath):
+        os.mkdir(filePath)
+        
+    print(filePath)
+    return filePath
 
 #_______________________________________________________________________________
 
