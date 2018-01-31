@@ -1,4 +1,5 @@
 ## Intermediate----
+* [349 [Intermediate] Packing Stacks of Boxes](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes.md)
 * [348 [Intermediate] Bowling Frames Display](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display.md)
 * :o: [347 [Intermediate] Linear Feedback Shift Register](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/347%20%5BIntermediate%5D%20Linear%20Feedback%20Shift%20Register/347%20%5BIntermediate%5D%20Linear%20Feedback%20Shift%20Register.md)
 * :white_check_mark: [346 [Intermediate] Fermat's Little Theorem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/346%20%5BIntermediate%5D%20Fermat's%20little%20theorem/346%20%5BIntermediate%5D%20Fermat's%20little%20theorem.md)
