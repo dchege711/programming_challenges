@@ -1,4 +1,5 @@
 ## Easy Challenges-----
+* [349 [Easy] Change Calculator](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/349%20%5BEasy%5D%20Change%20Calculator/349%20%5BEasy%5D%20Change%20Calculator.md)
 * [348 [Easy] The Rabbit Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/348%20%5BEasy%5D%20The%20rabbit%20problem/348%20%5BEasy%5D%20The%20rabbit%20problem.md)
 * [347 [Easy] How long has the light been on?](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/347%20%5BEasy%5D%20How%20long%20has%20the%20light%20been%20on%3F/347%20%5BEasy%5D%20How%20long%20has%20the%20light%20been%20on%3F.md)
 * [346 [Easy] Cryptarithmetic Solver](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/346%20%5BEasy%5D%20Cryptarithmetic%20Solver/346%20%5BEasy%5D%20Cryptarithmetic%20Solver.md)

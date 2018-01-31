@@ -1,4 +1,4 @@
-### Latest Challenge Update: [348 (Intermediate) Bowling Frames Display](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display.md)
+### Latest Challenge Update: [348 (Intermediate) Packing Stacks of Boxes](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
