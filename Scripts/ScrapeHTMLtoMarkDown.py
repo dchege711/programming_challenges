@@ -109,12 +109,12 @@ def getPathAndName(title):
         filePath = "/Users/dchege711/Reddit_Daily_Programmer/Bonus/"
 
     # Return the file path
-    filePath = os.path.join(relativePath, title, fileName)
+    filePath = os.path.join(filePath, title)
     if not os.path.exists(filePath):
         os.mkdir(filePath)
         
     print(filePath)
-    return filePath
+    return os.path.join(filePath, fileName)
 
 #_______________________________________________________________________________
 
