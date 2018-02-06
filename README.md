@@ -1,4 +1,4 @@
-### Latest Challenge Update: [348 (Hard) Divide Polygons into Equal Regions](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/349%20%5BHard%5D%20Divide%20Polygons%20into%20Equal%20Regions/349%20%5BHard%5D%20Divide%20Polygons%20into%20Equal%20Regions.md)
+### Latest Challenge Update: [348 (Easy) Bookshelf Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/350%20%5BEasy%5D%20Bookshelf%20problem/350%20%5BEasy%5D%20Bookshelf%20problem.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
