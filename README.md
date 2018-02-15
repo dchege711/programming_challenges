@@ -1,4 +1,4 @@
-### Latest Challenge Update: [348 (Easy) Bookshelf Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/350%20%5BEasy%5D%20Bookshelf%20problem/350%20%5BEasy%5D%20Bookshelf%20problem.md)
+### Latest Challenge Update: [348 (Intermediate) Permutation Madness](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/351%20%5BIntermediate%5D%20Permutation%20madness/351%20%5BIntermediate%5D%20Permutation%20madness.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.

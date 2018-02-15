@@ -1,4 +1,6 @@
 ## Intermediate----
+* [351 [Intermediate] Permutation Madness](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/351%20%5BIntermediate%5D%20Permutation%20madness/351%20%5BIntermediate%5D%20Permutation%20madness.md)
+* [350 [Intermediate] Balancing my Spending](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/350%20%5BIntermediate%5D%20Balancing%20My%20Spending/350%20%5BIntermediate%5D%20Balancing%20My%20Spending.md)
 * [349 [Intermediate] Packing Stacks of Boxes](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes.md)
 * [348 [Intermediate] Bowling Frames Display](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display/348%20%5BIntermediate%5D%20Bowling%20Frames%20Display.md)
 * [347 [Intermediate] Linear Feedback Shift Register](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/347%20%5BIntermediate%5D%20Linear%20Feedback%20Shift%20Register/347%20%5BIntermediate%5D%20Linear%20Feedback%20Shift%20Register.md)

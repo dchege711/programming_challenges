@@ -1,4 +1,5 @@
 ## Easy Challenges-----
+* [351 [Easy] Cricket Scoring](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/351%20%5BEasy%5D%20Cricket%20Scoring/351%20%5BEasy%5D%20Cricket%20Scoring.md)
 * [350 [Easy] Bookshelf Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/350%20%5BEasy%5D%20Bookshelf%20problem/350%20%5BEasy%5D%20Bookshelf%20problem.md)
 * [349 [Easy] Change Calculator](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/349%20%5BEasy%5D%20Change%20Calculator/349%20%5BEasy%5D%20Change%20Calculator.md)
 * [348 [Easy] The Rabbit Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/348%20%5BEasy%5D%20The%20rabbit%20problem/348%20%5BEasy%5D%20The%20rabbit%20problem.md)

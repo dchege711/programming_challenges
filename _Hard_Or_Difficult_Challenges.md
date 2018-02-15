@@ -1,4 +1,5 @@
 ## Difficult Challenges----
+* [350 [Hard] Which Number Recurs First](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/350%20%5BHard%5D%20Which%20Number%20Recurs%20First/350%20%5BHard%5D%20Which%20Number%20Recurs%20First.md)
 * [349 [Hard] Divide Polygons into Equal Regions](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/349%20%5BHard%5D%20Divide%20Polygons%20into%20Equal%20Regions/349%20%5BHard%5D%20Divide%20Polygons%20into%20Equal%20Regions.md)
 * [348 [Hard] Square Sum Chains](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/348%20%5BHard%5D%20Square%20Sum%20Chains/348%20%5BHard%5D%20Square%20Sum%20Chains.md)
 * [347 [Hard] Hue Drops Puzzle](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/347%20%5BHard%5D%20Hue%20Drops%20Puzzle/347%20%5BHard%5D%20Hue%20Drops%20Puzzle.md)
