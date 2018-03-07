@@ -1,10 +1,14 @@
-## Easy Challenges-----
+## Easy Challenges
+-----
+* [353 [Easy] Closest String](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/353%20%5BEasy%5D%20Closest%20String/353%20%5BEasy%5D%20Closest%20String.md)
+* [352 [Easy] Making Imgur-Style Links](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/352%20%5BEasy%5D%20Making%20Imgur-style%20Links/352%20%5BEasy%5D%20Making%20Imgur-style%20Links.md)
+* [351 [Easy] Cricket Scoring](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/351%20%5BEasy%5D%20Cricket%20Scoring/351%20%5BEasy%5D%20Cricket%20Scoring.md)
 * [350 [Easy] Bookshelf Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/350%20%5BEasy%5D%20Bookshelf%20problem/350%20%5BEasy%5D%20Bookshelf%20problem.md)
 * [349 [Easy] Change Calculator](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/349%20%5BEasy%5D%20Change%20Calculator/349%20%5BEasy%5D%20Change%20Calculator.md)
 * [348 [Easy] The Rabbit Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/348%20%5BEasy%5D%20The%20rabbit%20problem/348%20%5BEasy%5D%20The%20rabbit%20problem.md)
 * [347 [Easy] How long has the light been on?](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/347%20%5BEasy%5D%20How%20long%20has%20the%20light%20been%20on%3F/347%20%5BEasy%5D%20How%20long%20has%20the%20light%20been%20on%3F.md)
 * [346 [Easy] Cryptarithmetic Solver](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/346%20%5BEasy%5D%20Cryptarithmetic%20Solver/346%20%5BEasy%5D%20Cryptarithmetic%20Solver.md)
-* :white_check_mark: [344 [Easy] Baum-Sweet Sequence](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/344%20%5BEasy%5D%20Baum-Sweet%20Sequence/344%20%5BEasy%5D%20Baum-Sweet%20Sequence.md)
+* [344 [Easy] Baum-Sweet Sequence](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/344%20%5BEasy%5D%20Baum-Sweet%20Sequence/344%20%5BEasy%5D%20Baum-Sweet%20Sequence.md)
 * [343 [Easy] Major Scales](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/343%20%5BEasy%5D%20Major%20scales/343%20%5BEasy%5D%20Major%20scales.md)
 * [342 [Easy] Polynomia Divison](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/342%20%5BEasy%5D%20Polynomial%20Division/342%20%5BEasy%5D%20Polynomial%20Division.md)
 * [341 [Easy] Repeating Numbers](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/341%20%5BEasy%5D%20Repeating%20Numbers/341%20%5BEasy%5D%20Repeating%20Numbers.md)
@@ -17,11 +21,19 @@
 * [333 [Easy] Packet Assember](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/333%20%5BEasy%5D%20Packet%20Assembler/333%20%5BEasy%5D%20Packet%20Assembler.md)
 * [331 [Easy] The Adding Calculator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/331%20%5BEasy%5D%20The%20Adding%20Calculator/331%20%5BEasy%5D%20The%20Adding%20Calculator.md)
 * [330 [Easy] Surround the circles](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/330%20%5BEasy%5D%20Surround%20the%20circles/330%20%5BEasy%5D%20Surround%20the%20circles.md)
+<<<<<<< HEAD
 * :white_check_mark: [329 [Easy] Nearest Lucky Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers.md)
 * [328 [Easy] Latin Squares](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/328%20%5BEasy%5D%20Latin%20Squares/328%20%5BEasy%5D%20Latin%20Squares.md)
 * [326 [Easy] Nearest Prime Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers.md)
 * [325 [Easy] Color Maze](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/325%20%5BEasy%5D%20Color%20Maze/325%20%5BEasy%5D%20Color%20maze.md)
 * :white_check_mark: [324 [Easy] Manual Square Root](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/324%20%5BEasy%5D%20Manual%20Square%20Root/324%20%5BEasy%5D%20%22manual%22%20square%20root%20procedure%20(intermediate).md)
+=======
+* [329 [Easy] Nearest Lucky Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers/329%20%5BEasy%5D%20Nearest%20Lucky%20Numbers.md)
+* [328 [Easy] Latin Squares](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/328%20%5BEasy%5D%20Latin%20Squares/328%20%5BEasy%5D%20Latin%20Squares.md)
+* [326 [Easy] Nearest Prime Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers/326%20%5BEasy%5D%20Nearest%20Prime%20Numbers.md)
+* [325 [Easy] Color Maze](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/325%20%5BEasy%5D%20Color%20Maze/325%20%5BEasy%5D%20Color%20maze.md)
+* [324 [Easy] Manual Square Root](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/324%20%5BEasy%5D%20Manual%20Square%20Root/324%20%5BEasy%5D%20%22manual%22%20square%20root%20procedure%20(intermediate).md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [323 [Easy] 3SUM](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/323%20%5BEasy%5D%203SUM/323%20%5BEasy%5D%203SUM.md)
 * [322 [Easy] All Pairs Test Generator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/322%20%5BEasy%5D%20All%20Pairs%20Test%20Generator/322%20%5BEasy%5D%20All%20Pairs%20Test%20Generator.md)
 * [321 [Easy] Talking Clock](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/321%20%5BEasy%5D%20Talking%20Clock/321%20%5BEasy%5D%20Talking%20Clock.md)
@@ -60,7 +72,15 @@
 * [284 [Easy] Wandering Fingers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/284%20%5BEasy%5D%20Wandering%20Fingers/284%20%5BEasy%5D%20Wandering%20Fingers.md)
 * [283 [Easy] Anagram Detector](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/283%20%5BEasy%5D%20Anagram%20Detector/283%20%5BEasy%5D%20Anagram%20Detector.md)
 * [282 [Easy] Unusual Bases](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/282%20%5BEasy%5D%20Unusual%20Bases/282%20%5BEasy%5D%20Unusual%20Bases.md)
-* [281 [Easy] Something about bases](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/281%20%5BEasy%5D%20Something%20about%20bases/281%20%5BEasy%5D%20Something%20about%20bases.md)"* [280 [Easy] 0 to 100, Real Quick](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick.md)"* [279 [Easy] Uuencoding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/279%20%5BEasy%5D%20Uuencoding/279%20%5BEasy%5D%20Uuencoding.md)
+<<<<<<< HEAD
+* [281 [Easy] Something about bases](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/281%20%5BEasy%5D%20Something%20about%20bases/281%20%5BEasy%5D%20Something%20about%20bases.md)
+"* [280 [Easy] 0 to 100, Real Quick](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick.md)"
+* [279 [Easy] Uuencoding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/279%20%5BEasy%5D%20Uuencoding/279%20%5BEasy%5D%20Uuencoding.md)
+=======
+* [281 [Easy] Something about bases](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/281%20%5BEasy%5D%20Something%20about%20bases/281%20%5BEasy%5D%20Something%20about%20bases.md)
+"* [280 [Easy] 0 to 100, Real Quick](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick/280%20%5BEasy%5D%200%20to%20100,%20Real%20Quick.md)"
+* [279 [Easy] Uuencoding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/279%20%5BEasy%5D%20Uuencoding/279%20%5BEasy%5D%20Uuencoding.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [277 [Easy] Simplifying fractions](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/277%20%5BEasy%5D%20Simplifying%20fractions/277%20%5BEasy%5D%20Simplifying%20fractions.md)
 * [276 [Easy] Recktangles](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/276%20%5BEasy%5D%20Recktangles/276%20%5BEasy%5D%20Recktangles.md)
 * [275 [Easy] Splurthian Chemistry 101](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/275%20%5BEasy%5D%20Splurthian%20Chemistry%20101/275%20%5BEasy%5D%20Splurthian%20Chemistry%20101.md)
@@ -86,7 +106,15 @@
 * [256 [Easy] Oblique and De-Oblique](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/256%20%5BEasy%5D%20Oblique%20and%20De-Oblique/256%20%5BEasy%5D%20Oblique%20and%20De-Oblique.md)
 * [255 [Easy] Playing with light switches](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/255%20%5BEasy%5D%20Playing%20with%20light%20switches/255%20%5BEasy%5D%20Playing%20with%20light%20switches.md)
 * [254 [Easy] Atbash Cipher](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/254%20%5BEasy%5D%20Atbash%20Cipher/254%20%5BEasy%5D%20Atbash%20Cipher.md)
-* [253 [Easy] Unconditional Loan Income](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/253%20%5BEasy%5D%20Unconditional%20Loan%20Income/253%20%5BEasy%5D%20Unconditional%20Loan%20Income.md)"* [252 [Easy] Sailors and monkeys and coconuts, oh my!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!.md)"* [251 [Easy] Create Nonogram description](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/251%20%5BEasy%5D%20Create%20Nonogram%20description/251%20%5BEasy%5D%20Create%20Nonogram%20description.md)
+<<<<<<< HEAD
+* [253 [Easy] Unconditional Loan Income](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/253%20%5BEasy%5D%20Unconditional%20Loan%20Income/253%20%5BEasy%5D%20Unconditional%20Loan%20Income.md)
+"* [252 [Easy] Sailors and monkeys and coconuts, oh my!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!.md)"
+* [251 [Easy] Create Nonogram description](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/251%20%5BEasy%5D%20Create%20Nonogram%20description/251%20%5BEasy%5D%20Create%20Nonogram%20description.md)
+=======
+* [253 [Easy] Unconditional Loan Income](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/253%20%5BEasy%5D%20Unconditional%20Loan%20Income/253%20%5BEasy%5D%20Unconditional%20Loan%20Income.md)
+"* [252 [Easy] Sailors and monkeys and coconuts, oh my!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!/252%20%5BEasy%5D%20Sailors%20and%20monkeys%20and%20coconuts,%20oh%20my!.md)"
+* [251 [Easy] Create Nonogram description](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/251%20%5BEasy%5D%20Create%20Nonogram%20description/251%20%5BEasy%5D%20Create%20Nonogram%20description.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [250 [Easy] Scraping  r dailyprogrammer](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/250%20%5BEasy%5D%20Scraping%20%20r%20dailyprogrammer/250%20%5BEasy%5D%20Scraping%20%20r%20dailyprogrammer.md)
 * [249 [Easy] Playing the Stock Market](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/249%20%5BEasy%5D%20Playing%20the%20Stock%20Market/249%20%5BEasy%5D%20Playing%20the%20Stock%20Market.md)
 * [248 [Easy] Draw Me Like One Of Your Bitmaps](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/248%20%5BEasy%5D%20Draw%20Me%20Like%20One%20Of%20Your%20Bitmaps/248%20%5BEasy%5D%20Draw%20Me%20Like%20One%20Of%20Your%20Bitmaps.md)
@@ -129,7 +157,15 @@
 * [210 [Easy] intHarmony.com](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/210%20%5BEasy%5D%20intHarmony/210%20%5BEasy%5D%20intHarmony.com.md)
 * [209 [Easy] The Button can be pressed but once...](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/209%20%5BEasy%5D%20The%20Button%20can%20be%20pressed%20but%20once/209%20%5BEasy%5D%20The%20Button%20can%20be%20pressed%20but%20once....md)
 * [208 [Easy] Culling Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/208%20%5BEasy%5D%20Culling%20Numbers/208%20%5BEasy%5D%20Culling%20Numbers.md)
-* [207 [Easy] Bioinformatics 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/207%20%5BEasy%5D%20Bioinformatics%201/207%20%5BEasy%5D%20Bioinformatics%201.md)"* [206 [Easy] Recurrence Relations, part 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201.md)"* [205 [Easy] Friendly Date Ranges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/205%20%5BEasy%5D%20Friendly%20Date%20Ranges/205%20%5BEasy%5D%20Friendly%20Date%20Ranges.md)
+<<<<<<< HEAD
+* [207 [Easy] Bioinformatics 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/207%20%5BEasy%5D%20Bioinformatics%201/207%20%5BEasy%5D%20Bioinformatics%201.md)
+"* [206 [Easy] Recurrence Relations, part 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201.md)"
+* [205 [Easy] Friendly Date Ranges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/205%20%5BEasy%5D%20Friendly%20Date%20Ranges/205%20%5BEasy%5D%20Friendly%20Date%20Ranges.md)
+=======
+* [207 [Easy] Bioinformatics 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/207%20%5BEasy%5D%20Bioinformatics%201/207%20%5BEasy%5D%20Bioinformatics%201.md)
+"* [206 [Easy] Recurrence Relations, part 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201/206%20%5BEasy%5D%20Recurrence%20Relations,%20part%201.md)"
+* [205 [Easy] Friendly Date Ranges](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/205%20%5BEasy%5D%20Friendly%20Date%20Ranges/205%20%5BEasy%5D%20Friendly%20Date%20Ranges.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [204 [Easy] Remembering your lines](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/204%20%5BEasy%5D%20Remembering%20your%20lines/204%20%5BEasy%5D%20Remembering%20your%20lines.md)
 * [203 [Easy] The Start of Something Big](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/203%20%5BEasy%5D%20The%20Start%20of%20Something%20Big/203%20%5BEasy%5D%20The%20Start%20of%20Something%20Big.md)
 * [202 [Easy] I AM BENDER. PLEASE INSERT GIRDER.](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/202%20%5BEasy%5D%20I%20AM%20BENDER/202%20%5BEasy%5D%20I%20AM%20BENDER.%20PLEASE%20INSERT%20GIRDER..md)
@@ -139,7 +175,15 @@
 * [197 [Easy] ISBN Validator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/197%20%5BEasy%5D%20ISBN%20Validator/197%20%5BEasy%5D%20ISBN%20Validator.md)
 * [195 [Easy] Symbolic Link Resolution](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/195%20%5BEasy%5D%20Symbolic%20Link%20Resolution/195%20%5BEasy%5D%20Symbolic%20Link%20Resolution.md)
 * [194 [Easy] Destringification](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/194%20%5BEasy%5D%20Destringification/194%20%5BEasy%5D%20Destringification.md)
-* [193 [Easy] Acronym Expander](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20Acronym%20Expander/193%20%5BEasy%5D%20Acronym%20Expander.md)"* [193 [Easy] A Cube, Ball, Cylinder, Cone walk into a warehouse](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse.md)"* [192 [Easy] Carry Adding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/192%20%5BEasy%5D%20Carry%20Adding/192%20%5BEasy%5D%20Carry%20Adding.md)
+<<<<<<< HEAD
+* [193 [Easy] Acronym Expander](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20Acronym%20Expander/193%20%5BEasy%5D%20Acronym%20Expander.md)
+"* [193 [Easy] A Cube, Ball, Cylinder, Cone walk into a warehouse](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse.md)"
+* [192 [Easy] Carry Adding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/192%20%5BEasy%5D%20Carry%20Adding/192%20%5BEasy%5D%20Carry%20Adding.md)
+=======
+* [193 [Easy] Acronym Expander](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20Acronym%20Expander/193%20%5BEasy%5D%20Acronym%20Expander.md)
+"* [193 [Easy] A Cube, Ball, Cylinder, Cone walk into a warehouse](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse/193%20%5BEasy%5D%20A%20Cube,%20Ball,%20Cylinder,%20Cone%20walk%20into%20a%20warehouse.md)"
+* [192 [Easy] Carry Adding](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/192%20%5BEasy%5D%20Carry%20Adding/192%20%5BEasy%5D%20Carry%20Adding.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [191 [Easy] Word Counting](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/191%20%5BEasy%5D%20Word%20Counting/191%20%5BEasy%5D%20Word%20Counting.md)
 * [190 [Easy] Webscraping sentiments](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/190%20%5BEasy%5D%20Webscraping%20sentiments/190%20%5BEasy%5D%20Webscraping%20sentiments.md)
 * [189 [Easy] Hangman!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/189%20%5BEasy%5D%20Hangman!/189%20%5BEasy%5D%20Hangman!.md)
@@ -171,7 +215,19 @@
 * [166 [Easy] ASCII Fractal Curves](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/166%20%5BEasy%5D%20ASCII%20Fractal%20Curves/166%20%5BEasy%5D%20ASCII%20Fractal%20Curves.md)
 * [165 [Easy] ASCII Game of Life](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/165%20%5BEasy%5D%20ASCII%20Game%20of%20Life/165%20%5BEasy%5D%20ASCII%20Game%20of%20Life.md)
 * [164 [Easy] Assemble this Scheme into Python](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/164%20%5BEasy%5D%20Assemble%20this%20Scheme%20into%20Python/164%20%5BEasy%5D%20Assemble%20this%20Scheme%20into%20Python.md)
-* [163 [Easy] Probability Distribution of a 6 Sided Di](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di.md)"* [162 [Easy] Novel Compression, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/162%20%5BEasy%5D%20Novel%20Compression,%20pt/162%20%5BEasy%5D%20Novel%20Compression,%20pt.%201.md)"* [161 [Easy] Blackjack!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/161%20%5BEasy%5D%20Blackjack!/161%20%5BEasy%5D%20Blackjack!.md)"* [160 [Easy] Trigonometric Triangle Trouble, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt.%201.md)"* [159 [Easy] Rock Paper Scissors Lizard Spock - Part 1 The Basic Game](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game.md)
+<<<<<<< HEAD
+* [163 [Easy] Probability Distribution of a 6 Sided Di](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di.md)
+"* [162 [Easy] Novel Compression, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/162%20%5BEasy%5D%20Novel%20Compression,%20pt/162%20%5BEasy%5D%20Novel%20Compression,%20pt.%201.md)"
+* [161 [Easy] Blackjack!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/161%20%5BEasy%5D%20Blackjack!/161%20%5BEasy%5D%20Blackjack!.md)
+"* [160 [Easy] Trigonometric Triangle Trouble, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt.%201.md)"
+* [159 [Easy] Rock Paper Scissors Lizard Spock - Part 1 The Basic Game](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game.md)
+=======
+* [163 [Easy] Probability Distribution of a 6 Sided Di](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di/163%20%5BEasy%5D%20Probability%20Distribution%20of%20a%206%20Sided%20Di.md)
+"* [162 [Easy] Novel Compression, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/162%20%5BEasy%5D%20Novel%20Compression,%20pt/162%20%5BEasy%5D%20Novel%20Compression,%20pt.%201.md)"
+* [161 [Easy] Blackjack!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/161%20%5BEasy%5D%20Blackjack!/161%20%5BEasy%5D%20Blackjack!.md)
+"* [160 [Easy] Trigonometric Triangle Trouble, pt. 1](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt/160%20%5BEasy%5D%20Trigonometric%20Triangle%20Trouble,%20pt.%201.md)"
+* [159 [Easy] Rock Paper Scissors Lizard Spock - Part 1 The Basic Game](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game/159%20%5BEasy%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%201%20The%20Basic%20Game.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [158 [Easy] The Torn Number](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/158%20%5BEasy%5D%20The%20Torn%20Number/158%20%5BEasy%5D%20The%20Torn%20Number.md)
 * [157 [Easy] The Winning Move X-Games edition](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/157%20%5BEasy%5D%20The%20Winning%20Move%20X-Games%20edition/157%20%5BEasy%5D%20The%20Winning%20Move%20X-Games%20edition.md)
 * [156 [Easy] Simple Decoder](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/156%20%5BEasy%5D%20Simple%20Decoder/156%20%5BEasy%5D%20Simple%20Decoder.md)
@@ -197,7 +253,15 @@
 * [133 [Easy] Foot-Traffic Analysis](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/133%20%5BEasy%5D%20Foot-Traffic%20Analysis/133%20%5BEasy%5D%20Foot-Traffic%20Analysis.md)
 * [132 [Easy] Greatest Common Divisor](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/132%20%5BEasy%5D%20Greatest%20Common%20Divisor/132%20%5BEasy%5D%20Greatest%20Common%20Divisor.md)
 * [131 [Easy] Who tests the tests?](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/131%20%5BEasy%5D%20Who%20tests%20the%20tests?/131%20%5BEasy%5D%20Who%20tests%20the%20tests?.md)
-* [130 [Easy] Roll the Dies](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/130%20%5BEasy%5D%20Roll%20the%20Dies/130%20%5BEasy%5D%20Roll%20the%20Dies.md)"* [128 [Easy] Sum-the-Digits, Part II](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II.md)"* [127 [Easy] McCarthy 91 Function](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/127%20%5BEasy%5D%20McCarthy%2091%20Function/127%20%5BEasy%5D%20McCarthy%2091%20Function.md)
+<<<<<<< HEAD
+* [130 [Easy] Roll the Dies](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/130%20%5BEasy%5D%20Roll%20the%20Dies/130%20%5BEasy%5D%20Roll%20the%20Dies.md)
+"* [128 [Easy] Sum-the-Digits, Part II](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II.md)"
+* [127 [Easy] McCarthy 91 Function](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/127%20%5BEasy%5D%20McCarthy%2091%20Function/127%20%5BEasy%5D%20McCarthy%2091%20Function.md)
+=======
+* [130 [Easy] Roll the Dies](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/130%20%5BEasy%5D%20Roll%20the%20Dies/130%20%5BEasy%5D%20Roll%20the%20Dies.md)
+"* [128 [Easy] Sum-the-Digits, Part II](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II/128%20%5BEasy%5D%20Sum-the-Digits,%20Part%20II.md)"
+* [127 [Easy] McCarthy 91 Function](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/127%20%5BEasy%5D%20McCarthy%2091%20Function/127%20%5BEasy%5D%20McCarthy%2091%20Function.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [126 [Easy] Real-World Merge Sort](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/126%20%5BEasy%5D%20Real-World%20Merge%20Sort/126%20%5BEasy%5D%20Real-World%20Merge%20Sort.md)
 * [125 [Easy] Word Analytics](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/125%20%5BEasy%5D%20Word%20Analytics/125%20%5BEasy%5D%20Word%20Analytics.md)
 * [124 [Easy] New-Line Troubles](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/124%20%5BEasy%5D%20New-Line%20Troubles/124%20%5BEasy%5D%20New-Line%20Troubles.md)
@@ -220,7 +284,15 @@
 * [110 [Easy] Keyboard Shift](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/110%20%5BEasy%5D%20Keyboard%20Shift/110%20%5BEasy%5D%20Keyboard%20Shift.md)
 * [109 [Easy] Digits Check](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/109%20%5BEasy%5D%20Digits%20Check/109%20%5BEasy%5D%20Digits%20Check.md)
 * [108 [Easy] (Scientific Notation Translator)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/108%20%5BEasy%5D%20(Scientific%20Notation%20Translator)/108%20%5BEasy%5D%20(Scientific%20Notation%20Translator).md)
-* [107 [Easy] (All possible decodings)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/107%20%5BEasy%5D%20(All%20possible%20decodings)/107%20%5BEasy%5D%20(All%20possible%20decodings).md)"* [106 [Easy] (Random Talker, Part 1)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201)/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201).md)"* [105 [Easy] (Word unscrambler)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/105%20%5BEasy%5D%20(Word%20unscrambler)/105%20%5BEasy%5D%20(Word%20unscrambler).md)
+<<<<<<< HEAD
+* [107 [Easy] (All possible decodings)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/107%20%5BEasy%5D%20(All%20possible%20decodings)/107%20%5BEasy%5D%20(All%20possible%20decodings).md)
+"* [106 [Easy] (Random Talker, Part 1)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201)/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201).md)"
+* [105 [Easy] (Word unscrambler)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/105%20%5BEasy%5D%20(Word%20unscrambler)/105%20%5BEasy%5D%20(Word%20unscrambler).md)
+=======
+* [107 [Easy] (All possible decodings)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/107%20%5BEasy%5D%20(All%20possible%20decodings)/107%20%5BEasy%5D%20(All%20possible%20decodings).md)
+"* [106 [Easy] (Random Talker, Part 1)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201)/106%20%5BEasy%5D%20(Random%20Talker,%20Part%201).md)"
+* [105 [Easy] (Word unscrambler)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/105%20%5BEasy%5D%20(Word%20unscrambler)/105%20%5BEasy%5D%20(Word%20unscrambler).md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
 * [104 [Easy] (Powerplant Simulation)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/104%20%5BEasy%5D%20(Powerplant%20Simulation)/104%20%5BEasy%5D%20(Powerplant%20Simulation).md)
 * [103 [easy-difficult] (Text transformations)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/103%20%5Beasy-difficult%5D%20(Text%20transformations)/103%20%5Beasy-difficult%5D%20(Text%20transformations).md)
 * [102 [easy] (Dice roller)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/102%20%5Beasy%5D%20(Dice%20roller)/102%20%5Beasy%5D%20(Dice%20roller).md)
@@ -321,5 +393,11 @@
 * [004 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/4%20%5Beasy%5D/4%20%5Beasy%5D.md)
 * [003 [easy]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/3%20%5Beasy%5D/3%20%5Beasy%5D.md)
 * [002](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/2/2.md)
-* [001](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/1/1.md)
+<<<<<<< HEAD
+* [001](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/1/1.md)
+
 * :white_check_mark: [[Easy] Longest Two-Character Sub-String](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/%5BEasy%5D%20Longest%20Two-Character%20Sub-String/%5BEasy%5D%20Longest%20Two-Character%20Sub-String.md)
+=======
+* [001](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/1/1.md)
+\n* [[Easy] Longest Two-Character Sub-String](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Easy/%5BEasy%5D%20Longest%20Two-Character%20Sub-String/%5BEasy%5D%20Longest%20Two-Character%20Sub-String.md)
+>>>>>>> 49c814bcbb5869a8029c35b181e41c35b38f0aef
