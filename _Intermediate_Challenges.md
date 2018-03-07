@@ -1,4 +1,6 @@
-## Intermediate----
+## Intermediate
+----
+* [352 [Intermediate] 7 Wonders Resource](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation.md)
 * [351 [Intermediate] Permutation Madness](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/351%20%5BIntermediate%5D%20Permutation%20madness/351%20%5BIntermediate%5D%20Permutation%20madness.md)
 * [350 [Intermediate] Balancing my Spending](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/350%20%5BIntermediate%5D%20Balancing%20My%20Spending/350%20%5BIntermediate%5D%20Balancing%20My%20Spending.md)
 * [349 [Intermediate] Packing Stacks of Boxes](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes/349%20%5BIntermediate%5D%20Packing%20Stacks%20of%20Boxes.md)
@@ -137,12 +139,16 @@
 * [208 [Intermediate] ASCII Gradient Generator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/208%20%5BIntermediate%5D%20ASCII%20Gradient%20Generator/208%20%5BIntermediate%5D%20ASCII%20Gradient%20Generator.md)
 * [207 [Intermediate] Bioinformatics 2](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/207%20%5BIntermediate%5D%20Bioinformatics%202/207%20%5BIntermediate%5D%20Bioinformatics%202.md)
 * [206 [Intermediate] Maximizing Crop Irrigation](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/206%20%5BIntermediate%5D%20Maximizing%20Crop%20Irrigation/206%20%5BIntermediate%5D%20Maximizing%20Crop%20Irrigation.md)
-* [205 [Intermediate] RPN](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/205%20%5BIntermediate%5D%20RPN/205%20%5BIntermediate%5D%20RPN.md)"* [204 [Intermediate] It's like regular binary, only way more hype!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/204%20%5BIntermediate%5D%20It's%20like%20regular%20binary,%20only%20way%20more%20hype!/204%20%5BIntermediate%5D%20It's%20like%20regular%20binary,%20only%20way%20more%20hype!.md)"* [202 [Intermediate] Easter Challenge](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/202%20%5BIntermediate%5D%20Easter%20Challenge/202%20%5BIntermediate%5D%20Easter%20Challenge.md)
+* [205 [Intermediate] RPN](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/205%20%5BIntermediate%5D%20RPN/205%20%5BIntermediate%5D%20RPN.md)
+"* [204 [Intermediate] It's like regular binary, only way more hype!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/204%20%5BIntermediate%5D%20It's%20like%20regular%20binary,%20only%20way%20more%20hype!/204%20%5BIntermediate%5D%20It's%20like%20regular%20binary,%20only%20way%20more%20hype!.md)"
+* [202 [Intermediate] Easter Challenge](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/202%20%5BIntermediate%5D%20Easter%20Challenge/202%20%5BIntermediate%5D%20Easter%20Challenge.md)
 * [200 [Intermediate] Metro Tile Meltdown](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/200%20%5BIntermediate%5D%20Metro%20Tile%20Meltdown/200%20%5BIntermediate%5D%20Metro%20Tile%20Meltdown.md)
 * [198 [Intermediate] Base-Negative Numbers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/198%20%5BIntermediate%5D%20Base-Negative%20Numbers/198%20%5BIntermediate%5D%20Base-Negative%20Numbers.md)
 * [197 [Intermediate] Food Delivery Problem](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/197%20%5BIntermediate%5D%20Food%20Delivery%20Problem/197%20%5BIntermediate%5D%20Food%20Delivery%20Problem.md)
 * [196 [Intermediate] Rail Fence Cipher](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/196%20%5BIntermediate%5D%20Rail%20Fence%20Cipher/196%20%5BIntermediate%5D%20Rail%20Fence%20Cipher.md)
-* [195 [Intermediate] Math Dice](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/195%20%5BIntermediate%5D%20Math%20Dice/195%20%5BIntermediate%5D%20Math%20Dice.md)"* [193 [Intermediate] 50,000 Subscriber Meta-challenge](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/193%20%5BIntermediate%5D%2050,000%20Subscriber%20Meta-challenge/193%20%5BIntermediate%5D%2050,000%20Subscriber%20Meta-challenge.md)"* [192 [Intermediate] Markov Chain Error Detection](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/192%20%5BIntermediate%5D%20Markov%20Chain%20Error%20Detection/192%20%5BIntermediate%5D%20Markov%20Chain%20Error%20Detection.md)
+* [195 [Intermediate] Math Dice](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/195%20%5BIntermediate%5D%20Math%20Dice/195%20%5BIntermediate%5D%20Math%20Dice.md)
+"* [193 [Intermediate] 50,000 Subscriber Meta-challenge](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/193%20%5BIntermediate%5D%2050,000%20Subscriber%20Meta-challenge/193%20%5BIntermediate%5D%2050,000%20Subscriber%20Meta-challenge.md)"
+* [192 [Intermediate] Markov Chain Error Detection](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/192%20%5BIntermediate%5D%20Markov%20Chain%20Error%20Detection/192%20%5BIntermediate%5D%20Markov%20Chain%20Error%20Detection.md)
 * [191 [Intermediate] Space Probe. Alright Alright Alright.](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/191%20%5BIntermediate%5D%20Space%20Probe/191%20%5BIntermediate%5D%20Space%20Probe.%20Alright%20Alright%20Alright..md)
 * [190 [Intermediate] Words inside of words](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/190%20%5BIntermediate%5D%20Words%20inside%20of%20words/190%20%5BIntermediate%5D%20Words%20inside%20of%20words.md)
 * [189 [Intermediate] Roman Numeral Conversion](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/189%20%5BIntermediate%5D%20Roman%20Numeral%20Conversion/189%20%5BIntermediate%5D%20Roman%20Numeral%20Conversion.md)
@@ -162,11 +168,17 @@
 * [174 [Intermediate] Forum Avatar Generator](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/174%20%5BIntermediate%5D%20Forum%20Avatar%20Generator/174%20%5BIntermediate%5D%20Forum%20Avatar%20Generator.md)
 * [173 [Intermediate] Advanced Langton's Ant](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/173%20%5BIntermediate%5D%20Advanced%20Langton's%20Ant/173%20%5BIntermediate%5D%20Advanced%20Langton's%20Ant.md)
 * [172 [Intermediate] Image Rendering 101...010101000101](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/172%20%5BIntermediate%5D%20Image%20Rendering%20101/172%20%5BIntermediate%5D%20Image%20Rendering%20101...010101000101.md)
-* [172 [Intermediate] BREACH!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/172%20%5BIntermediate%5D%20BREACH!/172%20%5BIntermediate%5D%20BREACH!.md)"* [171 [Intermediate] Zoom, Rotate, Invert Hex Picture](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/171%20%5BIntermediate%5D%20Zoom,%20Rotate,%20Invert%20Hex%20Picture/171%20%5BIntermediate%5D%20Zoom,%20Rotate,%20Invert%20Hex%20Picture.md)"* [170 [Intermediate] Rummy Checker](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/170%20%5BIntermediate%5D%20Rummy%20Checker/170%20%5BIntermediate%5D%20Rummy%20Checker.md)
-* [169 [Intermediate] Home-row Spell Check](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/169%20%5BIntermediate%5D%20Home-row%20Spell%20Check/169%20%5BIntermediate%5D%20Home-row%20Spell%20Check.md)"* [168 [Intermediate] Block Count, Length & Area](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/168%20%5BIntermediate%5D%20Block%20Count,%20Length%20&%20Area/168%20%5BIntermediate%5D%20Block%20Count,%20Length%20&%20Area.md)"* [166b [Intermediate] Prime Factor Trees](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/166b%20%5BIntermediate%5D%20Prime%20Factor%20Trees/166b%20%5BIntermediate%5D%20Prime%20Factor%20Trees.md)
+* [172 [Intermediate] BREACH!](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/172%20%5BIntermediate%5D%20BREACH!/172%20%5BIntermediate%5D%20BREACH!.md)
+"* [171 [Intermediate] Zoom, Rotate, Invert Hex Picture](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/171%20%5BIntermediate%5D%20Zoom,%20Rotate,%20Invert%20Hex%20Picture/171%20%5BIntermediate%5D%20Zoom,%20Rotate,%20Invert%20Hex%20Picture.md)"
+* [170 [Intermediate] Rummy Checker](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/170%20%5BIntermediate%5D%20Rummy%20Checker/170%20%5BIntermediate%5D%20Rummy%20Checker.md)
+* [169 [Intermediate] Home-row Spell Check](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/169%20%5BIntermediate%5D%20Home-row%20Spell%20Check/169%20%5BIntermediate%5D%20Home-row%20Spell%20Check.md)
+"* [168 [Intermediate] Block Count, Length & Area](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/168%20%5BIntermediate%5D%20Block%20Count,%20Length%20&%20Area/168%20%5BIntermediate%5D%20Block%20Count,%20Length%20&%20Area.md)"
+* [166b [Intermediate] Prime Factor Trees](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/166b%20%5BIntermediate%5D%20Prime%20Factor%20Trees/166b%20%5BIntermediate%5D%20Prime%20Factor%20Trees.md)
 * [165 [Intermediate] ASCII Maze Master](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/165%20%5BIntermediate%5D%20ASCII%20Maze%20Master/165%20%5BIntermediate%5D%20ASCII%20Maze%20Master.md)
 * [164 [Intermediate] Part 3 - Protect The Bunkers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/164%20%5BIntermediate%5D%20Part%203%20-%20Protect%20The%20Bunkers/164%20%5BIntermediate%5D%20Part%203%20-%20Protect%20The%20Bunkers.md)
-* [163 [Intermediate] Fallout's Hacking Game](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/163%20%5BIntermediate%5D%20Fallout's%20Hacking%20Game/163%20%5BIntermediate%5D%20Fallout's%20Hacking%20Game.md)"* [162 [Intermediate] Novel Compression, pt. 2](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/162%20%5BIntermediate%5D%20Novel%20Compression,%20pt/162%20%5BIntermediate%5D%20Novel%20Compression,%20pt.%202.md)"* [161 [Medium] Appointing Workers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/161%20%5BMedium%5D%20Appointing%20Workers/161%20%5BMedium%5D%20Appointing%20Workers.md)
+* [163 [Intermediate] Fallout's Hacking Game](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/163%20%5BIntermediate%5D%20Fallout's%20Hacking%20Game/163%20%5BIntermediate%5D%20Fallout's%20Hacking%20Game.md)
+"* [162 [Intermediate] Novel Compression, pt. 2](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/162%20%5BIntermediate%5D%20Novel%20Compression,%20pt/162%20%5BIntermediate%5D%20Novel%20Compression,%20pt.%202.md)"
+* [161 [Medium] Appointing Workers](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/161%20%5BMedium%5D%20Appointing%20Workers/161%20%5BMedium%5D%20Appointing%20Workers.md)
 * [160 Intermediate Part 2 - Damage Control](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/160%20Intermediate%20Part%202%20-%20Damage%20Control/160%20Intermediate%20Part%202%20-%20Damage%20Control.md)
 * [159 [Intermediate] Rock Paper Scissors Lizard Spock - Part 2 Enhancement](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/159%20%5BIntermediate%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%202%20Enhancement/159%20%5BIntermediate%5D%20Rock%20Paper%20Scissors%20Lizard%20Spock%20-%20Part%202%20Enhancement.md)
 * [158 [Intermediate] Part 1 - The ASCII Architect](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/158%20%5BIntermediate%5D%20Part%201%20-%20The%20ASCII%20Architect/158%20%5BIntermediate%5D%20Part%201%20-%20The%20ASCII%20Architect.md)
@@ -214,7 +226,9 @@
 * [105 [Intermediate] (Boolean logic calculator)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/105%20%5BIntermediate%5D%20(Boolean%20logic%20calculator)/105%20%5BIntermediate%5D%20(Boolean%20logic%20calculator).md)
 * [104 [Intermediate] (Bracket Racket)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/104%20%5BIntermediate%5D%20(Bracket%20Racket)/104%20%5BIntermediate%5D%20(Bracket%20Racket).md)
 * [102 [intermediate] (n-character-set strings)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/102%20%5Bintermediate%5D%20(n-character-set%20strings)/102%20%5Bintermediate%5D%20(n-character-set%20strings).md)
-* [101 [intermediate] (Image Stenography)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/101%20%5Bintermediate%5D%20(Image%20Stenography)/101%20%5Bintermediate%5D%20(Image%20Stenography).md)"* [100 [intermediate] (""Bad"" Word Filter)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/100%20%5Bintermediate%5D%20(""Bad""%20Word%20Filter)/100%20%5Bintermediate%5D%20(""Bad""%20Word%20Filter).md)"* [099 [intermediate] (Unemployment map of the United States)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States)/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States).md)
+* [101 [intermediate] (Image Stenography)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/101%20%5Bintermediate%5D%20(Image%20Stenography)/101%20%5Bintermediate%5D%20(Image%20Stenography).md)
+"* [100 [intermediate] (""Bad"" Word Filter)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/100%20%5Bintermediate%5D%20(""Bad""%20Word%20Filter)/100%20%5Bintermediate%5D%20(""Bad""%20Word%20Filter).md)"
+* [099 [intermediate] (Unemployment map of the United States)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States)/99%20%5Bintermediate%5D%20(Unemployment%20map%20of%20the%20United%20States).md)
 * [098 [intermediate] (Multiple cycling)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/98%20%5Bintermediate%5D%20(Multiple%20cycling)/98%20%5Bintermediate%5D%20(Multiple%20cycling).md)
 * [097 [intermediate] (Sierpinski carpet)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/97%20%5Bintermediate%5D%20(Sierpinski%20carpet)/97%20%5Bintermediate%5D%20(Sierpinski%20carpet).md)
 * [096 [intermediate] (Parsing English Values)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/96%20%5Bintermediate%5D%20(Parsing%20English%20Values)/96%20%5Bintermediate%5D%20(Parsing%20English%20Values).md)
@@ -235,70 +249,135 @@
 * [081 [intermediate] (Local Minimization)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/81%20%5Bintermediate%5D%20(Local%20Minimization)/81%20%5Bintermediate%5D%20(Local%20Minimization).md)
 * [080 [intermediate] (Poker hands)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/80%20%5Bintermediate%5D%20(Poker%20hands)/80%20%5Bintermediate%5D%20(Poker%20hands).md)
 * [079 [intermediate] (Plain PGM file viewer)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/79%20%5Bintermediate%5D%20(Plain%20PGM%20file%20viewer)/79%20%5Bintermediate%5D%20(Plain%20PGM%20file%20viewer).md) [078 [intermediate] (Dependency Planner)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/78%20%5Bintermediate%5D%20(Dependency%20Planner)/78%20%5Bintermediate%5D%20(Dependency%20Planner).md)
-* [077 [intermediate] (Last digit of factorial)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/77%20%5Bintermediate%5D%20(Last%20digit%20of%20factorial)/77%20%5Bintermediate%5D%20(Last%20digit%20of%20factorial).md)
+
+* [077 [intermediate] (Last digit of factorial)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/77%20%5Bintermediate%5D%20(Last%20digit%20of%20factorial)/77%20%5Bintermediate%5D%20(Last%20digit%20of%20factorial).md)
+
 * [076 [intermediate] (Probability graph)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/76%20%5Bintermediate%5D%20(Probability%20graph)/76%20%5Bintermediate%5D%20(Probability%20graph).md)
-* [075 [intermediate] (Build System)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/75%20%5Bintermediate%5D%20(Build%20System)/75%20%5Bintermediate%5D%20(Build%20System).md)
-* [074 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/74%20%5Bintermediate%5D/74%20%5Bintermediate%5D.md)
-* [073 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/73%20%5Bintermediate%5D/73%20%5Bintermediate%5D.md)
-* [072 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/72%20%5Bintermediate%5D/72%20%5Bintermediate%5D.md)
-* [071 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/71%20%5Bintermediate%5D/71%20%5Bintermediate%5D.md)
-* [070 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/70%20%5Bintermediate%5D/70%20%5Bintermediate%5D.md)
-* [069 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/69%20%5Bintermediate%5D/69%20%5Bintermediate%5D.md)
-* [068 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/68%20%5Bintermediate%5D/68%20%5Bintermediate%5D.md)
-* [067 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/67%20%5Bintermediate%5D/67%20%5Bintermediate%5D.md)
-* [066 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/66%20%5Bintermediate%5D/66%20%5Bintermediate%5D.md)
-* [065 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/65%20%5Bintermediate%5D/65%20%5Bintermediate%5D.md)
-* [064 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/64%20%5Bintermediate%5D/64%20%5Bintermediate%5D.md)
-* [063 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/63%20%5Bintermediate%5D/63%20%5Bintermediate%5D.md)
-* [062 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/62%20%5Bintermediate%5D/62%20%5Bintermediate%5D.md)
-* [061 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/61%20%5Bintermediate%5D/61%20%5Bintermediate%5D.md)
-* [060 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/60%20%5Bintermediate%5D/60%20%5Bintermediate%5D.md)
-* [059 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/59%20%5Bintermediate%5D/59%20%5Bintermediate%5D.md)
-* [058 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/58%20%5Bintermediate%5D/58%20%5Bintermediate%5D.md)
-* [057 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/57%20%5Bintermediate%5D/57%20%5Bintermediate%5D.md)
-* [056 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/56%20%5Bintermediate%5D/56%20%5Bintermediate%5D.md)
-* [055 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/55%20%5Bintermediate%5D/55%20%5Bintermediate%5D.md)
-* [054 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/54%20%5Bintermediate%5D/54%20%5Bintermediate%5D.md)
-* [053 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/53%20%5Bintermediate%5D/53%20%5Bintermediate%5D.md)
-* [052 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/52%20%5Bintermediate%5D/52%20%5Bintermediate%5D.md)
-* [051 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/51%20%5Bintermediate%5D/51%20%5Bintermediate%5D.md)
-* [050 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/050%20%5Bintermediate%5D/050%20%5Bintermediate%5D.md)
-* [049 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/049%20%5Bintermediate%5D/049%20%5Bintermediate%5D.md)
-* [048 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/048%20%5Bintermediate%5D/048%20%5Bintermediate%5D.md)
-* [047 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/047%20%5Bintermediate%5D/047%20%5Bintermediate%5D.md)
-* [046 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/046%20%5Bintermediate%5D/046%20%5Bintermediate%5D.md)
-* [045 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/045%20%5Bintermediate%5D/045%20%5Bintermediate%5D.md)
-* [044 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/044%20%5Bintermediate%5D/044%20%5Bintermediate%5D.md)
-* [043 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/043%20%5Bintermediate%5D/043%20%5Bintermediate%5D.md)
-* [042 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/042%20%5Bintermediate%5D/042%20%5Bintermediate%5D.md)
-* [041 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/041%20%5Bintermediate%5D/041%20%5Bintermediate%5D.md)
-* [040 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/040%20%5Bintermediate%5D/040%20%5Bintermediate%5D.md)
-* [039 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/039%20%5Bintermediate%5D/039%20%5Bintermediate%5D.md)
-* [038 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/038%20%5Bintermediate%5D/038%20%5Bintermediate%5D.md)
-* [037 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/037%20%5Bintermediate%5D/037%20%5Bintermediate%5D.md)
-* [036 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/036%20%5Bintermediate%5D/036%20%5Bintermediate%5D.md)
-* [035 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/035%20%5Bintermediate%5D/035%20%5Bintermediate%5D.md)
-* [034 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/034%20%5Bintermediate%5D/034%20%5Bintermediate%5D.md)
-* [033 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/033%20%5Bintermediate%5D/033%20%5Bintermediate%5D.md)
-* [032 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/032%20%5Bintermediate%5D/032%20%5Bintermediate%5D.md)
-* [031 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/031%20%5Bintermediate%5D/031%20%5Bintermediate%5D.md)
-* [030 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/030%20%5Bintermediate%5D/030%20%5Bintermediate%5D.md)
-* [029 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/029%20%5Bintermediate%5D/029%20%5Bintermediate%5D.md)
-* [028 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/028%20%5Bintermediate%5D/028%20%5Bintermediate%5D.md)
-* [027 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/027%20%5Bintermediate%5D/027%20%5Bintermediate%5D.md)
-* [026 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/026%20%5Bintermediate%5D/026%20%5Bintermediate%5D.md)
-* [025 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/025%20%5Bintermediate%5D/025%20%5Bintermediate%5D.md)
-* [024 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/024%20%5Bintermediate%5D/024%20%5Bintermediate%5D.md)
-* [023 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/023%20%5Bintermediate%5D/023%20%5Bintermediate%5D.md)
-* [022 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/022%20%5Bintermediate%5D/022%20%5Bintermediate%5D.md)
-* [021 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/021%20%5Bintermediate%5D/021%20%5Bintermediate%5D.md)
-* [020 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/020%20%5Bintermediate%5D/020%20%5Bintermediate%5D.md)
-* [019 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/019%20%5Bintermediate%5D/019%20%5Bintermediate%5D.md)
-* [018 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/018%20%5Bintermediate%5D/018%20%5Bintermediate%5D.md)
-* [016 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/016%20%5Bintermediate%5D/016%20%5Bintermediate%5D.md)
-* [015 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/015%20%5Bintermediate%5D/015%20%5Bintermediate%5D.md)
-* [014 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/014%20%5Bintermediate%5D/014%20%5Bintermediate%5D.md)
-* [013 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/013%20%5Bintermediate%5D/013%20%5Bintermediate%5D.md)
+
+* [075 [intermediate] (Build System)](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/75%20%5Bintermediate%5D%20(Build%20System)/75%20%5Bintermediate%5D%20(Build%20System).md)
+
+* [074 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/74%20%5Bintermediate%5D/74%20%5Bintermediate%5D.md)
+
+* [073 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/73%20%5Bintermediate%5D/73%20%5Bintermediate%5D.md)
+
+* [072 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/72%20%5Bintermediate%5D/72%20%5Bintermediate%5D.md)
+
+* [071 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/71%20%5Bintermediate%5D/71%20%5Bintermediate%5D.md)
+
+* [070 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/70%20%5Bintermediate%5D/70%20%5Bintermediate%5D.md)
+
+* [069 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/69%20%5Bintermediate%5D/69%20%5Bintermediate%5D.md)
+
+* [068 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/68%20%5Bintermediate%5D/68%20%5Bintermediate%5D.md)
+
+* [067 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/67%20%5Bintermediate%5D/67%20%5Bintermediate%5D.md)
+
+* [066 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/66%20%5Bintermediate%5D/66%20%5Bintermediate%5D.md)
+
+* [065 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/65%20%5Bintermediate%5D/65%20%5Bintermediate%5D.md)
+
+* [064 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/64%20%5Bintermediate%5D/64%20%5Bintermediate%5D.md)
+
+* [063 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/63%20%5Bintermediate%5D/63%20%5Bintermediate%5D.md)
+
+* [062 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/62%20%5Bintermediate%5D/62%20%5Bintermediate%5D.md)
+
+* [061 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/61%20%5Bintermediate%5D/61%20%5Bintermediate%5D.md)
+
+* [060 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/60%20%5Bintermediate%5D/60%20%5Bintermediate%5D.md)
+
+* [059 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/59%20%5Bintermediate%5D/59%20%5Bintermediate%5D.md)
+
+* [058 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/58%20%5Bintermediate%5D/58%20%5Bintermediate%5D.md)
+
+* [057 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/57%20%5Bintermediate%5D/57%20%5Bintermediate%5D.md)
+
+* [056 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/56%20%5Bintermediate%5D/56%20%5Bintermediate%5D.md)
+
+* [055 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/55%20%5Bintermediate%5D/55%20%5Bintermediate%5D.md)
+
+* [054 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/54%20%5Bintermediate%5D/54%20%5Bintermediate%5D.md)
+
+* [053 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/53%20%5Bintermediate%5D/53%20%5Bintermediate%5D.md)
+
+* [052 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/52%20%5Bintermediate%5D/52%20%5Bintermediate%5D.md)
+
+* [051 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/51%20%5Bintermediate%5D/51%20%5Bintermediate%5D.md)
+
+* [050 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/050%20%5Bintermediate%5D/050%20%5Bintermediate%5D.md)
+
+* [049 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/049%20%5Bintermediate%5D/049%20%5Bintermediate%5D.md)
+
+* [048 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/048%20%5Bintermediate%5D/048%20%5Bintermediate%5D.md)
+
+* [047 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/047%20%5Bintermediate%5D/047%20%5Bintermediate%5D.md)
+
+* [046 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/046%20%5Bintermediate%5D/046%20%5Bintermediate%5D.md)
+
+* [045 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/045%20%5Bintermediate%5D/045%20%5Bintermediate%5D.md)
+
+* [044 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/044%20%5Bintermediate%5D/044%20%5Bintermediate%5D.md)
+
+* [043 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/043%20%5Bintermediate%5D/043%20%5Bintermediate%5D.md)
+
+* [042 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/042%20%5Bintermediate%5D/042%20%5Bintermediate%5D.md)
+
+* [041 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/041%20%5Bintermediate%5D/041%20%5Bintermediate%5D.md)
+
+* [040 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/040%20%5Bintermediate%5D/040%20%5Bintermediate%5D.md)
+
+* [039 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/039%20%5Bintermediate%5D/039%20%5Bintermediate%5D.md)
+
+* [038 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/038%20%5Bintermediate%5D/038%20%5Bintermediate%5D.md)
+
+* [037 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/037%20%5Bintermediate%5D/037%20%5Bintermediate%5D.md)
+
+* [036 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/036%20%5Bintermediate%5D/036%20%5Bintermediate%5D.md)
+
+* [035 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/035%20%5Bintermediate%5D/035%20%5Bintermediate%5D.md)
+
+* [034 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/034%20%5Bintermediate%5D/034%20%5Bintermediate%5D.md)
+
+* [033 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/033%20%5Bintermediate%5D/033%20%5Bintermediate%5D.md)
+
+* [032 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/032%20%5Bintermediate%5D/032%20%5Bintermediate%5D.md)
+
+* [031 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/031%20%5Bintermediate%5D/031%20%5Bintermediate%5D.md)
+
+* [030 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/030%20%5Bintermediate%5D/030%20%5Bintermediate%5D.md)
+
+* [029 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/029%20%5Bintermediate%5D/029%20%5Bintermediate%5D.md)
+
+* [028 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/028%20%5Bintermediate%5D/028%20%5Bintermediate%5D.md)
+
+* [027 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/027%20%5Bintermediate%5D/027%20%5Bintermediate%5D.md)
+
+* [026 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/026%20%5Bintermediate%5D/026%20%5Bintermediate%5D.md)
+
+* [025 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/025%20%5Bintermediate%5D/025%20%5Bintermediate%5D.md)
+
+* [024 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/024%20%5Bintermediate%5D/024%20%5Bintermediate%5D.md)
+
+* [023 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/023%20%5Bintermediate%5D/023%20%5Bintermediate%5D.md)
+
+* [022 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/022%20%5Bintermediate%5D/022%20%5Bintermediate%5D.md)
+
+* [021 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/021%20%5Bintermediate%5D/021%20%5Bintermediate%5D.md)
+
+* [020 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/020%20%5Bintermediate%5D/020%20%5Bintermediate%5D.md)
+
+* [019 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/019%20%5Bintermediate%5D/019%20%5Bintermediate%5D.md)
+
+* [018 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/018%20%5Bintermediate%5D/018%20%5Bintermediate%5D.md)
+
+* [016 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/016%20%5Bintermediate%5D/016%20%5Bintermediate%5D.md)
+
+* [015 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/015%20%5Bintermediate%5D/015%20%5Bintermediate%5D.md)
+
+* [014 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/014%20%5Bintermediate%5D/014%20%5Bintermediate%5D.md)
+
+* [013 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/013%20%5Bintermediate%5D/013%20%5Bintermediate%5D.md)
+
 * [012 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/012%20%5Bintermediate%5D/012%20%5Bintermediate%5D.md)
 * [011 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/011%20%5Bintermediate%5D/011%20%5Bintermediate%5D.md)
 * [010 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/010%20%5Bintermediate%5D/010%20%5Bintermediate%5D.md)
@@ -308,5 +387,6 @@
 * [006 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/006%20%5Bintermediate%5D/006%20%5Bintermediate%5D.md)
 * [005 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/005%20%5Bintermediate%5D/005%20%5Bintermediate%5D.md)
 * [004 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/004%20%5Bintermediate%5D/004%20%5Bintermediate%5D.md)
-* [003 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/003%20%5Bintermediate%5D/003%20%5Bintermediate%5D.md)
+* [003 [intermediate]](https://github.com/dchege711/Reddit_Daily_Programmer/blob/master/Intermediate/003%20%5Bintermediate%5D/003%20%5Bintermediate%5D.md)
+
 -----

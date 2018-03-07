@@ -1,4 +1,4 @@
-### Latest Challenge Update: [348 (Intermediate) Permutation Madness](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/351%20%5BIntermediate%5D%20Permutation%20madness/351%20%5BIntermediate%5D%20Permutation%20madness.md)
+### Latest Challenge Update: [353 (Easy) Closest String](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/353%20%5BEasy%5D%20Closest%20String/353%20%5BEasy%5D%20Closest%20String.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.
