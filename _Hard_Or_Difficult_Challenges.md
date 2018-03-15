@@ -1,5 +1,6 @@
 ## Difficult Challenges
 ----
+* [353 [Hard] Create a Simple Stochastic Computing Machine](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/353%20%5BHard%5D%20Create%20a%20Simple%20Stochastic%20Computing%20Machine/353%20%5BHard%5D%20Create%20a%20Simple%20Stochastic%20Computing%20Machine.md)
 * [352 [Hard] Well, Well, Well](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/352%20%5BHard%5D%20Well%2C%20Well%2C%20Well/352%20%5BHard%5D%20Well%2C%20Well%2C%20Well.md)
 * [351 [Hard] Star Battle Solver](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/351%20%5BHard%5D%20Star%20Battle%20solver/351%20%5BHard%5D%20Star%20Battle%20solver.md)
 * [350 [Hard] Which Number Recurs First](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/350%20%5BHard%5D%20Which%20Number%20Recurs%20First/350%20%5BHard%5D%20Which%20Number%20Recurs%20First.md)

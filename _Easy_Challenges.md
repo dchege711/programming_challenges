@@ -1,5 +1,6 @@
 ## Easy Challenges
 -----
+* [354 [Easy] Integer Complexity 1](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/354%20%5BEasy%5D%20Integer%20Complexity%201/354%20%5BEasy%5D%20Integer%20Complexity%201.md)
 * [353 [Easy] Closest String](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/353%20%5BEasy%5D%20Closest%20String/353%20%5BEasy%5D%20Closest%20String.md)
 * [352 [Easy] Making Imgur-Style Links](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/352%20%5BEasy%5D%20Making%20Imgur-style%20Links/352%20%5BEasy%5D%20Making%20Imgur-style%20Links.md)
 * [351 [Easy] Cricket Scoring](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/351%20%5BEasy%5D%20Cricket%20Scoring/351%20%5BEasy%5D%20Cricket%20Scoring.md)

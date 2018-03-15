@@ -1,5 +1,7 @@
 ## Intermediate
 ----
+* [354 [Intermediate] Integer Complexity 2](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/354%20%5BIntermediate%5D%20Integer%20Complexity%202/354%20%5BIntermediate%5D%20Integer%20Complexity%202.md)
+* [353 [Intermediate] The Pancake Sorting Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/353%20%5BIntermediate%5D/353%20%5BIntermediate%5D.md)
 * [352 [Intermediate] 7 Wonders Resource](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation.md)
 * [351 [Intermediate] Permutation Madness](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/351%20%5BIntermediate%5D%20Permutation%20madness/351%20%5BIntermediate%5D%20Permutation%20madness.md)
 * [350 [Intermediate] Balancing my Spending](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/350%20%5BIntermediate%5D%20Balancing%20My%20Spending/350%20%5BIntermediate%5D%20Balancing%20My%20Spending.md)
