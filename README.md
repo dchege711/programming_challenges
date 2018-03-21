@@ -11,14 +11,7 @@
 
 ### Using the Daily Programmer Repository
 
-* Clone the repository.
-```shell
-git clone https://github.com/dchege711/reddit_daily_programmer.git
-```
-* Create your own branch. Attempt solving the challenges within your own branch.
-```shell
-git checkout -b your_solutions
-```
+* Fork the repository. Attempt solving the challenges within your own branch.
 * Occasionally, pull updates from the master branch so as to receive new challenges.
 ```shell
 git pull origin master
