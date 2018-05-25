@@ -1,5 +1,9 @@
 ## Easy Challenges
 -----
+* [361 [Easy] Tally Program](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/361%20%5BEasy%5D%20Tally%20Program/361%20%5BEasy%5D%20Tally%20Program.md)
+* [359 [Easy] Regular Paperfold Sequence Generator](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/359%20%5BEasy%5D%20Regular%20Paperfold%20Sequence%20Generator/359%20%5BEasy%5D%20Regular%20Paperfold%20Sequence%20Generator.md)
+* [358 [Easy] Decipher the Seven Segments](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/358%20%5BEasy%5D%20Decipher%20The%20Seven%20Segments/358%20%5BEasy%5D%20Decipher%20The%20Seven%20Segments.md)
+* [355 [Easy] Alphabet Cipher](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/355%20%5BEasy%5D%20Alphabet%20Cipher/355%20%5BEasy%5D%20Alphabet%20Cipher.md)
 * [354 [Easy] Integer Complexity 1](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/354%20%5BEasy%5D%20Integer%20Complexity%201/354%20%5BEasy%5D%20Integer%20Complexity%201.md)
 * [353 [Easy] Closest String](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/353%20%5BEasy%5D%20Closest%20String/353%20%5BEasy%5D%20Closest%20String.md)
 * [352 [Easy] Making Imgur-Style Links](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/352%20%5BEasy%5D%20Making%20Imgur-style%20Links/352%20%5BEasy%5D%20Making%20Imgur-style%20Links.md)

@@ -1,4 +1,4 @@
-### Latest Challenge Update: [354 (Intermediate) Integer Complexity 2](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/354%20%5BIntermediate%5D%20Integer%20Complexity%202/354%20%5BIntermediate%5D%20Integer%20Complexity%202.md)
+### Latest Challenge Update: [361 (Hard) Sudoku Knight's Tour](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/361%20%5BHard%5D%20Sudoku%20knight's%20tour/361%20%5BHard%5D%20Sudoku%20knight's%20tour.md)
 
 * Note: These hyperlinks have been created using OrganizeScriptsToFolders.py.
 * If they don't work, examine the url and manually navigate to the intended folder.

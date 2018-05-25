@@ -1,5 +1,12 @@
 ## Intermediate
 ----
+* [361 [Intermediate] ElsieFour Low-Tech Cipher](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/361%20%5BIntermediate%5D%20ElsieFour%20low-tech%20cipher/361%20%5BIntermediate%5D%20ElsieFour%20low-tech%20cipher.md)
+* [360 [Intermediate] Find the Nearest Aeroplane](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/360%20%5BIntermediate%5D%20Find%20the%20Nearest%20Aeroplane/360%20%5BIntermediate%5D%20Find%20the%20Nearest%20Aeroplane.md)
+* [359 [Intermediate] Unwrap Some Text](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/359%20%5BIntermediate%5D%20Unwrap%20Some%20Text/359%20%5BIntermediate%5D%20Unwrap%20Some%20Text.md)
+* [358 [Intermediate] Everyone's a Winner!](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/358%20%5BIntermediate%5D%20Everyone's%20A%20Winner!/358%20%5BIntermediate%5D%20Everyone's%20A%20Winner!.md)
+* [357 [Intermediate] Kolakoski Sequence](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/357%20%5BIntermediate%5D%20Kolakoski%20Sequences/357%20%5BIntermediate%5D%20Kolakoski%20Sequences.md)
+* [356 [Intermediate] Goldbach's Weak Conjecture](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/356%20%5BIntermediate%5D%20Goldbach's%20Weak%20Conjecture/356%20%5BIntermediate%5D%20Goldbach's%20Weak%20Conjecture.md)
+* [355 [Intermediate] Possible Number of Pies](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/355%20%5BIntermediate%5D%20Possible%20Number%20of%20Pies/355%20%5BIntermediate%5D%20Possible%20Number%20of%20Pies.md)
 * [354 [Intermediate] Integer Complexity 2](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/354%20%5BIntermediate%5D%20Integer%20Complexity%202/354%20%5BIntermediate%5D%20Integer%20Complexity%202.md)
 * [353 [Intermediate] The Pancake Sorting Problem](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/353%20%5BIntermediate%5D/353%20%5BIntermediate%5D.md)
 * [352 [Intermediate] 7 Wonders Resource](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation/352%20%5BIntermediate%5D%207%20Wonders%20Resource%20Allocation.md)

@@ -1,5 +1,10 @@
 ## Difficult Challenges
 ----
+* [361 [Hard] Sudoku Knight's Tour](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/361%20%5BHard%5D%20Sudoku%20knight's%20tour/361%20%5BHard%5D%20Sudoku%20knight's%20tour.md)
+* [359 [Hard] Primes in Grids](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/359%20%5BHard%5D%20Primes%20in%20Grids/359%20%5BHard%5D%20Primes%20in%20Grids.md)
+* [357 [Hard] Puzzle Me This](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/358%20%5BHard%5D%20Puzzle%20me%20this/358%20%5BHard%5D%20Puzzle%20me%20this.md)
+* [357 [Hard] Continued Fractions](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/357%20%5BHard%5D%20Continued%20Fractions/357%20%5BHard%5D%20Continued%20Fractions.md)
+* [354 [Hard] Integer Complexity 3](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/354%20%5BHard%5D%20Integer%20Complexity%203/354%20%5BHard%5D%20Integer%20Complexity%203.md)
 * [353 [Hard] Create a Simple Stochastic Computing Machine](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/353%20%5BHard%5D%20Create%20a%20Simple%20Stochastic%20Computing%20Machine/353%20%5BHard%5D%20Create%20a%20Simple%20Stochastic%20Computing%20Machine.md)
 * [352 [Hard] Well, Well, Well](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/352%20%5BHard%5D%20Well%2C%20Well%2C%20Well/352%20%5BHard%5D%20Well%2C%20Well%2C%20Well.md)
 * [351 [Hard] Star Battle Solver](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/351%20%5BHard%5D%20Star%20Battle%20solver/351%20%5BHard%5D%20Star%20Battle%20solver.md)
