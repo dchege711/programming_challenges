@@ -1,5 +1,12 @@
 ## Easy Challenges
 -----
+
+* [365 [Easy] Up-Arrow Notation](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/365%20%5BEasy%5D%20Up-arrow%20Notation/365%20%5BEasy%5D%20Up-arrow%20Notation.md)
+
+* [364 [Easy] Create a Dice Roller](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/364%20%5BEasy%5D%20Create%20a%20Dice%20Roller/364%20%5BEasy%5D%20Create%20a%20Dice%20Roller.md)
+
+* [363 [Easy] I Before E Except After C](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/363%20%5BEasy%5D%20I%20before%20E%20except%20after%20C/363%20%5BEasy%5D%20I%20before%20E%20except%20after%20C.md)
+
 * [361 [Easy] Tally Program](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/361%20%5BEasy%5D%20Tally%20Program/361%20%5BEasy%5D%20Tally%20Program.md)
 * [359 [Easy] Regular Paperfold Sequence Generator](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/359%20%5BEasy%5D%20Regular%20Paperfold%20Sequence%20Generator/359%20%5BEasy%5D%20Regular%20Paperfold%20Sequence%20Generator.md)
 * [358 [Easy] Decipher the Seven Segments](https://github.com/dchege711/reddit_daily_programmer/blob/master/Easy/358%20%5BEasy%5D%20Decipher%20The%20Seven%20Segments/358%20%5BEasy%5D%20Decipher%20The%20Seven%20Segments.md)

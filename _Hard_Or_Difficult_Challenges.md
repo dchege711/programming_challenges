@@ -1,5 +1,12 @@
 ## Difficult Challenges
 ----
+
+* [365 [Hard] Tesselations and Tiling](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/365%20%5BHard%5D%20Tessellations%20and%20Tilings/365%20%5BHard%5D%20Tessellations%20and%20Tilings.md)
+
+* [364 [Hard] Tiling with Pentominos](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/364%20%5BHard%5D%20Tiling%20with%20Pentominos/364%20%5BHard%5D%20Tiling%20with%20Pentominos.md)
+
+* [363 [Hard] Anagram Slices](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/363%20%5BHard%5D%20Anagram%20Slices/363%20%5BHard%5D%20Anagram%20Slices.md)
+
 * [361 [Hard] Sudoku Knight's Tour](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/361%20%5BHard%5D%20Sudoku%20knight's%20tour/361%20%5BHard%5D%20Sudoku%20knight's%20tour.md)
 * [359 [Hard] Primes in Grids](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/359%20%5BHard%5D%20Primes%20in%20Grids/359%20%5BHard%5D%20Primes%20in%20Grids.md)
 * [357 [Hard] Puzzle Me This](https://github.com/dchege711/reddit_daily_programmer/blob/master/Hard/358%20%5BHard%5D%20Puzzle%20me%20this/358%20%5BHard%5D%20Puzzle%20me%20this.md)

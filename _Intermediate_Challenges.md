@@ -1,5 +1,14 @@
 ## Intermediate
 ----
+
+* [364 [Intermediate] Sales Commissions](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/365%20%5BIntermediate%5D%20Sales%20Commissions/365%20%5BIntermediate%5D%20Sales%20Commissions.md)
+
+* [364 [Intermediate] The Ducci Sequence](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/364%20%5BIntermediate%5D%20The%20Ducci%20Sequence/364%20%5BIntermediate%5D%20The%20Ducci%20Sequence.md)
+
+* [363 [Intermediate] Word Hyphenation by a Computer](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/363%20%5BIntermediate%5D%20Word%20Hy-phen-a-tion%20By%20Com-put-er/363%20%5BIntermediate%5D%20Word%20Hy-phen-a-tion%20By%20Com-put-er.md)
+
+* [362 [Intermediate] 'Route' Transposition Cipher](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/362%20%5BIntermediate%5D%20%22Route%22%20Transposition%20Cipher/362%20%5BIntermediate%5D%20%22Route%22%20Transposition%20Cipher.md)
+
 * [361 [Intermediate] ElsieFour Low-Tech Cipher](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/361%20%5BIntermediate%5D%20ElsieFour%20low-tech%20cipher/361%20%5BIntermediate%5D%20ElsieFour%20low-tech%20cipher.md)
 * [360 [Intermediate] Find the Nearest Aeroplane](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/360%20%5BIntermediate%5D%20Find%20the%20Nearest%20Aeroplane/360%20%5BIntermediate%5D%20Find%20the%20Nearest%20Aeroplane.md)
 * [359 [Intermediate] Unwrap Some Text](https://github.com/dchege711/reddit_daily_programmer/blob/master/Intermediate/359%20%5BIntermediate%5D%20Unwrap%20Some%20Text/359%20%5BIntermediate%5D%20Unwrap%20Some%20Text.md)
