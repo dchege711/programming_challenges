@@ -1,0 +1,17 @@
+---
+
+layout: home
+title: Easy Challenges
+date: 2019-09-22
+type: toc
+
+---
+
+{% assign posts = site.easy_challenges | where: "type", "writeup" | sort: 'date' | reverse %}
+<ul>
+{% for post in posts %}
+    <li>
+        <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li>
+{% endfor %}
+</ul>
