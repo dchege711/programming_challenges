@@ -11,8 +11,8 @@ E.g. "solution" and "apprehension", though their last syllable is not spelled th
 For this challenge, we won't concern ourselves with syllables proper, only with the last vowel sound and whatever comes afterwards.
 E.g. "gentleman" rhymes with "solution" because their phonetic definitions end in "AH N". Similarly, "form" (F AO R M) and "storm" (S T AO R M) also rhyme.
 
-Our good friends from the [SPHINX project]((http://cmusphinx.sourceforge.net/)) at Carnegie Mellon University have produced all the tools we need.
-Use this [pronouncing dictionary]((http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b)) in conjunction
+Our good friends from the [SPHINX project](http://cmusphinx.sourceforge.net/) at Carnegie Mellon University have produced all the tools we need.
+Use this [pronouncing dictionary](http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b) in conjunction
 with this [phoneme description](http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict-0.7b.phones) to find rhyming words.
 Note that the dictionary uses the [ARPAbet phonetic transcription code](https://en.wikipedia.org/wiki/Arpabet) and
 includes stress indicators for the vowel sounds. Make sure to match the stress indicator of the input word.

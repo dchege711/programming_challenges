@@ -6,7 +6,7 @@ Generates the Baum-Sweet Sequence.
 import sys
 import os
 sys.path.insert(0, os.environ["UTILITIES_PATH"])
-from utilities import test_utilities
+from test_utilities import test_utilities
 
 
 def baum_sweet_number(n):
@@ -45,7 +45,6 @@ def main():
 			test.check(number, baum_number, baum_sweet_number(number))
 
 	print(test.summary())
-	# print("Answer: ", baum_sweet_number(19611206))
 
 if __name__ == "__main__":
 	main()
