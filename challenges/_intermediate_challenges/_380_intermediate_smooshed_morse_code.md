@@ -7,6 +7,14 @@ type: writeup
 
 ---
 
+<nav aria-label="Breadcrumb" class="breadcrumb">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/intermediate_challenges">Intermediate Challenges</a></li>
+        <li><span aria-current="page">{{page.title}}</span></li>
+    </ul>
+</nav>
+
 ## Description
 
 Smooshed Morse code means Morse code with the spaces or other delimiters between encoded letters left out. [See this week's Easy challenge for more detail](https://www.reddit.com/r/dailyprogrammer/comments/cmd1hb/20190805_challenge_380_easy_smooshed_morse_code_1/).

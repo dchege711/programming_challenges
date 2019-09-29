@@ -7,6 +7,13 @@ type: toc
 
 ---
 
+<nav aria-label="Breadcrumb" class="breadcrumb">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><span aria-current="page">{{page.title}}</span></li>
+    </ul>
+</nav>
+
 {% assign posts = site.intermediate_challenges | where: "type", "writeup" | sort: 'date' | reverse %}
 <ul>
 {% for post in posts %}

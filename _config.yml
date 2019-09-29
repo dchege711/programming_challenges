@@ -22,7 +22,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.c13u.com/reddit_daily_programmer" 
 # twitter_username: Chege
 github_username:  dchege711
-github: [metadata]
+github:
+  is_project_page: true
 
 # Build settings
 markdown: kramdown
