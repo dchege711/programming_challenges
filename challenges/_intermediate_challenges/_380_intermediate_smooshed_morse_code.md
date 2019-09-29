@@ -1,6 +1,6 @@
 ---
 
-layout: home
+layout: default
 title: Smooshed Morse Code (Intermediate)
 date: 2019-09-22
 type: writeup
