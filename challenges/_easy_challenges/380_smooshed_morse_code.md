@@ -1,7 +1,7 @@
 ---
 
 layout: default
-title: Smooshed Morse Code (Easy)
+title: Smooshed Morse Code
 date: 2019-09-22
 type: writeup
 
@@ -40,7 +40,7 @@ An obvious problem with this system is that decoding is ambiguous. For instance,
 #### Solution
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/_380_easy_smooshed_morse_code.py %}
+{% include_relative 380_smooshed_morse_code/_380_smooshed_morse_code.py %}
 ```
 
 Seemed reasonable for a beginner's challenge.
@@ -56,7 +56,7 @@ For these challenges, use the [enable1 word list](https://raw.githubusercontent.
 > The sequence `-...-....-.--.` is the code for four different words (`needing`, `nervate`, `niding`, `tiling`). Find the only sequence that's the code for 13 different words.
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/challenge_1.py %}
+{% include_relative 380_smooshed_morse_code/challenge_1.py %}
 ```
 
 My solution uses a prefix tree to use less memory(? assuming that a significant number of smorse representations share prefixes; after all, the alphabet has 2 characters, so why not). I didn't learn about prefix trees until my second CS class. Using a hash table could work as well, and that's not too involving.
@@ -66,7 +66,7 @@ My solution uses a prefix tree to use less memory(? assuming that a significant 
 > `autotomous` encodes to `.-..--------------..-...`, which has 14 dashes in a row. Find the only word that has 15 dashes in a row.
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/challenge_2.py %}
+{% include_relative 380_smooshed_morse_code/challenge_2.py %}
 ```
 
 Using python is cheating at this point :-)
@@ -76,7 +76,7 @@ Using python is cheating at this point :-)
 > Call a word perfectly balanced if its code has the same number of dots as dashes. `counterdemonstrations` is one of two 21-letter words that's perfectly balanced. Find the other one.
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/challenge_3.py %}
+{% include_relative 380_smooshed_morse_code/challenge_3.py %}
 ```
 
 Neat challenge. The most convenient properties were our alphabet having only two letters and the question being a decision query, e.g. is `word` perfectly balanced? These two qualities made an arithmetic approach feasible.
@@ -86,7 +86,7 @@ Neat challenge. The most convenient properties were our alphabet having only two
 > `protectorate` is 12 letters long and encodes to `.--..-.----.-.-.----.-..--.`, which is a palindrome (i.e. the string is the same when reversed). Find the only 13-letter word that encodes to a palindrome.
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/challenge_4.py %}
+{% include_relative 380_smooshed_morse_code/challenge_4.py %}
 ```
 
 Ah, the good old palindrome. If I had a shilling for every time an interviewer asked me this question...
@@ -96,7 +96,7 @@ Ah, the good old palindrome. If I had a shilling for every time an interviewer a
 > `--.---.---.--` is one of five 13-character sequences that does not appear in the encoding of any word. Find the other four.
 
 ```python
-{% include_relative 380_easy_smooshed_morse_code/challenge_5.py %}
+{% include_relative 380_smooshed_morse_code/challenge_5.py %}
 ```
 
 Not trivial, at least to me. The idea is intuitive: have a list of 13 character sequences and check if they appear in any decoding. Finding 13-character sequences is the coin change problem by another name. [I tried to solve it efficiently some time back but failed](https://cards.c13u.com/browse/?cardID=5bb248d57c2b5b00046da685). Chuck bless [itertools.product](https://docs.python.org/3.7/library/itertools.html#itertools.product)

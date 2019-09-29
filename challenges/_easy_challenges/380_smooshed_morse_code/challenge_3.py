@@ -1,7 +1,7 @@
 """challenge_3.py"""
 
 from smorse_utils import word_list
-from _380_easy_smooshed_morse_code import smorse
+from _380_smooshed_morse_code import smorse
 
 def solution() -> str:
     """

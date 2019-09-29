@@ -1,6 +1,6 @@
 """challenge_4.py"""
 
-from _380_easy_smooshed_morse_code import smorse
+from _380_smooshed_morse_code import smorse
 from smorse_utils import word_list
 
 def solution():

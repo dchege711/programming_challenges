@@ -4,7 +4,7 @@ from typing import List
 from collections import defaultdict
 import itertools
 
-from _380_easy_smooshed_morse_code import smorse, ALPHA_TO_MORSE
+from _380_smooshed_morse_code import smorse, ALPHA_TO_MORSE
 from morse_trie import MorseTrie
 from smorse_utils import word_list
 
