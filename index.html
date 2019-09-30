@@ -15,11 +15,11 @@ title: Daily Programmer
 {% assign posts = site.hard_challenges | where: "type", "writeup" | sort: 'date' | reverse | slice: 0, 4 %}
 {% if posts.size > 0 %}
     {% assign toc_file = site.hard_challenges | where: "type", "toc" | first %}
-    <a href="{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
+    <a href="{{site.baseurl}}{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
     <ul>
     {% for post in posts %}
         <li>
-            <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <span>{{ post.date | date_to_string }}</span> » <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         </li>
     {% endfor %}
     </ul>
@@ -28,11 +28,11 @@ title: Daily Programmer
 {% assign posts = site.intermediate_challenges | where: "type", "writeup" | sort: 'date' | reverse | slice: 0, 4 %}
 {% if posts.size > 0 %}
     {% assign toc_file = site.intermediate_challenges | where: "type", "toc" | first %}
-    <a href="{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
+    <a href="{{site.baseurl}}{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
     <ul>
     {% for post in posts %}
         <li>
-            <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <span>{{ post.date | date_to_string }}</span> » <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         </li>
     {% endfor %}
     </ul>
@@ -41,11 +41,11 @@ title: Daily Programmer
 {% assign posts = site.easy_challenges | where: "type", "writeup" | sort: 'date' | reverse | slice: 0, 4 %}
 {% if posts.size > 0 %}
     {% assign toc_file = site.easy_challenges | where: "type", "toc" | first %}
-    <a href="{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
+    <a href="{{site.baseurl}}{{toc_file.url}}"><h2>{{ toc_file.title }}</h2></a>
     <ul>
     {% for post in posts %}
         <li>
-            <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            <span>{{ post.date | date_to_string }}</span> » <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         </li>
     {% endfor %}
     </ul>

@@ -9,8 +9,8 @@ type: writeup
 
 <nav aria-label="Breadcrumb" class="breadcrumb">
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/intermediate_challenges">Intermediate Challenges</a></li>
+        <li><a href="{{site.baseurl}}/">Home</a></li>
+        <li><a href="{{site.baseurl}}/intermediate_challenges">Intermediate Challenges</a></li>
         <li><span aria-current="page">{{page.title}}</span></li>
     </ul>
 </nav>
