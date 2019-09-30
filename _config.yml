@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "url:"
   Unpopular opinion - I like whiteboard questions and puzzles. This site 
   contains my solutions for challenges from various sources.
 # the base hostname & protocol for your site, e.g. http://example.com
-url: "https://www.c13u.com" 
+# url: "https://www.c13u.com" 
 baseurl: "/programming_challenges" # the subpath of your site, e.g. /blog
 # twitter_username: Chege
 github_username:  dchege711
@@ -29,7 +29,7 @@ github: [metadata]
 markdown: kramdown
 theme: jekyll-theme-cayman
 exclude: [Easy, Hard, Intermediate, Scripts, Timeless_Discussions, Bonus]
-permalink: /:categories/:year/:month/:day/:title:output_ext
+permalink: /:categories/:year/:month/:day/:title
 plugins:
   - jekyll-feed
   - jekyll-sitemap
