@@ -18,9 +18,9 @@ email: d.chege711@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Unpopular opinion - I like whiteboard questions and puzzles. This site 
   contains my solutions for challenges from various sources.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/programming_challenges" # the subpath of your site, e.g. /blog
 # the base hostname & protocol for your site, e.g. http://example.com
-url: "https://www.c13u.com/programming_challenges" 
+url: "https://www.c13u.com" 
 # twitter_username: Chege
 github_username:  dchege711
 github:
