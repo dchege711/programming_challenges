@@ -1,19 +1,11 @@
 ---
 
-layout: default
+layout: writeup
 title: Longest Two Character Substring
 date: 2017-09-02 
 type: writeup
 
 ---
-
-<nav aria-label="Breadcrumb" class="breadcrumb">
-    <ul>
-        <li><a href="{{site.baseurl}}/">Home</a></li>
-        <li><a href="{{site.baseurl}}/easy_challenges">Easy Challenges</a></li>
-        <li><span aria-current="page">{{page.title}}</span></li>
-    </ul>
-</nav>
 
 ## Description
 

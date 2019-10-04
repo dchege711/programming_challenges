@@ -1,25 +1,15 @@
 ---
 
-layout: default
+layout: writeup
 title: Linear Feedback Shift Register (Intermediate)
 date: 2018-01-22
 type: writeup
 
 ---
 
-<nav aria-label="Breadcrumb" class="breadcrumb">
-    <ul>
-        <li><a href="{{site.baseurl}}">Home</a></li>
-        <li><a href="{{site.baseurl}}/intermediate_challenges">Intermediate Challenges</a></li>
-        <li><span aria-current="page">{{page.title}}</span></li>
-    </ul>
-</nav>
-
-## Main Challenge
+### Description
 
 [Link to original problem](https://www.reddit.com/r/dailyprogrammer/comments/7r17qr/20180117_challenge_347_intermediate_linear/)
-
-### Description
 
 In computing, a [linear-feedback shift register (LFSR)](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) is a shift register whose input bit is a linear function of its previous state. The most commonly used linear function of single bits is exclusive-or (XOR). Thus, an LFSR is most often a shift register whose input bit is driven by the XOR of some bits of the overall shift register value.
 

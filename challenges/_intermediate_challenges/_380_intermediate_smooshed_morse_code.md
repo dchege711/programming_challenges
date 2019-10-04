@@ -1,19 +1,11 @@
 ---
 
-layout: default
+layout: writeup
 title: Smooshed Morse Code (Intermediate)
 date: 2019-09-22
 type: writeup
 
 ---
-
-<nav aria-label="Breadcrumb" class="breadcrumb">
-    <ul>
-        <li><a href="{{site.baseurl}}/">Home</a></li>
-        <li><a href="{{site.baseurl}}/intermediate_challenges">Intermediate Challenges</a></li>
-        <li><span aria-current="page">{{page.title}}</span></li>
-    </ul>
-</nav>
 
 ## Description
 

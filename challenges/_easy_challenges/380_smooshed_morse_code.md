@@ -1,21 +1,13 @@
 ---
 
-layout: default
+layout: writeup
 title: Smooshed Morse Code
 date: 2019-09-22
 type: writeup
 
 ---
 
-<nav aria-label="Breadcrumb" class="breadcrumb">
-    <ul>
-        <li><a href="{{site.baseurl}}">Home</a></li>
-        <li><a href="{{site.baseurl}}/easy_challenges">Easy Challenges</a></li>
-        <li><span aria-current="page">{{page.title}}</span></li>
-    </ul>
-</nav>
-
-## Main Challenge
+## Description
 
 [Link to Reddit Post](https://www.reddit.com/r/dailyprogrammer/comments/cmd1hb/20190805_challenge_380_easy_smooshed_morse_code_1/)
 
