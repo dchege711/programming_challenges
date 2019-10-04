@@ -2,13 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class UnitTestLFSR {
     
-    public static void main(String[] args) {
-        
-        System.out.println(new File(".").getAbsoluteFile());
-        System.out.println("Yeah!");
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         
         String[] testFiles = {
             "test_cases/347_test_1.txt", "test_cases/347_test_2.txt",
@@ -17,14 +15,11 @@ public class UnitTestLFSR {
         
         for (String fileName: testFiles) {
             FileReader fileReader;
-            try {
-                fileReader = new FileReader(fileName);
-            } catch (FileNotFoundException e) {
-                throw e;
-            }
+            fileReader = new FileReader(fileName);
+
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             
-            String[] tapPositionsStrings = bufferedReader.readLine().split(",");
+            String[] tapPositionsStrings = bufferedReader.readLine().trim().split(",");
             int[] tapPositions = new int[tapPositionsStrings.length];
             for (int i = 0; i < tapPositions.length; i++) {
                 tapPositions[i] = Integer.parseInt(tapPositionsStrings[i]);
@@ -45,9 +40,11 @@ public class UnitTestLFSR {
             String operation = details[0];
             int numberOfIterations = Integer.parseInt(details[2]);
             for (int i = 0; i < numberOfIterations; i++) {
-                assert testLFSR.step(operation) == bufferedReader.readLine().split(" ")[1];
+                assert testLFSR.step(operation) == bufferedReader.readLine().trim().split(" ")[1];
             }
             System.out.println("Passed tests for " + fileName);
+
+            bufferedReader.close();
         }
     }
 }

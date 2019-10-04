@@ -5,11 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - LFSR347",
+            "request": "launch",
+            "mainClass": "LFSR347",
+            "projectName": "programming_challenges_d5d1c75e", 
+            "cwd": ""
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "cwd": ""
         }
     ]
 }

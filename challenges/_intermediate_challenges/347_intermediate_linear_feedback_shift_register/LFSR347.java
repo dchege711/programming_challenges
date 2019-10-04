@@ -13,7 +13,6 @@ public class LFSR347 {
         for (int n: initialValues) {
             this.lfsr.add(getBit(n));
         }
-        System.out.println(toString() + " first = " + this.lfsr.getFirst() + " last = " + this.lfsr.getLast() + "\n");
     }
     
     public BitSet getBit(int a) {
@@ -38,14 +37,10 @@ public class LFSR347 {
             result.xor(this.lfsr.get(this.tapPositions[i]));
             if (operation == "XNOR") result.flip(0);
             else if (operation != "XOR") throw new IllegalArgumentException();
-            // System.out.print(" " + operation + " " + this.lfsr.get(this.tapPositions[i]));
-            // System.out.print(" = " + result);
         }
         
-        BitSet r = this.lfsr.removeLast();
-        System.out.print(" : dropped " + r + " ... " + toString());
+        this.lfsr.removeLast();
         this.lfsr.addFirst(result);
-        System.out.println(" added " + result + " ... " + toString());
         return toString();
     }
     
