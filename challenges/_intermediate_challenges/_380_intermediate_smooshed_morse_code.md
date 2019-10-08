@@ -15,18 +15,15 @@ A permutation of the alphabet is a 26-character string in which each of the lett
 
 Given a smooshed Morse code encoding of a permutation of the alphabet, find the permutation it encodes, or any other permutation that produces the same encoding (in general there will be more than one). It's not enough to write a program that will eventually finish after a very long period of time: run your code through to completion for at least one example.
 
-### Examples
+For example, `.--...-.-.-.....-.--........----.-.-..---.---.--.--.-.-....-..-...-.---..--.----..` encodes `wirnbfzehatqlojpgcvusyxkmd`
 
-```shell
-smalpha(".--...-.-.-.....-.--........----.-.-..---.---.--.--.-.-....-..-...-.---..--.----..")
-    => "wirnbfzehatqlojpgcvusyxkmd"
-smalpha(".----...---.-....--.-........-----....--.-..-.-..--.--...--..-.---.--..-.-...--..-")
-    => "wzjlepdsvothqfxkbgrmyicuna"
-smalpha("..-...-..-....--.---.---.---..-..--....-.....-..-.--.-.-.--.-..--.--..--.----..-..")
-    => "uvfsqmjazxthbidyrkcwegponl"
+### My Solution
+
+I'm used to problems where the resources are not depleted, e.g. I can use `a` as many times as I want. The trickiest part of this challenge for me was keeping track of the substring indexes.
+
+```python
+{% include_relative 380_intermediate_smooshed_morse_code/_380_intermediate_smooshed_morse_code.py %}
 ```
-
-Again, there's more than one valid output for these inputs.
 
 #### Optional bonus 1
 
