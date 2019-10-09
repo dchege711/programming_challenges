@@ -35,8 +35,8 @@ def get_matching_permutations(smorse_text: str) -> List[str]:
     if LEN_SMORSE_TEXT != LEN_VALID_SMORSE_PERMUTATION: return []
 
     # When you have DP, every problem is a memoization problem
-    # I don't know how much memoization saves me, but the analysis is as much as 
-    # solving the problem, so I'll dive right in and optimize later
+    # I don't know how much memoization saves me, but analysis is as involved as 
+    # solving the problem, so I'll dive right in and optimize later (if need be)
     
     permutations_ending_at_idx = defaultdict(list)
     for i in range(LEN_LONGEST_MORSE_LITERAL): 
@@ -66,6 +66,8 @@ def get_matching_permutations(smorse_text: str) -> List[str]:
             
             for permutation in new_permutations:
                 permutations_ending_at_idx[j].append(permutation)
+
+        # if permutations_ending_at_idx[LEN_SMORSE_TEXT-1]: break
 
         # We never check permutations ending at `i-1` ever again
         if i - 1 in permutations_ending_at_idx:
