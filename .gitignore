@@ -1,7 +1,12 @@
+# Custom Rules
+
+.DS_Store
+
+# Jekyll Rules
+
 _site
 .sass-cache
 .jekyll-metadata
-
 
 # Ignore template for Python 
 
