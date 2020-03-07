@@ -2,7 +2,7 @@
 
 layout: writeup
 title: "Day 1: The Tyranny of the Rocket Equation"
-date: 2019-01-08
+date: 2020-01-08
 type: writeup
 
 ---

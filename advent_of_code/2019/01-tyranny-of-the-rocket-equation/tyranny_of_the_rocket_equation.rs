@@ -40,7 +40,6 @@ fn main() {
             // adding this check. What could go wrong at this point?
             // Update: say the line is not valid UTF-8
             if let Ok(mass_str) = line {
-                
                 let mass = mass_str.parse::<i64>().unwrap();
                 total_fuel_needed += fuel_needed_for_mass(mass);
             }
