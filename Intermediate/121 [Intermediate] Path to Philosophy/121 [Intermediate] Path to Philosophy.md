@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [121 (Intermediate) Path to Philosophy](https://www.reddit.com/r/dailyprogrammer/comments/1b3ka1/032713_challenge_121_intermediate_path_to/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

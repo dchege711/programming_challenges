@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [102 (intermediate) (n-character-set strings)](https://www.reddit.com/r/dailyprogrammer/comments/10pf4a/9302012_challenge_102_intermediate_ncharacterset/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [229 (Easy) The Dottie Number](https://www.reddit.com/r/dailyprogrammer/comments/3i99w8/20150824_challenge_229_easy_the_dottie_number/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

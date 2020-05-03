@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [306 (Hard) Generate Strings to Match a Regular Expression](https://www.reddit.com/r/dailyprogrammer/comments/5zxebw/20170317_challenge_306_hard_generate_strings_to/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

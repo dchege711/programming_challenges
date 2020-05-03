@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [202 (Intermediate) Easter Challenge](https://www.reddit.com/r/dailyprogrammer/comments/2wbvuu/20150218_challenge_202_intermediate_easter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

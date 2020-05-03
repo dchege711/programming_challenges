@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [169 (Intermediate) Home-row Spell Check](https://www.reddit.com/r/dailyprogrammer/comments/29od55/722014_challenge_169_intermediate_homerow_spell/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

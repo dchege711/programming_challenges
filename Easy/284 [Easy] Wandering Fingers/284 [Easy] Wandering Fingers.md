@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [284 (Easy) Wandering Fingers](https://www.reddit.com/r/dailyprogrammer/comments/53ijnb/20160919_challenge_284_easy_wandering_fingers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

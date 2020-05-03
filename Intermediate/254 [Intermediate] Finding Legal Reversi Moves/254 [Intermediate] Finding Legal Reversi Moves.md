@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [254 (Intermediate) Finding Legal Reversi Moves](https://www.reddit.com/r/dailyprogrammer/comments/468pvf/20160217_challenge_254_intermediate_finding_legal/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

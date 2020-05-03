@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [14) High & Low Level](https://www.reddit.com/r/dailyprogrammer/comments/2jt5mv/weekly_14_high_low_level/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

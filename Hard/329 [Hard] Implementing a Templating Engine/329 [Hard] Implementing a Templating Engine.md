@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [329 (Hard) Implementing a Templating Engine](https://www.reddit.com/r/dailyprogrammer/comments/6xfdv3/20170901_challenge_329_hard_implementing_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

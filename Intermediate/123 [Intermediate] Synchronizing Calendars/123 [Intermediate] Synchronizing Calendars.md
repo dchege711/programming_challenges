@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [123 (Intermediate) Synchronizing Calendars](https://www.reddit.com/r/dailyprogrammer/comments/1dx3wj/050813_challenge_123_intermediate_synchronizing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

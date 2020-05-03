@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [357 (Hard) Continued Fractions](https://www.reddit.com/r/dailyprogrammer/comments/8dqzyi/20180420_challenge_357_hard_continued_fractions/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

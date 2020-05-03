@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [336 (Hard) Van der Waerden numbers](https://www.reddit.com/r/dailyprogrammer/comments/77m6l4/20171020_challenge_336_hard_van_der_waerden/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

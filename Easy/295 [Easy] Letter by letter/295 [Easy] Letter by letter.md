@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [295 (Easy) Letter by letter](https://www.reddit.com/r/dailyprogrammer/comments/5hy8sm/20161212_challenge_295_easy_letter_by_letter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

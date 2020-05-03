@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [104 (Hard) (Stack Attack)](https://www.reddit.com/r/dailyprogrammer/comments/11pas4/10182012_challenge_104_hard_stack_attack/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

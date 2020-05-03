@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [302 (Intermediate) ASCII Histogram Maker](https://www.reddit.com/r/dailyprogrammer/comments/5st2so/20170208_challenge_302_intermediate_ascii/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

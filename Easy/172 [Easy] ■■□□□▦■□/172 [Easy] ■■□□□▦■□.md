@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [172 (Easy) ■■□□□▦■□](https://www.reddit.com/r/dailyprogrammer/comments/2ba3g3/7212014_challenge_172_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

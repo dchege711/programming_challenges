@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [284 (Intermediate) Punch Card Creator](https://www.reddit.com/r/dailyprogrammer/comments/53sw7z/20160921_challenge_284_intermediate_punch_card/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

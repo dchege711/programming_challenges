@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [(Discussion) Challenge tags (Easy) (Intermediate) (Hard)](https://www.reddit.com/r/dailyprogrammer/comments/28kl7b/discussion_challenge_tags_easy_intermediate_hard/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

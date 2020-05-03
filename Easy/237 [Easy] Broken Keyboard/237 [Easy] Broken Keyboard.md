@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [237 (Easy) Broken Keyboard](https://www.reddit.com/r/dailyprogrammer/comments/3pcb3i/20151019_challenge_237_easy_broken_keyboard/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

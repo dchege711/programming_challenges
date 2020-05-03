@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [81 (easy) (Numerical Calculus I)](https://www.reddit.com/r/dailyprogrammer/comments/x538d/7252012_challenge_81_easy_numerical_calculus_i/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

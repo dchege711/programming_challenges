@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [128 (Intermediate) Covering Potholes](https://www.reddit.com/r/dailyprogrammer/comments/1g7gyi/061213_challenge_128_intermediate_covering/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

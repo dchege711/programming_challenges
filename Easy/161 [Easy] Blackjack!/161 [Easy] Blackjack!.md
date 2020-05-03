@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [161 (Easy) Blackjack!](https://www.reddit.com/r/dailyprogrammer/comments/24r50l/552014_161_easy_blackjack/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

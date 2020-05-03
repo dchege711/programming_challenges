@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [80 (intermediate) (Poker hands)](https://www.reddit.com/r/dailyprogrammer/comments/x0vcj/7232012_challenge_80_intermediate_poker_hands/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

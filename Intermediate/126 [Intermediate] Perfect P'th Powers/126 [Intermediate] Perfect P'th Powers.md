@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [126 (Intermediate) Perfect P'th Powers](https://www.reddit.com/r/dailyprogrammer/comments/1fcpnx/053013_challenge_126_intermediate_perfect_pth/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [113 (Easy) String-type checking](https://www.reddit.com/r/dailyprogrammer/comments/13hmz3/11202012_challenge_113_easy_stringtype_checking/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [89 (easy) (Simple statistical functions)](https://www.reddit.com/r/dailyprogrammer/comments/yj2zq/8202012_challenge_89_easy_simple_statistical/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

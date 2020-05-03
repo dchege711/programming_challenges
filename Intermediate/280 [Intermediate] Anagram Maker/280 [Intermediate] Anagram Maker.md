@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [280 (Intermediate) Anagram Maker](https://www.reddit.com/r/dailyprogrammer/comments/4zcly2/20160824_challenge_280_intermediate_anagram_maker/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

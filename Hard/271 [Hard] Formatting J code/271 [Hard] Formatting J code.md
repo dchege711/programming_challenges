@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [271 (Hard) Formatting J code](https://www.reddit.com/r/dailyprogrammer/comments/4ojbgq/20160617_challenge_271_hard_formatting_j_code/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [146 (Easy) Polygon Perimeter](https://www.reddit.com/r/dailyprogrammer/comments/1tixzk/122313_challenge_146_easy_polygon_perimeter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [320 (Easy) Spiral Ascension](https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [299 (Intermediate) From Maze to graph](https://www.reddit.com/r/dailyprogrammer/comments/5nciz5/20170111_challenge_299_intermediate_from_maze_to/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

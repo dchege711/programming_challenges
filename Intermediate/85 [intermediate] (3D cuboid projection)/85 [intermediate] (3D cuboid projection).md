@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [85 (intermediate) (3D cuboid projection)](https://www.reddit.com/r/dailyprogrammer/comments/xq2ao/832012_challenge_85_intermediate_3d_cuboid/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

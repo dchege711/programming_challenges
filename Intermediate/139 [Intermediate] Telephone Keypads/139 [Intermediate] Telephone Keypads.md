@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [139 (Intermediate) Telephone Keypads](https://www.reddit.com/r/dailyprogrammer/comments/1sody4/12113_challenge_139_intermediate_telephone_keypads/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

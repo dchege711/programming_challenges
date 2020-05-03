@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [273 (Hard) Elggob - Make a Boggle Layout](https://www.reddit.com/r/dailyprogrammer/comments/4qt12j/20160701_challenge_273_hard_elggob_make_a_boggle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

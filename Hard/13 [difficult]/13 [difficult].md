@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [13 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pzobz/2212012_challenge_13_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

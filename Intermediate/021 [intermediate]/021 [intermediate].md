@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [21 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/qp407/392012_challenge_21_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

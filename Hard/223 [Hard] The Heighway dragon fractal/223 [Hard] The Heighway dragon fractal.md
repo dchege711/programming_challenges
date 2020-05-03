@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [223 (Hard) The Heighway dragon fractal](https://www.reddit.com/r/dailyprogrammer/comments/3dl9wr/20150717_challenge_223_hard_the_heighway_dragon/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

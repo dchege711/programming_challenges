@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [194 (Easy) Destringification](https://www.reddit.com/r/dailyprogrammer/comments/2q2xnc/20141222_challenge_194_easy_destringification/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

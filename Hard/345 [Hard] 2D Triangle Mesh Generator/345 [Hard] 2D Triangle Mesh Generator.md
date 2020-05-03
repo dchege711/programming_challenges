@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [345 (Hard) 2D Triangle Mesh Generator](https://www.reddit.com/r/dailyprogrammer/comments/7ljqhl/20171222_challenge_345_hard_2d_triangle_mesh/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

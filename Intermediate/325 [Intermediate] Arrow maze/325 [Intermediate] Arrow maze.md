@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [325 (Intermediate) Arrow maze](https://www.reddit.com/r/dailyprogrammer/comments/6rb98p/20170803_challenge_325_intermediate_arrow_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

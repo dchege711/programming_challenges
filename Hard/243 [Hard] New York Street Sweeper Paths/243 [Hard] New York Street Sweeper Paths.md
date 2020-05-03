@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [243 (Hard) New York Street Sweeper Paths](https://www.reddit.com/r/dailyprogrammer/comments/3vey01/20151204_challenge_243_hard_new_york_street/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

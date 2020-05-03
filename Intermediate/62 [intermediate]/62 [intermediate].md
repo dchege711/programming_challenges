@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [62 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/urqck/682012_challenge_62_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

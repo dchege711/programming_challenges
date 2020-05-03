@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [232 (Easy) Palindromes](https://www.reddit.com/r/dailyprogrammer/comments/3kx6oh/20150914_challenge_232_easy_palindromes/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

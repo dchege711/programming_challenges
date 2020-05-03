@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [213 (Easy) Cellular Automata](https://www.reddit.com/r/dailyprogrammer/comments/3jz8tt/20150907_challenge_213_easy_cellular_automata/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

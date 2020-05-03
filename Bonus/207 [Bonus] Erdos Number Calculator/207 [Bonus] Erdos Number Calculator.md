@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [207 (Bonus) Erdos Number Calculator](https://www.reddit.com/r/dailyprogrammer/comments/30bquq/20150326_challenge_207_bonus_erdos_number/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

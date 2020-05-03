@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [100 (intermediate) ("Bad" Word Filter)](https://www.reddit.com/r/dailyprogrammer/comments/106gse/9202012_challenge_100_intermediate_bad_word_filter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

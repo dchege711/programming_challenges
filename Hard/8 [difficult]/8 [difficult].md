@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [8 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/psf4n/2162012_challenge_8_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

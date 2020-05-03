@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [162 (Hard) Novel Compression, pt. 3](https://www.reddit.com/r/dailyprogrammer/comments/25o2bd/5162014_challenge_162_hard_novel_compression_pt_3/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

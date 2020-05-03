@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [320 (Intermediate) War (card game)](https://www.reddit.com/r/dailyprogrammer/comments/6ilyfi/20170621_challenge_320_intermediate_war_card_game/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

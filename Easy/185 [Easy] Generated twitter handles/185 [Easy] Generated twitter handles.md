@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [185 (Easy) Generated twitter handles](https://www.reddit.com/r/dailyprogrammer/comments/2jt4cx/10202014_challenge_185_easy_generated_twitter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [304 (Intermediate) Horse Race Sorting](https://www.reddit.com/r/dailyprogrammer/comments/5ww6o5/20170301_challenge_304_intermediate_horse_race/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

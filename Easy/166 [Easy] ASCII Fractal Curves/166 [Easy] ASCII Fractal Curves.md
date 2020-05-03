@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [166 (Easy) ASCII Fractal Curves](https://www.reddit.com/r/dailyprogrammer/comments/27pgqv/692014_challenge_166_easy_ascii_fractal_curves/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

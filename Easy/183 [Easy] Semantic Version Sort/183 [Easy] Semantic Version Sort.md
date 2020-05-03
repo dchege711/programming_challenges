@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [183 (Easy) Semantic Version Sort](https://www.reddit.com/r/dailyprogrammer/comments/2igfj9/10062014_challenge_183_easy_semantic_version_sort/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [1 -- Handling Console Input](https://www.reddit.com/r/dailyprogrammer/comments/2a3pzl/weekly_1_handling_console_input/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

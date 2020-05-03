@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [106 (Easy) (Random Talker, Part 1)](https://www.reddit.com/r/dailyprogrammer/comments/11xje0/10232012_challenge_106_easy_random_talker_part_1/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

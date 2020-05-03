@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [267 (Hard) IDDQD](https://www.reddit.com/r/dailyprogrammer/comments/4k8m02/20160520_challenge_267_hard_iddqd/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

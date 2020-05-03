@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [193 (Easy) Acronym Expander](https://www.reddit.com/r/dailyprogrammer/comments/2ptrmp/20141219_challenge_193_easy_acronym_expander/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

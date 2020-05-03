@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [195 (All) 2015 Prep Work](https://www.reddit.com/r/dailyprogrammer/comments/2r4wal/20150102_challenge_195_all_2015_prep_work/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

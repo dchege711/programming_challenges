@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [96 (easy) (Controller Chains)](https://www.reddit.com/r/dailyprogrammer/comments/zfe7v/9052012_challenge_96_easy_controller_chains/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

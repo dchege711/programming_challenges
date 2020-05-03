@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [131 (Intermediate) Simple Ray-Casting](https://www.reddit.com/r/dailyprogrammer/comments/1jz2os/080813_challenge_131_intermediate_simple/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

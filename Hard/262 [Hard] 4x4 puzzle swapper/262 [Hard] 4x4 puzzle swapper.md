@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [262 (Hard) 4x4 puzzle swapper](https://www.reddit.com/r/dailyprogrammer/comments/4ey6as/20160415_challenge_262_hard_4x4_puzzle_swapper/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

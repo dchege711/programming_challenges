@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [305 (Hard) Numbers for Sale](https://www.reddit.com/r/dailyprogrammer/comments/5yoo87/20170310_challenge_305_hard_numbers_for_sale/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

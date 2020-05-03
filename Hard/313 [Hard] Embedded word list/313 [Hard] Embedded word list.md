@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [313 (Hard) Embedded word list](https://www.reddit.com/r/dailyprogrammer/comments/69fxq8/20170505_challenge_313_hard_embedded_word_list/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

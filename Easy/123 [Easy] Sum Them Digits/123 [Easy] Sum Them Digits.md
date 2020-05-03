@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [123 (Easy) Sum Them Digits](https://www.reddit.com/r/dailyprogrammer/comments/1cundw/042213_challenge_123_easy_sum_them_digits/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

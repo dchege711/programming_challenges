@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [223 (Easy) Garland words](https://www.reddit.com/r/dailyprogrammer/comments/3d4fwj/20150713_challenge_223_easy_garland_words/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

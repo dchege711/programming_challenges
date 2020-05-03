@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [149 (Easy) Disemvoweler](https://www.reddit.com/r/dailyprogrammer/comments/1ystvb/022414_challenge_149_easy_disemvoweler/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

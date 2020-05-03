@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [182 (Easy) The Column Conundrum](https://www.reddit.com/r/dailyprogrammer/comments/2hssx6/29092014_challenge_182_easy_the_column_conundrum/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

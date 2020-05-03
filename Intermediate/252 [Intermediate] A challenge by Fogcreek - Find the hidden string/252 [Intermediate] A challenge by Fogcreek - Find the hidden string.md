@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [252 (Intermediate) A challenge by Fogcreek - Find the hidden string](https://www.reddit.com/r/dailyprogrammer/comments/442mec/20160203_challenge_252_intermediate_a_challenge/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

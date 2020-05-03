@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [259 (Intermediate) Mahjong Hands](https://www.reddit.com/r/dailyprogrammer/comments/4bmdwz/20160323_challenge_259_intermediate_mahjong_hands/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

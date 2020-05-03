@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [61 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/uo1a3/662012_challenge_61_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

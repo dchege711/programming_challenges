@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [344 (Easy) Baum-Sweet Sequence](https://www.reddit.com/r/dailyprogrammer/comments/7j33iv/20171211_challenge_344_easy_baumsweet_sequence/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

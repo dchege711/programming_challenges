@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [239 (Intermediate) A Zero-Sum Game of Threes](https://www.reddit.com/r/dailyprogrammer/comments/3rhzdj/20151104_challenge_239_intermediate_a_zerosum/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

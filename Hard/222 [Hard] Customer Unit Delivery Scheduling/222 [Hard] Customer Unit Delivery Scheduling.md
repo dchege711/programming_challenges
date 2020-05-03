@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [222 (Hard) Customer Unit Delivery Scheduling](https://www.reddit.com/r/dailyprogrammer/comments/3cqxuh/20150710_challenge_222_hard_customer_unit/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [82 (easy) (Substring list)](https://www.reddit.com/r/dailyprogrammer/comments/x8rl8/7272012_challenge_82_easy_substring_list/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

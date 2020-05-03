@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [201 (Practical Exercise) Get Your Priorities Right!](https://www.reddit.com/r/dailyprogrammer/comments/2vkwgb/20150211_challenge_201_practical_exercise_get/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

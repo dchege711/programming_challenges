@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [312 (Intermediate) Next largest number](https://www.reddit.com/r/dailyprogrammer/comments/67q3s6/20170426_challenge_312_intermediate_next_largest/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [3) Favorite Data Structure](https://www.reddit.com/r/dailyprogrammer/comments/2bbvqp/weekly_3_favorite_data_structure/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

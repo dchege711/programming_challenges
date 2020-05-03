@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [18) Holiday Code - a time of sharing](https://www.reddit.com/r/dailyprogrammer/comments/2q2zxe/weekly_18_holiday_code_a_time_of_sharing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

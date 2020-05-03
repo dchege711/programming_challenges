@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [178 (Easy) Transformers](https://www.reddit.com/r/dailyprogrammer/comments/2f6a7b/9012014_challenge_178_easy_transformers_matrices/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

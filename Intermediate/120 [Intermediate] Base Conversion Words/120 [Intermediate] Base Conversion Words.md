@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [120 (Intermediate) Base Conversion Words](https://www.reddit.com/r/dailyprogrammer/comments/17zn6g/020613_challenge_120_intermediate_base_conversion/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

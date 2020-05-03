@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [108 (Easy) (Scientific Notation Translator)](https://www.reddit.com/r/dailyprogrammer/comments/1268t4/10272012_challenge_108_easy_scientific_notation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

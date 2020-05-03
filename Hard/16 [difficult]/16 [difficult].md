@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [16 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/q8ays/2272012_challenge_16_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

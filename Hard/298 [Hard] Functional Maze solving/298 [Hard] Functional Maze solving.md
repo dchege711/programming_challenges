@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [298 (Hard) Functional Maze solving](https://www.reddit.com/r/dailyprogrammer/comments/5mzr6x/20170109_challenge_298_hard_functional_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

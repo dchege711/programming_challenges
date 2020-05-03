@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [292 (Easy) Increasing range parsing](https://www.reddit.com/r/dailyprogrammer/comments/5d1l7v/20161115_challenge_292_easy_increasing_range/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

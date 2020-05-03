@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [76 (intermediate) (Probability graph)](https://www.reddit.com/r/dailyprogrammer/comments/wk066/7132012_challenge_76_intermediate_probability/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

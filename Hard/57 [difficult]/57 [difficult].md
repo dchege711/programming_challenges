@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [57 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/u4mkr/5252012_challenge_57_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

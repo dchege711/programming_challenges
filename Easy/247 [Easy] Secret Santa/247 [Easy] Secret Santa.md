@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [247 (Easy) Secret Santa](https://www.reddit.com/r/dailyprogrammer/comments/3yiy2d/20151228_challenge_247_easy_secret_santa/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

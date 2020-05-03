@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [185 (Intermediate) Syntax Highlighting](https://www.reddit.com/r/dailyprogrammer/comments/2k2zdv/10232014_challenge_185_intermediate_syntax/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [226 (Hard) Kakuro Solver](https://www.reddit.com/r/dailyprogrammer/comments/3g2tby/20150807_challenge_226_hard_kakuro_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

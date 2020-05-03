@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [182 (Intermediate) The Data Collator from Jamaica](https://www.reddit.com/r/dailyprogrammer/comments/2i13a4/10012014_challenge_182_intermediate_the_data/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

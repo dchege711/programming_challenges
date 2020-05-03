@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [91 (difficult) (Chess move validation)](https://www.reddit.com/r/dailyprogrammer/comments/yqyrs/8242012_challenge_91_difficult_chess_move/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

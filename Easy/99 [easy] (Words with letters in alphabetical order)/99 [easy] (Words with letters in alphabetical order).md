@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [99 (easy) (Words with letters in alphabetical order)](https://www.reddit.com/r/dailyprogrammer/comments/101m7y/9172012_challenge_99_easy_words_with_letters_in/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

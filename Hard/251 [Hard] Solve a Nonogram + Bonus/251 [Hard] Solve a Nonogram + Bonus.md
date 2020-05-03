@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [251 (Hard) Solve a Nonogram + Bonus](https://www.reddit.com/r/dailyprogrammer/comments/42x90t/20160127_challenge_251_hard_solve_a_nonogram_bonus/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

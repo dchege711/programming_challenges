@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [294 (Easy) Rack management 1](https://www.reddit.com/r/dailyprogrammer/comments/5go843/20161205_challenge_294_easy_rack_management_1/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

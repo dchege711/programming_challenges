@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [338 (Intermediate) Maze turner](https://www.reddit.com/r/dailyprogrammer/comments/7aae56/20171102_challenge_338_intermediate_maze_turner/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

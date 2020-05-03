@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [215 (Easy) Sad Cycles](https://www.reddit.com/r/dailyprogrammer/comments/36cyxf/20150518_challenge_215_easy_sad_cycles/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [192 (Intermediate) Markov Chain Error Detection](https://www.reddit.com/r/dailyprogrammer/comments/2ovt2i/20141210_challenge_192_intermediate_markov_chain/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

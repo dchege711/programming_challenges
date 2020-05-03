@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [88 (difficult) (ASCII art)](https://www.reddit.com/r/dailyprogrammer/comments/y5t0y/8132012_challenge_88_difficult_ascii_art/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

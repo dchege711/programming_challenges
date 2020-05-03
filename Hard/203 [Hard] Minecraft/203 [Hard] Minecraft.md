@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [203 (Hard) Minecraft](https://www.reddit.com/r/dailyprogrammer/comments/2xdqg0/2015227_challenge_203_hard_minecraft_there_and/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

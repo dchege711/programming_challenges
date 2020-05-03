@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [159 (Intermediate) Rock Paper Scissors Lizard Spock - Part 2 Enhancement](https://www.reddit.com/r/dailyprogrammer/comments/23qy19/4232014_challenge_159_intermediate_rock_paper/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

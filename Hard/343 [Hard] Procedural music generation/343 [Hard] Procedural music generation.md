@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [343 (Hard) Procedural music generation](https://www.reddit.com/r/dailyprogrammer/comments/7ifbd5/20171208_challenge_343_hard_procedural_music/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

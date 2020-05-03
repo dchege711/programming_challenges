@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [304 (Easy) Little Accountant](https://www.reddit.com/r/dailyprogrammer/comments/5wnbsi/20170228_challenge_304_easy_little_accountant/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

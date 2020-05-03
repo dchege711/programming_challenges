@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [200 (Intermediate) Metro Tile Meltdown](https://www.reddit.com/r/dailyprogrammer/comments/2uo3yf/20150204_challenge_200_intermediate_metro_tile/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

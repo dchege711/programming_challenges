@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [125 (Intermediate) Halt! It's simulation time!](https://www.reddit.com/r/dailyprogrammer/comments/1euacb/052213_challenge_125_intermediate_halt_its/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

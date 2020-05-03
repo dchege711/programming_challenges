@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [90 (difficult) (Alien P=NP reductions)](https://www.reddit.com/r/dailyprogrammer/comments/ynw9q/8222012_challenge_90_difficult_alien_pnp/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [282 (Intermediate) The final Quixo move](https://www.reddit.com/r/dailyprogrammer/comments/51l1j1/20160907_challenge_282_intermediate_the_final/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

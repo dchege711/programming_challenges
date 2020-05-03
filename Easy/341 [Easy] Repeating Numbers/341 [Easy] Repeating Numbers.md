@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [341 (Easy) Repeating Numbers](https://www.reddit.com/r/dailyprogrammer/comments/7eh6k8/20171121_challenge_341_easy_repeating_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

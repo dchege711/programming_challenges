@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [42 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/sobna/4232012_challenge_42_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

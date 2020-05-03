@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [127 (Easy) McCarthy 91 Function](https://www.reddit.com/r/dailyprogrammer/comments/1f7qp5/052813_challenge_127_easy_mccarthy_91_function/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [210 (Easy) intHarmony.com](https://www.reddit.com/r/dailyprogrammer/comments/32goj8/20150413_challenge_210_easy_intharmonycom/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

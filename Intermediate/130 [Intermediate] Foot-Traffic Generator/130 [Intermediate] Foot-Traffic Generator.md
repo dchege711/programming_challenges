@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [130 (Intermediate) Foot-Traffic Generator](https://www.reddit.com/r/dailyprogrammer/comments/1ihm0q/071713_challenge_130_intermediate_foottraffic/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

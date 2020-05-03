@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [315 (Intermediate) Game of life that has a twist](https://www.reddit.com/r/dailyprogrammer/comments/6bumxo/20170518_challenge_315_intermediate_game_of_life/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

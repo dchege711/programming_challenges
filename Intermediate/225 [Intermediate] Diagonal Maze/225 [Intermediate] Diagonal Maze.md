@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [225 (Intermediate) Diagonal Maze](https://www.reddit.com/r/dailyprogrammer/comments/3f9o7k/20150731_challenge_225_intermediate_diagonal_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

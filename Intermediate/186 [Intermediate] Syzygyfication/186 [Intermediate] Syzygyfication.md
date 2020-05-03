@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [186 (Intermediate) Syzygyfication](https://www.reddit.com/r/dailyprogrammer/comments/2kpnky/10292014_challenge_186_intermediate_syzygyfication/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

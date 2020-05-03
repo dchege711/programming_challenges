@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [38 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/s2na8/4102012_challenge_38_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

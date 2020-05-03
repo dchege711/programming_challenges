@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [303 (Hard) Escaping a dangerous maze](https://www.reddit.com/r/dailyprogrammer/comments/5vwwzg/20170224_challenge_303_hard_escaping_a_dangerous/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [301 (Easy Intemerdiate) Looking for patterns](https://www.reddit.com/r/dailyprogrammer/comments/5rlpz1/20170202_challenge_301_easyintemerdiate_looking/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

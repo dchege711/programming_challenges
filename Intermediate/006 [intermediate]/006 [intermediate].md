@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [6 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/pp81n/2142012_challenge_6_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [129 (Intermediate) N-Dimensional Vectors](https://www.reddit.com/r/dailyprogrammer/comments/1hzq9y/071013_challenge_129_intermediate_ndimensional/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [179 (Intermediate) Roguelike - The traveller Game](https://www.reddit.com/r/dailyprogrammer/comments/2g1c80/9102014_challenge_179_intermediate_roguelike_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

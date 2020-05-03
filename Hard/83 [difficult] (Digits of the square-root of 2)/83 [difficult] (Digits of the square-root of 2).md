@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [83 (difficult) (Digits of the square-root of 2)](https://www.reddit.com/r/dailyprogrammer/comments/xdx8q/7302012_challenge_83_difficult_digits_of_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

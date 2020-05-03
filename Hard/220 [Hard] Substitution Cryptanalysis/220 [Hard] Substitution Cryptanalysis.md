@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [220 (Hard) Substitution Cryptanalysis](https://www.reddit.com/r/dailyprogrammer/comments/3b668g/20150626_challenge_220_hard_substitution/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

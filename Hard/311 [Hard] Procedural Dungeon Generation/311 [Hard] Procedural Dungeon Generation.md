@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [311 (Hard) Procedural Dungeon Generation](https://www.reddit.com/r/dailyprogrammer/comments/66p87v/20170421_challenge_311_hard_procedural_dungeon/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

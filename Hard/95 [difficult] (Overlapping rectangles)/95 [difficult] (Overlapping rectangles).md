@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [95 (difficult) (Overlapping rectangles)](https://www.reddit.com/r/dailyprogrammer/comments/zaa0v/9032012_challenge_95_difficult_overlapping/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

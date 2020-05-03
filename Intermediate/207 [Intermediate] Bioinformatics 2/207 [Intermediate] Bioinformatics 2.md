@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [207 (Intermediate) Bioinformatics 2](https://www.reddit.com/r/dailyprogrammer/comments/307m27/20150325_challenge_207_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

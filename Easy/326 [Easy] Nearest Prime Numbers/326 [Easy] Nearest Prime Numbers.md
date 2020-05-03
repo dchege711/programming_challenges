@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [326 (Easy) Nearest Prime Numbers](https://www.reddit.com/r/dailyprogrammer/comments/6s70oh/2017087_challenge_326_easy_nearest_prime_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [133 (Intermediate) Chain Reaction](https://www.reddit.com/r/dailyprogrammer/comments/1m71k9/091113_challenge_133_intermediate_chain_reaction/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [249 (Easy) Playing the Stock Market](https://www.reddit.com/r/dailyprogrammer/comments/40h9pd/20160111_challenge_249_easy_playing_the_stock/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [365 (Intermediate) Sales Commissions](https://old.reddit.com/r/dailyprogrammer/comments/8xzwl6/20180711_challenge_365_intermediate_sales/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

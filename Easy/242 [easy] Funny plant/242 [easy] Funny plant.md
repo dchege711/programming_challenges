@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [242 (easy) Funny plant](https://www.reddit.com/r/dailyprogrammer/comments/3twuwf/20151123_challenge_242_easy_funny_plant/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

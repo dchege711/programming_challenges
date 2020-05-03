@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [363 (Intermediate) Word Hy-phen-a-tion By Com-put-er](https://old.reddit.com/r/dailyprogrammer/comments/8qxpqd/20180613_challenge_363_intermediate_word/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

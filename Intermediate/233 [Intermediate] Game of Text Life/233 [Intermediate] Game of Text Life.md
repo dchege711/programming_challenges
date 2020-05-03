@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [233 (Intermediate) Game of Text Life](https://www.reddit.com/r/dailyprogrammer/comments/3m2vvk/20150923_challenge_233_intermediate_game_of_text/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

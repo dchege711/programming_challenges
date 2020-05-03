@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [46 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/szz68/4302012_challenge_46_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [168 (Intermediate) Block Count, Length & Area](https://www.reddit.com/r/dailyprogrammer/comments/291x9h/6252014_challenge_168_intermediate_block_count/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

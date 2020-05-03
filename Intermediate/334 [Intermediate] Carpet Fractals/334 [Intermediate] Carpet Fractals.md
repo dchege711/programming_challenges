@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [334 (Intermediate) Carpet Fractals](https://www.reddit.com/r/dailyprogrammer/comments/748ba7/20171004_challenge_334_intermediate_carpet/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

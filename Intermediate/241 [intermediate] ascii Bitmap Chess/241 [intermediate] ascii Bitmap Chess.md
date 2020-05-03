@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [241 (intermediate) ascii Bitmap Chess](https://www.reddit.com/r/dailyprogrammer/comments/3t9lar/20151118_challenge_241_intermediate_ascii_bitmap/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

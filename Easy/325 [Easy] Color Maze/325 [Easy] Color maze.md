@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [325 (Easy) Color maze](https://www.reddit.com/r/dailyprogrammer/comments/6qutez/20170801_challenge_325_easy_color_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

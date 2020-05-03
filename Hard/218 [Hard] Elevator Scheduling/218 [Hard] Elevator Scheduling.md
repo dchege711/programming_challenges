@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [218 (Hard) Elevator Scheduling](https://www.reddit.com/r/dailyprogrammer/comments/39ixxi/20150612_challenge_218_hard_elevator_scheduling/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

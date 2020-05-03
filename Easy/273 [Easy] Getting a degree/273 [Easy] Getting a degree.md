@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [273 (Easy) Getting a degree](https://www.reddit.com/r/dailyprogrammer/comments/4q35ip/20160627_challenge_273_easy_getting_a_degree/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

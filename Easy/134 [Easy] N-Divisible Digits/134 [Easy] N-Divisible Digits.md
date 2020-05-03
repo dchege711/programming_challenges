@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [134 (Easy) N-Divisible Digits](https://www.reddit.com/r/dailyprogrammer/comments/1jtryq/080613_challenge_134_easy_ndivisible_digits/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [100 (difficult) (Min-Max of N-Dimensional Quadratic)](https://www.reddit.com/r/dailyprogrammer/comments/106hps/9202012_challenge_100_difficult_minmax_of/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

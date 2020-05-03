@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [317 (Intermediate) Counting Elements](https://www.reddit.com/r/dailyprogrammer/comments/6eerfk/20170531_challenge_317_intermediate_counting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [101 (easy) (Non-repeating years)](https://www.reddit.com/r/dailyprogrammer/comments/10l8ay/9272012_challenge_101_easy_nonrepeating_years/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

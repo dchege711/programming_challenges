@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [231 (Hard) Eight Husbands for Eight Sisters](https://www.reddit.com/r/dailyprogrammer/comments/3kj1v9/20150911_challenge_231_hard_eight_husbands_for/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

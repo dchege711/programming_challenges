@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [(2015-03-32) Challenge 208 (Bonus) The Infinite Stallman Theorem](https://www.reddit.com/r/dailyprogrammer/comments/310525/20150332_challenge_208_bonus_the_infinite/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

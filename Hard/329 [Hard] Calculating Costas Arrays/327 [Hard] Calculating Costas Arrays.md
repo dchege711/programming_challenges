@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [327 (Hard) Calculating Costas Arrays](https://www.reddit.com/r/dailyprogrammer/comments/6uifb0/20170818_challenge_327_hard_calculating_costas/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

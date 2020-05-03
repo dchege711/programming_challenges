@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [344 (Intermediate) Banker's Algorithm](https://www.reddit.com/r/dailyprogrammer/comments/7jkfu5/20171213_challenge_344_intermediate_bankers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

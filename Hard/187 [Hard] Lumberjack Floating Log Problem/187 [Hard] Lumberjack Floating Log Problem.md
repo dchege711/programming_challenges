@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [187 (Hard) Lumberjack Floating Log Problem](https://www.reddit.com/r/dailyprogrammer/comments/2lljyq/11052014_challenge_187_hard_lumberjack_floating/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

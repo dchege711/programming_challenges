@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [28 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/r59c9/3202012_challenge_28_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

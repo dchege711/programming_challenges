@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [77 (easy) (Enumerating Morse code sequences)](https://www.reddit.com/r/dailyprogrammer/comments/wn3ld/7162012_challenge_77_easy_enumerating_morse_code/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

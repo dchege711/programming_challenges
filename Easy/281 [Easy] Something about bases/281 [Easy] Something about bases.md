@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [281 (Easy) Something about bases](https://www.reddit.com/r/dailyprogrammer/comments/504rdh/20160829_challenge_281_easy_something_about_bases/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [5 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pniaw/2132012_challenge_5_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

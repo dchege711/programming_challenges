@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [295 (Hard) Advanced pacman](https://www.reddit.com/r/dailyprogrammer/comments/5iq4ix/20161216_challenge_295_hard_advanced_pacman/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

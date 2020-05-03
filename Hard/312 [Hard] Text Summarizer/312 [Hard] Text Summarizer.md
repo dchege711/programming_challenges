@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [312 (Hard) Text Summarizer](https://www.reddit.com/r/dailyprogrammer/comments/683w4s/20170428_challenge_312_hard_text_summarizer/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

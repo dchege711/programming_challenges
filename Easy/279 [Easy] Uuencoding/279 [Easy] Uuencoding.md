@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [279 (Easy) Uuencoding](https://www.reddit.com/r/dailyprogrammer/comments/4xy6i1/20160816_challenge_279_easy_uuencoding/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

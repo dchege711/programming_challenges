@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [79 (intermediate) (Plain PGM file viewer)](https://www.reddit.com/r/dailyprogrammer/comments/wvcv9/7182012_challenge_79_intermediate_plain_pgm_file/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [12 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/pxs2x/2202012_challenge_12_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

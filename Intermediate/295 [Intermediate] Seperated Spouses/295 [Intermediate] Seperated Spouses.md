@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [295 (Intermediate) Seperated Spouses](https://www.reddit.com/r/dailyprogrammer/comments/5ijb4z/20161215_challenge_295_intermediate_seperated/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

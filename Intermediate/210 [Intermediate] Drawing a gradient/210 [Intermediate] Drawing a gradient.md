@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [210 (Intermediate) Drawing a gradient](https://www.reddit.com/r/dailyprogrammer/comments/32o5je/20150415_challenge_210_intermediate_drawing_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

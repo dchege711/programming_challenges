@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [216 (Easy) Texas Hold 'Em 1 of 3 - Let's deal.](https://www.reddit.com/r/dailyprogrammer/comments/378h44/20150525_challenge_216_easy_texas_hold_em_1_of_3/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

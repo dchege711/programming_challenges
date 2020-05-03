@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [36 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/ruixl/452012_challenge_36_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

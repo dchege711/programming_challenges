@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [72 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/w1ewk/742012_challenge_72_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

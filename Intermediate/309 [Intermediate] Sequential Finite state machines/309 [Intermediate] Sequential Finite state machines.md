@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [309 (Intermediate) Sequential Finite state machines](https://www.reddit.com/r/dailyprogrammer/comments/63n40x/20170405_challenge_309_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

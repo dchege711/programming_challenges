@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [127 (Hard) Language Detection](https://www.reddit.com/r/dailyprogrammer/comments/1mby3b/091313_challenge_127_hard_language_detection/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

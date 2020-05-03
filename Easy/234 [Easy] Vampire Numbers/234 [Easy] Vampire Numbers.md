@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [234 (Easy) Vampire Numbers](https://www.reddit.com/r/dailyprogrammer/comments/3moxid/20150928_challenge_234_easy_vampire_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

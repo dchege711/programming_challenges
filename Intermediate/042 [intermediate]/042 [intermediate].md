@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [42 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/sobuc/4232012_challenge_42_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

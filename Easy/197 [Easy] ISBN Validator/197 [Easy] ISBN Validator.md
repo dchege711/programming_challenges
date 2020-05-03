@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [197 (Easy) ISBN Validator](https://www.reddit.com/r/dailyprogrammer/comments/2s7ezp/20150112_challenge_197_easy_isbn_validator/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

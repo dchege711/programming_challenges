@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [347 (Hard) Hue Drops Puzzle](https://www.reddit.com/r/dailyprogrammer/comments/7riu6p/20180119_challenge_347_hard_hue_drops_puzzle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

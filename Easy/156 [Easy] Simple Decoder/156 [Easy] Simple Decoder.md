@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [156 (Easy) Simple Decoder](https://www.reddit.com/r/dailyprogrammer/comments/21w3lb/412014_challenge_156_easy_simple_decoder/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

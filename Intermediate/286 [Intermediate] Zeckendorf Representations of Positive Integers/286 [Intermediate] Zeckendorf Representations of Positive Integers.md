@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [286 (Intermediate) Zeckendorf Representations of Positive Integers](https://www.reddit.com/r/dailyprogrammer/comments/55zdxx/20161005_challenge_286_intermediate_zeckendorf/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

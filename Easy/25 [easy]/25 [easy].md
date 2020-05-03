@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [25 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/qxuug/3152012_challenge_25_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

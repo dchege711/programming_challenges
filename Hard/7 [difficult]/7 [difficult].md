@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [7 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pr4vo/2152012_challenge_7_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

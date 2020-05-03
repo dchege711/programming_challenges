@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [307 (Intermediate) Scrabble problem](https://www.reddit.com/r/dailyprogrammer/comments/611tqx/20170322_challenge_307_intermediate_scrabble/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

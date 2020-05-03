@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [239 (Hard) An Encoding of Threes](https://www.reddit.com/r/dailyprogrammer/comments/3rrtxh/20151106_challenge_239_hard_an_encoding_of_threes/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

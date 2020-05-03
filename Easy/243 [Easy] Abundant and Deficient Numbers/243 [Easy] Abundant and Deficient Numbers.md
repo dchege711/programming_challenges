@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [243 (Easy) Abundant and Deficient Numbers](https://www.reddit.com/r/dailyprogrammer/comments/3uuhdk/20151130_challenge_243_easy_abundant_and/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

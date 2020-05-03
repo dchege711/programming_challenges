@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [341 (Intermediate) Listening for Incoming Aircraft](https://www.reddit.com/r/dailyprogrammer/comments/7es7gj/20171122_challenge_341_intermediate_listening_for/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

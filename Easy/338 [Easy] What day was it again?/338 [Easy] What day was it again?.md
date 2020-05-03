@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [338 (Easy) What day was it again?](https://www.reddit.com/r/dailyprogrammer/comments/79npf9/20171030_challenge_338_easy_what_day_was_it_again/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

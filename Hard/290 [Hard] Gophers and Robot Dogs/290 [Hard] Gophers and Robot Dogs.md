@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [290 (Hard) Gophers and Robot Dogs](https://www.reddit.com/r/dailyprogrammer/comments/5b5fc8/20161104_challenge_290_hard_gophers_and_robot_dogs/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

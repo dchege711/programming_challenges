@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [289 (Easy) It's super effective!](https://www.reddit.com/r/dailyprogrammer/comments/5961a5/20161024_challenge_289_easy_its_super_effective/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

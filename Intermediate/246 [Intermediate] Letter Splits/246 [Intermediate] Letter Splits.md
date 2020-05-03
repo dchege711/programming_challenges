@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [246 (Intermediate) Letter Splits](https://www.reddit.com/r/dailyprogrammer/comments/3xye4g/20151223_challenge_246_intermediate_letter_splits/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

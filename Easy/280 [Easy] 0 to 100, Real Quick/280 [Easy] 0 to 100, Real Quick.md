@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [280 (Easy) 0 to 100, Real Quick](https://www.reddit.com/r/dailyprogrammer/comments/4z04vj/20160822_challenge_280_easy_0_to_100_real_quick/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [6) Python Tips and Tricks](https://www.reddit.com/r/dailyprogrammer/comments/2d957i/weekly_6_python_tips_and_tricks/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

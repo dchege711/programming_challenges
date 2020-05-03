@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [270 (Hard) Alien Invasion Inversion](https://www.reddit.com/r/dailyprogrammer/comments/4nga90/20160610_challenge_270_hard_alien_invasion/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

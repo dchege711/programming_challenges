@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [225 (Easy Intermediate) De-columnizing](https://www.reddit.com/r/dailyprogrammer/comments/3esrkm/20150727_challenge_225_easyintermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

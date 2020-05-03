@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [161 (Hard) Phone Network](https://www.reddit.com/r/dailyprogrammer/comments/25576s/592014_challenge_161_hard_phone_network/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [278 (Easy Med) Weave insert Part 1](https://www.reddit.com/r/dailyprogrammer/comments/4wqzph/20160808_challenge_278_easymed_weave_insert_part_1/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

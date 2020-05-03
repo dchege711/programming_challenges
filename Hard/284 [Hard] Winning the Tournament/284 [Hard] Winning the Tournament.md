@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [284 (Hard) Winning the Tournament](https://www.reddit.com/r/dailyprogrammer/comments/545a7x/20160923_challenge_284_hard_winning_the_tournament/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

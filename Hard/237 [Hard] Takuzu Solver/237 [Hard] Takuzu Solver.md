@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [237 (Hard) Takuzu Solver](https://www.reddit.com/r/dailyprogrammer/comments/3pwf17/20151023_challenge_237_hard_takuzu_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

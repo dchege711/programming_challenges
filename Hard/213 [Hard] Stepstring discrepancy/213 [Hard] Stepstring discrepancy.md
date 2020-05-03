@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [213 (Hard) Stepstring discrepancy](https://www.reddit.com/r/dailyprogrammer/comments/358pfk/20150508_challenge_213_hard_stepstring_discrepancy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

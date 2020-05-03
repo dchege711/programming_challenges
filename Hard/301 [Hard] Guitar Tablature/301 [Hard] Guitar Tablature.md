@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [301 (Hard) Guitar Tablature](https://www.reddit.com/r/dailyprogrammer/comments/5rt1cj/20170203_challenge_301_hard_guitar_tablature/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

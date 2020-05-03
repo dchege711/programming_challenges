@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [231 (Intermediate) Set Game Solver](https://www.reddit.com/r/dailyprogrammer/comments/3ke4l6/20150909_challenge_231_intermediate_set_game/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

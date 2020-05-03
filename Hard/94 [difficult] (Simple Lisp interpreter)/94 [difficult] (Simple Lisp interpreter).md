@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [94 (difficult) (Simple Lisp interpreter)](https://www.reddit.com/r/dailyprogrammer/comments/z6o5o/9012012_challenge_94_difficult_simple_lisp/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [288 (Easy) Detecting Alliteration](https://www.reddit.com/r/dailyprogrammer/comments/57zcbm/20161017_challenge_288_easy_detecting_alliteration/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [70 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/vsv47/6292012_challenge_70_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

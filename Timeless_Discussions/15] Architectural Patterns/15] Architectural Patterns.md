@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [15) Architectural Patterns](https://www.reddit.com/r/dailyprogrammer/comments/2ki6mt/weekly_15_architectural_patterns/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

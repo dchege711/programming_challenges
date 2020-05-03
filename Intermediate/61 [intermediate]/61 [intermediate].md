@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [61 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/uo14v/662012_challenge_61_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

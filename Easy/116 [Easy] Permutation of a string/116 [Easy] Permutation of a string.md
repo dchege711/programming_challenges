@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [116 (Easy) Permutation of a string](https://www.reddit.com/r/dailyprogrammer/comments/164zvs/010713_challenge_116_easy_permutation_of_a_string/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [145 (Easy) Tree Generation](https://www.reddit.com/r/dailyprogrammer/comments/1t0r09/121613_challenge_145_easy_tree_generation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

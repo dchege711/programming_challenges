@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [256 (Easy) Oblique and De-Oblique](https://www.reddit.com/r/dailyprogrammer/comments/48a4pu/20160229_challenge_256_easy_oblique_and_deoblique/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [12) Learning a new language](https://www.reddit.com/r/dailyprogrammer/comments/2h5u7q/weekly_12_learning_a_new_language/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

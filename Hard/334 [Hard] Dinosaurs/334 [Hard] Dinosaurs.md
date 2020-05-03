@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [334 (Hard) Dinosaurs](https://www.reddit.com/r/dailyprogrammer/comments/74np6k/20171006_challenge_334_hard_dinosaurs/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

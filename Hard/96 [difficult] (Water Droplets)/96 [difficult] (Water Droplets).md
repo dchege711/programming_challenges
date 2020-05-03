@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [96 (difficult) (Water Droplets)](https://www.reddit.com/r/dailyprogrammer/comments/zff9o/9062012_challenge_96_difficult_water_droplets/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [196 (Hard) Precedence Parsing](https://www.reddit.com/r/dailyprogrammer/comments/2rye5u/20150110_challenge_196_hard_precedence_parsing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [356 (Intermediate) Goldbach's Weak Conjecture](https://www.reddit.com/r/dailyprogrammer/comments/8bh8dh/20180411_challenge_356_intermediate_goldbachs/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

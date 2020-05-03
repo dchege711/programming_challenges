@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [244 (Easy)er - Array language (part 3) - J Forks](https://www.reddit.com/r/dailyprogrammer/comments/3wdm0w/20151209_challenge_244_easyer_array_language_part/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

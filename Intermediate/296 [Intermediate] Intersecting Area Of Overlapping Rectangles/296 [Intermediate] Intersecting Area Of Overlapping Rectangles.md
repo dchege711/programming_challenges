@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [296 (Intermediate) Intersecting Area Of Overlapping Rectangles](https://www.reddit.com/r/dailyprogrammer/comments/5jpt8v/20161222_challenge_296_intermediate_intersecting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

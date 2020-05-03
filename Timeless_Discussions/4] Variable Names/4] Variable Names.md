@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [4) Variable Names](https://www.reddit.com/r/dailyprogrammer/comments/2byh4e/weekly_4_variable_names/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

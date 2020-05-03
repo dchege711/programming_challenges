@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [319 (Hard) Worm Wars 2 - Network Epidemiology](https://www.reddit.com/r/dailyprogrammer/comments/6hm5j2/20170616_challenge_319_hard_worm_wars_2_network/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

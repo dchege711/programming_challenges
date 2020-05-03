@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [13) Personal projects](https://www.reddit.com/r/dailyprogrammer/comments/2ip5fu/weekly_13_personal_projects/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

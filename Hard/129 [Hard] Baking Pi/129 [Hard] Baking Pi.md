@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [129 (Hard) Baking Pi](https://www.reddit.com/r/dailyprogrammer/comments/1qply1/111513_challenge_129_hard_baking_pi/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

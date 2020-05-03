@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [177 (Hard) SCRIPT it Language](https://www.reddit.com/r/dailyprogrammer/comments/2exnal/8292014_challenge_177_hard_script_it_language/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

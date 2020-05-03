@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [142 (Easy) Falling Sand](https://www.reddit.com/r/dailyprogrammer/comments/1rdtky/111113_challenge_142_easy_falling_sand/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [119 (Intermediate) Find the shortest path](https://www.reddit.com/r/dailyprogrammer/comments/17jvoh/013013_challenge_119_intermediate_find_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

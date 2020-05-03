@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [51 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/ti5jc/5112012_challenge_51_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

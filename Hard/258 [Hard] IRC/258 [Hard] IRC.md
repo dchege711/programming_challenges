@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [258 (Hard) IRC](https://www.reddit.com/r/dailyprogrammer/comments/4ayjla/challenge_258_hard_irc_interactivity/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

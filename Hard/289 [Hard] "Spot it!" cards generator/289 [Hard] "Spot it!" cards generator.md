@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [289 (Hard) "Spot it!" cards generator](https://www.reddit.com/r/dailyprogrammer/comments/59vml0/20161028_challenge_289_hard_spot_it_cards/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

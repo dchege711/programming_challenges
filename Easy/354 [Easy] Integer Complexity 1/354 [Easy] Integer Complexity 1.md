@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [354 (Easy) Integer Complexity 1](https://www.reddit.com/r/dailyprogrammer/comments/83uvey/20180312_challenge_354_easy_integer_complexity_1/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

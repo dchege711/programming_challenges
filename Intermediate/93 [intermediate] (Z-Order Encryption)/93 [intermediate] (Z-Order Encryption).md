@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [93 (intermediate) (Z-Order Encryption)](https://www.reddit.com/r/dailyprogrammer/comments/z3a6v/8302012_challenge_93_intermediate_zorder/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

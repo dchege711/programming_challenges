@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [109 (Intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/12csm4/10302012_challenge_109_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

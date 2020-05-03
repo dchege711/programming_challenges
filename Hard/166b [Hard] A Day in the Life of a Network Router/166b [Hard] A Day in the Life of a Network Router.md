@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [166b (Hard) A Day in the Life of a Network Router](https://www.reddit.com/r/dailyprogrammer/comments/287jxh/6152014_challenge_166b_hard_a_day_in_the_life_of/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

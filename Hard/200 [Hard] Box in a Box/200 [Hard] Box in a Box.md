@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [200 (Hard) Box in a Box](https://www.reddit.com/r/dailyprogrammer/comments/2v0tx4/20150206_challenge_200_hard_box_in_a_box/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

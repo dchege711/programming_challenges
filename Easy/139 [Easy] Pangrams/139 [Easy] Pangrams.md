@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [139 (Easy) Pangrams](https://www.reddit.com/r/dailyprogrammer/comments/1pwl73/11413_challenge_139_easy_pangrams/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

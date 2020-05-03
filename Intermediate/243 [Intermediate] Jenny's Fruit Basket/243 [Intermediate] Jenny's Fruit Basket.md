@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [243 (Intermediate) Jenny's Fruit Basket](https://www.reddit.com/r/dailyprogrammer/comments/3v4zsf/20151202_challenge_243_intermediate_jennys_fruit/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

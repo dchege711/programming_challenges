@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [183 (Intermediate) Edge Matching Tile Puzzle](https://www.reddit.com/r/dailyprogrammer/comments/2ip1gj/10082014_challenge_183_intermediate_edge_matching/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

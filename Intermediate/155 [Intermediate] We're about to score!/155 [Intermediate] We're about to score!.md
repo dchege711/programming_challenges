@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [155 (Intermediate) We're about to score!](https://www.reddit.com/r/dailyprogrammer/comments/21ejqz/2632014_challenge_155_intermediate_were_about_to/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

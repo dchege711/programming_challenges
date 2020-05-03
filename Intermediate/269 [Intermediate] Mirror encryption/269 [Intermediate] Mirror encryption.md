@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [269 (Intermediate) Mirror encryption](https://www.reddit.com/r/dailyprogrammer/comments/4m3ddb/20160601_challenge_269_intermediate_mirror/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

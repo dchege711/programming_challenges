@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [291 (Hard) Spaghetti Wiring](https://www.reddit.com/r/dailyprogrammer/comments/5cetzo/20161111_challenge_291_hard_spaghetti_wiring/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [266 (Easy) Basic Graph Statistics](https://www.reddit.com/r/dailyprogrammer/comments/4ijtrt/20160509_challenge_266_easy_basic_graph/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

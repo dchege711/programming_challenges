@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [164 (Easy) Assemble this Scheme into Python](https://www.reddit.com/r/dailyprogrammer/comments/26ijiu/5262014_challenge_164_easy_assemble_this_scheme/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

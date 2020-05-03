@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [276 (Intermediate) Key function](https://www.reddit.com/r/dailyprogrammer/comments/4tqy5c/20160720_challenge_276_intermediate_key_function/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

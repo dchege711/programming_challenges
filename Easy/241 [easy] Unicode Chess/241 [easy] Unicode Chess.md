@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [241 (easy) Unicode Chess](https://www.reddit.com/r/dailyprogrammer/comments/3t0xdw/20151116_challenge_241_easy_unicode_chess/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

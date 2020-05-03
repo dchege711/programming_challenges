@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [286 (Hard) Rush Hour Solver](https://www.reddit.com/r/dailyprogrammer/comments/56bh88/20161007_challenge_286_hard_rush_hour_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

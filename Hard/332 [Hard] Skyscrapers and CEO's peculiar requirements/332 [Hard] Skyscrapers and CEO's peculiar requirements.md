@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [332 (Hard) Skyscrapers and CEO's peculiar requirements](https://www.reddit.com/r/dailyprogrammer/comments/71pzlb/20170922_challenge_332_hard_skyscrapers_and_ceos/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

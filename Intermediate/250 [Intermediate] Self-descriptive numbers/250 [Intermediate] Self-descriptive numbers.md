@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [250 (Intermediate) Self-descriptive numbers](https://www.reddit.com/r/dailyprogrammer/comments/41tdzy/20160120_challenge_250_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

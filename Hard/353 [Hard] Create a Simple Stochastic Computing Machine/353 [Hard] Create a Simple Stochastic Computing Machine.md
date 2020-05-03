@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [353 (Hard) Create a Simple Stochastic Computing Machine](https://www.reddit.com/r/dailyprogrammer/comments/83754b/20180309_challenge_353_hard_create_a_simple/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

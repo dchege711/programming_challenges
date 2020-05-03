@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [224 (Easy) Shuffling a List](https://www.reddit.com/r/dailyprogrammer/comments/3e0hmh/20150720_challenge_224_easy_shuffling_a_list/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [78 (easy) (Keyboard Locale Simulator)](https://www.reddit.com/r/dailyprogrammer/comments/wrqbr/7182012_challenge_78_easy_keyboard_locale/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

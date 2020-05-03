@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [322 (Hard) Static HTTP Server](https://www.reddit.com/r/dailyprogrammer/comments/6lti17/20170707_challenge_322_hard_static_http_server/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

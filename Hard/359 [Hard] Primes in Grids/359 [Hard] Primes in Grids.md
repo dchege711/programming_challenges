@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [359 (Hard) Primes in Grids](https://www.reddit.com/r/dailyprogrammer/comments/8gzaz5/20180504_challenge_359_hard_primes_in_grids/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

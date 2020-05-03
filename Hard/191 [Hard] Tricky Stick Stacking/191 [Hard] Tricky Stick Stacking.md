@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [191 (Hard) Tricky Stick Stacking](https://www.reddit.com/r/dailyprogrammer/comments/2oe0px/2014125_challenge_191_hard_tricky_stick_stacking/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

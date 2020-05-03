@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [1 - IDE Intellisense](https://www.reddit.com/r/dailyprogrammer/comments/2eplay/8272014_contest_1_ide_intellisense/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

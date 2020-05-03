@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [321 (Easy) Talking Clock](https://www.reddit.com/r/dailyprogrammer/comments/6jr76h/20170627_challenge_321_easy_talking_clock/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

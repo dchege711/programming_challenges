@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [268 (Easy) Network and Cards](https://www.reddit.com/r/dailyprogrammer/comments/4knivr/20160523_challenge_268_easy_network_and_cards/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

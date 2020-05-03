@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [98 (intermediate) (Multiple cycling)](https://www.reddit.com/r/dailyprogrammer/comments/zx98u/9152012_challenge_98_intermediate_multiple_cycling/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

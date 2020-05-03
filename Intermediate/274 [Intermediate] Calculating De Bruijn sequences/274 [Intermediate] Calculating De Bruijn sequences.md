@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [274 (Intermediate) Calculating De Bruijn sequences](https://www.reddit.com/r/dailyprogrammer/comments/4riubi/20160706_challenge_274_intermediate_calculating/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

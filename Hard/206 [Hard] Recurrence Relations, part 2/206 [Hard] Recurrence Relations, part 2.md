@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [206 (Hard) Recurrence Relations, part 2](https://www.reddit.com/r/dailyprogrammer/comments/2zna5q/20140320_challenge_206_hard_recurrence_relations/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

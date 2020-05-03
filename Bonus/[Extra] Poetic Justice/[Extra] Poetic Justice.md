@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [(Extra) Poetic Justice](https://www.reddit.com/r/dailyprogrammer/comments/2gs0nq/extra_poetic_justice/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

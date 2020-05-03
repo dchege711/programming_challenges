@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [326 (Hard) Multifaceted alphabet blocks](https://www.reddit.com/r/dailyprogrammer/comments/6t0zua/20170811_challenge_326_hard_multifaceted_alphabet/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [222 (Intermediate) Simple Stream Cipher](https://www.reddit.com/r/dailyprogrammer/comments/3chvxy/20150708_challenge_222_intermediate_simple_stream/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

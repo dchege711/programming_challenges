@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [85 (difficult) (Bitwise arithmetic)](https://www.reddit.com/r/dailyprogrammer/comments/xq385/832012_challenge_85_difficult_bitwise_arithmetic/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

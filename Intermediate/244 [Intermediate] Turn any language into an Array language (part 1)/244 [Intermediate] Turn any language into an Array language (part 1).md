@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [244 (Intermediate) Turn any language into an Array language (part 1)](https://www.reddit.com/r/dailyprogrammer/comments/3vswuc/20151207_challenge_244_intermediate_turn_any/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

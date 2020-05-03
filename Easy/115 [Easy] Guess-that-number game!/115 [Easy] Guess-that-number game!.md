@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [115 (Easy) Guess-that-number game!](https://www.reddit.com/r/dailyprogrammer/comments/15ul7q/122013_challenge_115_easy_guessthatnumber_game/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

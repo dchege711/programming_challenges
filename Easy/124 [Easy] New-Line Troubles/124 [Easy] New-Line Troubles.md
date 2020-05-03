@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [124 (Easy) New-Line Troubles](https://www.reddit.com/r/dailyprogrammer/comments/1ds3sn/050613_challenge_124_easy_newline_troubles/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

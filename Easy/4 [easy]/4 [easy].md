@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [4 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/pm6oj/2122012_challenge_4_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

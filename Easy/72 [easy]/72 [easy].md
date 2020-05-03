@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [72 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/w1e7x/742012_challenge_72_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

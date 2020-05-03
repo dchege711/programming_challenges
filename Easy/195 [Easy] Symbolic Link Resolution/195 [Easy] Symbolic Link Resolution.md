@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [195 (Easy) Symbolic Link Resolution](https://www.reddit.com/r/dailyprogrammer/comments/2qmz12/20141228_challenge_195_easy_symbolic_link/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

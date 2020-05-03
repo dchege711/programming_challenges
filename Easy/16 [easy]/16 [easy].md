@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [16 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/q8aom/2272012_challenge_16_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

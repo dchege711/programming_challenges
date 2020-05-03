@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [101 (difficult) (Boolean Minimization)](https://www.reddit.com/r/dailyprogrammer/comments/10lbjo/9272012_challenge_101_difficult_boolean/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

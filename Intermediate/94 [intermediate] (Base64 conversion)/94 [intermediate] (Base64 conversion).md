@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [94 (intermediate) (Base64 conversion)](https://www.reddit.com/r/dailyprogrammer/comments/z6p3l/9012012_challenge_94_intermediate_base64/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

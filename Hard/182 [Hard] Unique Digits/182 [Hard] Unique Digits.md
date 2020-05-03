@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [182 (Hard) Unique Digits](https://www.reddit.com/r/dailyprogrammer/comments/2i7dlh/10032014_challenge_182_hard_unique_digits/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

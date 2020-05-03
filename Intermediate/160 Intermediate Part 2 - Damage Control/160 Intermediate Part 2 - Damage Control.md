@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [160 Intermediate Part 2 - Damage Control](https://www.reddit.com/r/dailyprogrammer/comments/24da3f/4302014_challenge_160_intermediate_part_2_damage/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [318 (Easy) Countdown Game Show](https://www.reddit.com/r/dailyprogrammer/comments/6fe9cv/20170605_challenge_318_easy_countdown_game_show/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

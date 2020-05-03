@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [77 (intermediate) (Last digit of factorial)](https://www.reddit.com/r/dailyprogrammer/comments/wn3ok/7162012_challenge_77_intermediate_last_digit_of/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

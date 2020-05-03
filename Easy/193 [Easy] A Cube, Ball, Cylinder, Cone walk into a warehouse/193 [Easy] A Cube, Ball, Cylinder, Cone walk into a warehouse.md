@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [193 (Easy) A Cube, Ball, Cylinder, Cone walk into a warehouse](https://www.reddit.com/r/dailyprogrammer/comments/2peac9/20141215_challenge_193_easy_a_cube_ball_cylinder/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

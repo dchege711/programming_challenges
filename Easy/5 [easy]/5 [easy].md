@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [5 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/pnhyn/2122012_challenge_5_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

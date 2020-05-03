@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [26 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/qzig1/3162012_challenge_26_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

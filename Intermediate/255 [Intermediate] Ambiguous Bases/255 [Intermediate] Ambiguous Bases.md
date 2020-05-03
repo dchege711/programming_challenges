@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [255 (Intermediate) Ambiguous Bases](https://www.reddit.com/r/dailyprogrammer/comments/47docs/20160224_challenge_255_intermediate_ambiguous/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

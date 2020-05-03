@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [119 (Hard) Polygon diagonals](https://www.reddit.com/r/dailyprogrammer/comments/19gbdq/030113_challenge_119_hard_polygon_diagonals/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

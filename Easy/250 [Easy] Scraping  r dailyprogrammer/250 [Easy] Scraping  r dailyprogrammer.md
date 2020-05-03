@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [250 (Easy) Scraping  r dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/comments/41hp6u/20160118_challenge_250_easy_scraping/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

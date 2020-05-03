@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [124 (Easy) Edge Sorting](https://www.reddit.com/r/dailyprogrammer/comments/1dsyrk/050613_challenge_124_easy_edge_sorting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

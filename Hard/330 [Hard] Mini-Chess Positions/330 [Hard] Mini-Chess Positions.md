@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [330 (Hard) Mini-Chess Positions](https://www.reddit.com/r/dailyprogrammer/comments/6yu31a/20170908_challenge_330_hard_minichess_positions/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [285 (Intermediate) Cross Platform Language Data Encoding part 2](https://www.reddit.com/r/dailyprogrammer/comments/54wihd/20160928_challenge_285_intermediate_cross/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

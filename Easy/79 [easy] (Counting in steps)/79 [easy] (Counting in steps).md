@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [79 (easy) (Counting in steps)](https://www.reddit.com/r/dailyprogrammer/comments/wvc21/7182012_challenge_79_easy_counting_in_steps/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

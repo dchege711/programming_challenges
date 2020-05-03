@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [213 (Intermediate) The Lazy Typist](https://www.reddit.com/r/dailyprogrammer/comments/351b0o/20150506_challenge_213_intermediate_the_lazy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

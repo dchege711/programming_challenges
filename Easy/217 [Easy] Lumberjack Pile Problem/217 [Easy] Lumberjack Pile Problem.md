@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [217 (Easy) Lumberjack Pile Problem](https://www.reddit.com/r/dailyprogrammer/comments/3840rp/20150601_challenge_217_easy_lumberjack_pile/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

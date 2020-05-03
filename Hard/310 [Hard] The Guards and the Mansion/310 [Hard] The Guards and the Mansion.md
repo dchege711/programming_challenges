@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [310 (Hard) The Guards and the Mansion](https://www.reddit.com/r/dailyprogrammer/comments/65fkwh/20170414_challenge_310_hard_the_guards_and_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

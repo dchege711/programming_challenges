@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [195 (Intermediate) Math Dice](https://www.reddit.com/r/dailyprogrammer/comments/2qxrtk/20141231_challenge_195_intermediate_math_dice/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

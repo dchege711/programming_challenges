@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [121 (Easy) Bytelandian Exchange 1](https://www.reddit.com/r/dailyprogrammer/comments/19mn2d/030413_challenge_121_easy_bytelandian_exchange_1/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

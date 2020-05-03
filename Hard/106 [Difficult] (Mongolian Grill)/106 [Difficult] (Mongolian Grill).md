@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [106 (Difficult) (Mongolian Grill)](https://www.reddit.com/r/dailyprogrammer/comments/11xyiz/10232012_challenge_106_difficult_mongolian_grill/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

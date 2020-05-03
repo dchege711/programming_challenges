@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [276 (Easy) Recktangles](https://www.reddit.com/r/dailyprogrammer/comments/4tetif/20160718_challenge_276_easy_recktangles/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

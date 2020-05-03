@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [339 (Hard) Severing the Power Grid](https://www.reddit.com/r/dailyprogrammer/comments/7c4bju/20171110_challenge_339_hard_severing_the_power/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

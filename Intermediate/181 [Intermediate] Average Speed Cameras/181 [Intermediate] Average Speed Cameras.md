@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [181 (Intermediate) Average Speed Cameras](https://www.reddit.com/r/dailyprogrammer/comments/2hcwzn/09242014_challenge_181_intermediate_average_speed/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [248 (Hard) NotClick game](https://www.reddit.com/r/dailyprogrammer/comments/40035o/20160108_challenge_248_hard_notclick_game/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

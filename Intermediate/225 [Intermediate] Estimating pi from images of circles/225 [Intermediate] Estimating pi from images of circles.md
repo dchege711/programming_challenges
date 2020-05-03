@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [225 (Intermediate) Estimating pi from images of circles](https://www.reddit.com/r/dailyprogrammer/comments/3f0hzk/20150729_challenge_225_intermediate_estimating_pi/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

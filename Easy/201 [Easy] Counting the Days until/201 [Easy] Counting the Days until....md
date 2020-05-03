@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [201 (Easy) Counting the Days until...](https://www.reddit.com/r/dailyprogrammer/comments/2vc5xq/20150209_challenge_201_easy_counting_the_days/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

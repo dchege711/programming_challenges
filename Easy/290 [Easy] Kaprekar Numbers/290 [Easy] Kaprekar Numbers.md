@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [290 (Easy) Kaprekar Numbers](https://www.reddit.com/r/dailyprogrammer/comments/5aemnn/20161031_challenge_290_easy_kaprekar_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

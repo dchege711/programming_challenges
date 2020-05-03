@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [247 (Intermediate) Moving (diagonally) Up in Life](https://www.reddit.com/r/dailyprogrammer/comments/3ysdm2/20151230_challenge_247_intermediate_moving/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

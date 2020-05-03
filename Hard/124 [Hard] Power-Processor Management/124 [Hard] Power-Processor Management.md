@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [124 (Hard) Power-Processor Management](https://www.reddit.com/r/dailyprogrammer/comments/1fhd6h/06113_challenge_124_hard_powerprocessor_management/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

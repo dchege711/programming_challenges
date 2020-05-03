@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [172 (Intermediate) BREACH!](https://www.reddit.com/r/dailyprogrammer/comments/2ba46z/7252014_challenge_172_intermediate_breach/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

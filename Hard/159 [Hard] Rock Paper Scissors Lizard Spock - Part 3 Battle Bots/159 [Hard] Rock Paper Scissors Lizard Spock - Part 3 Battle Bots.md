@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [159 (Hard) Rock Paper Scissors Lizard Spock - Part 3 Battle Bots](https://www.reddit.com/r/dailyprogrammer/comments/23yinj/4252014_challenge_159_hard_rock_paper_scissors/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

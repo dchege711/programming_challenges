@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [130 (Easy) Roll the Dies](https://www.reddit.com/r/dailyprogrammer/comments/1givnn/061713_challenge_130_easy_roll_the_dies/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

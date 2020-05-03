@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [104 (hard) (Image color analyzer)](https://www.reddit.com/r/dailyprogrammer/comments/11ss0k/10202012_challenge_104_hard_image_color_analyzer/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

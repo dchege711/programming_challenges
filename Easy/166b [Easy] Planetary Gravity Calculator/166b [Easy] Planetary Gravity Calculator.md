@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [166b (Easy) Planetary Gravity Calculator](https://www.reddit.com/r/dailyprogrammer/comments/284mep/6142014_challenge_166b_easy_planetary_gravity/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

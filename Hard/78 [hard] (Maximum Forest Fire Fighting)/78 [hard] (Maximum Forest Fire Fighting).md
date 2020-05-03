@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [78 (hard) (Maximum Forest Fire Fighting)](https://www.reddit.com/r/dailyprogrammer/comments/wrquf/7182012_challenge_78_hard_maximum_forest_fire/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

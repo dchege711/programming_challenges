@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [10) The Future](https://www.reddit.com/r/dailyprogrammer/comments/2fxtl4/weekly_10_the_future/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

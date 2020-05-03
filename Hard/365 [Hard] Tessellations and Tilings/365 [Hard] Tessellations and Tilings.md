@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [365 (Hard) Tessellations and Tilings](https://old.reddit.com/r/dailyprogrammer/comments/8ylltu/20180713_challenge_365_hard_tessellations_and/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

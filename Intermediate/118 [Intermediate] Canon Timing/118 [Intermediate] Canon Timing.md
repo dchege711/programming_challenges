@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [118 (Intermediate) Canon Timing](https://www.reddit.com/r/dailyprogrammer/comments/1742uv/012313_challenge_118_intermediate_canon_timing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [170 (Hard) Swiss Tournament with a Danish Twist](https://www.reddit.com/r/dailyprogrammer/comments/2afwlj/7112014_challenge_170_hard_swiss_tournament_with/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

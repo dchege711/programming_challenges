@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [276 (Hard) ∞ Loop solver part 2](https://www.reddit.com/r/dailyprogrammer/comments/4u3e96/20160722_challenge_276_hard_loop_solver_part_2/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

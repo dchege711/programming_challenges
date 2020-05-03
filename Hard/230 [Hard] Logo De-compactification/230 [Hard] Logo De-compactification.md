@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [230 (Hard) Logo De-compactification](https://www.reddit.com/r/dailyprogrammer/comments/3jn6te/20150903_challenge_230_hard_logo/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

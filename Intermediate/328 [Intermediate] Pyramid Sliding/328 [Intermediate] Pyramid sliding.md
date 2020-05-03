@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [328 (Intermediate) Pyramid sliding](https://www.reddit.com/r/dailyprogrammer/comments/6vi9ro/170823_challenge_328_intermediate_pyramid_sliding/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

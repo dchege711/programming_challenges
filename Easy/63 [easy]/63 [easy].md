@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [63 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/uw14f/6112012_challenge_63_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

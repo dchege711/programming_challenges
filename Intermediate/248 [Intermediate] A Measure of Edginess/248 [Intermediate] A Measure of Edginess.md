@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [248 (Intermediate) A Measure of Edginess](https://www.reddit.com/r/dailyprogrammer/comments/3zqiiq/20160106_challenge_248_intermediate_a_measure_of/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

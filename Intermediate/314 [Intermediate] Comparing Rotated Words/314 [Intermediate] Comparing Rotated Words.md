@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [314 (Intermediate) Comparing Rotated Words](https://www.reddit.com/r/dailyprogrammer/comments/6aefs1/20170510_challenge_314_intermediate_comparing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

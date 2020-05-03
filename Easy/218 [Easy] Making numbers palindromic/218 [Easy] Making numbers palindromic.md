@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [218 (Easy) Making numbers palindromic](https://www.reddit.com/r/dailyprogrammer/comments/38yy9s/20150608_challenge_218_easy_making_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

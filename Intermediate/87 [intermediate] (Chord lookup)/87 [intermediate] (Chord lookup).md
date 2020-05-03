@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [87 (intermediate) (Chord lookup)](https://www.reddit.com/r/dailyprogrammer/comments/y0z3y/8102012_challenge_87_intermediate_chord_lookup/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

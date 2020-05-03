@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [325 (Hard) Generating mazes](https://www.reddit.com/r/dailyprogrammer/comments/6rqwxk/20170805_challenge_325_hard_generating_mazes/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

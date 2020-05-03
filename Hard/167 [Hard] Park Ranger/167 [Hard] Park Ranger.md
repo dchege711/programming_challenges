@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [167 (Hard) Park Ranger](https://www.reddit.com/r/dailyprogrammer/comments/28nqeb/6202014_challenge_167_hard_park_ranger/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

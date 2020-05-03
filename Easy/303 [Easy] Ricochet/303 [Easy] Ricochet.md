@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [303 (Easy) Ricochet](https://www.reddit.com/r/dailyprogrammer/comments/5vb1wf/20170221_challenge_303_easy_ricochet/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [358 (Intermediate) Everyone's A Winner!](https://www.reddit.com/r/dailyprogrammer/comments/8ewq2e/20180425_challenge_358_intermediate_everyones_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

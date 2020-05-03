@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [78 (intermediate) (Dependency Planner)](https://www.reddit.com/r/dailyprogrammer/comments/wrqit/7182012_challenge_78_intermediate_dependency/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

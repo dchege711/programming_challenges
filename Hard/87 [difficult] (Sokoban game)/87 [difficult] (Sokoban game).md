@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [87 (difficult) (Sokoban game)](https://www.reddit.com/r/dailyprogrammer/comments/y2lbv/8102012_challenge_87_difficult_sokoban_game/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [175 (Easy) Bogo!](https://www.reddit.com/r/dailyprogrammer/comments/2d8yk5/8112014_challenge_175_easy_bogo/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

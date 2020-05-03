@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [126 (Hard) Not-So-Normal Triangle Search](https://www.reddit.com/r/dailyprogrammer/comments/1i65z6/071213_challenge_126_hard_notsonormal_triangle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

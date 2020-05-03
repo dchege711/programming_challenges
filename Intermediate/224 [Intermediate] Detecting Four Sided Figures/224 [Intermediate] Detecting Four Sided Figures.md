@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [224 (Intermediate) Detecting Four Sided Figures](https://www.reddit.com/r/dailyprogrammer/comments/3e5b0o/20150722_challenge_224_intermediate_detecting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [343 (Intermediate) Mozart's Musical Dice](https://www.reddit.com/r/dailyprogrammer/comments/7i1ib1/20171206_challenge_343_intermediate_mozarts/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

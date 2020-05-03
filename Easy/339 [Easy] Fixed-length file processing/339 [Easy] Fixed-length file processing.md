@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [339 (Easy) Fixed-length file processing](https://www.reddit.com/r/dailyprogrammer/comments/7b5u96/20171106_challenge_339_easy_fixedlength_file/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

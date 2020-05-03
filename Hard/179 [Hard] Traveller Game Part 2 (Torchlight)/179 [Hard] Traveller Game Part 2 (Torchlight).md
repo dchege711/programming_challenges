@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [179 (Hard) Traveller Game Part 2 (Torchlight)](https://www.reddit.com/r/dailyprogrammer/comments/2g7ucz/9122014_challenge_179_hard_traveller_game_part_2/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

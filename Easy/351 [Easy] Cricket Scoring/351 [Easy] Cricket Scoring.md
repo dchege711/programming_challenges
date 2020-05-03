@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [351 (Easy) Cricket Scoring](https://www.reddit.com/r/dailyprogrammer/comments/7x81yg/20180213_challenge_351_easy_cricket_scoring/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [111 (Intermediate) The First Sudoku](https://www.reddit.com/r/dailyprogrammer/comments/12qi97/1162012_challenge_111_intermediate_the_first/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [44 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/srp1p/4252012_challenge_44_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

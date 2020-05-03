@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [196 (Practical Exercise) Ready... set... set!](https://www.reddit.com/r/dailyprogrammer/comments/2rfae0/20150105_challenge_196_practical_exercise_ready/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

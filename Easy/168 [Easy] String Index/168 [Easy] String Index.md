@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [168 (Easy) String Index](https://www.reddit.com/r/dailyprogrammer/comments/299hvt/6272014_challenge_168_easy_string_index/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

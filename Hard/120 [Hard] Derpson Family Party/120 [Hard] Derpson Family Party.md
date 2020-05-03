@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [120 (Hard) Derpson Family Party](https://www.reddit.com/r/dailyprogrammer/comments/1asdd5/032213_challenge_120_hard_derpson_family_party/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

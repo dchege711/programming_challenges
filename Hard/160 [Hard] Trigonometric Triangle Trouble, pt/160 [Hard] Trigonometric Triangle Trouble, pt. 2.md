@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [160 (Hard) Trigonometric Triangle Trouble, pt. 2](https://www.reddit.com/r/dailyprogrammer/comments/24hr25/522014_challenge_160_hard_trigonometric_triangle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

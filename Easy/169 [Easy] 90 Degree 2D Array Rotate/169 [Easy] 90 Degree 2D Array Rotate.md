@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [169 (Easy) 90 Degree 2D Array Rotate](https://www.reddit.com/r/dailyprogrammer/comments/29i9jw/6302014_challenge_169_easy_90_degree_2d_array/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

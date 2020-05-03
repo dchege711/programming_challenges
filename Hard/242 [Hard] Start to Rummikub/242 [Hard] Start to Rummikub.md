@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [242 (Hard) Start to Rummikub](https://www.reddit.com/r/dailyprogrammer/comments/3ufwyf/20151127_challenge_242_hard_start_to_rummikub/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

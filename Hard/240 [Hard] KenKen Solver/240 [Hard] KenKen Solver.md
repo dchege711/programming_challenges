@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [240 (Hard) KenKen Solver](https://www.reddit.com/r/dailyprogrammer/comments/3snorf/20151113_challenge_240_hard_kenken_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [306 (Intermediate) Gray Code](https://www.reddit.com/r/dailyprogrammer/comments/5zj7e4/20170315_challenge_306_intermediate_gray_code/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

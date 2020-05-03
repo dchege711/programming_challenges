@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [93 (difficult) (15-puzzle)](https://www.reddit.com/r/dailyprogrammer/comments/z3a9x/8302012_challenge_93_difficult_15puzzle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

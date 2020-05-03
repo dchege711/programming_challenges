@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [81 (intermediate) (Local Minimization)](https://www.reddit.com/r/dailyprogrammer/comments/x539t/7252012_challenge_81_intermediate_local/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

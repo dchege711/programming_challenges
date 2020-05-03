@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [288 (Intermediate) Stars and Stripes and Vertices](https://www.reddit.com/r/dailyprogrammer/comments/589txl/20161019_challenge_288_intermediate_stars_and/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

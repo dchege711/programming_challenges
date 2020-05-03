@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [308 (Easy) Let it burn](https://www.reddit.com/r/dailyprogrammer/comments/61ub0j/20170327_challenge_308_easy_let_it_burn/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

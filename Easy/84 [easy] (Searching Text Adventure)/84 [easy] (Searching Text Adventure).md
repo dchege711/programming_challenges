@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [84 (easy) (Searching Text Adventure)](https://www.reddit.com/r/dailyprogrammer/comments/xilfu/812012_challenge_84_easy_searching_text_adventure/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [45 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/sv6xs/4272012_challenge_45_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

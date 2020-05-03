@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [154 (Intermediate) Gorellian Alphabet Sort](https://www.reddit.com/r/dailyprogrammer/comments/20sjif/4192014_challenge_154_intermediate_gorellian/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

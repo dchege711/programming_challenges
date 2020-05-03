@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [87 (easy) (Rectangle intersection)](https://www.reddit.com/r/dailyprogrammer/comments/y26pr/8102012_challenge_87_easy_rectangle_intersection/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

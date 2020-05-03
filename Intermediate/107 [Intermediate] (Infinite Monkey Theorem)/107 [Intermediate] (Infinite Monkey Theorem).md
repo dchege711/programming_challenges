@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [107 (Intermediate) (Infinite Monkey Theorem)](https://www.reddit.com/r/dailyprogrammer/comments/122c6d/10252012_challenge_107_intermediate_infinite/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

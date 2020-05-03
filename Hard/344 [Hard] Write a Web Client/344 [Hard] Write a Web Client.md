@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [344 (Hard) Write a Web Client](https://www.reddit.com/r/dailyprogrammer/comments/7jzy8k/20171215_challenge_344_hard_write_a_web_client/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

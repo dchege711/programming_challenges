@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [267 (Intermediate) Vive la résistance!](https://www.reddit.com/r/dailyprogrammer/comments/4jx7y8/20160518_challenge_267_intermediate_vive_la/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

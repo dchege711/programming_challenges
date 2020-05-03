@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [221 (Hard) Poetry in a haystack](https://www.reddit.com/r/dailyprogrammer/comments/3bzipa/20150703_challenge_221_hard_poetry_in_a_haystack/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

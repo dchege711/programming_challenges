@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [208 (Hard) The Universal Machine](https://www.reddit.com/r/dailyprogrammer/comments/31aja8/20150403_challenge_208_hard_the_universal_machine/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

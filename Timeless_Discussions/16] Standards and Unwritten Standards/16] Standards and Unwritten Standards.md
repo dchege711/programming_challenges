@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [16) Standards and Unwritten Standards](https://www.reddit.com/r/dailyprogrammer/comments/2lvboj/weekly_16_standards_and_unwritten_standards/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

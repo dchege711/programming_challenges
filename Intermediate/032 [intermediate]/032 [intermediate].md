@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [32 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/rhs8i/3282012_challenge_32_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

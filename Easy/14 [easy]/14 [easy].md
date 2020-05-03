@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [14 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/q2v2k/2232012_challenge_14_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

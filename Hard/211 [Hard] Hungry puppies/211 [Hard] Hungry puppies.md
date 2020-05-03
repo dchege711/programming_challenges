@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [211 (Hard) Hungry puppies](https://www.reddit.com/r/dailyprogrammer/comments/33ow0c/20150424_challenge_211_hard_hungry_puppies/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

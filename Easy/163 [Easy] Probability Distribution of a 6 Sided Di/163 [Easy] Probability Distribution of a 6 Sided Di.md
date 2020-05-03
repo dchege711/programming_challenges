@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [163 (Easy) Probability Distribution of a 6 Sided Di](https://www.reddit.com/r/dailyprogrammer/comments/25y2d0/5192014_challenge_163_easy_probability/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

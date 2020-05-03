@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [340 (Intermediate) Walk in a Minefield](https://www.reddit.com/r/dailyprogrammer/comments/7d4yoe/20171114_challenge_340_intermediate_walk_in_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [237 (Intermediate) Heighmap of Boxes](https://www.reddit.com/r/dailyprogrammer/comments/3pnd3t/20151021_challenge_237_intermediate_heighmap_of/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

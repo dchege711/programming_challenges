@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [174 (Easy) Thue-Morse Sequences](https://www.reddit.com/r/dailyprogrammer/comments/2cld8m/8042014_challenge_174_easy_thuemorse_sequences/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [187 (Easy) A Flagon of Flags](https://www.reddit.com/r/dailyprogrammer/comments/2l6dll/11032014_challenge_187_easy_a_flagon_of_flags/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

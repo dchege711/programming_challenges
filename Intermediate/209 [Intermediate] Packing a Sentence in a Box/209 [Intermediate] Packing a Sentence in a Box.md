@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [209 (Intermediate) Packing a Sentence in a Box](https://www.reddit.com/r/dailyprogrammer/comments/31thwb/20150408_challenge_209_intermediate_packing_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

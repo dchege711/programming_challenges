@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [138 (Easy) Repulsion-Force](https://www.reddit.com/r/dailyprogrammer/comments/1ml669/091713_challenge_138_easy_repulsionforce/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

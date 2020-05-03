@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [7) Programming Tools -- The Editors](https://www.reddit.com/r/dailyprogrammer/comments/2dwc2p/weekly_7_programming_tools_the_editors/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

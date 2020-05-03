@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [297 (Hard) Parentheses trees](https://www.reddit.com/r/dailyprogrammer/comments/5l42dx/20161230_challenge_297_hard_parentheses_trees/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

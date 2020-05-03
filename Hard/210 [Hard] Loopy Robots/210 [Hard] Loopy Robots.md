@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [210 (Hard) Loopy Robots](https://www.reddit.com/r/dailyprogrammer/comments/32vlg8/20150417_challenge_210_hard_loopy_robots/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

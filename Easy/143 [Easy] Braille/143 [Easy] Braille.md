@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [143 (Easy) Braille](https://www.reddit.com/r/dailyprogrammer/comments/1s061q/120313_challenge_143_easy_braille/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

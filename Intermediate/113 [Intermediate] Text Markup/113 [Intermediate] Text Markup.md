@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [113 (Intermediate) Text Markup](https://www.reddit.com/r/dailyprogrammer/comments/13hmz5/11202012_challenge_113_intermediate_text_markup/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

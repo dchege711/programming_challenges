@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [207 (Hard) Bioinformatics 3](https://www.reddit.com/r/dailyprogrammer/comments/30g454/20150327_challenge_207_hard_bioinformatics_3/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

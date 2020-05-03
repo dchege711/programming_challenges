@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [156 (Intermediate) Managing Workers](https://www.reddit.com/r/dailyprogrammer/comments/21yuep/422014_challenge_156_intermediate_managing_workers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

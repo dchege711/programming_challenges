@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [316 (Hard) Longest Uncrossed Knight's Path](https://www.reddit.com/r/dailyprogrammer/comments/6dgiig/20170526_challenge_316_hard_longest_uncrossed/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

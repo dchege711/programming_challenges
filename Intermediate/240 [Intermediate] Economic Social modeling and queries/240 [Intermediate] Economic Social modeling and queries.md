@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [240 (Intermediate) Economic Social modeling and queries](https://www.reddit.com/r/dailyprogrammer/comments/3sd86k/20151111_challenge_240_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

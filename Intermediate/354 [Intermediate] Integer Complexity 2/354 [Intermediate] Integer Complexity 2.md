@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [354 (Intermediate) Integer Complexity 2](https://www.reddit.com/r/dailyprogrammer/comments/84f35x/20180314_challenge_354_intermediate_integer/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

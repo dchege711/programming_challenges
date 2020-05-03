@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [158 (Intermediate) Part 1 - The ASCII Architect](https://www.reddit.com/r/dailyprogrammer/comments/236va2/4162014_challenge_158_intermediate_part_1_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

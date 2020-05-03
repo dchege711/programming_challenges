@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [112 (Intermediate)Date Sorting](https://www.reddit.com/r/dailyprogrammer/comments/137f87/11142012_challenge_112_intermediatedate_sorting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

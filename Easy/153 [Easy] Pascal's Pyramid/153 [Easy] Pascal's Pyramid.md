@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [153 (Easy) Pascal's Pyramid](https://www.reddit.com/r/dailyprogrammer/comments/20l2it/17042014_challenge_153_easy_pascals_pyramid/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

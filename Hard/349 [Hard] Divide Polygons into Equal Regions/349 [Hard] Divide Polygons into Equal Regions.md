@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [349 (Hard) Divide Polygons into Equal Regions](https://www.reddit.com/r/dailyprogrammer/comments/7us3w7/20180202_challenge_349_hard_divide_polygons_into/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

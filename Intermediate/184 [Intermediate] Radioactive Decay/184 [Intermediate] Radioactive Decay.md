@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [184 (Intermediate) Radioactive Decay](https://www.reddit.com/r/dailyprogrammer/comments/2jcgej/10152014_challenge_184_intermediate_radioactive/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

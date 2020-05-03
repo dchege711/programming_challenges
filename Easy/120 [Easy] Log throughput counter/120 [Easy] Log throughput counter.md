@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [120 (Easy) Log throughput counter](https://www.reddit.com/r/dailyprogrammer/comments/17uw4s/020413_challenge_120_easy_log_throughput_counter/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

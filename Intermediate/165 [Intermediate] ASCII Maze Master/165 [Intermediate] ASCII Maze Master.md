@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [165 (Intermediate) ASCII Maze Master](https://www.reddit.com/r/dailyprogrammer/comments/278ptv/642014_challenge_165_intermediate_ascii_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [365 (Easy) Up-arrow Notation](https://old.reddit.com/r/dailyprogrammer/comments/8xbxi9/20180709_challenge_365_easy_uparrow_notation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

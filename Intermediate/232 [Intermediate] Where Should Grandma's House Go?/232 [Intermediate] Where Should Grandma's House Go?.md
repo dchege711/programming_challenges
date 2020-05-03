@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [232 (Intermediate) Where Should Grandma's House Go?](https://www.reddit.com/r/dailyprogrammer/comments/3l61vx/20150916_challenge_232_intermediate_where_should/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

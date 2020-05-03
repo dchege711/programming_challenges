@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [64 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/uzx7s/6132012_challenge_64_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

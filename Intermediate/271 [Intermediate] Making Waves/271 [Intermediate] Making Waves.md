@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [271 (Intermediate) Making Waves](https://www.reddit.com/r/dailyprogrammer/comments/4o74p3/20160615_challenge_271_intermediate_making_waves/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [186 (Special) Code or Treat - Halloween 2014](https://www.reddit.com/r/dailyprogrammer/comments/2kwfqr/10312014_challenge_186_special_code_or_treat/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

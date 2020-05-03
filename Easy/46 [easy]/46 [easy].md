@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [46 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/szz5y/4302012_challenge_46_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

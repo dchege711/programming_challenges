@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [123 (Hard) Robot Jousting](https://www.reddit.com/r/dailyprogrammer/comments/1ej32w/051013_challenge_123_hard_robot_jousting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

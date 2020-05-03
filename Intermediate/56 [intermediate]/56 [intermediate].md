@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [56 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/u0tdu/5232012_challenge_56_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

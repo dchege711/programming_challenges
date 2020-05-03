@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [158 (Easy) The Torn Number](https://www.reddit.com/r/dailyprogrammer/comments/230m05/4142014_challenge_158_easy_the_torn_number/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

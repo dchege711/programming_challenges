@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [111 (Difficult) The Josephus Problem](https://www.reddit.com/r/dailyprogrammer/comments/12qicm/1162012_challenge_111_difficult_the_josephus/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

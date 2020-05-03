@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [118 (Hard) Alphabetizing cipher](https://www.reddit.com/r/dailyprogrammer/comments/178vsz/012513_challenge_118_hard_alphabetizing_cipher/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

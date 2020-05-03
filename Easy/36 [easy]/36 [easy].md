@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [36 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/ruiob/452012_challenge_36_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [99 (intermediate) (Unemployment map of the United States)](https://www.reddit.com/r/dailyprogrammer/comments/101mi5/9172012_challenge_99_intermediate_unemployment/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

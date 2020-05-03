@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [217 (Intermediate) Space Code Breaking](https://www.reddit.com/r/dailyprogrammer/comments/38fjll/20150603_challenge_217_intermediate_space_code/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

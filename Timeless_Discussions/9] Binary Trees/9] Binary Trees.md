@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [9) Binary Trees](https://www.reddit.com/r/dailyprogrammer/comments/2f6mo2/weekly_9_binary_trees/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

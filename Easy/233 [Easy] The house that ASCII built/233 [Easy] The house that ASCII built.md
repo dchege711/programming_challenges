@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [233 (Easy) The house that ASCII built](https://www.reddit.com/r/dailyprogrammer/comments/3ltee2/20150921_challenge_233_easy_the_house_that_ascii/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

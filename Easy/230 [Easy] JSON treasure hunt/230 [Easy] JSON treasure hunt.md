@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [230 (Easy) JSON treasure hunt](https://www.reddit.com/r/dailyprogrammer/comments/3j3pvm/20150831_challenge_230_easy_json_treasure_hunt/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

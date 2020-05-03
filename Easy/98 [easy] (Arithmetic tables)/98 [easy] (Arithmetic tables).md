@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [98 (easy) (Arithmetic tables)](https://www.reddit.com/r/dailyprogrammer/comments/zx8vw/9152012_challenge_98_easy_arithmetic_tables/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

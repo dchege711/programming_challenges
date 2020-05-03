@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [293 (Easy) Defusing the bomb](https://www.reddit.com/r/dailyprogrammer/comments/5e4mde/20161121_challenge_293_easy_defusing_the_bomb/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [161 (Medium) Appointing Workers](https://www.reddit.com/r/dailyprogrammer/comments/24ypno/572014_challenge_161_medium_appointing_workers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

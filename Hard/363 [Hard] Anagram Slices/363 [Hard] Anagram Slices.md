@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [363 (Hard) Anagram Slices](https://old.reddit.com/r/dailyprogrammer/comments/8rcjx0/20180615_challenge_363_hard_anagram_slices/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

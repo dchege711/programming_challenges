@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [141 (Easy) Monty Hall Simulation](https://www.reddit.com/r/dailyprogrammer/comments/1qdw40/111113_challenge_141_easy_monty_hall_simulation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

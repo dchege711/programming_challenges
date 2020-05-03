@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [(PSA)  r DailyProgrammer IRC Channel](https://www.reddit.com/r/dailyprogrammer/comments/2dtqr7/psa_rdailyprogrammer_irc_channel/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

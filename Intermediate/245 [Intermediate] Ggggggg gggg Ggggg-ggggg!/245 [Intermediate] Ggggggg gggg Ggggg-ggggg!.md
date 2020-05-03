@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [245 (Intermediate) Ggggggg gggg Ggggg-ggggg!](https://www.reddit.com/r/dailyprogrammer/comments/3x3hqa/20151216_challenge_245_intermediate_ggggggg_gggg/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

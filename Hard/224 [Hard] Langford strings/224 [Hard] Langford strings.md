@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [224 (Hard) Langford strings](https://www.reddit.com/r/dailyprogrammer/comments/3efbfh/20150724_challenge_224_hard_langford_strings/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

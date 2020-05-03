@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [206 (Intermediate) Maximizing Crop Irrigation](https://www.reddit.com/r/dailyprogrammer/comments/2zezvf/20150318_challenge_206_intermediate_maximizing/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

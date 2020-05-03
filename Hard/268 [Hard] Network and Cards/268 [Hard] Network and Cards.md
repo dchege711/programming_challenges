@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [268 (Hard) Network and Cards](https://www.reddit.com/r/dailyprogrammer/comments/4lavv6/20160527_challenge_268_hard_network_and_cards/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

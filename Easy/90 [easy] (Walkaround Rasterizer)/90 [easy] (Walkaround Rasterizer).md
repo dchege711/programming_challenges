@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [90 (easy) (Walkaround Rasterizer)](https://www.reddit.com/r/dailyprogrammer/comments/ynw53/8222012_challenge_90_easy_walkaround_rasterizer/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

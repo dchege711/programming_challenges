@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [135 (Easy) Arithmetic Equations](https://www.reddit.com/r/dailyprogrammer/comments/1k7s7p/081313_challenge_135_easy_arithmetic_equations/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

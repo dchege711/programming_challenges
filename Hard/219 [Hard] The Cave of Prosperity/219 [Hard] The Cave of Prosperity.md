@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [219 (Hard) The Cave of Prosperity](https://www.reddit.com/r/dailyprogrammer/comments/3aewlg/20150617_challenge_219_hard_the_cave_of_prosperity/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

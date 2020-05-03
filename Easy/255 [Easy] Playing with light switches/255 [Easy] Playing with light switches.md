@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [255 (Easy) Playing with light switches](https://www.reddit.com/r/dailyprogrammer/comments/46zm8m/20160222_challenge_255_easy_playing_with_light/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

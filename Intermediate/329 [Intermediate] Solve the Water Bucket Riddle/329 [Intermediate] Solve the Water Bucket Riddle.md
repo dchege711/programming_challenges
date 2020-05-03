@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [329 (Intermediate) Solve the Water Bucket Riddle](https://www.reddit.com/r/dailyprogrammer/comments/6x77p1/20170831_challenge_329_intermediate_solve_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

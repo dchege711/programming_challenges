@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [188 (Intermediate) Box Plot Generator](https://www.reddit.com/r/dailyprogrammer/comments/2m48nn/20141112_challenge_188_intermediate_box_plot/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

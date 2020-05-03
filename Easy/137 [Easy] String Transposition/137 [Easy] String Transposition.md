@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [137 (Easy) String Transposition](https://www.reddit.com/r/dailyprogrammer/comments/1m1jam/081313_challenge_137_easy_string_transposition/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

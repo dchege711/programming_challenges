@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [96 (intermediate) (Parsing English Values)](https://www.reddit.com/r/dailyprogrammer/comments/zfeb2/9062012_challenge_96_intermediate_parsing_english/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

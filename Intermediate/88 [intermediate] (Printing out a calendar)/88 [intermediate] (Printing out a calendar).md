@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [88 (intermediate) (Printing out a calendar)](https://www.reddit.com/r/dailyprogrammer/comments/y5svk/8132012_challenge_88_intermediate_printing_out_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

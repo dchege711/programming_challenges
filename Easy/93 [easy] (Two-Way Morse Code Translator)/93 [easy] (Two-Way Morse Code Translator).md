@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [93 (easy) (Two-Way Morse Code Translator)](https://www.reddit.com/r/dailyprogrammer/comments/z3a4y/8302012_challenge_93_easy_twoway_morse_code/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

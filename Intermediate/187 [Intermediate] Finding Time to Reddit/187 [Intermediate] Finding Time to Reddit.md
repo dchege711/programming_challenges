@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [187 (Intermediate) Finding Time to Reddit](https://www.reddit.com/r/dailyprogrammer/comments/2ledaj/11052014_challenge_187_intermediate_finding_time/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

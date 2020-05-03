@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [337 (Intermediate) Scrambled images](https://www.reddit.com/r/dailyprogrammer/comments/78twyd/20171026_challenge_337_intermediate_scrambled/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

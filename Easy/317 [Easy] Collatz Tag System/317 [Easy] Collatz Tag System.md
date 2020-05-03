@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [317 (Easy) Collatz Tag System](https://www.reddit.com/r/dailyprogrammer/comments/6e08v6/20170529_challenge_317_easy_collatz_tag_system/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

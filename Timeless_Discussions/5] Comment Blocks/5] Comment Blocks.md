@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [5) Comment Blocks](https://www.reddit.com/r/dailyprogrammer/comments/2cle4a/weekly_5_comment_blocks/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

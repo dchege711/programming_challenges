@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [216 (Intermediate) Texas Hold 'Em 2 of 3 - Winning Hand & Know when to fold 'em](https://www.reddit.com/r/dailyprogrammer/comments/37idka/20150527_challenge_216_intermediate_texas_hold_em/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

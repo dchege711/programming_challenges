@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [69 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/vmbnb/6262012_challenge_69_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

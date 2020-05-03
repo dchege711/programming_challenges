@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [340 (Hard) Write a Web Crawler](https://www.reddit.com/r/dailyprogrammer/comments/7dlaeq/20171117_challenge_340_hard_write_a_web_crawler/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

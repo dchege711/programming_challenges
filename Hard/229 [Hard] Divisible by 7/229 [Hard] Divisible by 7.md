@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [229 (Hard) Divisible by 7](https://www.reddit.com/r/dailyprogrammer/comments/3irzsi/20150828_challenge_229_hard_divisible_by_7/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

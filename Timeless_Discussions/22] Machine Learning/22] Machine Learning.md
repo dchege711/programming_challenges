@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [22) Machine Learning](https://www.reddit.com/r/dailyprogrammer/comments/3206mk/weekly_22_machine_learning/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

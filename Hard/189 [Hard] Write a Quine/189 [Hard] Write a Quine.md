@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [189 (Hard) Write a Quine](https://www.reddit.com/r/dailyprogrammer/comments/2n11w8/20141121_challenge_189_hard_write_a_quine/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

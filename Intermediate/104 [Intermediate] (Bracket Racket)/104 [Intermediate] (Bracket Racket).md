@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [104 (Intermediate) (Bracket Racket)](https://www.reddit.com/r/dailyprogrammer/comments/11par4/10182012_challenge_104_intermediate_bracket_racket/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

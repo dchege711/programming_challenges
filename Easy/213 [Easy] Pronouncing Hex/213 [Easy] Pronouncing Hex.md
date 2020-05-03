@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [213 (Easy) Pronouncing Hex](https://www.reddit.com/r/dailyprogrammer/comments/34rxkc/20150504_challenge_213_easy_pronouncing_hex/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

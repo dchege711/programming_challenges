@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [47 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/t33vi/522012_challenge_47_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

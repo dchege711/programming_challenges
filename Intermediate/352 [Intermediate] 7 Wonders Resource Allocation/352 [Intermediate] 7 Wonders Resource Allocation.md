@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [352 (Intermediate) 7 Wonders Resource Allocation](https://www.reddit.com/r/dailyprogrammer/comments/7z8hrm/20180221_challenge_352_intermediate_7_wonders/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

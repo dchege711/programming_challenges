@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [217 (Practical Exercise) TeXSCII](https://www.reddit.com/r/dailyprogrammer/comments/38nhgx/20150605_challenge_217_practical_exercise_texscii/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

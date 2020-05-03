@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [311 (Intermediate) IPv4 Subnet Calculator](https://www.reddit.com/r/dailyprogrammer/comments/669u44/20170419_challenge_311_intermediate_ipv4_subnet/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

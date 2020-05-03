@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [300 (Easy Intermediate) Let's make some noise part 2](https://www.reddit.com/r/dailyprogrammer/comments/5q9cll/20170126_challenge_300_easyintermediate_lets_make/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [58 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/u8jn9/5282012_challenge_58_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

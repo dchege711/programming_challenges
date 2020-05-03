@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [246 (Easy) X-mass lights](https://www.reddit.com/r/dailyprogrammer/comments/3xpgj8/20151221_challenge_246_easy_xmass_lights/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

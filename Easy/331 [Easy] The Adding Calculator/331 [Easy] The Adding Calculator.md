@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [331 (Easy) The Adding Calculator](https://www.reddit.com/r/dailyprogrammer/comments/6ze9z0/20170911_challenge_331_easy_the_adding_calculator/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

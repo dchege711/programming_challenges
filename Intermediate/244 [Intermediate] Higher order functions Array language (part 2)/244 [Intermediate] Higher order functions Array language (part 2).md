@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [244 (Intermediate) Higher order functions Array language (part 2)](https://www.reddit.com/r/dailyprogrammer/comments/3w324a/20151209_challenge_244_intermediate_higher_order/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

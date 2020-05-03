@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [310 (Easy) Kids Lotto](https://www.reddit.com/r/dailyprogrammer/comments/64jesw/20170410_challenge_310_easy_kids_lotto/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

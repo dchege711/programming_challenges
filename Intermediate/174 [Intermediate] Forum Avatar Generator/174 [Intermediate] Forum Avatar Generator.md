@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [174 (Intermediate) Forum Avatar Generator](https://www.reddit.com/r/dailyprogrammer/comments/2crqml/8062014_challenge_174_intermediate_forum_avatar/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

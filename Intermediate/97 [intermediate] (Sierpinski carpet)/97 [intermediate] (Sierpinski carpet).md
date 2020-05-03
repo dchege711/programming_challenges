@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [97 (intermediate) (Sierpinski carpet)](https://www.reddit.com/r/dailyprogrammer/comments/zker3/9082012_challenge_97_intermediate_sierpinski/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

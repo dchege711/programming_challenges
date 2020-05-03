@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [110 (Difficult) You can't handle the truth!](https://www.reddit.com/r/dailyprogrammer/comments/12k3xw/1132012_challenge_110_difficult_you_cant_handle/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

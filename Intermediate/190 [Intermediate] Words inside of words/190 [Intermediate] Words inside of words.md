@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [190 (Intermediate) Words inside of words](https://www.reddit.com/r/dailyprogrammer/comments/2nihz6/20141126_challenge_190_intermediate_words_inside/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

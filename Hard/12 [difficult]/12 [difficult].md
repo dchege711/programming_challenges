@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [12 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pxsew/2202012_challenge_12_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

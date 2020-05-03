@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [353 (Easy) Closest String](https://www.reddit.com/r/dailyprogrammer/comments/826coe/20180305_challenge_353_easy_closest_string/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

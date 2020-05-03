@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [287 (Hard) Word Numbers](https://www.reddit.com/r/dailyprogrammer/comments/57fzcv/20161014_challenge_287_hard_word_numbers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

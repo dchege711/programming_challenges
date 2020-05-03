@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [123 (Hard) Snake-Fill](https://www.reddit.com/r/dailyprogrammer/comments/1eyipq/052413_challenge_123_hard_snakefill/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

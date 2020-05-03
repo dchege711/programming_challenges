@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [351 (Hard) Star Battle solver](https://www.reddit.com/r/dailyprogrammer/comments/7xyi2w/20180216_challenge_351_hard_star_battle_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

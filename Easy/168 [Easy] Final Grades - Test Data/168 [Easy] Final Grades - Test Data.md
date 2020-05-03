@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [168 (Easy) Final Grades - Test Data](https://www.reddit.com/r/dailyprogrammer/comments/28vgej/6232014_challenge_168_easy_final_grades_test_data/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

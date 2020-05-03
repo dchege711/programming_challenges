@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [204 (Easy) Remembering your lines](https://www.reddit.com/r/dailyprogrammer/comments/2xoxum/20150302_challenge_204_easy_remembering_your_lines/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

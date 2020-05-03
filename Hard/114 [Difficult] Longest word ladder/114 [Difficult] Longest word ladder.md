@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [114 (Difficult) Longest word ladder](https://www.reddit.com/r/dailyprogrammer/comments/149kic/1242012_challenge_114_difficult_longest_word/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

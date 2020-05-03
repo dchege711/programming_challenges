@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [339 (Intermediate) A car renting problem](https://www.reddit.com/r/dailyprogrammer/comments/7btzrw/20171108_challenge_339_intermediate_a_car_renting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

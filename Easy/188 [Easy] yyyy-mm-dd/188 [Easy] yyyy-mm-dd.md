@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [188 (Easy) yyyy-mm-dd](https://www.reddit.com/r/dailyprogrammer/comments/2lvgz6/20141110_challenge_188_easy_yyyymmdd/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

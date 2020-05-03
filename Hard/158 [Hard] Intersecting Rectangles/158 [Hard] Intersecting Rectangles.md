@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [158 (Hard) Intersecting Rectangles](https://www.reddit.com/r/dailyprogrammer/comments/23b1pr/4182014_challenge_158_hard_intersecting_rectangles/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

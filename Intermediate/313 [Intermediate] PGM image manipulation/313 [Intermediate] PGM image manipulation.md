@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [313 (Intermediate) PGM image manipulation](https://www.reddit.com/r/dailyprogrammer/comments/68zsoo/20170503_challenge_313_intermediate_pgm_image/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

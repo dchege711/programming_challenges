@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [84 (difficult) (City-Block TSP)](https://www.reddit.com/r/dailyprogrammer/comments/xilkr/812012_challenge_84_difficult_cityblock_tsp/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

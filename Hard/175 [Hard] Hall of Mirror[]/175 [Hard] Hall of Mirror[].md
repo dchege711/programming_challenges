@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [175 (Hard) Hall of Mirror()](https://www.reddit.com/r/dailyprogrammer/comments/2dmdwo/8152014_challenge_175_hard_hall_of_mirror/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

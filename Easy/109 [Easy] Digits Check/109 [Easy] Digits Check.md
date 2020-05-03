@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [109 (Easy) Digits Check](https://www.reddit.com/r/dailyprogrammer/comments/12csk7/10302012_challenge_109_easy_digits_check/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [287 (Intermediate) Mathagrams](https://www.reddit.com/r/dailyprogrammer/comments/576o8o/20161012_challenge_287_intermediate_mathagrams/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

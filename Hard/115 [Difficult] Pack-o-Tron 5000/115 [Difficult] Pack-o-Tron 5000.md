@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [115 (Difficult) Pack-o-Tron 5000](https://www.reddit.com/r/dailyprogrammer/comments/15uohz/122013_challenge_115_difficult_packotron_5000/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

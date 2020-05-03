@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [234 (Hard) Kanoodle Solver](https://www.reddit.com/r/dailyprogrammer/comments/3n7xau/20151002_challenge_234_hard_kanoodle_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

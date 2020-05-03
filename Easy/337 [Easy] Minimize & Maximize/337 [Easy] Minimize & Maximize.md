@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [337 (Easy) Minimize & Maximize](https://www.reddit.com/r/dailyprogrammer/comments/784fgr/20171023_challenge_337_easy_minimize_maximize/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

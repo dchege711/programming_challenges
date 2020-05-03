@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [105 (Easy) (Word unscrambler)](https://www.reddit.com/r/dailyprogrammer/comments/11shra/10202012_challenge_105_easy_word_unscrambler/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

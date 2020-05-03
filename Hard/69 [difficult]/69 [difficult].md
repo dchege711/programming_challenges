@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [69 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/vmbq0/6262012_challenge_69_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

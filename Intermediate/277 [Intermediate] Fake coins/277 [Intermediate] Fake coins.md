@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [277 (Intermediate) Fake coins](https://www.reddit.com/r/dailyprogrammer/comments/4utlaz/20160727_challenge_277_intermediate_fake_coins/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

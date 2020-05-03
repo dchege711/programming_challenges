@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [270 (Intermediate) Generating Text with Markov Processes](https://www.reddit.com/r/dailyprogrammer/comments/4n6hc2/20160608_challenge_270_intermediate_generating/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

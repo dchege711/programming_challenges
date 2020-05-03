@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [352 (Hard) Well, Well, Well](https://www.reddit.com/r/dailyprogrammer/comments/7zriir/20180223_challenge_352_hard_well_well_well/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [299 (Hard) Functional Graph solving](https://www.reddit.com/r/dailyprogrammer/comments/5nr86m/20170113_challenge_299_hard_functional_graph/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

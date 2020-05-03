@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [148 (Easy) Combination Lock](https://www.reddit.com/r/dailyprogrammer/comments/1v4cjd/011314_challenge_148_easy_combination_lock/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

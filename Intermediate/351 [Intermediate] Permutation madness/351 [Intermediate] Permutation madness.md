@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [351 (Intermediate) Permutation madness](https://www.reddit.com/r/dailyprogrammer/comments/7xkhar/20180214_challenge_351_intermediate_permutation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

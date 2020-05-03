@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [247 (Hard) Zombies on the highways!](https://www.reddit.com/r/dailyprogrammer/comments/3z1cxs/20160101_challenge_247_hard_zombies_on_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [251 (Easy) Create Nonogram description](https://www.reddit.com/r/dailyprogrammer/comments/42lhem/20160125_challenge_251_easy_create_nonogram/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

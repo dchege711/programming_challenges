@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [18 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/qit4p/352012_challenge_18_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

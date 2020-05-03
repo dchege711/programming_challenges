@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [83 (easy) (Long scale and short scale)](https://www.reddit.com/r/dailyprogrammer/comments/xdwyb/7302012_challenge_83_easy_long_scale_and_short/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

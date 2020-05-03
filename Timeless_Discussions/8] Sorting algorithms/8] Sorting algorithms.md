@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [8) Sorting algorithms](https://www.reddit.com/r/dailyprogrammer/comments/2emixb/weekly_8_sorting_algorithms/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

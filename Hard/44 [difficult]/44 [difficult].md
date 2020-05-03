@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [44 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/srp5q/4252012_challenge_44_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [174 (Extra) Functional Thinking](https://www.reddit.com/r/dailyprogrammer/comments/2d52d8/8102014_challenge_174_extra_functional_thinking/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

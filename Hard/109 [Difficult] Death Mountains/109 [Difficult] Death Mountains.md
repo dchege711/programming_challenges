@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [109 (Difficult) Death Mountains](https://www.reddit.com/r/dailyprogrammer/comments/12csl5/10302012_challenge_109_difficult_death_mountains/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

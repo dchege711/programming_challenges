@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [121 (Hard) Medal Management](https://www.reddit.com/r/dailyprogrammer/comments/1dk7c7/05213_challenge_121_hard_medal_management/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [266 (Intermediate) Graph Radius and Diameter](https://www.reddit.com/r/dailyprogrammer/comments/4iut1x/20160511_challenge_266_intermediate_graph_radius/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

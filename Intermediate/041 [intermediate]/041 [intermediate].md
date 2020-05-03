@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [41 (intermediate)](https://www.reddit.com/r/dailyprogrammer/comments/shpiq/4192012_challenge_41_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

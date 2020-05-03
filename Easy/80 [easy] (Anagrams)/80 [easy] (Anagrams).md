@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [80 (easy) (Anagrams)](https://www.reddit.com/r/dailyprogrammer/comments/x0v3e/7232012_challenge_80_easy_anagrams/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [115 (Intermediate) Sum-Pairings](https://www.reddit.com/r/dailyprogrammer/comments/15wm48/132013_challenge_115_intermediate_sumpairings/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

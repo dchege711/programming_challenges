@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [205 (Hard) DNA and Protein Sequence Alignment](https://www.reddit.com/r/dailyprogrammer/comments/2yx8b8/20150313_challenge_205_hard_dna_and_protein/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [300 (Easy) Let's make some noise](https://www.reddit.com/r/dailyprogrammer/comments/5prdgb/20170123_challenge_300_easy_lets_make_some_noise/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

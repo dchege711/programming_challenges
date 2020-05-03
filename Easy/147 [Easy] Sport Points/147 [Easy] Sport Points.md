@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [147 (Easy) Sport Points](https://www.reddit.com/r/dailyprogrammer/comments/1undyd/010714_challenge_147_easy_sport_points/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [117 (Intermediate) Mayan Long Count](https://www.reddit.com/r/dailyprogrammer/comments/16obmx/011613_challenge_117_intermediate_mayan_long_count/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

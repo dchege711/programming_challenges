@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [77 (difficult) (Boggle solver)](https://www.reddit.com/r/dailyprogrammer/comments/wn3qf/7162012_challenge_77_difficult_boggle_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

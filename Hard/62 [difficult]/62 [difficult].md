@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [62 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/urqbg/682012_challenge_62_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [298 (Easy) Too many Parentheses](https://www.reddit.com/r/dailyprogrammer/comments/5llkbj/2017012_challenge_298_easy_too_many_parentheses/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

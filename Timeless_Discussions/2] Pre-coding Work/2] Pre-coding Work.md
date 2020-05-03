@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [2) Pre-coding Work](https://www.reddit.com/r/dailyprogrammer/comments/2ao9y3/weekly_2_precoding_work/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

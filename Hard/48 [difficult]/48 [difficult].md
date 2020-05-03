@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [48 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/t78li/542012_challenge_48_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

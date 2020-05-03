@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [169 (Hard) Convex Polygon Area](https://www.reddit.com/r/dailyprogrammer/comments/29umz8/742014_challenge_169_hard_convex_polygon_area/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

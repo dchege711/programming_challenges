@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [272 (Easy) What's in the bag?](https://www.reddit.com/r/dailyprogrammer/comments/4oylbo/20160620_challenge_272_easy_whats_in_the_bag/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

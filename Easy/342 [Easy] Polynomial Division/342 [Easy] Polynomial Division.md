@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [342 (Easy) Polynomial Division](https://www.reddit.com/r/dailyprogrammer/comments/7fvy7z/20171127_challenge_342_easy_polynomial_division/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [76 (difficult) (imgur album downloader)](https://www.reddit.com/r/dailyprogrammer/comments/wk0jf/7132012_challenge_76_difficult_imgur_album/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

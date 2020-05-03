@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [261 (Intermediate) rearranged magic squares](https://www.reddit.com/r/dailyprogrammer/comments/4dmm44/20160406_challenge_261_intermediate_rearranged/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [81 (difficult) (Matrix Exponential)](https://www.reddit.com/r/dailyprogrammer/comments/x53dr/7252012_challenge_81_difficult_matrix_exponential/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

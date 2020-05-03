@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [185 (Intermediate to Hard) Roots of a Polynomial](https://www.reddit.com/r/dailyprogrammer/comments/2k7mnn/10242014_challenge_185_intermediate_to_hard_roots/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

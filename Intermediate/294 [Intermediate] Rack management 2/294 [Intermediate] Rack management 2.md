@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [294 (Intermediate) Rack management 2](https://www.reddit.com/r/dailyprogrammer/comments/5h40ml/20161207_challenge_294_intermediate_rack/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [19) Looking forward into 2015 - Predictions.](https://www.reddit.com/r/dailyprogrammer/comments/2rfexe/weekly_19_looking_forward_into_2015_predictions/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [178 (Intermediate) Jumping through Hyperspace ain't like dusting Crops](https://www.reddit.com/r/dailyprogrammer/comments/2fe72z/9032014_challenge_178_intermediate_jumping/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

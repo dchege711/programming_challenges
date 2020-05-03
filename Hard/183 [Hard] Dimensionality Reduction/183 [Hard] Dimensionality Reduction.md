@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [183 (Hard) Dimensionality Reduction](https://www.reddit.com/r/dailyprogrammer/comments/2iy7xl/10102014_challenge_183_hard_dimensionality/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

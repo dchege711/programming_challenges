@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [326 (Intermediate) Scrabble in Reverse](https://www.reddit.com/r/dailyprogrammer/comments/6sld01/20170809_challenge_326_intermediate_scrabble_in/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

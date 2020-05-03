@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [235 (Hard) Contiguous Chain Variation](https://www.reddit.com/r/dailyprogrammer/comments/3o36b6/20151009_challenge_235_hard_contiguous_chain/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

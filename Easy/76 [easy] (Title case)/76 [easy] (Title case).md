@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [76 (easy) (Title case)](https://www.reddit.com/r/dailyprogrammer/comments/wjzly/7132012_challenge_76_easy_title_case/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

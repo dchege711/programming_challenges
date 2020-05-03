@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [220 (Intermediate) It's Go time!](https://www.reddit.com/r/dailyprogrammer/comments/3axjac/20150624_challenge_220_intermediate_its_go_time/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # [199 Bank Number Banners Pt 2](https://www.reddit.com/r/dailyprogrammer/comments/2u0fyx/2015126_challenge_199_bank_number_banners_pt_2/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

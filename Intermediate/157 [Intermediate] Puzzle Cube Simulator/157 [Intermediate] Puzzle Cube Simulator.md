@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [157 (Intermediate) Puzzle Cube Simulator](https://www.reddit.com/r/dailyprogrammer/comments/22k8hu/492014_challenge_157_intermediate_puzzle_cube/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

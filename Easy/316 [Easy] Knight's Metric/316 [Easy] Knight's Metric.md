@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [316 (Easy) Knight's Metric](https://www.reddit.com/r/dailyprogrammer/comments/6coqwk/20170522_challenge_316_easy_knights_metric/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

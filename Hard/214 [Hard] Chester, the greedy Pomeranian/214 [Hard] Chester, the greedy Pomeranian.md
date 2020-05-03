@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [214 (Hard) Chester, the greedy Pomeranian](https://www.reddit.com/r/dailyprogrammer/comments/3629st/20150515_challenge_214_hard_chester_the_greedy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

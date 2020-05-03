@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [342 (Intermediate) ASCII85 Encoding and Decoding](https://www.reddit.com/r/dailyprogrammer/comments/7gdsy4/20171129_challenge_342_intermediate_ascii85/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

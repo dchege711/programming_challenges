@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [102 (easy) (Dice roller)](https://www.reddit.com/r/dailyprogrammer/comments/10pf0j/9302012_challenge_102_easy_dice_roller/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

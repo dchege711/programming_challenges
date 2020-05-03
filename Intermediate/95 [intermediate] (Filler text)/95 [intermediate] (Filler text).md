@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [95 (intermediate) (Filler text)](https://www.reddit.com/r/dailyprogrammer/comments/za9tu/9032012_challenge_95_intermediate_filler_text/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [98 (difficult) (Reading digital displays)](https://www.reddit.com/r/dailyprogrammer/comments/zx9l4/9152012_challenge_98_difficult_reading_digital/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

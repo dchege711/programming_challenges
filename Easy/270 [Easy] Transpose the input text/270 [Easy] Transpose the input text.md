@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [270 (Easy) Transpose the input text](https://www.reddit.com/r/dailyprogrammer/comments/4msu2x/challenge_270_easy_transpose_the_input_text/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

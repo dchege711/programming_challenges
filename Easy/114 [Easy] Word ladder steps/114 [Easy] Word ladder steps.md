@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [114 (Easy) Word ladder steps](https://www.reddit.com/r/dailyprogrammer/comments/149kec/1242012_challenge_114_easy_word_ladder_steps/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

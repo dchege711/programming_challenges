@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [50 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/teu8p/592012_challenge_50_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

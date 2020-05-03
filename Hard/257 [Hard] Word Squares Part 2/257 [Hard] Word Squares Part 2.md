@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [257 (Hard) Word Squares Part 2](https://www.reddit.com/r/dailyprogrammer/comments/49yv3p/20160311_challenge_257_hard_word_squares_part_2/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

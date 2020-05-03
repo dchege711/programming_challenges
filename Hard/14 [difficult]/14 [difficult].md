@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [14 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/q2kbt/2232012_challenge_14_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

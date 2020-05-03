@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [10 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pv92x/2182012_challenge_10_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

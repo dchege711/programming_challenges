@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [363 (Easy) I before E except after C](https://old.reddit.com/r/dailyprogrammer/comments/8q96da/20180611_challenge_363_easy_i_before_e_except/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

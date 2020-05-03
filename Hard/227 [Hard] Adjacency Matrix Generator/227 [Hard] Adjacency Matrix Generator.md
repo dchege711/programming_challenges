@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [227 (Hard) Adjacency Matrix Generator](https://www.reddit.com/r/dailyprogrammer/comments/3h0uki/20150814_challenge_227_hard_adjacency_matrix/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

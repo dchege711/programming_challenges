@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [336 (Intermediate) Repetitive Rubik's Cube](https://www.reddit.com/r/dailyprogrammer/comments/776lcz/20171018_challenge_336_intermediate_repetitive/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

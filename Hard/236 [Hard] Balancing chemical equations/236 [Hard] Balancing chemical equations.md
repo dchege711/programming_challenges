@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [236 (Hard) Balancing chemical equations](https://www.reddit.com/r/dailyprogrammer/comments/3oz82g/20151016_challenge_236_hard_balancing_chemical/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

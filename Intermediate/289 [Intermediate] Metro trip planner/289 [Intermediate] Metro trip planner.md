@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [289 (Intermediate) Metro trip planner](https://www.reddit.com/r/dailyprogrammer/comments/59mnxa/20161027_challenge_289_intermediate_metro_trip/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

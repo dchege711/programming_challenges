@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [347 (Easy) How long has the light been on?](https://www.reddit.com/r/dailyprogrammer/comments/7qn07r/20180115_challenge_347_easy_how_long_has_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

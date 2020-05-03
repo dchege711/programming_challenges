@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [140 (Easy) Variable Notation](https://www.reddit.com/r/dailyprogrammer/comments/1q6pq5/11413_challenge_140_easy_variable_notation/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

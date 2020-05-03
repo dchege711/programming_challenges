@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [74 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/wa1b9/792012_challenge_74_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

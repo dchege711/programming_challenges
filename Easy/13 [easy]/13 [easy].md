@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [13 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/pzo4w/2212012_challenge_13_easy/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

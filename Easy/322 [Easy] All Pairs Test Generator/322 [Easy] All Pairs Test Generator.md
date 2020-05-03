@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [322 (Easy) All Pairs Test Generator](https://www.reddit.com/r/dailyprogrammer/comments/6l3hd8/20170703_challenge_322_easy_all_pairs_test/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

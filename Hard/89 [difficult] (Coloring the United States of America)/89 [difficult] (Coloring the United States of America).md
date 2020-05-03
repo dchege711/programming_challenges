@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [89 (difficult) (Coloring the United States of America)](https://www.reddit.com/r/dailyprogrammer/comments/yj38u/8202012_challenge_89_difficult_coloring_the/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [196 (Intermediate) Rail Fence Cipher](https://www.reddit.com/r/dailyprogrammer/comments/2rnwzf/20150107_challenge_196_intermediate_rail_fence/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

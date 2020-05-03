@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [257 (Intermediate) Word Squares Part 1](https://www.reddit.com/r/dailyprogrammer/comments/49o3ho/20160309_challenge_257_intermediate_word_squares/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [314 (Hard) Finding Point Nemo](https://www.reddit.com/r/dailyprogrammer/comments/6arlw4/20170512_chalenge_314_hard_finding_point_nemo/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

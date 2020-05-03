@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [92 (intermediate) (Rubik's cube simulator)](https://www.reddit.com/r/dailyprogrammer/comments/ywm08/8272012_challenge_92_intermediate_rubiks_cube/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

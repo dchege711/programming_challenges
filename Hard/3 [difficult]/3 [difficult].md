@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [3 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/pkwgf/2112012_challenge_3_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

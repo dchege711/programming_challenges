@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [118 (Easy) Date Localization](https://www.reddit.com/r/dailyprogrammer/comments/16z9oj/012113_challenge_118_easy_date_localization/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

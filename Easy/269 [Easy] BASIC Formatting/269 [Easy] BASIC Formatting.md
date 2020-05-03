@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [269 (Easy) BASIC Formatting](https://www.reddit.com/r/dailyprogrammer/comments/4lpygb/20160530_challenge_269_easy_basic_formatting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

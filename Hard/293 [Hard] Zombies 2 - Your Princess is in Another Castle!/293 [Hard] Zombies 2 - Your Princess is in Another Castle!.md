@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [293 (Hard) Zombies 2 - Your Princess is in Another Castle!](https://www.reddit.com/r/dailyprogrammer/comments/5etds6/20161125_challenge_293_hard_zombies_2_your/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

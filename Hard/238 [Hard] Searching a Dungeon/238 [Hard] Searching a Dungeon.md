@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [238 (Hard) Searching a Dungeon](https://www.reddit.com/r/dailyprogrammer/comments/3qtr01/20151030_challenge_238_hard_searching_a_dungeon/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

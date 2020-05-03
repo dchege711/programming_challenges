@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [72 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/w1f4o/742012_challenge_72_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

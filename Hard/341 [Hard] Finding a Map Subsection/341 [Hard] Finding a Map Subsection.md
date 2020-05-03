@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [341 (Hard) Finding a Map Subsection](https://www.reddit.com/r/dailyprogrammer/comments/7f5uyg/20171124_challenge_341_hard_finding_a_map/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

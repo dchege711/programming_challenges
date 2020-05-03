@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [97 (easy) (Concatenate directory)](https://www.reddit.com/r/dailyprogrammer/comments/zkdv1/9082012_challenge_97_easy_concatenate_directory/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [163 (Intermediate) Fallout's Hacking Game](https://www.reddit.com/r/dailyprogrammer/comments/263dp1/5212014_challenge_163_intermediate_fallouts/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

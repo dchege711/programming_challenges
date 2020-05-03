@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [335 (Intermediate) Scoring a Cribbage Hand](https://www.reddit.com/r/dailyprogrammer/comments/75p1cs/20171011_challenge_335_intermediate_scoring_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

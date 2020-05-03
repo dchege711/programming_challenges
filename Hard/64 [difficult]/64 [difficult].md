@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [64 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/uw185/6112012_challenge_64_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

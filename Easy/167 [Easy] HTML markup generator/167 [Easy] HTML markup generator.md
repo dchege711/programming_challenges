@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [167 (Easy) HTML markup generator](https://www.reddit.com/r/dailyprogrammer/comments/289png/6162014_challenge_167_easy_html_markup_generator/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

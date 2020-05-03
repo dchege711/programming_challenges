@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [22 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/qr0ox/3102012_challenge_22_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

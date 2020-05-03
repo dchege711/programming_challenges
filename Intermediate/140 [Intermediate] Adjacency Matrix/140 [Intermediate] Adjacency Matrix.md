@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [140 (Intermediate) Adjacency Matrix](https://www.reddit.com/r/dailyprogrammer/comments/1t6dlf/121813_challenge_140_intermediate_adjacency_matrix/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

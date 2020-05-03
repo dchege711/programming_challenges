@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [132 (Easy) Greatest Common Divisor](https://www.reddit.com/r/dailyprogrammer/comments/1hvh6u/070813_challenge_132_easy_greatest_common_divisor/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

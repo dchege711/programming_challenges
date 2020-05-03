@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [332 (Intermediate) Training for Summiting Everest](https://www.reddit.com/r/dailyprogrammer/comments/71gbqj/20170920_challenge_332_intermediate_training_for/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

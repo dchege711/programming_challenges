@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [132 (Intermediate) Tiny Assembler](https://www.reddit.com/r/dailyprogrammer/comments/1kqxz9/080813_challenge_132_intermediate_tiny_assembler/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [170 (Intermediate) Rummy Checker](https://www.reddit.com/r/dailyprogrammer/comments/2a9u0a/792014_challenge_170_intermediate_rummy_checker/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

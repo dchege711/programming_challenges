@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [228 (Hard) Golomb Rulers](https://www.reddit.com/r/dailyprogrammer/comments/3hsgr0/08212015_challenge_228_hard_golomb_rulers/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [126 (Easy) Real-World Merge Sort](https://www.reddit.com/r/dailyprogrammer/comments/1epasu/052013_challenge_126_easy_realworld_merge_sort/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

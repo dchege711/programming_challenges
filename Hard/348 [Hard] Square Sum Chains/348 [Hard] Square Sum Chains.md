@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [348 (Hard) Square Sum Chains](https://www.reddit.com/r/dailyprogrammer/comments/7t6fnc/20180126_challenge_348_hard_square_sum_chains/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

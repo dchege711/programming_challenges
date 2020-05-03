@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [212 (Hard) Reverse Maze Pathfinding](https://www.reddit.com/r/dailyprogrammer/comments/34izkl/20150501_challenge_212_hard_reverse_maze/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

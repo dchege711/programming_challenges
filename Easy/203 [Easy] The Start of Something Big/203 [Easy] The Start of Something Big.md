@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [203 (Easy) The Start of Something Big](https://www.reddit.com/r/dailyprogrammer/comments/2ww3pl/2015223_challenge_203_easy_the_start_of_something/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

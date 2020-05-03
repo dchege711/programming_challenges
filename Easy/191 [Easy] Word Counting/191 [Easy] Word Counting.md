@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [191 (Easy) Word Counting](https://www.reddit.com/r/dailyprogrammer/comments/2nynip/2014121_challenge_191_easy_word_counting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

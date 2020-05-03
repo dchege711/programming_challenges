@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [184 (Hard) Classification Algorithms and intro to Machine Learning](https://www.reddit.com/r/dailyprogrammer/comments/2jkxli/101714_challenge_184_hard_classification/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

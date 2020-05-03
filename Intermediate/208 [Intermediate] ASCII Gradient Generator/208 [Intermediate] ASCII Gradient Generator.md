@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [208 (Intermediate) ASCII Gradient Generator](https://www.reddit.com/r/dailyprogrammer/comments/3104wu/20150401_challenge_208_intermediate_ascii/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [20) Paradigms](https://www.reddit.com/r/dailyprogrammer/comments/2sx7nn/weekly_20_paradigms/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

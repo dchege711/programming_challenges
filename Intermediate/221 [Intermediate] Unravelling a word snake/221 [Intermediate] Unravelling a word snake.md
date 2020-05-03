@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [221 (Intermediate) Unravelling a word snake](https://www.reddit.com/r/dailyprogrammer/comments/3bqq7p/20150701_challenge_221_intermediate_unravelling_a/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

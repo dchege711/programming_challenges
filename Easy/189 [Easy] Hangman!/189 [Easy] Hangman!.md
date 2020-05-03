@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [189 (Easy) Hangman!](https://www.reddit.com/r/dailyprogrammer/comments/2mlfxp/20141117_challenge_189_easy_hangman/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

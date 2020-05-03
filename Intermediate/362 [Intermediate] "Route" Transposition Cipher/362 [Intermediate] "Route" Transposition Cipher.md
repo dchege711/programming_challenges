@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [362 (Intermediate) "Route" Transposition Cipher](https://old.reddit.com/r/dailyprogrammer/comments/8n8tog/20180530_challenge_362_intermediate_route/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

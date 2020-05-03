@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [364 (Intermediate) The Ducci Sequence](https://old.reddit.com/r/dailyprogrammer/comments/8sjcl0/20180620_challenge_364_intermediate_the_ducci/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

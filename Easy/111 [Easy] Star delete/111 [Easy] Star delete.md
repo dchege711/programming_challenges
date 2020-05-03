@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [111 (Easy) Star delete](https://www.reddit.com/r/dailyprogrammer/comments/12qi5b/1162012_challenge_111_easy_star_delete/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

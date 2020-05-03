@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [177 (Intermediate) .- ..- -.. .. ---](https://www.reddit.com/r/dailyprogrammer/comments/2er1v0/8272014_challenge_177_intermediate/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [232 (Hard) Redistricting Voting Blocks](https://www.reddit.com/r/dailyprogrammer/comments/3lf3i2/20150918_challenge_232_hard_redistricting_voting/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

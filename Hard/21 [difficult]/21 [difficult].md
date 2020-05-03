@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [21 (difficult)](https://www.reddit.com/r/dailyprogrammer/comments/qp4jv/392012_challenge_21_difficult/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

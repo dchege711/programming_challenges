@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [230 (Intermediate) Word Compactification](https://www.reddit.com/r/dailyprogrammer/comments/3jd72z/20150901_challenge_230_intermediate_word/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

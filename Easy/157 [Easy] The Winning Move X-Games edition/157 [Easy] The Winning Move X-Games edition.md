@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [157 (Easy) The Winning Move X-Games edition](https://www.reddit.com/r/dailyprogrammer/comments/22fgs1/472014_challenge_157_easy_the_winning_move_xgames/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

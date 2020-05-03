@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [223 (Intermediate) Eel of Fortune](https://www.reddit.com/r/dailyprogrammer/comments/3ddpms/20150715_challenge_223_intermediate_eel_of_fortune/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [86 (intermediate) (Weekday calculations)](https://www.reddit.com/r/dailyprogrammer/comments/xx97s/882012_challenge_86_intermediate_weekday/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

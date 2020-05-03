@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [245 (Hard) Guess Who(is)?](https://www.reddit.com/r/dailyprogrammer/comments/3xdmtw/20151218_challenge_245_hard_guess_whois/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

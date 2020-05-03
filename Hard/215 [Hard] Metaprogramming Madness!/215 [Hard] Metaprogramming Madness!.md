@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [215 (Hard) Metaprogramming Madness!](https://www.reddit.com/r/dailyprogrammer/comments/36vuzm/20150522_challenge_215_hard_metaprogramming/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

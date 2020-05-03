@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [241 (Hard) Chess Puzzle solver](https://www.reddit.com/r/dailyprogrammer/comments/3tjcn6/20151120_challenge_241_hard_chess_puzzle_solver/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.

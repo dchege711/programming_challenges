@@ -1,3 +1,7 @@
+---
+draft: true
+----
+
 # [318 (Hard) Ladder Logic](https://www.reddit.com/r/dailyprogrammer/comments/6g8ey0/20170609_challenge_318_hard_ladder_logic/)
 
 For the original [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) post and discussion, click the link in the title.
