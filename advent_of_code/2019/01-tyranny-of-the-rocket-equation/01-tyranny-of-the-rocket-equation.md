@@ -49,5 +49,5 @@ What is the sum of the fuel requirements for all of the modules on your spacecra
 ## Final Solution
 
 ```c++
-{% include_relative 01_tyranny_of_the_rocket_equation/tyranny_of_the_rocket_equation.cc %}
+{% include_relative tyranny_of_the_rocket_equation.cc %}
 ```
