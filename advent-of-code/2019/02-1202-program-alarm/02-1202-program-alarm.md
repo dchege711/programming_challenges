@@ -1,10 +1,6 @@
 ---
-
-layout: writeup
 title: "Day 2: 1202 Program Alarm"
-date: 2019-01-08
-type: writeup
-
+date: "2019-01-08"
 ---
 
 ## Description
@@ -27,13 +23,13 @@ Once you're done processing an opcode, move to the next one by stepping forward 
 
 For example, suppose you have the following program:
 
-```text
+```markdown
 1,9,10,3,2,3,11,0,99,30,40,50
 ```
 
 For the purposes of illustration, here is the same program split into multiple lines:
 
-```text
+```markdown
 1,9,10,3,
 2,3,11,0,
 99,
@@ -42,7 +38,7 @@ For the purposes of illustration, here is the same program split into multiple l
 
 The first four integers, `1,9,10,3`, are at positions `0`, `1`, `2`, and `3`. Together, they represent the first opcode (`1`, addition), the positions of the two inputs (`9` and `10`), and the position of the output (`3`). To handle this opcode, you first need to get the values at the input positions: position `9` contains `30`, and position `10` contains `40`. Add these numbers together to get `70`. Then, store this value at the output position; here, the output position (`3`) is at position `3`, so it overwrites itself. Afterward, the program looks like this:
 
-```text
+```markdown
 1,9,10,70,
 2,3,11,0,
 99,
@@ -51,7 +47,7 @@ The first four integers, `1,9,10,3`, are at positions `0`, `1`, `2`, and `3`. To
 
 Step forward 4 positions to reach the next opcode, `2`. This opcode works just like the previous, but it multiplies instead of adding. The inputs are at positions `3` and `11`; these positions contain `70` and `50` respectively. Multiplying these produces `3500`; this is stored at position `0`:
 
-```text
+```markdown
 3500,9,10,70,
 2,3,11,0,
 99,
@@ -72,3 +68,6 @@ Here are the initial and final states of a few more small programs:
 
 Once you have a working computer, the first step is to restore the gravity assist program (your puzzle input) to the "1202 program alarm" state it had just before the last computer caught fire. To do this, before running the program, replace position `1` with the value `12` and replace position `2` with the value `2`. What value is left at position `0` after the program halts?
 
+```
+{{< readfile file="content/programming-challenges/advent-of-code/2019/02-1202-program-alarm/1202_program_alarm.rs" >}}
+```
