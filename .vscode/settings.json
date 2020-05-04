@@ -1,4 +1,7 @@
 {
     "python.pythonPath": "/Users/dchege711/anaconda3/bin/python",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "markdownlint.config": {
+        "no-bare-urls": false
+    },
 }
