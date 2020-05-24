@@ -18,7 +18,7 @@ The challenge is to match a string like `.--...-.-.-.....-.--........----.-.-..-
 
 I'm used to problems where the resources are not depleted, e.g. I can use `a` as many times as I want. The trickiest part was keeping track of the substring indexes.
 
-{{< readfile file="content/computer-science/programming-challenges/reddit-daily-programmer/intermediate-challenges/380_intermediate_smooshed_morse_code/_380__smooshed_morse_code.py" highlight="python" >}}
+{{< readfile file="content/computer-science/programming-challenges/reddit-daily-programmer/intermediate-challenges/380_intermediate_smooshed_morse_code/smooshed_morse_decoder.py" highlight="python" >}}
 
 ## Bonus 1
 

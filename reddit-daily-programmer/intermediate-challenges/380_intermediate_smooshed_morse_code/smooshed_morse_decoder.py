@@ -1,7 +1,3 @@
-"""
-_380_smooshed_morse_code.py
-"""
-
 from collections import defaultdict
 from glob import glob
 
@@ -53,8 +49,10 @@ def get_matching_permutations(smorse_text: str) -> List[str]:
             # Python Devs concluded that an O(1) implementation had 
             # pitfalls, e.g. uncollected garbage, type mismatches, etc. [1]
             # Rumor has it that Mozilla's JavaScript has O(1) splicing.
+            #
             # [1]: https://mail.python.org/pipermail/python-dev/2008-May/079753.html
-            # Nonetheless LEN_LONGEST_MORSE_LITERAL == 4. I don't copy too much
+            #
+            # Nonetheless, LEN_LONGEST_MORSE_LITERAL == 4. I don't copy too much
             matching_alpha = MORSE_TO_ALPHA.get(smorse_text[i:j+1])
             
             if matching_alpha is None: continue
@@ -67,25 +65,8 @@ def get_matching_permutations(smorse_text: str) -> List[str]:
             for permutation in new_permutations:
                 permutations_ending_at_idx[j].append(permutation)
 
-        # if permutations_ending_at_idx[LEN_SMORSE_TEXT-1]: break
-
         # We never check permutations ending at `i-1` ever again
         if i - 1 in permutations_ending_at_idx:
             del permutations_ending_at_idx[i - 1]
 
     return permutations_ending_at_idx[LEN_SMORSE_TEXT-1]
-
-def test():
-    # Check all the provided inputs
-    for input_file_path in glob("./data/*.in"):
-        expected_output_file_path = input_file_path.replace(".in", ".ans")
-        with open(input_file_path, "r") as input_fp:
-            smorse_text = input_fp.readline().strip()
-            with open(expected_output_file_path, "r") as ans_fp:
-                valid_decoding = ans_fp.readline().strip()
-                matches = set(get_matching_permutations(smorse_text))
-                assert valid_decoding in matches
-                print(f"Passed {input_file_path}")
-
-if __name__ == "__main__":
-    test()
