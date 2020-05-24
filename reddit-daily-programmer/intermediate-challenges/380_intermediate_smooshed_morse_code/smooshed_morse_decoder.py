@@ -18,7 +18,7 @@ for k in MORSE_TO_ALPHA.keys():
         LEN_LONGEST_MORSE_LITERAL = len(k)
     LEN_VALID_SMORSE_PERMUTATION += len(k)
 
-def get_matching_permutations(smorse_text: str) -> List[str]:
+def smorse_decode(smorse_text: str) -> List[str]:
     """
     Args:
         smorse_text: A smooshed morse encoding of a permutation of the alphabet
