@@ -1,6 +1,8 @@
 ---
-title: "06. Python Tips And Tricks"
+domains:
+- docs.python.org
 draft: true
+title: 06. Python Tips And Tricks
 weight: 6
 ---
 

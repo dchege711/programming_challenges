@@ -1,6 +1,8 @@
 ---
-title: "04. Variable Names"
+domains:
+- en.cppreference.com
 draft: true
+title: 04. Variable Names
 weight: 4
 ---
 
