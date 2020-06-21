@@ -1,6 +1,11 @@
 ---
-title: "01. Sum of Powers"
-date: "2020-06-20"
+authors:
+- Jaehyun Park
+date: '2020-06-20'
+domains:
+- brilliant.org
+- stanford.edu
+title: 01. Sum of Powers
 ---
 
 The sums of powers, \\( \sum_{k=1}^{n} k^a \\), can be computed more efficiently if we have a closed formula for them.
