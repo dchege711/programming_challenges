@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [104 (Hard) (Stack Attack)](https://www.reddit.com/r/dailyprogrammer/comments/11pas4/10182012_challenge_104_hard_stack_attack/)
 

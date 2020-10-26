@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [97 (easy) (Concatenate directory)](https://www.reddit.com/r/dailyprogrammer/comments/zkdv1/9082012_challenge_97_easy_concatenate_directory/)
 

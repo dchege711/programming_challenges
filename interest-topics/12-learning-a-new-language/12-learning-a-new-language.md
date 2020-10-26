@@ -1,7 +1,9 @@
 ---
-title: "12. Learning a New Language"
-weight: 12
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 12. Learning a New Language
+weight: 12
 ---
 
 ## Prompt

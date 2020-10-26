@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [90 (difficult) (Alien P=NP reductions)](https://www.reddit.com/r/dailyprogrammer/comments/ynw9q/8222012_challenge_90_difficult_alien_pnp/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [109 (Difficult) (Steiner Inellipse)](https://www.reddit.com/r/dailyprogrammer/comments/126976/10252012_challenge_109_difficult_steiner_inellipse/)
 

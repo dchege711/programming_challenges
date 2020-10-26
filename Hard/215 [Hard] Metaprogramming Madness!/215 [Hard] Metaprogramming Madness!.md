@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [215 (Hard) Metaprogramming Madness!](https://www.reddit.com/r/dailyprogrammer/comments/36vuzm/20150522_challenge_215_hard_metaprogramming/)
 

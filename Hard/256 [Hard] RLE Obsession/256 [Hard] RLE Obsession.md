@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [256 (Hard) RLE Obsession](https://www.reddit.com/r/dailyprogrammer/comments/48w88o/20160304_challenge_256_hard_rle_obsession/)
 

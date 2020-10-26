@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [310 (Hard) The Guards and the Mansion](https://www.reddit.com/r/dailyprogrammer/comments/65fkwh/20170414_challenge_310_hard_the_guards_and_the/)
 

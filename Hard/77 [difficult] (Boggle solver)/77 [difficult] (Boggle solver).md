@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [77 (difficult) (Boggle solver)](https://www.reddit.com/r/dailyprogrammer/comments/wn3qf/7162012_challenge_77_difficult_boggle_solver/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [160 (Easy) Trigonometric Triangle Trouble, pt. 1](https://www.reddit.com/r/dailyprogrammer/comments/2451r5/4282014_challenge_160_easy_trigonometric_triangle/)
 

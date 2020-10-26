@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [83 (difficult) (Digits of the square-root of 2)](https://www.reddit.com/r/dailyprogrammer/comments/xdx8q/7302012_challenge_83_difficult_digits_of_the/)
 

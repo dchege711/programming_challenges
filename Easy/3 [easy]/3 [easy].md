@@ -1,5 +1,7 @@
 ---
+date: '2020-05-03'
 draft: true
+inherit_date: true
 ---
 
 # [3 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/pkw2m/2112012_challenge_3_easy/)

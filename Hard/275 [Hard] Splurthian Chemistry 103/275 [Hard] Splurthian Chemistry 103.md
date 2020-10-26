@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [275 (Hard) Splurthian Chemistry 103](https://www.reddit.com/r/dailyprogrammer/comments/4t11c3/20160715_challenge_275_hard_splurthian_chemistry/)
 

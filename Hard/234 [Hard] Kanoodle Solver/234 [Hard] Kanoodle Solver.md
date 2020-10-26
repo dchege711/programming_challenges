@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [234 (Hard) Kanoodle Solver](https://www.reddit.com/r/dailyprogrammer/comments/3n7xau/20151002_challenge_234_hard_kanoodle_solver/)
 

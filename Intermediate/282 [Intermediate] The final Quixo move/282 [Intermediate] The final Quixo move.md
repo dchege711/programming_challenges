@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [282 (Intermediate) The final Quixo move](https://www.reddit.com/r/dailyprogrammer/comments/51l1j1/20160907_challenge_282_intermediate_the_final/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [167 (Easy) HTML markup generator](https://www.reddit.com/r/dailyprogrammer/comments/289png/6162014_challenge_167_easy_html_markup_generator/)
 

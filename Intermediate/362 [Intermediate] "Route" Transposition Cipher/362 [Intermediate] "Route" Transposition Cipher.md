@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [362 (Intermediate) "Route" Transposition Cipher](https://old.reddit.com/r/dailyprogrammer/comments/8n8tog/20180530_challenge_362_intermediate_route/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [204 (Hard) Addition chains](https://www.reddit.com/r/dailyprogrammer/comments/2y5ziw/20150306_challenge_204_hard_addition_chains/)
 

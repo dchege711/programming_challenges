@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [365 (Hard) Tessellations and Tilings](https://old.reddit.com/r/dailyprogrammer/comments/8ylltu/20180713_challenge_365_hard_tessellations_and/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [115 (Intermediate) Sum-Pairings](https://www.reddit.com/r/dailyprogrammer/comments/15wm48/132013_challenge_115_intermediate_sumpairings/)
 

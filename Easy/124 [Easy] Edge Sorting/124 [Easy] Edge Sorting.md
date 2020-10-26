@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [124 (Easy) Edge Sorting](https://www.reddit.com/r/dailyprogrammer/comments/1dsyrk/050613_challenge_124_easy_edge_sorting/)
 

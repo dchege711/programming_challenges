@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [330 (Hard) Mini-Chess Positions](https://www.reddit.com/r/dailyprogrammer/comments/6yu31a/20170908_challenge_330_hard_minichess_positions/)
 

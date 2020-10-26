@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [220 (Hard) Substitution Cryptanalysis](https://www.reddit.com/r/dailyprogrammer/comments/3b668g/20150626_challenge_220_hard_substitution/)
 

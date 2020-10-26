@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [60 (easy)](https://www.reddit.com/r/dailyprogrammer/comments/ukj56/642012_challenge_60_easy/)
 

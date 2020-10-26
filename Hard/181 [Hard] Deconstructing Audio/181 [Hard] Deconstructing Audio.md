@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [181 (Hard) Deconstructing Audio](https://www.reddit.com/r/dailyprogrammer/comments/2hjw45/26092014_challenge_181_hard_deconstructing_audio/)
 

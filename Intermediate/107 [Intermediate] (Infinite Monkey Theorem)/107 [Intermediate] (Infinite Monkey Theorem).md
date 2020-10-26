@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [107 (Intermediate) (Infinite Monkey Theorem)](https://www.reddit.com/r/dailyprogrammer/comments/122c6d/10252012_challenge_107_intermediate_infinite/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [179 (Hard) Traveller Game Part 2 (Torchlight)](https://www.reddit.com/r/dailyprogrammer/comments/2g7ucz/9122014_challenge_179_hard_traveller_game_part_2/)
 

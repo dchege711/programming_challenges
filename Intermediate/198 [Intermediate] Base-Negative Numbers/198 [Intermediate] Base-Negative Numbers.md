@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [198 (Intermediate) Base-Negative Numbers](https://www.reddit.com/r/dailyprogrammer/comments/2t3m7j/20150121_challenge_198_intermediate_basenegative/)
 

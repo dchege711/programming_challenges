@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [154 (Hard) Wumpus Cave Game](https://www.reddit.com/r/dailyprogrammer/comments/21kqjq/4282014_challenge_154_hard_wumpus_cave_game/)
 

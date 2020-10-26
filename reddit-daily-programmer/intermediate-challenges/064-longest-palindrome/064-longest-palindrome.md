@@ -1,7 +1,9 @@
 ---
-title: "064. Longest Palindrome"
+date: '2020-05-03'
+draft: true
+inherit_date: true
+title: 064. Longest Palindrome
 weight: 64
-draft: true 
 ---
 
 ## Description

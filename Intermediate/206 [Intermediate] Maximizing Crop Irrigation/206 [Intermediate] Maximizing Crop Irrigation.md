@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [206 (Intermediate) Maximizing Crop Irrigation](https://www.reddit.com/r/dailyprogrammer/comments/2zezvf/20150318_challenge_206_intermediate_maximizing/)
 

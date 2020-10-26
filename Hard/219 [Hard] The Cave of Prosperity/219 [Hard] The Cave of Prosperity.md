@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [219 (Hard) The Cave of Prosperity](https://www.reddit.com/r/dailyprogrammer/comments/3aewlg/20150617_challenge_219_hard_the_cave_of_prosperity/)
 

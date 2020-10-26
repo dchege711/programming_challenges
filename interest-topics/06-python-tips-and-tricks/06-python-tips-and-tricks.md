@@ -1,7 +1,9 @@
 ---
+date: '2020-05-03'
 domains:
 - docs.python.org
 draft: true
+inherit_date: true
 title: 06. Python Tips And Tricks
 weight: 6
 ---

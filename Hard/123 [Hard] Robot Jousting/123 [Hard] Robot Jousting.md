@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [123 (Hard) Robot Jousting](https://www.reddit.com/r/dailyprogrammer/comments/1ej32w/051013_challenge_123_hard_robot_jousting/)
 

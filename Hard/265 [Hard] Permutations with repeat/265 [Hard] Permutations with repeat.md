@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [265 (Hard) Permutations with repeat](https://www.reddit.com/r/dailyprogrammer/comments/4i3xrm/20160504_challenge_265_hard_permutations_with/)
 

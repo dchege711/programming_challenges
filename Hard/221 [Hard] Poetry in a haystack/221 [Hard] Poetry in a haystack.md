@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [221 (Hard) Poetry in a haystack](https://www.reddit.com/r/dailyprogrammer/comments/3bzipa/20150703_challenge_221_hard_poetry_in_a_haystack/)
 

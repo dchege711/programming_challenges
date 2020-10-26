@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [87 (intermediate) (Chord lookup)](https://www.reddit.com/r/dailyprogrammer/comments/y0z3y/8102012_challenge_87_intermediate_chord_lookup/)
 

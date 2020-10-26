@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [189 (Hard) Write a Quine](https://www.reddit.com/r/dailyprogrammer/comments/2n11w8/20141121_challenge_189_hard_write_a_quine/)
 

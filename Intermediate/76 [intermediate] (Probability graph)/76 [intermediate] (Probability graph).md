@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [76 (intermediate) (Probability graph)](https://www.reddit.com/r/dailyprogrammer/comments/wk066/7132012_challenge_76_intermediate_probability/)
 

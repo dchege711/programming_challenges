@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [241 (intermediate) ascii Bitmap Chess](https://www.reddit.com/r/dailyprogrammer/comments/3t9lar/20151118_challenge_241_intermediate_ascii_bitmap/)
 

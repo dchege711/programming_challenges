@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [255 (Intermediate) Ambiguous Bases](https://www.reddit.com/r/dailyprogrammer/comments/47docs/20160224_challenge_255_intermediate_ambiguous/)
 

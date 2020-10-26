@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [187 (Hard) Lumberjack Floating Log Problem](https://www.reddit.com/r/dailyprogrammer/comments/2lljyq/11052014_challenge_187_hard_lumberjack_floating/)
 

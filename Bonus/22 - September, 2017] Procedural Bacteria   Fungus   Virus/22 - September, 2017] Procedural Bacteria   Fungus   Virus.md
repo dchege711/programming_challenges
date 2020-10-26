@@ -1,5 +1,7 @@
 ---
+date: '2020-05-03'
 draft: true
+inherit_date: true
 ---
 
 # [22 - September, 2017) Procedural Bacteria   Fungus   Virus](https://www.reddit.com/r/proceduralgeneration/comments/6xr1c0/monthly_challenge_22_september_2017_procedural/)

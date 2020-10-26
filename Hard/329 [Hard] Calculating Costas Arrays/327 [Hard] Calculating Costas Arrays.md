@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [327 (Hard) Calculating Costas Arrays](https://www.reddit.com/r/dailyprogrammer/comments/6uifb0/20170818_challenge_327_hard_calculating_costas/)
 

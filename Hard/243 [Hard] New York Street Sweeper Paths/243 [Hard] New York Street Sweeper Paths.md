@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [243 (Hard) New York Street Sweeper Paths](https://www.reddit.com/r/dailyprogrammer/comments/3vey01/20151204_challenge_243_hard_new_york_street/)
 

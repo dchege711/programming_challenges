@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [127 (Hard) Language Detection](https://www.reddit.com/r/dailyprogrammer/comments/1mby3b/091313_challenge_127_hard_language_detection/)
 

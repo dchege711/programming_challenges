@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [209 (Hard) Unpacking a Sentence in a Box](https://www.reddit.com/r/dailyprogrammer/comments/322hh0/20150410_challenge_209_hard_unpacking_a_sentence/)
 

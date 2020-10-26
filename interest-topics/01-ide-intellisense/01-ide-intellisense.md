@@ -1,7 +1,9 @@
 ---
-title: "01. IDE Intellisense"
-weight: 1
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 01. IDE Intellisense
+weight: 1
 ---
 
 ## Prompt

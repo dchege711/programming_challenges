@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [130 (Intermediate) Foot-Traffic Generator](https://www.reddit.com/r/dailyprogrammer/comments/1ihm0q/071713_challenge_130_intermediate_foottraffic/)
 

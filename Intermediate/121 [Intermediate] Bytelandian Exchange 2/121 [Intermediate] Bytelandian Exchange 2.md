@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [121 (Intermediate) Bytelandian Exchange 2](https://www.reddit.com/r/dailyprogrammer/comments/19rkqr/030613_challenge_121_intermediate_bytelandian/)
 

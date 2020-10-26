@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [90 (easy) (Walkaround Rasterizer)](https://www.reddit.com/r/dailyprogrammer/comments/ynw53/8222012_challenge_90_easy_walkaround_rasterizer/)
 

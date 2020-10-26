@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [249 (Hard) Museum Cameras](https://www.reddit.com/r/dailyprogrammer/comments/41346z/20160115_challenge_249_hard_museum_cameras/)
 

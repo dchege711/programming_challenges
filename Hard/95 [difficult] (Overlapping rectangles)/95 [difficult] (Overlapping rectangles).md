@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [95 (difficult) (Overlapping rectangles)](https://www.reddit.com/r/dailyprogrammer/comments/zaa0v/9032012_challenge_95_difficult_overlapping/)
 

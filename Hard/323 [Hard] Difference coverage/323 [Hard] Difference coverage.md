@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [323 (Hard) Difference coverage](https://www.reddit.com/r/dailyprogrammer/comments/6n8qb7/20170714_challenge_323_hard_difference_coverage/)
 

@@ -1,7 +1,9 @@
 ---
-title: "09. Binary Trees"
-weight: 9
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 09. Binary Trees
+weight: 9
 ---
 
 ## Prompt

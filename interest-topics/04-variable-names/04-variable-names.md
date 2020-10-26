@@ -1,7 +1,9 @@
 ---
+date: '2020-05-03'
 domains:
 - en.cppreference.com
 draft: true
+inherit_date: true
 title: 04. Variable Names
 weight: 4
 ---

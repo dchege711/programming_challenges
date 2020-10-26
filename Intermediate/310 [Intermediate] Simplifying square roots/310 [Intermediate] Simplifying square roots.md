@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [310 (Intermediate) Simplifying square roots](https://www.reddit.com/r/dailyprogrammer/comments/64y4cf/20170412_challenge_310_intermediate_simplifying/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [222 (Hard) Customer Unit Delivery Scheduling](https://www.reddit.com/r/dailyprogrammer/comments/3cqxuh/20150710_challenge_222_hard_customer_unit/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [225 (Intermediate) Diagonal Maze](https://www.reddit.com/r/dailyprogrammer/comments/3f9o7k/20150731_challenge_225_intermediate_diagonal_maze/)
 

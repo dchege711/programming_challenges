@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [93 (easy) (Two-Way Morse Code Translator)](https://www.reddit.com/r/dailyprogrammer/comments/z3a4y/8302012_challenge_93_easy_twoway_morse_code/)
 

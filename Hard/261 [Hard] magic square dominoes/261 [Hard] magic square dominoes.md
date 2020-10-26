@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [261 (Hard) magic square dominoes](https://www.reddit.com/r/dailyprogrammer/comments/4dwk7b/20160408_challenge_261_hard_magic_square_dominoes/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [118 (Hard) Alphabetizing cipher](https://www.reddit.com/r/dailyprogrammer/comments/178vsz/012513_challenge_118_hard_alphabetizing_cipher/)
 

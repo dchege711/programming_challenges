@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [235 (Hard) Contiguous Chain Variation](https://www.reddit.com/r/dailyprogrammer/comments/3o36b6/20151009_challenge_235_hard_contiguous_chain/)
 

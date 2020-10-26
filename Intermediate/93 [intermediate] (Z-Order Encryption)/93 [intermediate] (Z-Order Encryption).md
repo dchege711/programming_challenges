@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [93 (intermediate) (Z-Order Encryption)](https://www.reddit.com/r/dailyprogrammer/comments/z3a6v/8302012_challenge_93_intermediate_zorder/)
 

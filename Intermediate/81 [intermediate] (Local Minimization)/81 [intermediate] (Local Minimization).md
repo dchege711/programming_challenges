@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [81 (intermediate) (Local Minimization)](https://www.reddit.com/r/dailyprogrammer/comments/x539t/7252012_challenge_81_intermediate_local/)
 

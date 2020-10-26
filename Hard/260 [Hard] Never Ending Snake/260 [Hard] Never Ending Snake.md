@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [260 (Hard) Never Ending Snake](https://www.reddit.com/r/dailyprogrammer/comments/4cw095/20160401_challenge_260_hard_never_ending_snake/)
 

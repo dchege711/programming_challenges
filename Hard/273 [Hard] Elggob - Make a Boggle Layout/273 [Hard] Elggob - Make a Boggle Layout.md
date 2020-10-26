@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [273 (Hard) Elggob - Make a Boggle Layout](https://www.reddit.com/r/dailyprogrammer/comments/4qt12j/20160701_challenge_273_hard_elggob_make_a_boggle/)
 

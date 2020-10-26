@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [264 (Hard) Detecting Poetry Forms](https://www.reddit.com/r/dailyprogrammer/comments/4gzeze/20160429_challenge_264_hard_detecting_poetry_forms/)
 

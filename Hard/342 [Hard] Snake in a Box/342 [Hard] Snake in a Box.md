@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [342 (Hard) Snake in a Box](https://www.reddit.com/r/dailyprogrammer/comments/7gvned/20171201_challenge_342_hard_snake_in_a_box/)
 

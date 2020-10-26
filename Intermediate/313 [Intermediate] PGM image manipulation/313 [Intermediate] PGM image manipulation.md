@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [313 (Intermediate) PGM image manipulation](https://www.reddit.com/r/dailyprogrammer/comments/68zsoo/20170503_challenge_313_intermediate_pgm_image/)
 

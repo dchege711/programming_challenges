@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [117 (Intermediate) Sort r DailyProgrammer!](https://www.reddit.com/r/dailyprogrammer/comments/169hkl/010913_challenge_117_intermediate_sort/)
 

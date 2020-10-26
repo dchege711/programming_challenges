@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [184 (Hard) Classification Algorithms and intro to Machine Learning](https://www.reddit.com/r/dailyprogrammer/comments/2jkxli/101714_challenge_184_hard_classification/)
 

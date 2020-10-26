@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [159 (Hard) Rock Paper Scissors Lizard Spock - Part 3 Battle Bots](https://www.reddit.com/r/dailyprogrammer/comments/23yinj/4252014_challenge_159_hard_rock_paper_scissors/)
 

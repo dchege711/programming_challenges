@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [311 (Hard) Procedural Dungeon Generation](https://www.reddit.com/r/dailyprogrammer/comments/66p87v/20170421_challenge_311_hard_procedural_dungeon/)
 

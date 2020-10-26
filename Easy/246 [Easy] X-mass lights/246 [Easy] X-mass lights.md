@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [246 (Easy) X-mass lights](https://www.reddit.com/r/dailyprogrammer/comments/3xpgj8/20151221_challenge_246_easy_xmass_lights/)
 

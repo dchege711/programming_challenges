@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [207 (Hard) Bioinformatics 3](https://www.reddit.com/r/dailyprogrammer/comments/30g454/20150327_challenge_207_hard_bioinformatics_3/)
 

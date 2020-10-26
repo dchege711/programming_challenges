@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [304 (Intermediate) Horse Race Sorting](https://www.reddit.com/r/dailyprogrammer/comments/5ww6o5/20170301_challenge_304_intermediate_horse_race/)
 

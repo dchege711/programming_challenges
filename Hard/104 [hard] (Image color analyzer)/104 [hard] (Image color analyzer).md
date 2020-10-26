@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [104 (hard) (Image color analyzer)](https://www.reddit.com/r/dailyprogrammer/comments/11ss0k/10202012_challenge_104_hard_image_color_analyzer/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [184 (Easy) Smart Stack List](https://www.reddit.com/r/dailyprogrammer/comments/2j5929/10132014_challenge_184_easy_smart_stack_list/)
 

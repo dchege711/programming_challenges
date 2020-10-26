@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [349 (Hard) Divide Polygons into Equal Regions](https://www.reddit.com/r/dailyprogrammer/comments/7us3w7/20180202_challenge_349_hard_divide_polygons_into/)
 

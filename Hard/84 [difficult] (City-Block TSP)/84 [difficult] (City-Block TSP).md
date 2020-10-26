@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [84 (difficult) (City-Block TSP)](https://www.reddit.com/r/dailyprogrammer/comments/xilkr/812012_challenge_84_difficult_cityblock_tsp/)
 

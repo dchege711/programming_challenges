@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [117 (Intermediate) Mayan Long Count](https://www.reddit.com/r/dailyprogrammer/comments/16obmx/011613_challenge_117_intermediate_mayan_long_count/)
 

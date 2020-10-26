@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [196 (Hard) Precedence Parsing](https://www.reddit.com/r/dailyprogrammer/comments/2rye5u/20150110_challenge_196_hard_precedence_parsing/)
 

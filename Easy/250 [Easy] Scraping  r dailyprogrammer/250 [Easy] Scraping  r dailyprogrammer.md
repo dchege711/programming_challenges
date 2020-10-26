@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [250 (Easy) Scraping  r dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/comments/41hp6u/20160118_challenge_250_easy_scraping/)
 

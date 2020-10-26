@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [197 (Intermediate) Food Delivery Problem](https://www.reddit.com/r/dailyprogrammer/comments/2sfs8f/20150114_challenge_197_intermediate_food_delivery/)
 

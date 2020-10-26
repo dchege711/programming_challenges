@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [118 (Intermediate) Canon Timing](https://www.reddit.com/r/dailyprogrammer/comments/1742uv/012313_challenge_118_intermediate_canon_timing/)
 

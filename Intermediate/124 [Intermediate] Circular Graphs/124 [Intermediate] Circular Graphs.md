@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [124 (Intermediate) Circular Graphs](https://www.reddit.com/r/dailyprogrammer/comments/1ee664/050813_challenge_124_intermediate_circular_graphs/)
 

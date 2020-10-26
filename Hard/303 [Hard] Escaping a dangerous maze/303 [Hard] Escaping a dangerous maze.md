@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [303 (Hard) Escaping a dangerous maze](https://www.reddit.com/r/dailyprogrammer/comments/5vwwzg/20170224_challenge_303_hard_escaping_a_dangerous/)
 

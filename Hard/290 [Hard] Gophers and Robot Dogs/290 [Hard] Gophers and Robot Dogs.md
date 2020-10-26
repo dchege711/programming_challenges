@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [290 (Hard) Gophers and Robot Dogs](https://www.reddit.com/r/dailyprogrammer/comments/5b5fc8/20161104_challenge_290_hard_gophers_and_robot_dogs/)
 

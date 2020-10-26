@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [76 (difficult) (imgur album downloader)](https://www.reddit.com/r/dailyprogrammer/comments/wk0jf/7132012_challenge_76_difficult_imgur_album/)
 

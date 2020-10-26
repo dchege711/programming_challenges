@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [122 (Hard) Subset Sum Insanity](https://www.reddit.com/r/dailyprogrammer/comments/1e2rcx/051013_challenge_122_hard_subset_sum_insanity/)
 

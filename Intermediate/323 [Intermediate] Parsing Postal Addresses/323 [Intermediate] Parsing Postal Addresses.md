@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [323 (Intermediate) Parsing Postal Addresses](https://www.reddit.com/r/dailyprogrammer/comments/6mtvbk/20170712_challenge_323_intermediate_parsing/)
 

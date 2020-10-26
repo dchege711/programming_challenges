@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [102 (intermediate) (n-character-set strings)](https://www.reddit.com/r/dailyprogrammer/comments/10pf4a/9302012_challenge_102_intermediate_ncharacterset/)
 

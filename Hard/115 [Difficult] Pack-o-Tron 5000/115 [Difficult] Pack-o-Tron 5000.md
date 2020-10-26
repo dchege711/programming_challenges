@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [115 (Difficult) Pack-o-Tron 5000](https://www.reddit.com/r/dailyprogrammer/comments/15uohz/122013_challenge_115_difficult_packotron_5000/)
 

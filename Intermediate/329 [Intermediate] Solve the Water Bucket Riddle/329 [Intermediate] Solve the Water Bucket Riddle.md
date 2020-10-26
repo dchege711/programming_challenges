@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [329 (Intermediate) Solve the Water Bucket Riddle](https://www.reddit.com/r/dailyprogrammer/comments/6x77p1/20170831_challenge_329_intermediate_solve_the/)
 

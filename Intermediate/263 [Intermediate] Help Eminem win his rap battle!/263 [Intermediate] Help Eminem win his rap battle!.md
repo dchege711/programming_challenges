@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [263 (Intermediate) Help Eminem win his rap battle!](https://www.reddit.com/r/dailyprogrammer/comments/4fnz37/20160420_challenge_263_intermediate_help_eminem/)
 

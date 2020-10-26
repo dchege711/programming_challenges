@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [256 (Intermediate) Guess my hat color](https://www.reddit.com/r/dailyprogrammer/comments/48l3u9/20160302_challenge_256_intermediate_guess_my_hat/)
 

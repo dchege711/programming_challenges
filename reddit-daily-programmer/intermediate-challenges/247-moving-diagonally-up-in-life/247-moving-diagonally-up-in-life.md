@@ -1,7 +1,9 @@
 ---
-title: "247. Moving (Diagonally) Up in Life"
-weight: 247
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 247. Moving (Diagonally) Up in Life
+weight: 247
 ---
 
 ## Description

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [83 (intermediate) (Indexed file search)](https://www.reddit.com/r/dailyprogrammer/comments/xdx4o/7302012_challenge_83_intermediate_indexed_file/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [288 (Intermediate) Stars and Stripes and Vertices](https://www.reddit.com/r/dailyprogrammer/comments/589txl/20161019_challenge_288_intermediate_stars_and/)
 

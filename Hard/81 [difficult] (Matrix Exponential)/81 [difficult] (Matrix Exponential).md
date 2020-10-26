@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [81 (difficult) (Matrix Exponential)](https://www.reddit.com/r/dailyprogrammer/comments/x53dr/7252012_challenge_81_difficult_matrix_exponential/)
 

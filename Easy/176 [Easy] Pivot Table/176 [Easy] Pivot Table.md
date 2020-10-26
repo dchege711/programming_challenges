@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [176 (Easy) Pivot Table](https://www.reddit.com/r/dailyprogrammer/comments/2eajf7/8222014_challenge_176_easy_pivot_table/)
 

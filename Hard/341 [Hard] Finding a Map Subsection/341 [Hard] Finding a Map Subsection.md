@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [341 (Hard) Finding a Map Subsection](https://www.reddit.com/r/dailyprogrammer/comments/7f5uyg/20171124_challenge_341_hard_finding_a_map/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [100 (difficult) (Min-Max of N-Dimensional Quadratic)](https://www.reddit.com/r/dailyprogrammer/comments/106hps/9202012_challenge_100_difficult_minmax_of/)
 

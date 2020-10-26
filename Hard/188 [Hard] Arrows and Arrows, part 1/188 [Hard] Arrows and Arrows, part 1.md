@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [188 (Hard) Arrows and Arrows, part 1](https://www.reddit.com/r/dailyprogrammer/comments/2m82yz/20141114_challenge_188_hard_arrows_and_arrows/)
 

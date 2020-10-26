@@ -1,7 +1,9 @@
 ---
-title: "15. Architectural Patterns"
-weight: 15
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 15. Architectural Patterns
+weight: 15
 ---
 
 ## Prompt

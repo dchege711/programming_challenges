@@ -1,7 +1,9 @@
 ---
-title: "16. Standards and Unwritten Standards"
-weight: 16
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 16. Standards and Unwritten Standards
+weight: 16
 ---
 
 ## Prompt

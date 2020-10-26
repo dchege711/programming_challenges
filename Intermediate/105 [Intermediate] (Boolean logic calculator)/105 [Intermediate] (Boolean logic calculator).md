@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [105 (Intermediate) (Boolean logic calculator)](https://www.reddit.com/r/dailyprogrammer/comments/11shtj/10202012_challenge_105_intermediate_boolean_logic/)
 

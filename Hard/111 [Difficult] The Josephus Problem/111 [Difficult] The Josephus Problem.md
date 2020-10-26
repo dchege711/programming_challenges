@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [111 (Difficult) The Josephus Problem](https://www.reddit.com/r/dailyprogrammer/comments/12qicm/1162012_challenge_111_difficult_the_josephus/)
 

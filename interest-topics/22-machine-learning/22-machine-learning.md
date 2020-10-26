@@ -1,7 +1,9 @@
 ---
-title: "22. Machine Learning"
-weight: 22
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 22. Machine Learning
+weight: 22
 ---
 
 ## Prompt

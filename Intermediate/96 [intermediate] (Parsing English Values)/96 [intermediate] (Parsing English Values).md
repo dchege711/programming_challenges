@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [96 (intermediate) (Parsing English Values)](https://www.reddit.com/r/dailyprogrammer/comments/zfeb2/9062012_challenge_96_intermediate_parsing_english/)
 

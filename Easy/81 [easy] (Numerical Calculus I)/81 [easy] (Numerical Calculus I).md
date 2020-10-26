@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [81 (easy) (Numerical Calculus I)](https://www.reddit.com/r/dailyprogrammer/comments/x538d/7252012_challenge_81_easy_numerical_calculus_i/)
 

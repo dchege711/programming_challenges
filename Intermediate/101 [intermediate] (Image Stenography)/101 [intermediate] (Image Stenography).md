@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [101 (intermediate) (Image Stenography)](https://www.reddit.com/r/dailyprogrammer/comments/10l8cq/9272012_challenge_101_intermediate_image/)
 

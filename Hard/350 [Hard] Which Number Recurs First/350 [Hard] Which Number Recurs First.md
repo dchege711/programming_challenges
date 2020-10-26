@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [350 (Hard) Which Number Recurs First](https://www.reddit.com/r/dailyprogrammer/comments/7wfd0n/20180209_challenge_350_hard_which_number_recurs/)
 

@@ -1,5 +1,7 @@
 ---
+date: '2020-05-03'
 draft: true
+inherit_date: true
 ---
 
 # [190 (Practical Exercise) The Complex Number](https://www.reddit.com/r/dailyprogrammer/comments/2nr6c4/20141129_challenge_190_practical_exercise_the/)

@@ -1,6 +1,8 @@
 ---
-title: "01. Handling Console Input"
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 01. Handling Console Input
 weight: 1
 ---
 

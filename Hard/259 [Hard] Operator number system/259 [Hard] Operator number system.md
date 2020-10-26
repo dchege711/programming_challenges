@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [259 (Hard) Operator number system](https://www.reddit.com/r/dailyprogrammer/comments/4bwibm/20160325_challenge_259_hard_operator_number_system/)
 

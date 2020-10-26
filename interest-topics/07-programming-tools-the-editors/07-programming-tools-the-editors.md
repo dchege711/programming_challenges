@@ -1,6 +1,8 @@
 ---
-title: "07. Programming Tools: The Editors"
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: '07. Programming Tools: The Editors'
 weight: 7
 ---
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [95 (easy) (Reversing text in file)](https://www.reddit.com/r/dailyprogrammer/comments/za9op/9032012_challenge_95_easy_reversing_text_in_file/)
 

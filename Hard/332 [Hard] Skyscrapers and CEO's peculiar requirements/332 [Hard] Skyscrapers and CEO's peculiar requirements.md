@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [332 (Hard) Skyscrapers and CEO's peculiar requirements](https://www.reddit.com/r/dailyprogrammer/comments/71pzlb/20170922_challenge_332_hard_skyscrapers_and_ceos/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [183 (Hard) Dimensionality Reduction](https://www.reddit.com/r/dailyprogrammer/comments/2iy7xl/10102014_challenge_183_hard_dimensionality/)
 

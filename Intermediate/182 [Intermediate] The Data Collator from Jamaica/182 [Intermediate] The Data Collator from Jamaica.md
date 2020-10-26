@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [182 (Intermediate) The Data Collator from Jamaica](https://www.reddit.com/r/dailyprogrammer/comments/2i13a4/10012014_challenge_182_intermediate_the_data/)
 

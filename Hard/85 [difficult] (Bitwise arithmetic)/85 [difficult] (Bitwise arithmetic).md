@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [85 (difficult) (Bitwise arithmetic)](https://www.reddit.com/r/dailyprogrammer/comments/xq385/832012_challenge_85_difficult_bitwise_arithmetic/)
 

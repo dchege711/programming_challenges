@@ -1,5 +1,7 @@
 ---
+date: '2020-05-03'
 draft: true
+inherit_date: true
 ---
 
 # [(Extra) Poetic Justice](https://www.reddit.com/r/dailyprogrammer/comments/2gs0nq/extra_poetic_justice/)

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [78 (intermediate) (Dependency Planner)](https://www.reddit.com/r/dailyprogrammer/comments/wrqit/7182012_challenge_78_intermediate_dependency/)
 

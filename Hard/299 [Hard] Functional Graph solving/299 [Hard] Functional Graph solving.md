@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [299 (Hard) Functional Graph solving](https://www.reddit.com/r/dailyprogrammer/comments/5nr86m/20170113_challenge_299_hard_functional_graph/)
 

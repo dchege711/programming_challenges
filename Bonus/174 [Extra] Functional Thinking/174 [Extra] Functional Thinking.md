@@ -1,5 +1,7 @@
 ---
+date: '2020-05-03'
 draft: true
+inherit_date: true
 ---
 
 # [174 (Extra) Functional Thinking](https://www.reddit.com/r/dailyprogrammer/comments/2d52d8/8102014_challenge_174_extra_functional_thinking/)

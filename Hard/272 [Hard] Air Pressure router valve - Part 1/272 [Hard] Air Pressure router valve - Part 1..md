@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [272 (Hard) Air Pressure router valve - Part 1.](https://www.reddit.com/r/dailyprogrammer/comments/4pnky5/20160624_challenge_272_hard_air_pressure_router/)
 

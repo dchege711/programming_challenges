@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [256 (Easy) Oblique and De-Oblique](https://www.reddit.com/r/dailyprogrammer/comments/48a4pu/20160229_challenge_256_easy_oblique_and_deoblique/)
 

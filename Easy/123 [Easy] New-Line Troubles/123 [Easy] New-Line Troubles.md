@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [123 (Easy) New-Line Troubles](https://www.reddit.com/r/dailyprogrammer/comments/1dbpm9/042913_challenge_123_easy_newline_troubles/)
 

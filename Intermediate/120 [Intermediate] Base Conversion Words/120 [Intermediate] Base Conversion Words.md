@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [120 (Intermediate) Base Conversion Words](https://www.reddit.com/r/dailyprogrammer/comments/17zn6g/020613_challenge_120_intermediate_base_conversion/)
 

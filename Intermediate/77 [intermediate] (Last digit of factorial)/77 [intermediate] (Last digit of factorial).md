@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [77 (intermediate) (Last digit of factorial)](https://www.reddit.com/r/dailyprogrammer/comments/wn3ok/7162012_challenge_77_intermediate_last_digit_of/)
 

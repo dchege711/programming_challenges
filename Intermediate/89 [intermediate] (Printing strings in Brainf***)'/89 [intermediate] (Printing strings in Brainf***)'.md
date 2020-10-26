@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [89 (intermediate) (Printing strings in Brainf***)'](https://www.reddit.com/r/dailyprogrammer/comments/yj32c/8202012_challenge_89_intermediate_printing/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [101 (difficult) (Boolean Minimization)](https://www.reddit.com/r/dailyprogrammer/comments/10lbjo/9272012_challenge_101_difficult_boolean/)
 

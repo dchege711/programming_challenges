@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [122 (Intermediate) User-Space Threading](https://www.reddit.com/r/dailyprogrammer/comments/1ceai7/040113_challenge_122_intermediate_userspace/)
 

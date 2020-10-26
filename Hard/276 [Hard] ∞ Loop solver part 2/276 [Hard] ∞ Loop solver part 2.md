@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [276 (Hard) ∞ Loop solver part 2](https://www.reddit.com/r/dailyprogrammer/comments/4u3e96/20160722_challenge_276_hard_loop_solver_part_2/)
 

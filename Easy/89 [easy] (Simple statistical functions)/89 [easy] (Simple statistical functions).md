@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [89 (easy) (Simple statistical functions)](https://www.reddit.com/r/dailyprogrammer/comments/yj2zq/8202012_challenge_89_easy_simple_statistical/)
 

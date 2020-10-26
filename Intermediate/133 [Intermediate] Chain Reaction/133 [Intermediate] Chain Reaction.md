@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [133 (Intermediate) Chain Reaction](https://www.reddit.com/r/dailyprogrammer/comments/1m71k9/091113_challenge_133_intermediate_chain_reaction/)
 

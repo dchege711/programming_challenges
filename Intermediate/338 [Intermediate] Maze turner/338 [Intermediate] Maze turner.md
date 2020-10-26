@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [338 (Intermediate) Maze turner](https://www.reddit.com/r/dailyprogrammer/comments/7aae56/20171102_challenge_338_intermediate_maze_turner/)
 

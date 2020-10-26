@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [94 (intermediate) (Base64 conversion)](https://www.reddit.com/r/dailyprogrammer/comments/z6p3l/9012012_challenge_94_intermediate_base64/)
 

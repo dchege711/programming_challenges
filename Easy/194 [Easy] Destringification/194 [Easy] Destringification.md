@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [194 (Easy) Destringification](https://www.reddit.com/r/dailyprogrammer/comments/2q2xnc/20141222_challenge_194_easy_destringification/)
 

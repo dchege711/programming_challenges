@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [296 (Hard) Flood Fill Puzzle Game](https://www.reddit.com/r/dailyprogrammer/comments/5jxeal/20161223_challenge_296_hard_flood_fill_puzzle_game/)
 

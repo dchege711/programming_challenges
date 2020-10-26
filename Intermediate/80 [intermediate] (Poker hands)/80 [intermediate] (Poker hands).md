@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [80 (intermediate) (Poker hands)](https://www.reddit.com/r/dailyprogrammer/comments/x0vcj/7232012_challenge_80_intermediate_poker_hands/)
 

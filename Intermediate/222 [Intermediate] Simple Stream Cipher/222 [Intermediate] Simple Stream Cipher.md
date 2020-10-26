@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [222 (Intermediate) Simple Stream Cipher](https://www.reddit.com/r/dailyprogrammer/comments/3chvxy/20150708_challenge_222_intermediate_simple_stream/)
 

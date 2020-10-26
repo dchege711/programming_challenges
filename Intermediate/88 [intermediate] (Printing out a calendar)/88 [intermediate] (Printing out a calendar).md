@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [88 (intermediate) (Printing out a calendar)](https://www.reddit.com/r/dailyprogrammer/comments/y5svk/8132012_challenge_88_intermediate_printing_out_a/)
 

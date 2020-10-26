@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [90 (intermediate) (Scientific Units Calculator)](https://www.reddit.com/r/dailyprogrammer/comments/ynw65/8222012_challenge_90_intermediate_scientific/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [113 (Intermediate) Text Markup](https://www.reddit.com/r/dailyprogrammer/comments/13hmz5/11202012_challenge_113_intermediate_text_markup/)
 

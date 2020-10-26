@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [300 (Hard) Let's make some noise part 3](https://www.reddit.com/r/dailyprogrammer/comments/5qp3ou/20170128_challenge_300_hard_lets_make_some_noise/)
 

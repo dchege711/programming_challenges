@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [302 (Hard) ASCII Histogram Maker](https://www.reddit.com/r/dailyprogrammer/comments/5t7l07/20170210_challenge_302_hard_ascii_histogram_maker/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [107 (Difficult) (English Word Identifier)](https://www.reddit.com/r/dailyprogrammer/comments/122c7h/10252012_challenge_107_difficult_english_word/)
 

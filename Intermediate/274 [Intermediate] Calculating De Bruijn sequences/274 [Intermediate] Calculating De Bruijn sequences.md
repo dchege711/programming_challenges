@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [274 (Intermediate) Calculating De Bruijn sequences](https://www.reddit.com/r/dailyprogrammer/comments/4riubi/20160706_challenge_274_intermediate_calculating/)
 

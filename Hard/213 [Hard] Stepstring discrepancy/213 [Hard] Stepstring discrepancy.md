@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [213 (Hard) Stepstring discrepancy](https://www.reddit.com/r/dailyprogrammer/comments/358pfk/20150508_challenge_213_hard_stepstring_discrepancy/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [78 (easy) (Keyboard Locale Simulator)](https://www.reddit.com/r/dailyprogrammer/comments/wrqbr/7182012_challenge_78_easy_keyboard_locale/)
 

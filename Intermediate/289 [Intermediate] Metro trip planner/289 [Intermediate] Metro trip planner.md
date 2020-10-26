@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [289 (Intermediate) Metro trip planner](https://www.reddit.com/r/dailyprogrammer/comments/59mnxa/20161027_challenge_289_intermediate_metro_trip/)
 

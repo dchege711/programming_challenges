@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [218 (Intermediate) Generating Polyominoes](https://www.reddit.com/r/dailyprogrammer/comments/398mtv/20150610_challenge_218_intermediate_generating/)
 

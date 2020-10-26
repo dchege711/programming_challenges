@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [175 (Intermediate) Largest Word from Characters](https://www.reddit.com/r/dailyprogrammer/comments/2dgd5v/8132014_challenge_175_intermediate_largest_word/)
 

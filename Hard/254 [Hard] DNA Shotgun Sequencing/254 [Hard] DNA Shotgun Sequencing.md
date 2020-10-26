@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [254 (Hard) DNA Shotgun Sequencing](https://www.reddit.com/r/dailyprogrammer/comments/46km7n/20160219_challenge_254_hard_dna_shotgun_sequencing/)
 

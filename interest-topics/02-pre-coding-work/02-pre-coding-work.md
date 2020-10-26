@@ -1,6 +1,8 @@
 ---
-title: "02. Pre-Coding Work"
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 02. Pre-Coding Work
 weight: 2
 ---
 

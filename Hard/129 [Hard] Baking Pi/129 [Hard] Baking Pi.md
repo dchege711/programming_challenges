@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [129 (Hard) Baking Pi](https://www.reddit.com/r/dailyprogrammer/comments/1qply1/111513_challenge_129_hard_baking_pi/)
 

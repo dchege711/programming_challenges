@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [192 (Hard) Project](https://www.reddit.com/r/dailyprogrammer/comments/2p4b72/20141212_challenge_192_hard_project_web_mining/)
 

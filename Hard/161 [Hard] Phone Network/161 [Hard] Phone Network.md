@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [161 (Hard) Phone Network](https://www.reddit.com/r/dailyprogrammer/comments/25576s/592014_challenge_161_hard_phone_network/)
 

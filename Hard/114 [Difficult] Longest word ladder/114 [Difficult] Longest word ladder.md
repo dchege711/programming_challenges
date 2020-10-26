@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [114 (Difficult) Longest word ladder](https://www.reddit.com/r/dailyprogrammer/comments/149kic/1242012_challenge_114_difficult_longest_word/)
 

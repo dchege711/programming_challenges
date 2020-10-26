@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [91 (intermediate) (Cantor's fractions)](https://www.reddit.com/r/dailyprogrammer/comments/yqxyy/8242012_challenge_91_intermediate_cantors/)
 

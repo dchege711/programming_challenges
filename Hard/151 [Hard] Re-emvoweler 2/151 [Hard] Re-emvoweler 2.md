@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [151 (Hard) Re-emvoweler 2](https://www.reddit.com/r/dailyprogrammer/comments/1z6flq/022814_challenge_151_hard_reemvoweler_2/)
 

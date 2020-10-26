@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [119 (Hard) Polygon diagonals](https://www.reddit.com/r/dailyprogrammer/comments/19gbdq/030113_challenge_119_hard_polygon_diagonals/)
 

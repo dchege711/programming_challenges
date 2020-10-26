@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [97 (intermediate) (Sierpinski carpet)](https://www.reddit.com/r/dailyprogrammer/comments/zker3/9082012_challenge_97_intermediate_sierpinski/)
 

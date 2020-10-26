@@ -1,7 +1,9 @@
 ---
-title: "20. Paradigms"
-weight: 20
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 20. Paradigms
+weight: 20
 ---
 
 ## Prompt

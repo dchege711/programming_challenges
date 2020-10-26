@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [125 (Hard) Robo Room Service](https://www.reddit.com/r/dailyprogrammer/comments/1hkpwz/070313_challenge_125_hard_robo_room_service/)
 

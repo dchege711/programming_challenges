@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [305 (Hard) Numbers for Sale](https://www.reddit.com/r/dailyprogrammer/comments/5yoo87/20170310_challenge_305_hard_numbers_for_sale/)
 

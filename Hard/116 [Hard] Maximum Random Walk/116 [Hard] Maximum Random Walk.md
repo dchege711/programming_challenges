@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [116 (Hard) Maximum Random Walk](https://www.reddit.com/r/dailyprogrammer/comments/16dbyh/011113_challenge_116_hard_maximum_random_walk/)
 

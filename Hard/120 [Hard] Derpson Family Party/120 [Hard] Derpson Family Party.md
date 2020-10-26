@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [120 (Hard) Derpson Family Party](https://www.reddit.com/r/dailyprogrammer/comments/1asdd5/032213_challenge_120_hard_derpson_family_party/)
 

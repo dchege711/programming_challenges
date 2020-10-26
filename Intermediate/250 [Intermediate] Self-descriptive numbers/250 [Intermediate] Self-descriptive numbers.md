@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [250 (Intermediate) Self-descriptive numbers](https://www.reddit.com/r/dailyprogrammer/comments/41tdzy/20160120_challenge_250_intermediate/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [185 (Intermediate) Syntax Highlighting](https://www.reddit.com/r/dailyprogrammer/comments/2k2zdv/10232014_challenge_185_intermediate_syntax/)
 

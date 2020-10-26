@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [345 (Hard) 2D Triangle Mesh Generator](https://www.reddit.com/r/dailyprogrammer/comments/7ljqhl/20171222_challenge_345_hard_2d_triangle_mesh/)
 

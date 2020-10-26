@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [98 (intermediate) (Multiple cycling)](https://www.reddit.com/r/dailyprogrammer/comments/zx98u/9152012_challenge_98_intermediate_multiple_cycling/)
 

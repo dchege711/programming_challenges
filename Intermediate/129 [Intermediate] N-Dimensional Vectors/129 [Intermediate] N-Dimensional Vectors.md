@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [129 (Intermediate) N-Dimensional Vectors](https://www.reddit.com/r/dailyprogrammer/comments/1hzq9y/071013_challenge_129_intermediate_ndimensional/)
 

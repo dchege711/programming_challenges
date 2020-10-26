@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [230 (Hard) Logo De-compactification](https://www.reddit.com/r/dailyprogrammer/comments/3jn6te/20150903_challenge_230_hard_logo/)
 

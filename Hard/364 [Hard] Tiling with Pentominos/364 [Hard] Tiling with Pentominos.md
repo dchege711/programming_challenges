@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [364 (Hard) Tiling with Pentominos](https://old.reddit.com/r/dailyprogrammer/comments/8t4440/20180622_challenge_364_hard_tiling_with_pentominos/)
 

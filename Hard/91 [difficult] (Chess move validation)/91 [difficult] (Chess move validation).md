@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [91 (difficult) (Chess move validation)](https://www.reddit.com/r/dailyprogrammer/comments/yqyrs/8242012_challenge_91_difficult_chess_move/)
 

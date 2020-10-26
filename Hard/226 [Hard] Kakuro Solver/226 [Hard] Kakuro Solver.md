@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [226 (Hard) Kakuro Solver](https://www.reddit.com/r/dailyprogrammer/comments/3g2tby/20150807_challenge_226_hard_kakuro_solver/)
 

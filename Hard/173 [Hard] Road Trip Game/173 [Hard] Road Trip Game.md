@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [173 (Hard) Road Trip Game](https://www.reddit.com/r/dailyprogrammer/comments/2ccipl/8012014_challenge_173_hard_road_trip_game/)
 

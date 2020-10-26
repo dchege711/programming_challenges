@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [286 (Hard) Rush Hour Solver](https://www.reddit.com/r/dailyprogrammer/comments/56bh88/20161007_challenge_286_hard_rush_hour_solver/)
 

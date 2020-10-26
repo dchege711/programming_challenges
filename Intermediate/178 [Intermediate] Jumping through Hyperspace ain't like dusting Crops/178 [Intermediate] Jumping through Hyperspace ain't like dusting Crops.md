@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [178 (Intermediate) Jumping through Hyperspace ain't like dusting Crops](https://www.reddit.com/r/dailyprogrammer/comments/2fe72z/9032014_challenge_178_intermediate_jumping/)
 

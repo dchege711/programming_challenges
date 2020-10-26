@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [260 (Intermediate) Diagonal collision](https://www.reddit.com/r/dailyprogrammer/comments/4cktc3/20160330_challenge_260_intermediate_diagonal/)
 

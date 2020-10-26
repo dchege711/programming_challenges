@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [84 (intermediate) (Recursive Song)](https://www.reddit.com/r/dailyprogrammer/comments/xilgw/812012_challenge_84_intermediate_recursive_song/)
 

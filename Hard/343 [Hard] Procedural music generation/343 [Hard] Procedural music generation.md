@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [343 (Hard) Procedural music generation](https://www.reddit.com/r/dailyprogrammer/comments/7ifbd5/20171208_challenge_343_hard_procedural_music/)
 

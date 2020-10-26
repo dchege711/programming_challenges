@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [99 (difficult) (Animated unemployment map of the United States)](https://www.reddit.com/r/dailyprogrammer/comments/101mpd/9172012_challenge_99_difficult_animated/)
 

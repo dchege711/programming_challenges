@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [166 (Easy) ASCII Fractal Curves](https://www.reddit.com/r/dailyprogrammer/comments/27pgqv/692014_challenge_166_easy_ascii_fractal_curves/)
 

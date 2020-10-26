@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [240 (Intermediate) Economic Social modeling and queries](https://www.reddit.com/r/dailyprogrammer/comments/3sd86k/20151111_challenge_240_intermediate/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [216 (Hard) Texas Hold 'Em 3 of 3 All In](https://www.reddit.com/r/dailyprogrammer/comments/37rasn/20150529_challenge_216_hard_texas_hold_em_3_of_3/)
 

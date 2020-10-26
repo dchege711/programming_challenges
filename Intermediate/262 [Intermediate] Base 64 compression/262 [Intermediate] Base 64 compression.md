@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [262 (Intermediate) Base 64 compression](https://www.reddit.com/r/dailyprogrammer/comments/4elyls/20160413_challenge_262_intermediate_base_64/)
 

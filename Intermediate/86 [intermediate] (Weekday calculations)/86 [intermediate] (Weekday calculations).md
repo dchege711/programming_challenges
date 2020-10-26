@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [86 (intermediate) (Weekday calculations)](https://www.reddit.com/r/dailyprogrammer/comments/xx97s/882012_challenge_86_intermediate_weekday/)
 

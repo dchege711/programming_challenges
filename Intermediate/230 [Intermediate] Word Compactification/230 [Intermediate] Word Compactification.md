@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [230 (Intermediate) Word Compactification](https://www.reddit.com/r/dailyprogrammer/comments/3jd72z/20150901_challenge_230_intermediate_word/)
 

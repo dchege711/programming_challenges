@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [326 (Intermediate) Scrabble in Reverse](https://www.reddit.com/r/dailyprogrammer/comments/6sld01/20170809_challenge_326_intermediate_scrabble_in/)
 

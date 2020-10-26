@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [251 (Hard) ASCII Nonogram](https://www.reddit.com/r/dailyprogrammer/comments/438zse/20160129_challenge_251_hard_ascii_nonogram/)
 

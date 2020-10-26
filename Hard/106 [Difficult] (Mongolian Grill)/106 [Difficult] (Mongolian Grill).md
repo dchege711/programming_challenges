@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [106 (Difficult) (Mongolian Grill)](https://www.reddit.com/r/dailyprogrammer/comments/11xyiz/10232012_challenge_106_difficult_mongolian_grill/)
 

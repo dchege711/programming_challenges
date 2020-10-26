@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [186 (Easy) Admin Schmadmin](https://www.reddit.com/r/dailyprogrammer/comments/2kh2tz/10272014_challenge_186_easy_admin_schmadmin/)
 

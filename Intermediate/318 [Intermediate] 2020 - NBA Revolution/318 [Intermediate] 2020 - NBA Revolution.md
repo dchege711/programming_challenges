@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [318 (Intermediate) 2020 - NBA Revolution](https://www.reddit.com/r/dailyprogrammer/comments/6ft96y/20170607_challenge_318_intermediate_2020_nba/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [182 (Hard) Unique Digits](https://www.reddit.com/r/dailyprogrammer/comments/2i7dlh/10032014_challenge_182_hard_unique_digits/)
 

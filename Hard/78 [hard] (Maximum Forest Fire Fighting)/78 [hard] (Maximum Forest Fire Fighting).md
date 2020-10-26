@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [78 (hard) (Maximum Forest Fire Fighting)](https://www.reddit.com/r/dailyprogrammer/comments/wrquf/7182012_challenge_78_hard_maximum_forest_fire/)
 

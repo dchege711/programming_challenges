@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [212 (Hard) Reverse Maze Pathfinding](https://www.reddit.com/r/dailyprogrammer/comments/34izkl/20150501_challenge_212_hard_reverse_maze/)
 

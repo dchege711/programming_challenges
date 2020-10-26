@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [185 (Intermediate to Hard) Roots of a Polynomial](https://www.reddit.com/r/dailyprogrammer/comments/2k7mnn/10242014_challenge_185_intermediate_to_hard_roots/)
 

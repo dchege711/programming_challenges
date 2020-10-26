@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [99 (intermediate) (Unemployment map of the United States)](https://www.reddit.com/r/dailyprogrammer/comments/101mi5/9172012_challenge_99_intermediate_unemployment/)
 

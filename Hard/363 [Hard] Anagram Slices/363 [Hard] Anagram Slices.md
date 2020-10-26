@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [363 (Hard) Anagram Slices](https://old.reddit.com/r/dailyprogrammer/comments/8rcjx0/20180615_challenge_363_hard_anagram_slices/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [287 (Hard) Word Numbers](https://www.reddit.com/r/dailyprogrammer/comments/57fzcv/20161014_challenge_287_hard_word_numbers/)
 

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [223 (Hard) The Heighway dragon fractal](https://www.reddit.com/r/dailyprogrammer/comments/3dl9wr/20150717_challenge_223_hard_the_heighway_dragon/)
 

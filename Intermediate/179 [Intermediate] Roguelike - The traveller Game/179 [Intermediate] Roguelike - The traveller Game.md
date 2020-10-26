@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [179 (Intermediate) Roguelike - The traveller Game](https://www.reddit.com/r/dailyprogrammer/comments/2g1c80/9102014_challenge_179_intermediate_roguelike_the/)
 

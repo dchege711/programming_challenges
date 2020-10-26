@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [170 (Intermediate) Rummy Checker](https://www.reddit.com/r/dailyprogrammer/comments/2a9u0a/792014_challenge_170_intermediate_rummy_checker/)
 

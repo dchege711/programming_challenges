@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [255 (Hard) Hacking a search engine](https://www.reddit.com/r/dailyprogrammer/comments/47o4b6/20160226_challenge_255_hard_hacking_a_search/)
 

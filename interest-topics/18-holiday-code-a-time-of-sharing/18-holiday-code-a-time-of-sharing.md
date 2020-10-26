@@ -1,7 +1,9 @@
 ---
-title: "18. Holiday Code - A Time of Sharing"
-weight: 18
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 18. Holiday Code - A Time of Sharing
+weight: 18
 ---
 
 ## Prompt

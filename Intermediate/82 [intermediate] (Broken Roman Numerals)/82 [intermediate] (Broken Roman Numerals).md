@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [82 (intermediate) (Broken Roman Numerals)](https://www.reddit.com/r/dailyprogrammer/comments/x8t42/7272012_challenge_82_intermediate_broken_roman/)
 

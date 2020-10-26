@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [318 (Hard) Ladder Logic](https://www.reddit.com/r/dailyprogrammer/comments/6g8ey0/20170609_challenge_318_hard_ladder_logic/)
 

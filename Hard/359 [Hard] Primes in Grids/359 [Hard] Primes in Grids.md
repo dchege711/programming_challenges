@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [359 (Hard) Primes in Grids](https://www.reddit.com/r/dailyprogrammer/comments/8gzaz5/20180504_challenge_359_hard_primes_in_grids/)
 

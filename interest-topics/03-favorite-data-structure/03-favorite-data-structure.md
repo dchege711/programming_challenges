@@ -1,7 +1,9 @@
 ---
-title: "03. Favorite Data Structure"
-weight: 3
+date: '2020-05-03'
 draft: true
+inherit_date: true
+title: 03. Favorite Data Structure
+weight: 3
 ---
 
 ## Prompt

@@ -1,6 +1,8 @@
 ---
+date: '2020-05-03'
 draft: true
-----
+inherit_date: true
+---
 
 # [108 (Easy) (Scientific Notation Translator)](https://www.reddit.com/r/dailyprogrammer/comments/1268t4/10272012_challenge_108_easy_scientific_notation/)
 
