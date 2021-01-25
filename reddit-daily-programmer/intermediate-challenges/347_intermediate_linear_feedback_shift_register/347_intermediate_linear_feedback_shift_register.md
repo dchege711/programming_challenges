@@ -77,9 +77,7 @@ Your program should emit the clock step and the registers (with leading 0s) for 
 
 ### My Solution
 
-```java
-{% include_relative 347_intermediate_linear_feedback_shift_register/LFSR347Hack.java %}
-```
+{{< readfile file="content/computer-science/programming-challenges/reddit-daily-programmer/intermediate-challenges/347_intermediate_linear_feedback_shift_register/LFSR347.java" highlight="java" >}}
 
 ### Further Reading
 
