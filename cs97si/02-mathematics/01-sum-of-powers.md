@@ -1,6 +1,6 @@
 ---
 authors:
-- Jaehyun Park
+- Park, Jaehyun
 date: '2020-06-20'
 domains:
 - brilliant.org
