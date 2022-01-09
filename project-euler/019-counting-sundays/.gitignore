@@ -1,0 +1,7 @@
+# Specific exclusion/inclusion rules for this folder
+# Credits to https://stackoverflow.com/a/69332397/7812406
+
+# Contains files used by GN and Ninja.
+!build
+out
+compile_commands.json

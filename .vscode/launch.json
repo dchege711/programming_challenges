@@ -9,7 +9,7 @@
             "name": "CodeLens (Launch) - LFSR347",
             "request": "launch",
             "mainClass": "LFSR347",
-            "projectName": "programming_challenges_d5d1c75e", 
+            "projectName": "programming_challenges_d5d1c75e",
             "cwd": ""
         },
         {
@@ -19,6 +19,18 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": ""
-        }
+        },
+        {
+            "name": "clang++ - Debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/out/default/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+          }
     ]
 }
