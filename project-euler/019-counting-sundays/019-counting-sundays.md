@@ -15,6 +15,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/project
 tags:
 - cpp
 title: 019. Counting Sundays
+weight: 19
 ---
 
 ## Problem Statement {{% cite ProjectEuler019 %}}
