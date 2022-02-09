@@ -1,6 +1,7 @@
 # Custom Rules
 
 .DS_Store
+scratchpad
 
 # Emacs files
 *~
