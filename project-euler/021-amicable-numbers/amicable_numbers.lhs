@@ -26,5 +26,3 @@ main = do
     print $ sumOfAmicableNumbers 9999 -- 31626
 
 \end{code}
-
-Without any memoization, this code takes ~45s. That's pretty bad...
