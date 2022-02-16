@@ -1,10 +1,25 @@
 ---
-title: 021. Amicable Numbers
+authors:
+- Caldwell, Chris K.
+- Yorgey, Brent
 date: 2021-02-06
-weight: 21
+domains:
+- brilliant.org
+- github.com
+- hoogle.haskell.org
+- planetmath.org
+- primes.utm.edu
+- projecteuler.net
+- wiki.haskell.org
+- www.haskell.org
+- www.schoolofhaskell.com
+- www.seas.upenn.edu
+local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers/
 tags:
-- programming-environment
 - haskell
+- programming-environment
+title: 021. Amicable Numbers
+weight: 21
 ---
 
 ## Problem Statement {{% cite ProjectEuler021 %}}
