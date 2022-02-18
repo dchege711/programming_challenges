@@ -3,6 +3,8 @@ date: 2022-02-18
 domains:
 - projecteuler.net
 local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/022-name-scores/022-name-scores/
+tags:
+- haskell
 title: 022. Name Scores
 ---
 

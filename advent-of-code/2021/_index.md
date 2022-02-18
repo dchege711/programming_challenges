@@ -3,6 +3,8 @@ date: 2022-02-18
 domains:
 - adventofcode.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/
+tags:
+- haskell
 title: 2021
 ---
 
