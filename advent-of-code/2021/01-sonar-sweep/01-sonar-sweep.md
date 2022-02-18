@@ -67,3 +67,9 @@ previous measurement.
 
 To begin, [get your puzzle
 input](https://adventofcode.com/2021/day/1/input).
+
+## My Solution to Part One
+
+{{< readfile
+  file=`content/computer-science/programming-challenges/advent-of-code/2021/01-sonar-sweep/sonar_sweep.hs`
+  highlight="haskell" >}}
