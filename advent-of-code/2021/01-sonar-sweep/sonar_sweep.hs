@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -Wall #-}
 
-import Data.Maybe (isJust)
+import Data.Maybe (isJust, catMaybes)
 import Data.String (IsString (fromString))
 import Text.Read (readMaybe)
 
@@ -36,6 +36,31 @@ numIncreases (x:y:zs) = total where
   contribution = if isJust xInt && isJust yInt && yInt > xInt then (1 :: Int) else (0 :: Int)
   total = contribution + numIncreases (y:zs)
 
+num3MeasurementIncreases :: [String] -> Int
+-- More on pattern matching on lists. [1] offers a more concise syntax than the
+-- one I used in `numIncreases`. It takes advantage of the fact that pattern
+-- matching starts from the top.
+--
+-- [1]: https://en.wikibooks.org/wiki/Haskell/Pattern_matching#Why_does_it_work_with_lists?
+num3MeasurementIncreases (u:w:x:y:zs) = total where
+  -- Skipping error handling is not remarkably shorter as we get a
+  -- `[(a, String)]`, and the code seems less readable. Good on Haskell for not
+  -- granting my request for a footgun.
+  uInt = readMaybe u :: Maybe Int
+  wInt = readMaybe w :: Maybe Int
+  xInt = readMaybe x :: Maybe Int
+  yInt = readMaybe y :: Maybe Int
+  areAllValidInts = isJust uInt && isJust wInt && isJust xInt && isJust yInt
+
+  -- Looks like I don't need `(0 :: Int)` when the `then` part is clear.
+  prevWindow = if areAllValidInts then sum (catMaybes [uInt, wInt, xInt]) else 0
+  currWindow = if areAllValidInts then sum (catMaybes [wInt, xInt, yInt]) else 0
+  contribution = if currWindow > prevWindow then (1 :: Int) else 0
+
+  total = contribution + num3MeasurementIncreases (w:x:y:zs)
+
+num3MeasurementIncreases _ = 0 -- Any list with less than 4 items doesn't have a delta
+
 main :: IO ()
 main = do
   -- hGetContents is lazy in that data is only read as the characters are
@@ -51,6 +76,9 @@ main = do
   --
   -- [1]: http://book.realworldhaskell.org/read/io.html#io.lazy.hGetContents
   -- [2]: https://hackage.haskell.org/package/base-4.16.0.0/docs/System-IO.html#v:hGetContents
-  putStr "Number of measurements larger than previous measurement: "
+  putStr "(Part I) Number of measurements larger than previous measurement: "
   s <- getContents
   print (numIncreases (lines (fromString s)))
+
+  putStr "(Part II) Number of 3-measurements larger than previous 3-measurement: "
+  print (num3MeasurementIncreases (lines (fromString s)))
