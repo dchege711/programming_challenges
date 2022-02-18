@@ -34,3 +34,24 @@ continue learning more about functional programming.
 {{< readfile
   file=`content/computer-science/programming-challenges/project-euler/022-name-scores/name_scores.hs`
   highlight="haskell" >}}
+
+## Learning from Others' Solutions
+
+Problem 022 did not have tricky bits, so {{% cite ProjectEuler022Thread
+%}} doesn't offer much beyond decisions like:
+
+* How the list is parsed, e.g. [python has an in-built `csv`
+  module](https://docs.python.org/3/library/csv.html), some users
+  slapped some `[]` around the names.txt's contents which made the
+  contents a valid array.
+* Stripping of the quotation marks. I chose to ignore them using
+  `isAlpha`.
+* Use of constants. I chose to use `ord 'A' - 1` in place of `64`.
+
+## References
+
+1. {{< citation
+  id="ProjectEuler022Thread"
+  title="Thread 22 - Project Euler"
+  url="https://projecteuler.net/thread=22"
+  accessed="2022-02-18">}}
