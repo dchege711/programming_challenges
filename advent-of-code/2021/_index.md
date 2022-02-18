@@ -16,8 +16,11 @@ title: 2021
 
 {{% comment %}}
 
-Objective: Get better at Haskell, and in functional programming in
-general.
+Objective: Get better at Haskell, and at functional programming in
+general. Picks up from Haskell learnings in [Project Euler 021]({{< ref
+"/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers"
+>}}) and [Project Euler 022]({{< ref
+"/computer-science/programming-challenges/project-euler/022-name-scores/022-name-scores">}}).
 
 {{% /comment %}}
 

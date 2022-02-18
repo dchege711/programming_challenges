@@ -6,6 +6,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/project
 tags:
 - haskell
 title: 022. Name Scores
+weight: 22
 ---
 
 {{< citation
