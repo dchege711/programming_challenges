@@ -6,6 +6,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 tags:
 - haskell
 title: 2021
+weight: 1
 ---
 
 {{< citation

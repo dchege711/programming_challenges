@@ -4,6 +4,7 @@ domains:
 - adventofcode.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/01-sonar-sweep/01-sonar-sweep/
 title: 01. Sonar Sweep
+weight: 1
 ---
 
 {{< citation
