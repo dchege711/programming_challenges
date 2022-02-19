@@ -138,7 +138,7 @@ larger than the previous sum?**
 ## My Solution
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/advent-of-code/2021/01-sonar-sweep/sonar_sweep.hs`
+  file=`content/computer-science/programming-challenges/advent-of-code/2021/src/01-sonar-sweep/sonar_sweep.hs`
   highlight="haskell" >}}
 
 Notable concepts: pattern matching on lists, working with `Maybe`
