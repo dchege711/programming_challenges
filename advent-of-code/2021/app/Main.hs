@@ -1,8 +1,8 @@
 module Main where
 
-import qualified MyLib (someFunc)
+import qualified AoC2021 (someFunc)
 
 main :: IO ()
 main = do
   putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+  AoC2021.someFunc

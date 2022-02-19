@@ -1,4 +1,4 @@
-module MyLib (someFunc) where
+module AoC2021 (someFunc) where
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
