@@ -46,7 +46,7 @@ maintainer:         d.chege711@gmail.com
 category:           Learning
 
 -- Extra files to be distributed with the package, such as examples or a README.
-extra-source-files: CHANGELOG.md
+-- extra-source-files:
 
 -- A `common` stanza allows for shared configurations.
 common shared-properties
