@@ -95,9 +95,7 @@ executable advent-of-code-y2021
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:
-        base ^>=4.14.3.0,
-        advent-of-code-y2021
+    build-depends:    advent-of-code-y2021
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -115,4 +113,6 @@ test-suite advent-of-code-y2021-test
     main-is:          AoC2021Test.hs
 
     -- Test dependencies.
-    -- build-depends:
+    build-depends:
+        advent-of-code-y2021,
+        HUnit ^>=1.6.2.0
