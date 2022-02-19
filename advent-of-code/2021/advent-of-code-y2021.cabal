@@ -56,6 +56,11 @@ common shared-properties
     -- Other library packages from which modules are imported.
     build-depends:      base ^>=4.14.3.0
 
+    -- Modules included in this library but not exported.
+    other-modules:      Paths_advent_of_code_y2021
+
+    autogen-modules:    Paths_advent_of_code_y2021
+
     ghc-options:        -Wall
 
 library
@@ -63,9 +68,10 @@ library
     import:           shared-properties
 
     -- Modules exported by the library.
-    exposed-modules:  AoC2021
+    exposed-modules:
+        AoC2021,
+        SonarSweep.SonarSweep
 
-    -- Modules included in this library but not exported.
     -- other-modules:
 
     -- LANGUAGE extensions used by modules in this package.

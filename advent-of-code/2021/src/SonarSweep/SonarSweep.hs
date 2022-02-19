@@ -1,7 +1,8 @@
 {-# OPTIONS_GHC -Wall #-}
 
+module SonarSweep.SonarSweep (numIncreases, num3MeasurementIncreases) where
+
 import Data.Maybe (isJust, catMaybes)
-import Data.String (IsString (fromString))
 import Text.Read (readMaybe)
 
 -- Computing `numIncreases` imperatively is rather straightforward, e.g.
@@ -60,25 +61,3 @@ num3MeasurementIncreases (u:w:x:y:zs) = total where
   total = contribution + num3MeasurementIncreases (w:x:y:zs)
 
 num3MeasurementIncreases _ = 0 -- Any list with less than 4 items doesn't have a delta
-
-main :: IO ()
-main = do
-  -- hGetContents is lazy in that data is only read as the characters are
-  -- processed. The lazy evaluation of the string is transparent, and so it can
-  -- be passed to pure functions without any issues. However, if we try to hold
-  -- onto `s` past the call to `numIncreases`, then we lose the memory
-  -- efficiency as the compiler is forced to keep its value in memory for future
-  -- use. Note that closing a handle before fully consuming its results will
-  -- make you miss on the stream's data that had not been evaluated before the
-  -- handle's close. [1] [2]
-  --
-  -- `getContents` is short for `hGetContents stdin`. [2]
-  --
-  -- [1]: http://book.realworldhaskell.org/read/io.html#io.lazy.hGetContents
-  -- [2]: https://hackage.haskell.org/package/base-4.16.0.0/docs/System-IO.html#v:hGetContents
-  putStr "(Part I) Number of measurements larger than previous measurement: "
-  s <- getContents
-  print (numIncreases (lines (fromString s)))
-
-  putStr "(Part II) Number of 3-measurements larger than previous 3-measurement: "
-  print (num3MeasurementIncreases (lines (fromString s)))
