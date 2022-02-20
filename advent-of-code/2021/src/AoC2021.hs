@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -Wall #-}
 
-module AoC2021 (solution01) where
+module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -10,6 +10,12 @@ import System.IO (withFile, IOMode (ReadMode), hGetContents)
 
 import SonarSweep.SonarSweep as SonarSweep
     ( numIncreases, num3MeasurementIncreases )
+import Dive.Dive (productOfFinalPosition)
+
+allSolutions :: IO ()
+allSolutions = do
+  solution01
+  solution02
 
 solution01 :: IO ()
 solution01 = do
@@ -36,4 +42,17 @@ solution01 = do
         print (SonarSweep.numIncreases (lines (fromString s)))
         putStr "\tPart 2: Number of 3-measurements larger than previous 3-measurement: "
         print (SonarSweep.num3MeasurementIncreases (lines (fromString s)))
+    )
+
+solution02 :: IO()
+solution02 = do
+  fp <- getDataFileName "src/Dive/scratchpad/input.txt"
+  putStrLn "Day 02. Dive!"
+  withFile
+    fp
+    ReadMode
+    ( \h -> do
+        s <- hGetContents h
+        putStr "\tPart 1: Product of final horizontal position and final depth: "
+        print (productOfFinalPosition (lines (fromString s)))
     )

@@ -9,6 +9,8 @@ import SonarSweep.SonarSweep as SonarSweep
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Test.HUnit (Counts, Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
 
+import Dive.Dive (productOfFinalPosition)
+
 testSonarSweep :: Test
 testSonarSweep =
   TestCase
@@ -25,8 +27,25 @@ testSonarSweep =
           )
     )
 
+testDive :: Test
+testDive =
+  TestCase
+    ( do
+        fp <- getDataFileName "src/Dive/scratchpad/sample.txt"
+        withFile
+          fp
+          ReadMode
+          ( \h -> do
+              s <- hGetContents h
+              let ls = lines (fromString s)
+              assertEqual "productOfFinalPosition," 150 (productOfFinalPosition ls)
+          )
+    )
+
 tests :: Test
-tests = TestList [TestLabel "testSonarSweep" testSonarSweep]
+tests = TestList [
+  TestLabel "Day 01: Sonar Sweep" testSonarSweep,
+  TestLabel "Day 02: Dive!" testDive]
 
 main :: IO Counts
 main = do

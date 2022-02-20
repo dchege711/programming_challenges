@@ -1,7 +1,7 @@
 module Main where
 
-import qualified AoC2021 (solution01)
+import qualified AoC2021 (allSolutions)
 
 main :: IO ()
 main = do
-  AoC2021.solution01
+  AoC2021.allSolutions
