@@ -5,7 +5,7 @@ domains:
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/
 tags:
 - haskell
-title: 2021
+title: Advent of Code 2021
 weight: 1
 ---
 

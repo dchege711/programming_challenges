@@ -1,6 +1,7 @@
 ---
-title: "Day 1: The Tyranny of the Rocket Equation"
-date: "2020-01-08"
+date: '2020-01-08'
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2019/01-tyranny-of-the-rocket-equation/01-tyranny-of-the-rocket-equation/
+title: 'AoC 2019 Day 01: The Tyranny of the Rocket Equation'
 ---
 
 ## Description

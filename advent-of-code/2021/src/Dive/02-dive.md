@@ -2,8 +2,8 @@
 date: 2022-02-19
 domains:
 - adventofcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/02-dive/02-dive/
-title: 02. Dive!
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/Dive/02-dive/
+title: 'AoC 2021 Day 02: Dive!'
 weight: 2
 ---
 

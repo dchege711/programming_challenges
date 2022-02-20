@@ -1,6 +1,7 @@
 ---
-title: "Day 2: 1202 Program Alarm"
-date: "2019-01-08"
+date: '2019-01-08'
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2019/02-1202-program-alarm/02-1202-program-alarm/
+title: 'AoC 2019 Day 02: 1202 Program Alarm'
 ---
 
 ## Description
