@@ -22,7 +22,7 @@ import Text.Regex.TDFA
 -- [1]: https://www.schoolofhaskell.com/school/starting-with-haskell/basics-of-haskell/5-tokenizer-data-types#enumerated-data-types
 -- [2]: https://stackoverflow.com/questions/6000511/better-way-to-define-an-enum-in-haskell/6000520
 -- [3]: https://www.schoolofhaskell.com/school/starting-with-haskell/introduction-to-haskell/2-algebraic-data-types
-data DiveDirection = Up | Down | Forward deriving (Eq)
+data DiveDirection = Up | Down | Forward deriving (Eq, Show)
 
 diveDirection :: String -> Maybe DiveDirection
 diveDirection "forward" = Just Forward
@@ -50,18 +50,18 @@ parseSubMatches _ = Nothing
 --
 -- [1]: https://stackoverflow.com/a/28381111/7812406
 stepRegex :: [Char]
-stepRegex = "([a-z]+) (\\d+)"
+stepRegex = "([a-z]+) ([0-9]+)" -- regex-tdfa doesn't have \d for digits
 
 directionAndMagnitude :: String -> Maybe (DiveDirection, Int)
 directionAndMagnitude s =
   -- The format is (beforeMatch, firstMatch, afterMatch, [subMatches])
   let (_, _, _, subMatches) = s =~ stepRegex :: (String, String, String, [String])
-   in -- Haskell lists are ordinary single-linked lists. Except operations on the
-      -- first element (e.g. prepend, get, remove), the rest of the operations
-      -- (including getting the length and indexing) are linear-time.
-      --
-      -- [1]: https://wiki.haskell.org/How_to_work_on_lists
-      parseSubMatches subMatches
+  -- Haskell lists are ordinary single-linked lists. Except operations on the
+  -- first element (e.g. prepend, get, remove), the rest of the operations
+  -- (including getting the length and indexing) are linear-time.
+  --
+  -- [1]: https://wiki.haskell.org/How_to_work_on_lists
+   in parseSubMatches subMatches
 
 applySign :: (DiveDirection, Int) -> Int
 applySign (Up, i) = -i
