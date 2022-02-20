@@ -78,3 +78,9 @@ current. If a submarine is not actively moving, it seems like it should
 drift depending on where the currents' magnitude and direction.
 
 {{% /comment %}}
+
+## My Solution
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/advent-of-code/2021/src/Dive/Dive.hs"
+  highlight="haskell">}}
