@@ -1,7 +1,7 @@
 ---
 date: 2022-02-19
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/haskell-meta/
-title: Using Haskell for AoC 2021
+title: Learning Haskell via AoC 2021
 weight: 100
 ---
 
@@ -16,6 +16,10 @@ and whenever I fret about efficiency, I mumble something to do with lazy
 evaluation in Haskell.
 
 {{% /open-comment %}}
+
+{{% cite HiddingAoC2021 %}} and {{% cite LeAoC2021 %}} have Haskell
+solutions. It'll be nice to compare how they solved the problems. I
+don't want to end up perfecting the wrong approach!
 
 ## Setting Up My Haskell Environment for AoC
 
@@ -59,6 +63,12 @@ set up](#my-cabal-file).
 (see [app/Main.hs](#my-code-runner)). `cabal run advent-of-code-y2021-test`
 runs some checks based on the sample inputs on AoC problem description
 (see [test/AoC2021Test.hs](#my-test-runner)).
+
+{{% cite LeAoC2021 %}} has a more comprehensive setup, e.g. specifying
+which problem to run, running tests, and running benchmarks. They even
+published [an `advent-of-code-api`
+package](https://hackage.haskell.org/package/advent-of-code-api) that
+abstracts away the network calls!
 
 ## VS Code Setup
 
@@ -117,12 +127,59 @@ GHCi. That said, [GHCi comes with a debugger
 included](https://downloads.haskell.org/~ghc/7.4.1/docs/html/users_guide/ghci-debugger.html)
 so that's promising!
 
-## Others' Solutions
+## Literate Programming
 
-[jhidding](https://jhidding.github.io/aoc2021/#advent-of-code-2021) and
-[mstksg](https://github.com/mstksg/advent-of-code-2021) have Haskell
-solutions. It'll be nice to compare how they solved the problems. I
-don't want to end up perfecting the wrong approach!
+Literate Haskell [intrigued me]({{< ref
+"/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers#PE021Haskell"
+>}}), but I don't use it much because it's not well-integrated into VS
+Code's intellisense and linting extensions. {{% cite HiddingAoC2021 %}}
+uses {{% cite Entangled %}}, which allows one to put code inside
+markdown code blocks. Entangled then extracts code and writes it to
+traditional source files, and syncs changes made in either the markdown
+or the source file.
+
+{{% comment %}}
+
+Entangled is written in Haskell, and mostly by Hidding! Small world. The
+project is still in active development, so something to keep an eye on.
+
+It's a pretty nifty concept, and superior to my current approach of
+using [a Hugo shortcode](https://gohugo.io/templates/files/) to embed
+the source file into the generated HTML file. My current approach
+doesn't display both the source and the markdown in the same space when
+I'm editing the content.
+
+{{% /comment %}}
+
+{{% cite LeAoC2021 %}} uses {{% cite Haddock %}} to generate markup from
+source code. Haddock reminds me of Python's
+[Sphinx](https://www.sphinx-doc.org/en/master/), Java's
+[Javadoc](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html)
+and JavaScript's [JSDoc](https://jsdoc.app/).
+
+## Overarching Code Considerations
+
+{{% cite HiddingAoC2021 %}} uses the `RIO` library to replace the
+standard `Prelude`. {{% cite RioLibrary %}} aims to be the de-facto
+standard library for Haskell development, as the `base` package is quite
+minimal, has some contentious APIs, and avoid re-inventing the wheel in
+the name of fewer dependencies.
+
+{{% comment %}}
+
+[More on dependency management]({{< ref
+"/computer-science/2020-11-14-software-dependencies">}}).
+
+{{% /comment %}}
+
+{{% comment %}}
+
+`RIO` lives in https://github.com/commercialhaskell alongside Stack, and
+Stackage.
+
+{{% /comment %}}
+
+{{% tag dependencies %}}
 
 ## Appendix
 
@@ -143,3 +200,41 @@ don't want to end up perfecting the wrong approach!
 {{< readfile
   file="/content/computer-science/programming-challenges/advent-of-code/2021/test/AoC2021Test.hs"
   highlight="haskell">}}
+
+## References
+
+1. {{< citation
+  id="HiddingAoC2021"
+  author="Johan Hidding"
+  title="Advent of Code 2021"
+  url="https://jhidding.github.io/aoc2021/#advent-of-code-2021"
+  accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="Entangled"
+  author="Johan Hidding"
+  title="Entangled: literate programming for the new millennium"
+  url="https://entangled.github.io/"
+  url_2="https://github.com/entangled/entangled/"
+  accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="RioLibrary"
+  title="rio: A standard library for Haskell"
+  url="https://hackage.haskell.org/package/rio-0.1.21.0#readme"
+  url_2="https://www.fpcomplete.com/haskell/library/rio/"
+  url_3="https://github.com/commercialhaskell/rio"
+  accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="LeAoC2021"
+  author="Justin Le"
+  title="mstksg/advent-of-code-2021: 🎅🌟❄️☃️🎄🎁"
+  url="https://github.com/mstksg/advent-of-code-2021"
+  accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="Haddock"
+  title="Welcome to Haddock’s documentation! — Haddock 1.0 documentation"
+  url="https://haskell-haddock.readthedocs.io/en/latest/"
+  accessed="2022-02-20" >}}
