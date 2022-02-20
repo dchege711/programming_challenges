@@ -5,6 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "ghc",
+            "request": "launch",
+            "name": "AoC 2021",
+            "workspace": "${workspaceFolder}/advent-of-code/2021",
+            "startup": "${workspaceFolder}/advent-of-code/2021/src/Dive/Dive.hs",
+            "startupFunc": "productOfFinalPosition",
+            "startupArgs": "[\"forward 5\", \"down 5\", \"forward 8\", \"up 3\", \"down 8\", \"forward 2\"]",
+            "stopOnEntry": false,
+            "mainArgs": "",
+            "ghciPrompt": "H>>= ",
+            "ghciInitialPrompt": "> ",
+            "ghciCmd": "cabal exec -- ghci-dap --interactive -i -i${workspaceFolder}/advent-of-code/2021",
+            "ghciEnv": {},
+            "logFile": "${workspaceFolder}/advent-of-code/2021/scratchpad/phoityne.log",
+            "logLevel": "INFO",
+            "forceInspect": false
+        },
+        {
             "type": "java",
             "name": "CodeLens (Launch) - LFSR347",
             "request": "launch",
@@ -31,6 +49,6 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb",
-          }
+        },
     ]
 }
