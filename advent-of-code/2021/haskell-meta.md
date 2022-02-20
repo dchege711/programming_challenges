@@ -72,6 +72,22 @@ update](https://github.com/haskell/haskell-language-server/issues/366)
 leading to erroneous flagging of code that compiles fine. Restarting the
 language server every once in a while is a tad inconvenient.
 
+## Debugging Haskell
+
+A lot of the errors are caught by the compiler given the strong typing.
+
+One option is to load the .hs file into GHCi and experiment in there.
+
+```shell
+$ ghci
+GHCi, version 8.10.7: https://www.haskell.org/ghc/  :? for help
+Loaded package environment from /Users/dchege711/.ghc/x86_64-darwin-8.10.7/environments/default
+Prelude> :load src/Dive/Dive.hs
+[1 of 1] Compiling Dive.Dive        ( src/Dive/Dive.hs, interpreted )
+Ok, one module loaded.
+*Dive.Dive>
+```
+
 ## Appendix
 
 ### My Cabal File
