@@ -97,6 +97,33 @@ Ok, one module loaded.
 *Dive.Dive>
 ```
 
+[Haskell GHCi Debug Adapter
+Phoityne](https://marketplace.visualstudio.com/items?itemName=phoityne.phoityne-vscode)
+seems like the de-factor debugger for VS Code. I'm having issues of the
+form:
+
+```log
+test/AoC2021Test.hs:5:1: error:
+    Could not load module ‘Paths_advent_of_code_y2021’
+    it is a hidden module in the package ‘advent-of-code-y2021-0.1.0.0’
+    Use -v (or `:set -v` in ghci) to see a list of the files searched for.
+  |
+5 | import Paths_advent_of_code_y2021 (getDataFileName)
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```
+
+... so I need to figure out how to send arguments from the extension to
+GHCi. That said, [GHCi comes with a debugger
+included](https://downloads.haskell.org/~ghc/7.4.1/docs/html/users_guide/ghci-debugger.html)
+so that's promising!
+
+## Others' Solutions
+
+[jhidding](https://jhidding.github.io/aoc2021/#advent-of-code-2021) and
+[mstksg](https://github.com/mstksg/advent-of-code-2021) have Haskell
+solutions. It'll be nice to compare how they solved the problems. I
+don't want to end up perfecting the wrong approach!
+
 ## Appendix
 
 ### My Cabal File
