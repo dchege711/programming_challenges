@@ -95,7 +95,7 @@ applySign' :: Maybe (DiveDirection, Int) -> Int
 applySign' = maybe 0 applySign
 
 isForward :: (DiveDirection, Int) -> Bool
-isForward (Up, _) = True
+isForward (Forward, _) = True
 isForward _ = False
 
 cumulativeSums :: [Int] -> [Int]
