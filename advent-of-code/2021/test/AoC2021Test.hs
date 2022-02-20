@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Data.String (IsString (fromString))
+import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
   ( num3MeasurementIncreases,
@@ -8,8 +9,6 @@ import SonarSweep.SonarSweep as SonarSweep
   )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Test.HUnit (Counts, Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
-
-import Dive.Dive (productOfFinalPosition)
 
 testSonarSweep :: Test
 testSonarSweep =
@@ -38,14 +37,20 @@ testDive =
           ( \h -> do
               s <- hGetContents h
               let ls = lines (fromString s)
-              assertEqual "productOfFinalPosition," 150 (productOfFinalPosition ls)
+              assertEqual "Stale Interpretation," 150 (productOfFinalPosition ls)
+              assertEqual
+                "Correct Interpretation,"
+                900
+                (productOfFinalPositionWithNewIntepretation ls)
           )
     )
 
 tests :: Test
-tests = TestList [
-  TestLabel "Day 01: Sonar Sweep" testSonarSweep,
-  TestLabel "Day 02: Dive!" testDive]
+tests =
+  TestList
+    [ TestLabel "Day 01: Sonar Sweep" testSonarSweep,
+      TestLabel "Day 02: Dive!" testDive
+    ]
 
 main :: IO Counts
 main = do

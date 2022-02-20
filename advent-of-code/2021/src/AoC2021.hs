@@ -3,14 +3,15 @@
 module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
+
+import Data.String (IsString (fromString))
+import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import Paths_advent_of_code_y2021 (getDataFileName)
-
-import Data.String (IsString(fromString))
-import System.IO (withFile, IOMode (ReadMode), hGetContents)
-
 import SonarSweep.SonarSweep as SonarSweep
-    ( numIncreases, num3MeasurementIncreases )
-import Dive.Dive (productOfFinalPosition)
+  ( num3MeasurementIncreases,
+    numIncreases,
+  )
+import System.IO (IOMode (ReadMode), hGetContents, withFile)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -44,7 +45,7 @@ solution01 = do
         print (SonarSweep.num3MeasurementIncreases (lines (fromString s)))
     )
 
-solution02 :: IO()
+solution02 :: IO ()
 solution02 = do
   fp <- getDataFileName "src/Dive/scratchpad/input.txt"
   putStrLn "Day 02. Dive!"
@@ -55,4 +56,7 @@ solution02 = do
         s <- hGetContents h
         putStr "\tPart 1: Product of final horizontal position and final depth: "
         print (productOfFinalPosition (lines (fromString s)))
+        putStr "\tPart 1: Product of final horizontal position and final depth "
+        putStr "with new instructions of : "
+        print (productOfFinalPositionWithNewIntepretation (lines (fromString s)))
     )

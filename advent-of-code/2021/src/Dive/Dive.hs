@@ -1,6 +1,10 @@
 {-# OPTIONS_GHC -Wall #-}
 
-module Dive.Dive (productOfFinalPosition) where
+module Dive.Dive
+  ( productOfFinalPosition,
+    productOfFinalPositionWithNewIntepretation,
+  )
+where
 
 -- One consideration in Haskell is the third-party library that I should use,
 -- given that standard GHC seems quite lean. [1] should help in picking up
@@ -13,7 +17,7 @@ module Dive.Dive (productOfFinalPosition) where
 
 import Data.Maybe (fromJust, isJust, mapMaybe)
 import Text.Read (readMaybe)
-import Text.Regex.TDFA
+import Text.Regex.TDFA ( (=~) )
 
 -- [1] suggests that I should be fine without deriving from the `Enum` data
 -- type. Deriving from `Enum` helps me when I care about the mapping to an
@@ -56,18 +60,49 @@ directionAndMagnitude :: String -> Maybe (DiveDirection, Int)
 directionAndMagnitude s =
   -- The format is (beforeMatch, firstMatch, afterMatch, [subMatches])
   let (_, _, _, subMatches) = s =~ stepRegex :: (String, String, String, [String])
-  -- Haskell lists are ordinary single-linked lists. Except operations on the
-  -- first element (e.g. prepend, get, remove), the rest of the operations
-  -- (including getting the length and indexing) are linear-time.
-  --
-  -- [1]: https://wiki.haskell.org/How_to_work_on_lists
-   in parseSubMatches subMatches
+   in -- Haskell lists are ordinary single-linked lists. Except operations on the
+      -- first element (e.g. prepend, get, remove), the rest of the operations
+      -- (including getting the length and indexing) are linear-time.
+      --
+      -- [1]: https://wiki.haskell.org/How_to_work_on_lists
+      parseSubMatches subMatches
 
 applySign :: (DiveDirection, Int) -> Int
-applySign (Up, i) = -i
+applySign (Up, i) = - i
 applySign (Down, i) = i
 applySign (Forward, i) = i
 
+-- It's common in Haskell to use the apostrophe to signify a relationship to a
+-- previously defined item. Similar to how apostrophes are used in math.
+--
+-- [1]: https://stackoverflow.com/a/5673954/7812406
+applySign' :: Maybe (DiveDirection, Int) -> Int
+-- Hlint saved me here. My initial implementation was:
+--
+--    if isJust m then applySign $ fromJust m else 0
+--
+-- ... and Hlint suggested:
+--
+--    maybe 0 applySign m
+--
+-- ... and further suggested dropping the `m` citing Eta reduction. This
+-- reduction leads to the cleaner Pointfree style which omits the names of the
+-- variables. Pointfree style puts the spotlight on composing functions (high
+-- level), rather than shuffling data (low level). [1] [2].
+--
+-- [1]: https://wiki.haskell.org/Eta_conversion
+-- [2]: https://wiki.haskell.org/Pointfree
+applySign' = maybe 0 applySign
+
+isForward :: (DiveDirection, Int) -> Bool
+isForward (Up, _) = True
+isForward _ = False
+
+cumulativeSums :: [Int] -> [Int]
+cumulativeSums [] = []
+cumulativeSums [x] = [x]
+cumulativeSums [x, y] = [x, x + y]
+cumulativeSums (x : y : zs) = x : cumulativeSums (x + y : zs)
 
 productOfFinalPosition :: [String] -> Int
 productOfFinalPosition steps =
@@ -81,8 +116,7 @@ productOfFinalPosition steps =
   --
   -- [1]: http://www.cse.unsw.edu.au/~cs3161/14s2/StyleGuide.html#sec-5-1-1
   -- [2]: https://wiki.haskell.org/Let_vs._Where
-  let
-      parsedSteps = mapMaybe directionAndMagnitude steps
+  let parsedSteps = mapMaybe directionAndMagnitude steps
 
       -- `fst` and `snd` are utility functions for the first and second members
       -- of a pair, respectively. [1]
@@ -91,7 +125,98 @@ productOfFinalPosition steps =
 
       -- How do I compute `horizontalPos` and `verticalPos` while iterating
       -- through `parsedSteps` once? From an imperative programming background,
-      -- this looks pretty inefficient!
-      finalHorizontalPos = sum $ map applySign $ filter (\x -> fst x == Forward) parsedSteps
-      finalVerticalPos = sum $ map applySign $ filter (\x -> fst x == Up || fst x == Down) parsedSteps
+      -- this looks pretty inefficient! Update: [1] suggests the `foldl`
+      -- package.
+      --
+      -- [1]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Foldable.html#g:18
+      finalHorizontalPos = sum $ map applySign $ filter isForward parsedSteps
+
+      -- The function composition operator is handy when inverting the filter
+      -- predicate.
+      --
+      -- [1]: https://techoverflow.net/2014/01/03/haskell-invert-filter-predicate/
+      finalVerticalPos = sum $ map applySign $ filter (not . isForward) parsedSteps
    in finalHorizontalPos * finalVerticalPos
+
+productOfFinalPositionWithNewIntepretation :: [String] -> Int
+productOfFinalPositionWithNewIntepretation steps =
+  let parsedSteps = mapMaybe directionAndMagnitude steps
+      finalHorizontalPos = sum $ map applySign $ filter isForward parsedSteps
+      -- Hlint suggestion on using map once was illuminating. I had code like:
+      --
+      --    l = ([1..10] :: [Int])
+      --    map even $ map negate l
+      --
+      -- ... for which Hlint suggested:
+      --
+      --    map (even . negate) l
+      --
+      -- ... and that makes sense. Composition strikes again!
+      aimDeltas =
+        map
+          (applySign' . (\x -> if (not . isForward) x then Just x else Nothing))
+          parsedSteps
+
+      -- How do I do cumulative sums, i.e. [1, 2, 3, 4] -> [1, 3, 6, 10]? The end
+      -- result is a list, so maybe something to do with `map`, but how do I
+      -- reference what came before? Maybe a standalone function with pattern
+      -- matching?
+      cumulativeAims = cumulativeSums aimDeltas
+
+      forwardDeltas =
+        map
+          (applySign' . (\x -> if isForward x then Just x else Nothing))
+          parsedSteps
+
+      -- In other languages, moving from a list to a single value is referred to
+      -- as a reduction. Haskell uses the term "folding". On lists, one can
+      -- either recursively combine the 1st element with the result of combining
+      -- the rest (right fold), or recursively combine the results of combining
+      -- all but the last element with the last element (left fold). Some
+      -- initial value is provided that is combined with the first item in the
+      -- list. There are some nuances:
+      --
+
+      --   lazily evaluates the recursive case of folding over the rest of the
+      --   list, or short-circuits (e.g. `||` short-circuits on `True` values).
+      --
+
+      --   the final result of the function itself). This can be efficiently
+      --   compiled as a loop, but can't handle an infinite list.
+      --
+
+      --   parameter before the recursive call is made. At the end of the list,
+      --   we may end up with a gigantic expression that causes stack overflow.
+      --   Haskell provides the `foldl'` function that forces evaluation of the
+      --   initial parameter before making the recursive call.
+      --
+      -- From [1] [2]. [3] goes into way more detail, and is worth a closer
+      -- read.
+      --
+      -- That said, I still don't know how to summarize `(zip forwardDeltas
+      -- aimDeltas)`. `foldl` and `foldr` accept operators, but there's no
+      -- operator for "increase depth value by aim multiplied by X". Seems like
+      -- `foldMap` is the place to be, but WHAT IS A MONOID?
+      --
+      -- Update: Misread the docs. `fold` and `foldMap` need monoids, but
+      -- `foldl` and `foldr` have examples with lambdas. Nice!
+      --
+      -- [1]: https://wiki.haskell.org/Fold
+      -- [2]: https://wiki.haskell.org/Tail_recursion
+      -- [3]:
+      --     https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Foldable.html#overview
+
+      -- My version had:
+      --
+      --    (fst p * snd p)
+      --
+      -- ... and Hlint proposed the use of uncurry, which converts a curried
+      -- function to a function on pairs. That's pretty neat.
+      --
+      -- [1]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Prelude.html#v:uncurry
+      finalDepth =
+        foldr
+          (\p depthSoFar -> depthSoFar + uncurry (*) p)
+          0
+          (zip forwardDeltas cumulativeAims)
+   in finalHorizontalPos * finalDepth
