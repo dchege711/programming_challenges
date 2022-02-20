@@ -75,18 +75,23 @@ productOfFinalPosition steps =
   -- intermediate values. [1]
   --
   -- I don't fully get the nuance in [2], but it might come in handy later as
-  -- I get more experience with Haskell. A brush stroke would be `let` places
+  -- I get more experience with Haskell. A broad stroke would be `let` places
   -- fewer restrictions, and `where` is more readable, but `where` may obscure
   -- inefficient code that redefines local functions.
   --
   -- [1]: http://www.cse.unsw.edu.au/~cs3161/14s2/StyleGuide.html#sec-5-1-1
   -- [2]: https://wiki.haskell.org/Let_vs._Where
-  let -- I'm already familiar with `total = sum xs`. However, how do I compute
-      -- `horizontalPos` and `verticalPos` while iterating through `steps` once?
+  let
       parsedSteps = mapMaybe directionAndMagnitude steps
 
-      -- `fst` is a utility function for the first member of a pair.
-      -- https://en.wikibooks.org/wiki/Haskell/Lists_and_tuples
-      finalHorizontalPos = sum $ map snd $ filter (\x -> fst x == Forward) parsedSteps
+      -- `fst` and `snd` are utility functions for the first and second members
+      -- of a pair, respectively. [1]
+      --
+      -- [1]: https://en.wikibooks.org/wiki/Haskell/Lists_and_tuples
+
+      -- How do I compute `horizontalPos` and `verticalPos` while iterating
+      -- through `parsedSteps` once? From an imperative programming background,
+      -- this looks pretty inefficient!
+      finalHorizontalPos = sum $ map applySign $ filter (\x -> fst x == Forward) parsedSteps
       finalVerticalPos = sum $ map applySign $ filter (\x -> fst x == Up || fst x == Down) parsedSteps
    in finalHorizontalPos * finalVerticalPos
