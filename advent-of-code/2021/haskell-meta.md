@@ -8,6 +8,15 @@ weight: 100
 This page contains remarks on Haskell that don't fit neatly into any
 of the Advent of Code 2021 problems.
 
+{{% open-comment %}}
+
+Read [[1808.08329] When You Should Use Lists in Haskell (Mostly, You
+Should Not)](https://arxiv.org/abs/1808.08329). I am using lists a lot,
+and whenever I fret about efficiency, I mumble something to do with lazy
+evaluation in Haskell.
+
+{{% /open-comment %}}
+
 ## Setting Up My Haskell Environment for AoC
 
 To manage dependencies,
