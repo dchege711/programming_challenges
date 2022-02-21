@@ -55,9 +55,22 @@ sumOfNameScores names = score
 
 -- Pure code refers to functions that always return the same result when given
 -- the same input, have no side effects (e.g. I/O on files, printing to screen),
--- and never alter state. I/O in Haskell is impure code.
+-- and never alter state. I/O in Haskell is impure code. [1]
+--
+-- A side effect is anything that causes the evaluation of an expression to
+-- interact with something outside itself. Side effects are time-sensitive, e.g.
+--
+-- * It matters when one modifies a global variable as it may affect the
+--   evaluation of other expressions.
+-- * It matters when an item is printed to screen as it may need to be in a
+--   certain order w.r.t. other writes to the screen.
+-- * It matters when we read from a file or the network as the contents of the
+--   file may affect the outcome.
+--
+-- [2]
 --
 -- [1]: http://book.realworldhaskell.org/read/io.html
+-- [2]: https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/6-laziness#side-effects-and-purity
 main :: IO ()
 main = do
   putStr "The total of all the name scores in names.txt is "
@@ -93,5 +106,13 @@ main = do
         -- (which is an alias for `[Char]`).
         --
         -- [1]: https://stackoverflow.com/a/37895439/7812406
+
+        -- If `?` is an operator, then:
+        --
+        --    `(?y)` is equivalent to the function `\x -> x ? y`
+        --
+        --    `(y?)` is equivalent to the function `\x -> y ? x`
+        --
+        -- [1]: https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/4-higher-order-programming-and-type-inference#anonymous-functions
         print $ sumOfNameScores (split (== ',') (fromString allNamesStr))
     )

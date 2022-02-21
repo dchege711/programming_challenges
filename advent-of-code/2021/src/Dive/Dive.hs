@@ -92,6 +92,7 @@ applySign' :: Maybe (DiveDirection, Int) -> Int
 --
 -- [1]: https://wiki.haskell.org/Eta_conversion
 -- [2]: https://wiki.haskell.org/Pointfree
+-- [3]: https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/4-higher-order-programming-and-type-inference#wholemeal-programming
 applySign' = maybe 0 applySign
 
 isForward :: (DiveDirection, Int) -> Bool
@@ -176,22 +177,28 @@ productOfFinalPositionWithNewIntepretation steps =
       -- initial value is provided that is combined with the first item in the
       -- list. There are some nuances:
       --
-
-      --   lazily evaluates the recursive case of folding over the rest of the
-      --   list, or short-circuits (e.g. `||` short-circuits on `True` values).
+      --   `foldr` lazily evaluates the recursive case of folding over the rest
+      --   of the list. This allows it to handle computations on infinite lists
+      --   that either produce some result without referencing the recursive
+      --   case, or short-circuit (e.g. `||` short-circuits on the first
+      --   `True`).
       --
-
-      --   the final result of the function itself). This can be efficiently
-      --   compiled as a loop, but can't handle an infinite list.
       --
-
-      --   parameter before the recursive call is made. At the end of the list,
-      --   we may end up with a gigantic expression that causes stack overflow.
-      --   Haskell provides the `foldl'` function that forces evaluation of the
-      --   initial parameter before making the recursive call.
+      --   `foldl` immediately calls itself with new params until it reaches the
+      --   end of the list (and thus can't handle infinite loops). However, its
+      --   tail recursiveness (the final result of the recursive call is the
+      --   final result of the function itself) can be efficiently compiled as a
+      --   as a loop.
       --
-      -- From [1] [2]. [3] goes into way more detail, and is worth a closer
-      -- read.
+      --
+      --   `foldl` does not evaluate the initial parameter before the recursive
+      --   call is made. At the end of the list, we may end up with a gigantic
+      --   expression that causes stack overflow. Haskell provides the `foldl'`
+      --   function that forces evaluation of the initial parameter before
+      --   making the recursive call.
+      --
+      -- From [1] [2]. [3] and [4] goes into way more detail, and are worth a
+      -- closer read.
       --
       -- That said, I still don't know how to summarize `(zip forwardDeltas
       -- aimDeltas)`. `foldl` and `foldr` accept operators, but there's no
@@ -203,8 +210,8 @@ productOfFinalPositionWithNewIntepretation steps =
       --
       -- [1]: https://wiki.haskell.org/Fold
       -- [2]: https://wiki.haskell.org/Tail_recursion
-      -- [3]:
-      --     https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Foldable.html#overview
+      -- [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Foldable.html#overview
+      -- [4]: https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/6-laziness
 
       -- My version had:
       --
@@ -214,6 +221,14 @@ productOfFinalPositionWithNewIntepretation steps =
       -- function to a function on pairs. That's pretty neat.
       --
       -- [1]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Prelude.html#v:uncurry
+
+      -- Lambda abstractions can also have multiple arguments. For example:
+      --
+      --    \x y z -> [x, 2 * y, 3 * z]
+      --
+      -- ... is an anonymous function that takes 3 arguments.
+      --
+      -- [1]: https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/4-higher-order-programming-and-type-inference#anonymous-functions
       finalDepth =
         foldr
           (\p depthSoFar -> depthSoFar + uncurry (*) p)

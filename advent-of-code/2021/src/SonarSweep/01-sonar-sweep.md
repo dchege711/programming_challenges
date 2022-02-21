@@ -139,7 +139,8 @@ larger than the previous sum?**
 
 {{< readfile
   file=`content/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/SonarSweep.hs`
-  highlight="haskell" >}}
+  highlight="haskell"
+  id="SonarSweep.hs" >}}
 
 Notable concepts: pattern matching on lists, working with `Maybe`
 values, lazy I/O.

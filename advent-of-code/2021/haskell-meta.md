@@ -1,21 +1,24 @@
 ---
+authors:
+- Hidding, Johan
+- Le, Justin
+- Yorgey, Brent
 date: 2022-02-19
+domains:
+- entangled.github.io
+- github.com
+- hackage.haskell.org
+- haskell-haddock.readthedocs.io
+- jhidding.github.io
+- www.fpcomplete.com
+- www.schoolofhaskell.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/haskell-meta/
 title: Learning Haskell via AoC 2021
 weight: 100
 ---
 
-This page contains remarks on Haskell that don't fit neatly into any
-of the Advent of Code 2021 problems.
-
-{{% open-comment %}}
-
-Read [[1808.08329] When You Should Use Lists in Haskell (Mostly, You
-Should Not)](https://arxiv.org/abs/1808.08329). I am using lists a lot,
-and whenever I fret about efficiency, I mumble something to do with lazy
-evaluation in Haskell.
-
-{{% /open-comment %}}
+This page contains remarks on Haskell that I encountered when working
+with source files that span multiple AoC 2021 problems.
 
 {{% cite HiddingAoC2021 %}} and {{% cite LeAoC2021 %}} have Haskell
 solutions. It'll be nice to compare how they solved the problems. I
@@ -159,6 +162,8 @@ and JavaScript's [JSDoc](https://jsdoc.app/).
 
 ## Overarching Code Considerations
 
+### The Standard Library
+
 {{% cite HiddingAoC2021 %}} uses the `RIO` library to replace the
 standard `Prelude`. {{% cite RioLibrary %}} aims to be the de-facto
 standard library for Haskell development, as the `base` package is quite
@@ -179,7 +184,69 @@ Stackage.
 
 {{% /comment %}}
 
-{{% tag dependencies %}}
+Partial functions (e.g. `head`, `tail`, `init`, `last`, and `(!!)`) in
+the `Prelude` (the module with a bunch of standard definitions that get
+implicitly imported into every Haskell program) are an example of a
+contentious standard library API. A **partial function** is one that
+could crash for some inputs (e.g. `head []` crashes because an empty
+list doesn't have a first item). A **total function** is one that is
+well-defined on _all_ possible inputs. {{% cite Yorgey2014Functions %}}
+
+### Lazy Evaluation
+
+{{% open-comment %}}
+
+Read [[1808.08329] When You Should Use Lists in Haskell (Mostly, You
+Should Not)](https://arxiv.org/abs/1808.08329). I am using lists a lot,
+and whenever I fret about efficiency, I mumble something to do with lazy
+evaluation in Haskell.
+
+{{% /open-comment %}}
+
+Pattern matching drives evaluation. Expressions are only evaluated when
+pattern-matched, and only as far as necessary for the match to proceed,
+and no farther. For example, given these definitions:
+
+```hs
+repeat :: a -> [a]
+repeat x = x : repeat x
+
+take :: Int -> [a] -> [a]
+take n _ | n <= 0   = []
+take _ []           = []
+take n (x:xs)       = x : take (n-1) xs
+```
+
+... we expect `take 3 (repeat 7)` to evaluate to `[7, 7, 7]`. A
+step-by-step evaluation looks like:
+
+```hs
+  take 3 (repeat 7)
+    -- Matches clause 2, which needs the 2nd arg. Expand `repeat 7` one
+    -- step.
+= take 3 (7 : repeat 7)
+    -- Matches clause 3. (3-1) not yet evaluated as not needed for
+    -- pattern-matching.
+= 7 : take (3-1) (repeat 7)
+    -- (3-1) <= 0 forces evaluation of (3-1).
+= 7 : take 2 (repeat 7)
+    -- Matches clause 2; expand 2nd arg one step.
+= 7 : take 2 (7 : repeat 7)
+= 7 : 7 : take (2-1) (repeat 7)
+= 7 : 7 : take 1 (repeat 7)
+= 7 : 7 : take 1 (7 : repeat 7)
+= 7 : 7 : 7 : take (1-1) (repeat 7)
+= 7 : 7 : 7 : take 0 (repeat 7)
+= 7 : 7 : 7 : []
+```
+
+The GHC compiler uses graph reduction, where the expression being
+evaluated is represented as a graph, so that different parts of the
+expression can share pointers to the same subexpression. Haskell's
+runtime works out the memoization aspect of dynamic programming on our
+behalf!
+
+{{% cite Yorgey2013Laziness %}}
 
 ## Appendix
 
@@ -194,6 +261,36 @@ Stackage.
 {{< readfile
   file="/content/computer-science/programming-challenges/advent-of-code/2021/app/Main.hs"
   highlight="haskell">}}
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021.hs"
+  highlight="haskell"
+  id="AoC2021.hs">}}
+
+{{% cite HiddingAoC2021-01 %}} has cleaner code for reading the input:
+
+```hs
+module Day01 where
+
+import RIO
+import qualified RIO.Text as Text
+
+readInput :: MonadIO m => m [Int]
+readInput = do
+  text <- Text.lines <$> readFileUtf8 "data/day01.txt"
+  return $ mapMaybe (readMaybe . Text.unpack) text
+```
+
+Notice how `readInput` parses the input and takes care of converting
+into expected data types `[Int]` and takes care of parsing uncertainty
+with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/src/sonarsweep/01-sonar-sweep#SonarSweep.hs"
+>}}) and [`Dive.productOfFinalPosition*`]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/src/Dive/02-dive.md#Dive.hs"
+>}}) functions receive a `[String]` which they then parse into intended
+types. Furthermore, because I'm reading the input in [AoC2021.hs]({{<
+ref "#AoC2021.hs" >}}), it'll be a neat way of comparing input-parsing
+techniques.
 
 ### My Test Runner
 
@@ -238,3 +335,31 @@ Stackage.
   title="Welcome to Haddock’s documentation! — Haddock 1.0 documentation"
   url="https://haskell-haddock.readthedocs.io/en/latest/"
   accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="HiddingAoC2021-01"
+  author="Johan Hidding"
+  title="Advent of Code 2021"
+  url="https://jhidding.github.io/aoc2021/#day-1-sonar-sweep"
+  accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="MonadIO"
+  title="Control.Monad.IO.Class"
+  url="https://hackage.haskell.org/package/transformers-0.4.2.0/docs/Control-Monad-IO-Class.html"
+  accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="Yorgey2014Functions"
+  author="Brent Yorgey"
+  title="3: Recursion Patterns, Polymorphism, and the Prelude - School of Haskell"
+  url="https://www.schoolofhaskell.com/school/starting-with-haskell/introduction-to-haskell/3-recursion-patterns-polymorphism-and-the-prelude#total-and-partial-functions"
+  date="2014-07-14"
+  accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="Yorgey2013Laziness"
+  author="Brent Yorgey"
+  title="6: Laziness - School of Haskell"
+  url="https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/6-laziness"
+  accessed="2022-02-21" >}}
