@@ -1,15 +1,18 @@
 ---
 authors:
+- Breitner, Joachim
 - Hidding, Johan
 - Le, Justin
 - Yorgey, Brent
 date: 2022-02-19
 domains:
+- en.wikipedia.org
 - entangled.github.io
 - github.com
 - hackage.haskell.org
 - haskell-haddock.readthedocs.io
 - jhidding.github.io
+- www.cis.upenn.edu
 - www.fpcomplete.com
 - www.schoolofhaskell.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/haskell-meta/
@@ -281,6 +284,8 @@ readInput = do
   return $ mapMaybe (readMaybe . Text.unpack) text
 ```
 
+#### Parsing Input
+
 Notice how `readInput` parses the input and takes care of converting
 into expected data types `[Int]` and takes care of parsing uncertainty
 with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
@@ -291,6 +296,207 @@ with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
 types. Furthermore, because I'm reading the input in [AoC2021.hs]({{<
 ref "#AoC2021.hs" >}}), it'll be a neat way of comparing input-parsing
 techniques.
+
+#### `Monad` and `MonadIO`
+
+{{% comment %}}
+
+{{% cite HiddingAoC2021-01 %}} uses a `MonadIO` and that code looks
+cleaner.
+
+My initial perspective on monads is one of trepidation. I've encountered
+a lot of: Actually, _[prior definition]_ does not encompass a monad™,
+but the more we discuss examples, the more you'll grok monads™.
+
+(◎ ◎)ゞ
+
+Monads derive from category theory, but I lack the mathematical maturity
+to make sense of the terminologies. Hoping to get a Haskell programmer's
+understanding of monads instead.
+
+{{% /comment %}}
+
+Values of type `IO a` are _descriptions_ of effectful computations,
+which, if executed would (possibly) perform some effectful I/O
+operations and (eventually) produce a value of type `a`. Values of type
+`IO a` are only ever executed by the Haskell runtime system, and they're
+are passed to the runtime system via the special function `main :: IO
+()`. Given the special `main` function, there exists a need for ways to
+combine smaller `IO` computations, and pass them off to `main`. The
+`(>>=)` and `(>>)` operators (described below) come in handy for this.
+{{% cite CIS194Fall16IOAndMonads %}}
+
+Instances of `Monad` (e.g. `IO` monad) satisfy left identity, right
+identity, and associativity. The minimal complete definition is the
+`(>>=)` (bind) operator. From a Haskell programmer's perspective, a
+monad is an abstract datatype of actions. Haskell's `do` expressions are
+syntactic sugar for writing monadic expressions. {{% cite Control.Monad
+%}}
+
+{{% comment %}}
+
+A binary operation (one that acts on two elements to produce one
+element) is said to be associative if rearranging the parentheses in an
+expression doesn't change the result. For instance, addition of real
+numbers is an associative operation, e.g. \\((2 + 3) + 4 = 2 \+ (3 + 4)
+= 9\\), while subtraction of real numbers is not, e.g. \\( (2 - 3) - 4
+\ne 2 - (3 - 4) \\). Note that associativity is different from
+commutativity (does the order of two operands affect the result?). {{%
+cite WikiAssociativity %}}
+
+Let \\((S, \*)\\) be a set \\(S\\) equipped with a binary operation
+\\(\*\\). Then an element \\(e\\) of \\(S\\) is called a left identity
+if \\(e \* a = a\\) for all \\(a\\) in \\(S\\), and a right identity if
+\\(a \* e = a\\) for all \\(a\\) in \\(S\\). If \\(e\\) is both a left
+identity and a right identity, then it is called a two-sided entity, or
+simply an identity. For example, where \\(S\\) is the set of real
+numbers, and \\(\*\\) is the addition operator, \\(0\\) is the identity
+element. {{% cite WikiIdentityElement %}}
+
+{{% /comment %}}
+
+{{% comment %}}
+
+{{% cite Control.Monad %}} uses the phrase "instances of `Monad`", which
+requires a bit of digging from my side.
+
+Type classes correspond to _sets of types_ which have certain operations
+defined for them. For instance,
+
+```hs
+class Eq a where
+  (==) :: a -> a -> Bool
+  (/=) :: a -> a -> Bool
+```
+
+... can be read as: `Eq` is declared to be a type class with a single
+parameter, `a`. Any type `a` that wants to be an _instance_ of `Eq` must
+define two functions, `(==)` and `(/=)`, with the indicated type
+signatures. {{% cite Yorgey2013TypeClasses %}}
+
+Type class polymorphic functions work only for types which are instances
+of the type class(es) in question. For example, the type of `(==)` is
+`Eq a => a -> a -> Bool`. The `=>` is a _type class constraint_. We can
+read this as: for any type `a`, as long as `a` is an instance of `Eq`,
+`(==)` can take two values of `a` and return a `Bool`; it is a type
+error to call the function `(==)` on some type which is not an instance
+of `Eq`. {{% cite Yorgey2013TypeClasses %}}
+
+{{% /comment %}}
+
+The `(>>=)` (bind) operator sequentially composes two actions, passing
+any value produced by the first as an argument to the second. `as >>=
+bs` can be understood as:
+
+```hs
+do a <- as
+   bs a
+```
+
+{{% cite Control.Monad %}}
+
+{{% cite CIS194Spring13Monads %}} dissects `(>>=) :: m a -> (a -> m b)
+-> m b` in an enlightening way. `(>>=)` takes two arguments. The first
+one is a monadic value (or computation or mobit) that represents a
+computation which results in a value (or several values, or no values)
+of type `a`, and may have some sort of "effect". The second argument is
+a function of type `a -> m b`, i.e. it will choose the next computation
+to run based on the result(s) of the first computation. _Therein lies
+the promised power of `Monad` to encapsulate computations which can
+choose what to do next based on the results of previous computations._
+
+{{% comment %}}
+
+{{% cite CIS194Spring13Monads %}} offers several examples of mobits:
+
+* `c1 :: Maybe a` is a computation which might fail, but results in an `a` if it succeeds.
+* `c2 :: [a]` is a computation which results in (multiple) `a`s.
+* `c3 :: IO a` is a computation which potentially has some I/O effects,
+  and then produces an `a`.
+
+Till now, I thought `c2 :: [a]` was a good old list!
+
+{{% /comment %}}
+
+{{% comment %}}
+
+Forums say that the Spring 2013 version of CIS 194 is the best one. I
+find the writings of [Brent Yorgey]({{< ref "/authors/yorgey-brent"
+>}}), the Spring 2013 instructor, clearer.
+
+{{% /comment %}}
+
+{{% cite %}}
+
+The `(>>)` ("and then") operator sequentially composes two actions,
+discarding any value produced by the first. `as >> bs` can be
+understood as:
+
+```hs
+do as
+   bs
+```
+
+{{% cite Control.Monad %}}
+
+Each statement in a `do` block is one of these:
+
+* A single expression `e`, which is then prepended to the rest with `e >> ...`
+* A monadic bind `p <- e`, which is replaced by `e >>= (\p -> ...)`
+* A `let` binding `let p = e`, which is translated to `let p = e in ...`
+
+... so `main` and `main'` are equivalent:
+
+```hs
+-- Side note: `readLn` throws an exception if the input is not a number.
+-- Actual code should use `getLine`, `readMaybe`, and handle input that
+-- is not a number. However, we're currently concerned with monads.
+
+main :: IO ()
+main = putStrLn "Please enter a number: " >>
+       readLn >> \n ->
+       let m = n + 1 in
+       putStrLn (show m)
+
+main' :: IO ()
+main' = do putStrLn "Please enter a number: "
+           n <- readLn
+           let m = n + 1
+           putStrLn (show m)
+```
+
+{{% cite CIS194Fall16IOAndMonads %}}
+
+A `Monad` `m` also offers a `return` function of type `a -> m a`, which
+injects a value into the monadic type. {{% cite Control.Monad %}}
+
+{{% comment %}}
+
+Examples of `Monad` instances from {{% cite Control.Monad %}} that I
+might find useful: `Identity`, `First`, `Last`, `Max`, `Min`, `Product`,
+`Sum`, `ReadP`, `IO`, `NonEmpty`, `Maybe`, `[]`.
+
+{{% /comment %}}
+
+{{% comment %}}
+
+There are still holes in my understanding of `Monad`s. They relate to
+`Functor`s and `Applicative`s, and I don't want to go into that rabbit
+hole (yet). The
+[Typeclassopedia](https://wiki.haskell.org/Typeclassopedia) promises to
+help me develop an intuition for this [scary] diagram.
+
+{{< figure
+  src="/img/computer-science/programming-challenges/advent-of-code/2021/typeclassopedia-diagram.png"
+
+  caption=`Graph of type classes and their relationships. Memorable
+  quote: What the heck is a monoid, and how is it different from a
+  monad? Credits: https://wiki.haskell.org/Typeclassopedia`>}}
+
+For now, my takeaway is: `Monad`s encapsulate computations which can
+choose what to do next based on the results of previous computations.
+
+{{% /comment %}}
 
 ### My Test Runner
 
@@ -344,7 +550,7 @@ techniques.
   accessed="2022-02-20" >}}
 
 1. {{< citation
-  id="MonadIO"
+  id="Control.Monad.IO.Class"
   title="Control.Monad.IO.Class"
   url="https://hackage.haskell.org/package/transformers-0.4.2.0/docs/Control-Monad-IO-Class.html"
   accessed="2022-02-21" >}}
@@ -363,3 +569,43 @@ techniques.
   title="6: Laziness - School of Haskell"
   url="https://www.schoolofhaskell.com/user/school/starting-with-haskell/introduction-to-haskell/6-laziness"
   accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="CIS194Fall16IOAndMonads"
+  author="Joachim Breitner"
+  title="CIS194 Fall 2016: IO and Monads"
+  url="https://www.cis.upenn.edu/~cis194/fall16/lectures/06-io-and-monads.html"
+  accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="Control.Monad"
+  title="Control.Monad"
+  url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Control-Monad.html#t:Monad"
+  accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="Yorgey2013TypeClasses"
+  author="Brent Yorgey"
+  title="5: Type Classes - School of Haskell"
+  url="https://www.schoolofhaskell.com/school/starting-with-haskell/introduction-to-haskell/5-type-classes"
+  accessed="2022-02-21" >}}
+
+1. {{< citation
+  id="WikiAssociativity"
+  title="Associative property - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Associative_property"
+  accessed="2022-02-22" >}}
+
+1. {{< citation
+  id="WikiIdentityElement"
+  title="Identity element - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Identity_element"
+  accessed="2022-02-22" >}}
+
+1. {{< citation
+  id="CIS194Spring13Monads"
+  title="CIS194 Spring 2013: Monads"
+  date="2013-04-08"
+  author="Brent Yorgey"
+  url="https://www.cis.upenn.edu/~cis194/spring13/lectures/12-monads.html"
+  accessed="2022-02-22" >}}
