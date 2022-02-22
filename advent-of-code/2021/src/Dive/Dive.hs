@@ -153,6 +153,16 @@ productOfFinalPositionWithNewIntepretation steps =
       --    map (even . negate) l
       --
       -- ... and that makes sense. Composition strikes again!
+      --
+      -- That said, the (.) can be unwieldy because we normally read from left
+      -- to right, but (.) composition is read from right to left. For extra
+      -- readability, we can use the (>>>) operator from `Control.Arrow`, e.g.
+      --
+      --    map (negate >>> even) l
+      --
+      -- ... as it flips the (.) operator. [1]
+      --
+      -- [1]: https://byorgey.wordpress.com/2019/04/24/competitive-programming-in-haskell-basic-setup/
       aimDeltas =
         map
           (applySign' . (\x -> if (not . isForward) x then Just x else Nothing))
