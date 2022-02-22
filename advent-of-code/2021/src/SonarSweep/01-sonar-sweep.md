@@ -1,9 +1,11 @@
 ---
 authors:
 - Hidding, Johan
+- Le, Justin
 date: 2022-02-18
 domains:
 - adventofcode.com
+- github.com
 - jhidding.github.io
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/01-sonar-sweep/
 title: 'AoC 2021 Day 01: Sonar Sweep'
@@ -189,6 +191,14 @@ Comparing with {{% cite HiddingAoC2021-01 %}}'s solution, mine has hints
 of imperative programming. They are working with whole lists, while I'm
 more concerned about data shuffling.
 
+{{% cite LeAoC2021-01 %}} notes that combining `drop` and `zipWith`
+gives us a way of working with consecutive values:
+
+```hs
+numIncreases :: [Int] -> Int
+numIncreases xs = length (filter (== True) (zipWith (<) xs (drop 1 xs)))
+```
+
 {{% comment %}}
 
 I still have a lot of ground to cover before I shift how I think about
@@ -219,6 +229,16 @@ inequality check. Huh!
 
 {{% /comment %}}
 
+{{% cite LeAoC2021-01 %}} uses the same idea, comparing `[(a1, a4), (a2,
+a5), ...]`:
+
+```hs
+num3MeasurementIncreases :: [Int] -> Int
+num3MeasurementIncreases xs = length (filter (== True) (zipWith (<) xs (drop 3 xs)))
+```
+
+`zipWith` is pretty handy!
+
 I also like the `(x1:x2:x3:xs)` convention over `(w:x:y:zs)`. The former
 is more readable.
 
@@ -230,3 +250,10 @@ is more readable.
   title="Advent of Code 2021: Day 1: Sonar Sweep"
   url="https://jhidding.github.io/aoc2021/#day-1-sonar-sweep"
   accessed="2022-02-20" >}}
+
+1. {{< citation
+  id="LeAoC2021-01"
+  author="Justin Le"
+  title="advent-of-code-2021/reflections.md at master · mstksg/advent-of-code-2021"
+  url="https://github.com/mstksg/advent-of-code-2021/blob/master/reflections.md#day-1"
+  accessed="2022-02-22" >}}
