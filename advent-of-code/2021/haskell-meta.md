@@ -12,6 +12,7 @@ domains:
 - hackage.haskell.org
 - haskell-haddock.readthedocs.io
 - jhidding.github.io
+- wiki.haskell.org
 - www.cis.upenn.edu
 - www.fpcomplete.com
 - www.schoolofhaskell.com
@@ -178,12 +179,9 @@ the name of fewer dependencies.
 [More on dependency management]({{< ref
 "/computer-science/2020-11-14-software-dependencies">}}).
 
-{{% /comment %}}
-
-{{% comment %}}
-
 `RIO` lives in https://github.com/commercialhaskell alongside Stack, and
-Stackage.
+Stackage. I'm not especially keen on using `RIO` for AoC 2021. But it's
+good to know that it exists, and why it exists.
 
 {{% /comment %}}
 
@@ -297,7 +295,7 @@ types. Furthermore, because I'm reading the input in [AoC2021.hs]({{<
 ref "#AoC2021.hs" >}}), it'll be a neat way of comparing input-parsing
 techniques.
 
-#### `Monad` and `MonadIO`
+##### `Monad` and `MonadIO`
 
 {{% comment %}}
 
@@ -482,9 +480,8 @@ might find useful: `Identity`, `First`, `Last`, `Max`, `Min`, `Product`,
 
 There are still holes in my understanding of `Monad`s. They relate to
 `Functor`s and `Applicative`s, and I don't want to go into that rabbit
-hole (yet). The
-[Typeclassopedia](https://wiki.haskell.org/Typeclassopedia) promises to
-help me develop an intuition for this [scary] diagram.
+hole (yet). {{% cite Typeclassopedia %}} promises to help me develop an
+intuition for this [scary] diagram.
 
 {{< figure
   src="/img/computer-science/programming-challenges/advent-of-code/2021/typeclassopedia-diagram.png"
@@ -497,6 +494,56 @@ For now, my takeaway is: `Monad`s encapsulate computations which can
 choose what to do next based on the results of previous computations.
 
 {{% /comment %}}
+
+##### `Functor`
+
+{{% comment %}}
+
+In hindsight, I should have started with exploring `Functor`s, but here
+I am exploring them after `Monad`s.
+
+{{% /comment %}}
+
+{{% cite HiddingAoC2021-01 %}} does:
+
+```hs
+text <- Text.lines <$> readFileUtf8 "data/day01.txt"
+```
+
+A simple intuition is that a `Functor` represents a "container" of some
+sort, along with the ability to apply a function uniformly to every
+element in the container. A more useful but more difficult to explain
+intuition is that a `Functor` represents some sort of "computational
+context". {{% cite Typeclassopedia %}}
+
+A `Functor` instance needs to implement `fmap`, whose type is `fmap ::
+(a -> b) -> f a -> f b`.. `<$>` is an infix synonym for `fmap`, which
+allows for more readable code. `Functor` instances include `[]`,
+`Maybe`, `Either`, and `IO`. {{% cite Data.Functor %}}
+
+{{% comment %}}
+
+My first reaction to the [accepted
+answer](https://stackoverflow.com/a/37286470/7812406) of, "What does <$>
+mean in Haskell?" was "Wait, that's a `map`; why need an `fmap`?" A
+common argument is that it'd pretty a high barrier to spit out errors
+about `Functor`s to a newbie who is using `map` incorrectly. {{% cite
+Typeclassopedia %}}
+
+{{% /comment %}}
+
+The signature `f a` tells us that `f` is a sort of type function that
+takes another type as a parameter, e.g. there are no values of type
+`Maybe`, but we can have `Maybe Integer`. More precisely, the kind of
+`f` must be `* -> *`. From the container PoV, `fmap` applies a function
+to each element of a container, producing a new container of the same
+structure. From the context PoV, `fmap` applies a function to a value in
+a context, without altering its context. {{% cite Typeclassopedia %}}
+
+`fmap`'s type with extra parentheses illustrates the concept of lifting.
+`fmap :: (a -> b) -> (f a -> f b)` is more apparent that it transforms a
+"normal" function (`g :: a -> b`) into one which operates over
+containers/contexts `fmap g :: f a -> f b`. {{% cite Typeclassopedia %}}
 
 ### My Test Runner
 
@@ -608,4 +655,16 @@ choose what to do next based on the results of previous computations.
   date="2013-04-08"
   author="Brent Yorgey"
   url="https://www.cis.upenn.edu/~cis194/spring13/lectures/12-monads.html"
+  accessed="2022-02-22" >}}
+
+1. {{< citation
+  id="Data.Functor"
+  title="Data.Functor"
+  url="https://hackage.haskell.org/package/base-4.8.2.0/docs/Data-Functor.html" accessed="2022-02-22" >}}
+
+1. {{< citation
+  id="Typeclassopedia"
+  author="Brent Yorgey"
+  title="Typeclassopedia - HaskellWiki"
+  url="https://wiki.haskell.org/Typeclassopedia"
   accessed="2022-02-22" >}}
