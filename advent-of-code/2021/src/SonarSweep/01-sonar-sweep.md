@@ -1,7 +1,4 @@
 ---
-authors:
-- Hidding, Johan
-- Le, Justin
 date: 2022-02-18
 domains:
 - adventofcode.com
@@ -246,14 +243,12 @@ is more readable.
 
 1. {{< citation
   id="HiddingAoC2021-01"
-  author="Johan Hidding"
   title="Advent of Code 2021: Day 1: Sonar Sweep"
   url="https://jhidding.github.io/aoc2021/#day-1-sonar-sweep"
   accessed="2022-02-20" >}}
 
-1. {{< citation
+2. {{< citation
   id="LeAoC2021-01"
-  author="Justin Le"
   title="advent-of-code-2021/reflections.md at master · mstksg/advent-of-code-2021"
   url="https://github.com/mstksg/advent-of-code-2021/blob/master/reflections.md#day-1"
   accessed="2022-02-22" >}}
