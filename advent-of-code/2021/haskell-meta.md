@@ -28,7 +28,7 @@ with source files that span multiple AoC 2021 problems.
 solutions. It'll be nice to compare how they solved the problems. I
 don't want to end up perfecting the wrong approach!
 
-## Setting Up My Haskell Environment for AoC
+## Setting Up Haskell Env for AoC
 
 To manage dependencies,
 [Cabal](https://cabal.readthedocs.io/en/3.6/getting-started.html) and
@@ -63,13 +63,12 @@ The package structure is of the form:
 ```
 
 I ended up using Cabal only as I thought it wouldn't have too many bells
-and whistles. `cabal init --interactive` [got most of my `.cabal` file
-set up](#my-cabal-file).
+and whistles. `cabal init --interactive` got most of my `.cabal` file
+set up.
 
-`cabal run advent-of-code-y2021` runs my solutions to the AoC problems
-(see [app/Main.hs](#my-code-runner)). `cabal run advent-of-code-y2021-test`
-runs some checks based on the sample inputs on AoC problem description
-(see [test/AoC2021Test.hs](#my-test-runner)).
+`cabal run advent-of-code-y2021` runs my solutions to the AoC problems .
+`cabal run advent-of-code-y2021-test` runs some checks based on the
+sample inputs on AoC problem description .
 
 {{% cite LeAoC2021 %}} has a more comprehensive setup, e.g. specifying
 which problem to run, running tests, and running benchmarks. They even
@@ -164,9 +163,7 @@ source code. Haddock reminds me of Python's
 [Javadoc](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html)
 and JavaScript's [JSDoc](https://jsdoc.app/).
 
-## Overarching Code Considerations
-
-### The Standard Library
+## The Standard Library
 
 {{% cite HiddingAoC2021 %}} uses the `RIO` library to replace the
 standard `Prelude`. {{% cite RioLibrary %}} aims to be the de-facto
@@ -193,7 +190,7 @@ could crash for some inputs (e.g. `head []` crashes because an empty
 list doesn't have a first item). A **total function** is one that is
 well-defined on _all_ possible inputs. {{% cite Yorgey2014Functions %}}
 
-### Lazy Evaluation
+## Lazy Evaluation
 
 {{% open-comment %}}
 
@@ -249,30 +246,35 @@ behalf!
 
 {{% cite Yorgey2013Laziness %}}
 
-## Appendix
+## Parsing Input
 
-### My Cabal File
-
-{{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2021/advent-of-code-y2021.cabal"
-  highlight="haskell">}}
-
-### My Code Runner
-
-{{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2021/app/Main.hs"
-  highlight="haskell">}}
-
-{{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021.hs"
-  highlight="haskell"
-  id="AoC2021.hs">}}
-
-{{% cite HiddingAoC2021-01 %}} has cleaner code for reading the input:
+For the first two AoC problems, my parsing technique has basically been:
 
 ```hs
-module Day01 where
+solutionX :: IO ()
+solutionX = do
+  fileName <- getDataFileName "dayX/input.txt"
+  withFile
+    fileName
+    ReadMone
+    ( \h -> do s <- hGetContents h
+               print (solveX lines (fromString s))
+    )
+```
 
+Granted, IO is lazy, but there are improvements to the above sort of
+parsing.
+
+For example, Day 1 has input of the form:
+
+```txt
+199
+200
+```
+
+{{% cite HiddingAoC2021-01 %}} parsed it as follows:
+
+```hs
 import RIO
 import qualified RIO.Text as Text
 
@@ -282,8 +284,6 @@ readInput = do
   return $ mapMaybe (readMaybe . Text.unpack) text
 ```
 
-#### Parsing Input
-
 Notice how `readInput` parses the input and takes care of converting
 into expected data types `[Int]` and takes care of parsing uncertainty
 with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
@@ -291,11 +291,9 @@ with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
 >}}) and [`Dive.productOfFinalPosition*`]({{< ref
 "/computer-science/programming-challenges/advent-of-code/2021/src/Dive/02-dive.md#Dive.hs"
 >}}) functions receive a `[String]` which they then parse into intended
-types. Furthermore, because I'm reading the input in [AoC2021.hs]({{<
-ref "#AoC2021.hs" >}}), it'll be a neat way of comparing input-parsing
-techniques.
+types.
 
-##### `Monad` and `MonadIO`
+## `Monad`
 
 {{% comment %}}
 
@@ -495,7 +493,7 @@ choose what to do next based on the results of previous computations.
 
 {{% /comment %}}
 
-##### `Functor`
+## `Functor`
 
 {{% comment %}}
 
@@ -544,12 +542,6 @@ a context, without altering its context. {{% cite Typeclassopedia %}}
 `fmap :: (a -> b) -> (f a -> f b)` is more apparent that it transforms a
 "normal" function (`g :: a -> b`) into one which operates over
 containers/contexts `fmap g :: f a -> f b`. {{% cite Typeclassopedia %}}
-
-### My Test Runner
-
-{{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2021/test/AoC2021Test.hs"
-  highlight="haskell">}}
 
 ## References
 
