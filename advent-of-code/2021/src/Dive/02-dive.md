@@ -1,7 +1,12 @@
 ---
+authors:
+- Karpov, Mark
 date: 2022-02-19
 domains:
 - adventofcode.com
+- hackage.haskell.org
+- jhidding.github.io
+- markkarpov.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/Dive/02-dive/
 title: 'AoC 2021 Day 02: Dive!'
 weight: 2
@@ -128,3 +133,46 @@ final depth?**
   file="/content/computer-science/programming-challenges/advent-of-code/2021/src/Dive/Dive.hs"
   highlight="haskell"
   id="Dive.hs">}}
+
+## Learning from Others' Solutions
+
+Like my solution for "Day 01: Sonar Sweep", this one also has an
+overuse of `Maybe` that could have been abstracted out during the
+parsing stage.
+
+{{% cite HiddingAoC2021-02 %}} uses the `Parsing` module, which results
+in pretty concise code:
+
+```hs
+data Instruction = GoForward Int | GoUp Int | GoDown Int deriving (Show)
+
+instructions :: Parser [Instruction]
+instructions = sepEndBy1 (lexeme direction <*> integer) eol
+  where direction = (string "forward" $> GoForward)
+                <|> (string "up" $> GoUp)
+                <|> (string "down" $> GoDown)
+
+readInput :: (Monad IO m, MonadReader env m, HasLogFunc env) => m [Instruction]
+readInput = readInputParsing "data/day02.txt" instructions
+```
+
+These parsing utilities are not in the packages on Stackage. Turns out
+{{% cite HiddingAoC2021-02 %}} has a custom
+[app/Parsing.hs](https://jhidding.github.io/aoc2021/#appendix-parsing),
+that extends functionality from {{% cite Text.Megaparsec %}}.
+
+## Reference
+
+1. {{< citation
+  id="HiddingAoC2021-02"
+  title="Advent of Code 2021: Day 2: Dive!"
+  url="https://jhidding.github.io/aoc2021/#day-2-dive"
+  accessed="2022-02-22" >}}
+
+1. {{< citation
+  id="Text.Megaparsec"
+  author="Mark Karpov"
+  title="Text.Megaparsec"
+  url="https://hackage.haskell.org/package/megaparsec-9.2.0/docs/Text-Megaparsec.html"
+  url_2="https://markkarpov.com/tutorial/megaparsec.html"
+  accessed="2022-02-23" >}}
