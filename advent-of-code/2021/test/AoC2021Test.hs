@@ -1,5 +1,6 @@
 module Main (main) where
 
+import BinaryDiagnostic.BinaryDiagnostic (powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -45,11 +46,18 @@ testDive =
           )
     )
 
+testBinaryDiagnostic :: Test
+testBinaryDiagnostic = TestCase
+  ( do
+      assertEqual "Power Consumption," 0 (powerConsumption [])
+  )
+
 tests :: Test
 tests =
   TestList
     [ TestLabel "Day 01: Sonar Sweep" testSonarSweep,
-      TestLabel "Day 02: Dive!" testDive
+      TestLabel "Day 02: Dive!" testDive,
+      TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic
     ]
 
 main :: IO Counts

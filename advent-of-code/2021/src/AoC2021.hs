@@ -4,6 +4,7 @@ module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 
+import BinaryDiagnostic.BinaryDiagnostic (powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -17,6 +18,7 @@ allSolutions :: IO ()
 allSolutions = do
   solution01
   solution02
+  solution03
 
 solution01 :: IO ()
 solution01 = do
@@ -60,3 +62,9 @@ solution02 = do
         putStr "with new instructions of : "
         print (productOfFinalPositionWithNewIntepretation (lines (fromString s)))
     )
+
+solution03 :: IO()
+solution03 = do
+  putStrLn "Day 03. Binary Diagnostic"
+  putStr "\t: Part 1: Power Consumption: "
+  print (powerConsumption [])

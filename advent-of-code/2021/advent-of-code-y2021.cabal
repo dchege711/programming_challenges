@@ -72,6 +72,7 @@ library
         AoC2021,
         SonarSweep.SonarSweep
         Dive.Dive
+        BinaryDiagnostic.BinaryDiagnostic
 
     -- other-modules:
 
