@@ -303,9 +303,9 @@ down 5
 forward 8
 ```
 
-... and I parsed it using regular expressions. {{% cite
-HiddingAoC2021-02 %}} used the `Parsing` module, which results in pretty
-concise code:
+... and I parsed it using regular expressions. <a
+id="HiddingAoC2021-02-ParsingInput"></a>{{% cite HiddingAoC2021-02 %}}
+used the `Parsing` module, which results in pretty concise code:
 
 ```hs
 data Instruction = GoForward Int | GoUp Int | GoDown Int deriving (Show)
