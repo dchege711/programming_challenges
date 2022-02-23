@@ -220,13 +220,16 @@ moveB :: Navigation -> Instruction -> Navigation
 -- extension. Each elided field `f` is replaced by the pattern `f = f`.
 -- [1].
 --
--- The `@` syntax is enabled by the TypeApplications GHC language
--- extension [2]. When used in pattern matching, it binds `n` to the
--- whole `Navigation` argument [3].
+-- The `@` syntax that is preceded by whitespace is enabled by the
+-- TypeApplications GHC language extension [2].
+--
+-- When the `@` is not preceded by whitespace, it is being
+-- used as an as-pattern, which names a pattern for use of the RHS of an
+-- equation, e.g. `f s@(x:xs) = x:s` [3].
 --
 -- [1]: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/record_wildcards.html
 -- [2]: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/type_applications.html
--- [3]: https://stackoverflow.com/a/30326349/7812406
+-- [3]: https://www.haskell.org/tutorial/patterns.html
 moveB n@Navigation{ .. } (GoForward dx) = n{ x = x + dx
                                            , depth = depth + aim * dx}
 moveB n@Navigation{ .. } (GoUp dAim)      = n{ aim = aim - dAim }
