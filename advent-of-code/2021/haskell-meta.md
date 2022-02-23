@@ -140,11 +140,23 @@ so that's promising!
 Literate Haskell [intrigued me]({{< ref
 "/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers#PE021Haskell"
 >}}), but I don't use it much because it's not well-integrated into VS
-Code's intellisense and linting extensions. {{% cite HiddingAoC2021 %}}
-uses {{% cite Entangled %}}, which allows one to put code inside
-markdown code blocks. Entangled then extracts code and writes it to
-traditional source files, and syncs changes made in either the markdown
-or the source file.
+Code's intellisense and linting extensions.
+
+{{% comment %}}
+
+In terms of writing code, Literate Haskell works as expected on Emacs.
+However, the literate portion is LaTeX, and having a multi-language code
+doesn't work well with HighlightJS (the plugin API does not support
+line-by-line decision making). I'm more interested in reading code that
+is well formatted, so I'll forego Literate Haskell, as HighlightJS is a
+tighter requirement for me.
+
+{{% /comment %}}
+
+{{% cite HiddingAoC2021 %}} uses {{% cite Entangled %}}, which allows
+one to put code inside markdown code blocks. Entangled then extracts
+code and writes it to traditional source files, and syncs changes made
+in either the markdown or the source file.
 
 {{% comment %}}
 
