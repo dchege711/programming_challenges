@@ -7,6 +7,7 @@ import Data.String (IsString (fromString))
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Data.Maybe (listToMaybe)
+import Data.Char (digitToInt)
 
 -- The `Numeric` module has a `readBin` function [1], but for some reason, I get
 -- a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
@@ -16,9 +17,7 @@ import Data.Maybe (listToMaybe)
 readBin' :: String -> Int
 readBin' binString = fst $ foldr f (0, 1) binString
   where
-    f c (s, powerOf2) =
-      let cDigit = if c == '0' then 0 else 1
-       in (s + powerOf2 * cDigit, powerOf2 * 2)
+    f c (s, powerOf2) = (s + powerOf2 * digitToInt c, powerOf2 * 2)
 
 -- Without the underscore prefix, I need to add `_width` and `_nums` to the
 -- export list to avoid `Wunused-top-binds` [1]. The field names share the top
