@@ -26,7 +26,8 @@ instance NFData BinaryDiagnostics where
 -- | `toBitList n b` returns a `[Int]` representing the b-least significant
 -- | bits of `n`, e.g. `toBitList 22 5 == [1, 0, 1, 1, 0]`.
 toBitList :: Int -> Int -> [Int]
-toBitList n numBits = map (\i -> if testBit n i then 1 else 0) [0 .. (numBits-1)]
+toBitList n numBits =
+    map (\i -> if testBit n i then 1 else 0) [(numBits-1),(numBits-2) .. 0]
 
 -- | `fromBitList ds` returns the `Int` formed when `ds` is treated like a bit
 -- | representation of an intege, e.g. `fromBitList [1, 0, 1, 1, 0] == 22`.
