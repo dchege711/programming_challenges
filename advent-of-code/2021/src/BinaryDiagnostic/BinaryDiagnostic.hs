@@ -2,5 +2,5 @@
 
 module BinaryDiagnostic.BinaryDiagnostic (powerConsumption) where
 
-powerConsumption :: [Int] -> Int
+powerConsumption :: BinaryDiagnostics -> Int
 powerConsumption _ = 0
