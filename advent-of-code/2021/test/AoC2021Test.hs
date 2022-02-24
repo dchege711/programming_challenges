@@ -1,5 +1,6 @@
 module Main (main) where
 
+import AoC2021InputParser (parseBinaryDiagnosticInput)
 import BinaryDiagnostic.BinaryDiagnostic (powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -47,10 +48,12 @@ testDive =
     )
 
 testBinaryDiagnostic :: Test
-testBinaryDiagnostic = TestCase
-  ( do
-      assertEqual "Power Consumption," 0 (powerConsumption [])
-  )
+testBinaryDiagnostic =
+  TestCase
+    ( do
+        input <- parseBinaryDiagnosticInput "src/BinaryDiagnostic/scratchpad/sample.txt"
+        assertEqual "Power Consumption," 198 (powerConsumption input)
+    )
 
 tests :: Test
 tests =

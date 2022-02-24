@@ -69,6 +69,7 @@ library
 
     -- Modules exported by the library.
     exposed-modules:
+        AoC2021InputParser,
         AoC2021,
         SonarSweep.SonarSweep
         Dive.Dive
