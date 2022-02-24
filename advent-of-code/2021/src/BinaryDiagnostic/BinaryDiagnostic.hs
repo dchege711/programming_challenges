@@ -1,10 +1,27 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# Language RecordWildCards #-}
 
-module BinaryDiagnostic.BinaryDiagnostic (powerConsumption) where
+module BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics(..), powerConsumption) where
 
-import AoC2021InputParser (BinaryDiagnostics(..), diagNums, diagWidth)
+import Control.DeepSeq (NFData, rnf)
 import Data.Bits (Bits(testBit))
+
+-- Without the underscore prefix, I need to add `diagWidth` and `diagNums` to the
+-- export list to avoid `Wunused-top-binds` [1]. The field names share the top
+-- level namespace with ordinary variables and classes. [2] That's kinda
+-- inconvenient.
+--
+-- [1]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/using-warnings.html?highlight=unused-top-binds#ghc-flag--Wunused-top-binds
+-- [2]: https://www.haskell.org/tutorial/moretypes.html#sect6.2
+data BinaryDiagnostics = BinaryDiagnostics { diagWidth :: Int, diagNums :: [Int]}
+
+-- For the `($!!)` operator to work on `BinaryDiagnostics`, we need to be an
+-- instance of `NFData`. [1] ([2] for syntax)
+--
+-- [1]: https://hackage.haskell.org/package/deepseq-1.4.6.1/docs/Control-DeepSeq.html#t:NFData
+-- [2]: https://stackoverflow.com/a/31478918/7812406
+instance NFData BinaryDiagnostics where
+    rnf BinaryDiagnostics{ .. } = rnf diagWidth `seq` rnf diagNums
 
 -- | `toBitList n b` returns a `[Int]` representing the b-least significant
 -- | bits of `n`, e.g. `toBitList 22 5 == [1, 0, 1, 1, 0]`.
