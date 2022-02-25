@@ -43,12 +43,14 @@ fromBitList ds = fst $ foldr f (0, 1) ds
 -- [1]: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/binary_literals.html
 -- [2]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Bits.html
 
-
 powerConsumption :: BinaryDiagnostics -> Int
 powerConsumption BinaryDiagnostics{ .. } =
-    let updateCumulativeFrequencies :: Int -> [Int] -> [Int]
+    let zerosToNegativeOnes :: Int -> Int
+        zerosToNegativeOnes i = if i == 0 then -1 else i
+
+        updateCumulativeFrequencies :: Int -> [Int] -> [Int]
         updateCumulativeFrequencies num cumulativeBitFrequencies =
-            zipWith (+) cumulativeBitFrequencies (toBitList num diagWidth)
+            zipWith (+) cumulativeBitFrequencies (map zerosToNegativeOnes (toBitList num diagWidth))
 
         frequenciesToZeroOne :: [Int] -> [Int]
         frequenciesToZeroOne = map (\num -> if num <= 0 then 0 else 1)
