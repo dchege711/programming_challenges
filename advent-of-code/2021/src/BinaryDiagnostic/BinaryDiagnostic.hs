@@ -1,7 +1,12 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# OPTIONS_GHC -Wall #-}
 
-module BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics (..), powerConsumption, lifeSupportRating) where
+module BinaryDiagnostic.BinaryDiagnostic
+  ( BinaryDiagnostics (..),
+    powerConsumption,
+    lifeSupportRating,
+  )
+where
 
 import Control.DeepSeq (NFData, rnf)
 import Data.Bits (Bits (testBit))
@@ -36,6 +41,58 @@ fromBitList ds = fst $ foldr f (0, 1) ds
   where
     f d (s, powerOf2) = (s + powerOf2 * d, powerOf2 * 2)
 
+-- | Flips any `0` to `1` and anything else to `0`. Assumes the input `[Int]` is
+-- | just zeros and ones.
+flipZerosAndOnes :: [Int] -> [Int]
+flipZerosAndOnes = map (\num -> if num == 0 then 1 else 0)
+
+-- | `bitFrequencies numBits nums` returns an `[Int]` of size `numBits` where
+-- | the i'th element encodes the relative frequency of the bit at position
+-- | `numBits - i`.
+bitFrequencies :: Int -> [Int] -> [Int]
+bitFrequencies numBits = foldr updateCumulativeFrequencies (replicate numBits 0)
+  where
+    zerosToNegativeOnes :: Int -> Int
+    zerosToNegativeOnes i = if i == 0 then -1 else i
+
+    updateCumulativeFrequencies :: Int -> [Int] -> [Int]
+    updateCumulativeFrequencies num cumulativeBitFrequencies =
+      zipWith
+        (+)
+        cumulativeBitFrequencies
+        ( map
+            zerosToNegativeOnes
+            ( toBitList num numBits
+            )
+        )
+
+-- | Convert frequency values to either 0 or 1 depending on whether the value
+-- | is negative or positive. In case the value is zero, `tieValue` is used.
+frequenciesToZeroOne :: Int -> [Int] -> [Int]
+frequenciesToZeroOne tieValue = map f
+  where
+    f :: Int -> Int
+    f freq
+      | freq < 0 = 0
+      | freq > 0 = 1
+      | otherwise = tieValue
+
+type BitFrequencySummarizer = Int -> [Int] -> [Int]
+
+-- | `majorityBits numBits tieValue nums` returns an `[Int]` where the element
+-- at index `i` is the most common bit at position `i`. In case of a tie,
+-- `tieBreaker` is placed into `i`.
+majorityBits :: BitFrequencySummarizer
+majorityBits numBits nums =
+  frequenciesToZeroOne 1 (bitFrequencies numBits nums)
+
+-- | `majorityBits numBits tieValue nums` returns an `[Int]` where the element
+-- at index `i` is the least common bit at position `i`. In case of a tie,
+-- `tieBreaker` is placed into `i`.
+minorityBits :: BitFrequencySummarizer
+minorityBits numBits nums =
+  frequenciesToZeroOne 0 (map (* (-1)) (bitFrequencies numBits nums))
+
 -- The BinaryLiterals language extension adds syntactic sugar for `0b11001001`
 -- [1]. But I didn't end up using binary representation. `Data.Bits` provides
 -- utilities for working with `Int`, so why not? [2]
@@ -43,30 +100,30 @@ fromBitList ds = fst $ foldr f (0, 1) ds
 -- [1]: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/exts/binary_literals.html
 -- [2]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Bits.html
 
+-- | Solution for Advent of Code Day 3: Part I.
 powerConsumption :: BinaryDiagnostics -> Int
 powerConsumption BinaryDiagnostics {..} =
-  let zerosToNegativeOnes :: Int -> Int
-      zerosToNegativeOnes i = if i == 0 then -1 else i
-
-      updateCumulativeFrequencies :: Int -> [Int] -> [Int]
-      updateCumulativeFrequencies num cumulativeBitFrequencies =
-        zipWith (+) cumulativeBitFrequencies (map zerosToNegativeOnes (toBitList num diagWidth))
-
-      frequenciesToZeroOne :: [Int] -> [Int]
-      frequenciesToZeroOne = map (\num -> if num <= 0 then 0 else 1)
-
-      -- Calculate the bit frequencies. The result is an `[Int]` of length
-      -- `diagWidth`. If an element is negative, then the most common bit at
-      -- that index is `0`. We assume no ties in frequency.
-      majorityBits = frequenciesToZeroOne $ foldr updateCumulativeFrequencies (replicate diagWidth 0) diagNums
-
-      gammaRate = fromBitList majorityBits
-
-      flipZerosAndOnes :: [Int] -> [Int]
-      flipZerosAndOnes = map (\num -> if num == 0 then 1 else 0)
-
-      epsilonRate = fromBitList (flipZerosAndOnes majorityBits)
+  let majorities = majorityBits diagWidth diagNums
+      gammaRate = fromBitList majorities
+      epsilonRate = fromBitList (flipZerosAndOnes majorities)
    in gammaRate * epsilonRate
 
+-- | `lastNumStanding nums width f positionToCheck` recursively finds an `Int`
+-- | that matches the rules of AoC Day 3: Part II.
+lastNumStanding :: [Int] -> Int -> BitFrequencySummarizer -> Int -> Int
+lastNumStanding [] _ _ _ = 0
+lastNumStanding [x] _ _ _ = x
+lastNumStanding nums width f positionToCheck =
+  let expectedValues = f width nums
+      shouldBeSet = (expectedValues !! positionToCheck) == 1
+      bitIndex = length expectedValues - positionToCheck - 1
+      matchingNums = filter (\n -> testBit n bitIndex == shouldBeSet) nums
+   in if null matchingNums
+        then last nums
+        else lastNumStanding matchingNums width f (positionToCheck + 1)
+
+-- | Solution for Advent of Code Day 3: Part II.
 lifeSupportRating :: BinaryDiagnostics -> Int
-lifeSupportRating _ = 0
+lifeSupportRating BinaryDiagnostics {..} =
+  lastNumStanding diagNums diagWidth majorityBits 0
+    * lastNumStanding diagNums diagWidth minorityBits 0
