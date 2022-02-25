@@ -99,6 +99,10 @@ update](https://github.com/haskell/haskell-language-server/issues/366)
 leading to erroneous flagging of code that compiles fine. Restarting the
 language server every once in a while is a tad inconvenient.
 
+Sometimes VS Code reports that it can't find both `GHC` and `HLint`.
+{{% cite rHaskellCantFindGHC %}}'s suggestion of launching VS Code via
+`code .` works.
+
 ## Debugging Haskell
 
 A lot of the errors are caught by the compiler given the strong typing.
@@ -725,3 +729,9 @@ containers/contexts `fmap g :: f a -> f b`. {{% cite Typeclassopedia %}}
   url="https://hackage.haskell.org/package/megaparsec-9.2.0/docs/Text-Megaparsec.html"
   url_2="https://markkarpov.com/tutorial/megaparsec.html"
   accessed="2022-02-23" >}}
+
+1. {{< citation
+  id="rHaskellCantFindGHC"
+  title="Haskell Extension for VS Code can't find GHC installed with nix-shell. Help! : haskell"
+  url="https://www.reddit.com/r/haskell/comments/jah4ac/haskell_extension_for_vs_code_cant_find_ghc/"
+  accessed="2022-02-25" >}}
