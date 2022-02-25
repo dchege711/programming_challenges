@@ -17,6 +17,7 @@ domains:
 - wiki.haskell.org
 - www.cis.upenn.edu
 - www.fpcomplete.com
+- www.reddit.com
 - www.schoolofhaskell.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/haskell-meta/
 title: Learning Haskell via AoC 2021

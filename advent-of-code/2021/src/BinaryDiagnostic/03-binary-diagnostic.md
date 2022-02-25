@@ -1,6 +1,9 @@
 ---
-title: "AoC 2021 Day 03: Binary Diagnostic"
 date: 2022-02-23
+domains:
+- adventofcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/BinaryDiagnostic/03-binary-diagnostic/
+title: 'AoC 2021 Day 03: Binary Diagnostic'
 weight: 3
 ---
 
