@@ -2,6 +2,12 @@
 date: 2022-02-23
 domains:
 - adventofcode.com
+- codereview.stackexchange.com
+- hackage.haskell.org
+- jhidding.github.io
+- stackoverflow.com
+- wiki.haskell.org
+- www.reddit.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/BinaryDiagnostic/03-binary-diagnostic/
 title: 'AoC 2021 Day 03: Binary Diagnostic'
 weight: 3
