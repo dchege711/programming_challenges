@@ -143,6 +143,11 @@ how I'd go about it, and the only unknowns were translating my plan into
 valid Haskell. I should spend more time thinking through my approach
 before I rush into coding it.
 
+Several folks in {{% cite rHaskellAoC2021Day03 %}} use {{% cite
+Data.List.transpose %}} when calculating `mostCommonBits`. This is
+quite convenient as the data for the i-th bit position is all in the
+same array!
+
 ### Structure of the Solution to Part II
 
 The recursive nature gave me problems. I wonder how others did it. My
@@ -233,6 +238,66 @@ recommendation to use `Data.Text` or the very fast `Data.ByteString`.
 
 {{% /comment %}}
 
+### Converting Binary Representation to Decimal
+
+My solution was:
+
+```hs
+fromBitList :: [Int] -> Int
+fromBitList ds = fst $ foldr f (0, 1) ds
+  where
+    f d (s, powerOf2) = (s + powerOf2 * d, powerOf2 * 2)
+```
+
+... I don't like that I'm carrying over two pieces of information in the
+fold.
+
+{{% cite HiddingAoC2021-03 %}} had a solution of the form:
+
+```hs
+binaryToDecimal :: [Int] -> Int
+binaryToDecimal = go 0
+  where go n (b:bs) = go (2*n + b) bs
+        go n []     = n
+
+-- The recursive `go` is tricky. Tracing a sample call (with fully
+-- evaluated parameters for clarity)
+--
+--                                = go  0 [1, 0, 1, 1, 1]
+--  = go ( 2*0 + 1)  [0, 1, 1, 1] = go  1    [0, 1, 1, 1]
+--  = go ( 2*1 + 0)     [1, 1, 1] = go  2       [1, 1, 1]
+--  = go ( 2*2 + 1)        [1, 1] = go  5          [1, 1]
+--  = go ( 2*5 + 1)           [1] = go 11             [1]
+--  = go (2*11 + 1)           [0] = go 23              []
+--  = 23
+```
+
+Even after tracing through {{% cite HiddingAoC2021-03 %}}'s recursive
+`fromBinary`, I'm not sure how one could come up with it. Building up
+the solution from the least significant bit is more intuitive to me, not
+so for the most-significant-bit-first approach. Maybe algebraic
+manipulation might help?
+
+$$ 10111_2 = (2^4 \cdot 1) + (2^3 \cdot 0) + (2^2 \cdot 1) + (2^1 \cdot 1) + (2^0 \cdot 1) $$
+
+The algebraic form didn't help. Maybe the intuition for the MSB-first
+approach is that whenever we see a new digit `b`, we need to multiply
+whatever we have by `2` and then add `b`. That is the best answer we can
+give _at that moment_. The various values for `n` in the `go n` calls
+are \\(0_2, 1_2, 10_2, 101_2, 1011_2, 10111_2\\).
+
+{{% cite SESam2021 %}} uses a left-fold:
+
+```hs
+binaryToDecimal :: [Int] -> Int
+binaryToDecimal = foldl (\acc x -> acc * 2 + x) 0
+```
+
+... which is basically what {{% cite HiddingAoC2021-03 %}} did, but
+using the standard library. That said, if using a left fold, the strict
+`foldl'` is a better choice to avoid stack overflow of pending thunks.
+{{% cite Data.List.foldl %}}
+
 ## References
 
 1. {{< citation
@@ -251,4 +316,27 @@ recommendation to use `Data.Text` or the very fast `Data.ByteString`.
   id="HWikiPerfStrings"
   title="Performance/Strings - HaskellWiki"
   url="https://wiki.haskell.org/Performance/Strings"
+  accessed="2022-02-25" >}}
+
+1. {{< citation
+  id="SESam2021"
+  title="performance - Advent of Code 2021, Day 3 in Haskell - Code Review Stack Exchange"
+  url="https://codereview.stackexchange.com/questions/270654/advent-of-code-2021-day-3-in-haskell"
+  accessed="2022-02-25" >}}
+
+1. {{< citation
+  id="Data.List.foldl"
+  title="Data.List > foldl'"
+  url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:foldl-39-" accessed="2022-02-25" >}}
+
+1. {{< citation
+  id="rHaskellAoC2021Day03"
+  title="Advent of Code 2021 day 3 : haskell"
+  url="https://www.reddit.com/r/haskell/comments/r7r1g8/advent_of_code_2021_day_3/"
+  accessed="2022-02-25" >}}
+
+1. {{< citation
+  id="Data.List.transpose"
+  title="Data.List.transpose"
+  url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:transpose"
   accessed="2022-02-25" >}}
