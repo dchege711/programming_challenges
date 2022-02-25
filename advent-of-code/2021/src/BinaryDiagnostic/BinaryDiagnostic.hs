@@ -125,5 +125,9 @@ lastNumStanding nums width f positionToCheck =
 -- | Solution for Advent of Code Day 3: Part II.
 lifeSupportRating :: BinaryDiagnostics -> Int
 lifeSupportRating BinaryDiagnostics {..} =
-  lastNumStanding diagNums diagWidth majorityBits 0
-    * lastNumStanding diagNums diagWidth minorityBits 0
+  -- Partial application allows us to pass less than the full number of args to
+  -- a function that takes multiple arguments.
+  --
+  -- [1]: https://wiki.haskell.org/Partial_application
+  let f = lastNumStanding diagNums diagWidth
+   in f majorityBits 0 * f minorityBits 0
