@@ -5,7 +5,7 @@ module AoC2021 (allSolutions) where
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 
 import AoC2021InputParser (parseBinaryDiagnosticInput)
-import BinaryDiagnostic.BinaryDiagnostic (powerConsumption)
+import BinaryDiagnostic.BinaryDiagnostic (powerConsumption, lifeSupportRating)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -70,3 +70,5 @@ solution03 = do
   putStr "\t: Part 1: Power Consumption: "
   input <- parseBinaryDiagnosticInput "src/BinaryDiagnostic/scratchpad/input.txt"
   print (powerConsumption input)
+  putStr "\t: Part 2: Life Support Rating: "
+  print (lifeSupportRating input)

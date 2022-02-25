@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# Language RecordWildCards #-}
 
-module BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics(..), powerConsumption) where
+module BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics (..), powerConsumption, lifeSupportRating) where
 
 import Control.DeepSeq (NFData, rnf)
 import Data.Bits (Bits(testBit))
@@ -68,3 +68,6 @@ powerConsumption BinaryDiagnostics{ .. } =
         epsilonRate = fromBitList (flipZerosAndOnes majorityBits)
 
     in gammaRate * epsilonRate
+
+lifeSupportRating :: BinaryDiagnostics -> Int
+lifeSupportRating _ = 0
