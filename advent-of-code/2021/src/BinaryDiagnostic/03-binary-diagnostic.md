@@ -7,6 +7,7 @@ domains:
 - jhidding.github.io
 - stackoverflow.com
 - wiki.haskell.org
+- www.fpcomplete.com
 - www.reddit.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/BinaryDiagnostic/03-binary-diagnostic/
 title: 'AoC 2021 Day 03: Binary Diagnostic'
@@ -220,7 +221,16 @@ package](https://hackage.haskell.org/package/vector), while I used
 
 * Lists give \\(O(1)\\) `cons` and pattern matching, and are purely
   functional and lazy. However, indexing takes \\(O(k)\\) time, they
-  have poor data locality, and poor space efficiency (b/c of pointers).
+  have poor data locality, and poor space efficiency (pointer overhead
+  per item).
+
+{{% comment %}}
+
+A `[Foo]` is a singly-linked list of pointers to either a thunk (can
+take up more space than a `Foo`) that produces a `Foo` when evaluated,
+or an actual `Foo`. {{% cite FPCVector %}}
+
+{{% /comment %}}
 
 * `Data.Sequence` are purely functional, have amortized \\(O(1)\\) to
   access the beginning and end, and have \\(O(log\ n)\\) access to the
@@ -232,8 +242,9 @@ package](https://hackage.haskell.org/package/vector), while I used
   pain to use.
 
 * `Data.Vector` provides all of the array goodness in a higher level and
-  cleaner APIs, with caveats like mutable arrays don't place nice with
-  pure lazy languages.
+  cleaner APIs, with caveats like: mutable arrays need live in the `IO`
+  or `ST` monads; prepending requires copying over elements. {{% cite
+  FPCVector %}}.
 
 {{% comment %}}
 
@@ -243,6 +254,62 @@ recommendation to use `Data.Text` or the very fast `Data.ByteString`.
 {{% cite HWikiPerfStrings %}} has sample perf numbers.
 
 {{% /comment %}}
+
+`Data.Vector` exposes boxed vectors and unboxed vectors. Say we have a
+vector of `Int`s. If it is boxed, then we have a pointer to an `Int`, or
+a thunk that produces an `Int` if evaluated. If unboxed, then we have
+the `Int` itself, no thunks. Boxed vectors said to be value lazy, while
+unboxed vectors are said to be value strict. Boxed vectors are
+[instances of `Functor` and can therefore be `fmap`'d on]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/haskell-meta#functor"
+>}}). {{% cite FPCVector %}}
+
+{{% comment %}}
+
+`Data.Vector` uses stream fusion to optimize memory usage. For example,
+
+```hs
+import qualified Data.Vector.Unboxed as V
+
+main :: IO ()
+main = print V.sum $ V.enumFromTo 1 (10^9 :: Int)
+```
+
+... allocates a total of 52kb with `-O2` optimization (instead of the
+expected `10^9 * sizeof int`) because GHC determines that creating a
+vector is unnecessary and instead create an tight inner loop. {{% cite
+FPCVector %}}
+
+{{% /comment %}}
+
+{{% comment %}}
+
+`Data.Vector` also exposes Storable vectors which hold `Storable` types.
+These types are stored in `malloc`ed memory that isn't moved around by
+the garbage collector. Although this can lead to memory fragmentation,
+such types can be shared with programs in other languages through the
+[Foreign Function
+Interface (FFI)](https://wiki.haskell.org/Foreign_Function_Interface).
+
+I'm not currently interested in `Storable` types though.
+
+{{% /comment %}}
+
+The general guideline is:
+
+* Use unboxed vectors if you don't need to pass values to a C FFI, and
+  you have [a `Prim`
+  instance](https://hackage.haskell.org/package/vector-0.12.3.1/docs/Data-Vector-Primitive.html#t:Prim).
+* Use a storable vector is you have a `Storable` instance.
+* Otherwise, use a boxed vector.
+
+{{% comment %}}
+
+Maybe #1 can be, if you need to `fmap`, use a boxed vector?
+
+{{% /comment %}}
+
+{{% cite FPCVector %}}
 
 ### Converting Binary Representation to Decimal
 
@@ -346,3 +413,9 @@ using the standard library. That said, if using a left fold, the strict
   title="Data.List.transpose"
   url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html#v:transpose"
   accessed="2022-02-25" >}}
+
+1. {{< citation
+  id="FPCVector"
+  title="vector: Efficient Packed-Memory Data Representations"
+  url="https://www.fpcomplete.com/haskell/library/vector/"
+  accessed="2022-02-26" >}}
