@@ -5,11 +5,12 @@
 -- run into a "Not in scope: data constructor ‘BinaryDiagnostics’" error.
 --
 -- [1]: https://stackoverflow.com/a/34548070/7812406
-module AoC2021InputParser (parseBinaryDiagnosticInput) where
+module AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput) where
 
 import BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics(..), diagNums, diagWidth)
 import Control.DeepSeq (($!!))
 import Data.String (IsString (fromString))
+import GiantSquid.GiantSquid (DrawnNumbers, Tile, Board)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Data.Maybe (listToMaybe)
@@ -55,3 +56,22 @@ parseBinaryDiagnosticInput fp = do
         -- [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Prelude.html#v:readFile
         return $!! (BinaryDiagnostics{diagWidth=width, diagNums=map readBin' ls})
     )
+
+-- File format: the first line contains the numbers to draw. The rest is a new
+-- line followed by a 5x5 grid of numbers representing a board.
+--
+-- 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+--
+-- 22 13 17 11  0
+--  8  2 23  4 24
+-- 21  9 14 16  7
+--  6 10  3 18  5
+--  1 12 20 15 19
+--
+--  3 15  0  2 22
+--  9 18 13 17  5
+-- 19  8  7 25 23
+-- 20 11 10 24  4
+-- 14 21 16 12  6
+parseBingoInput :: FilePath -> IO (DrawnNumbers, [Board])
+parseBingoInput _ = return ([], [])
