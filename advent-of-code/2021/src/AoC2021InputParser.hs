@@ -1,5 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 
+-- {-# LANGUAGE FlexibleContexts #-}
+
 -- The `(..)` syntax represents all of the constructors for the data type. [1]
 -- Without that export, we can pattern-match in BinaryDiagnostic.hs because we
 -- run into a "Not in scope: data constructor ‘BinaryDiagnostics’" error.
@@ -13,8 +15,12 @@ import Data.String (IsString (fromString))
 import GiantSquid.GiantSquid (DrawnNumbers, Tile, Board)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
-import Data.Maybe (listToMaybe)
+import Data.Maybe (listToMaybe, isJust)
 import Data.Char (digitToInt)
+import qualified Data.Vector as V
+import Text.ParserCombinators.Parsec
+import Text.Parsec (endOfLine)
+import Text.Read (readMaybe)
 
 -- The `Numeric` module has a `readBin` function [1], but for some reason, I get
 -- a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
@@ -53,9 +59,45 @@ parseBinaryDiagnosticInput fp = do
         --
         -- [1]: https://stackoverflow.com/a/26949379/7812406
         -- [2]: https://hackage.haskell.org/package/deepseq-1.4.6.1/docs/Control-DeepSeq.html#v:-36--33--33-
-        -- [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Prelude.html#v:readFile
+        -- [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/html#v:readFile
         return $!! (BinaryDiagnostics{diagWidth=width, diagNums=map readBin' ls})
     )
+
+-- `endBy` expects the very last item to be followed by the separator. It
+-- continues parsing until it can't parse any more content. [1]
+--
+-- TODO: Is it possible to define `bingoFile` as `endBy bingoSection doubleEOL`?
+-- The last double EOL is partly consumed by `bingoElementSeparator` that also
+-- matches a new line.
+--
+-- [1]: http://book.realworldhaskell.org/read/using-parsec.html
+bingoFile = endBy bingoSection endOfLine
+
+-- `sepBy` takes two functions as arguments. The first function parses some sort
+-- of content, while the second function parses a separator. `sepBy` starts by
+-- trying to parse content, then separators, and alternates back and forth until
+-- it can't parse a separator. It returns a list of all the content it was able
+-- to parse. [1]
+--
+-- [1]: http://book.realworldhaskell.org/read/using-parsec.html
+bingoSection = sepBy bingoElement bingoElementSeparator
+bingoElement = many digit
+bingoElementSeparator = try (char ',') <|> try (char ' ') <?> "separator for element"
+
+-- `try` applies a parser, and if it fails, then `try` behaves as if it hadn't
+-- consumed any input at all, and tries the option on the right of the `<|>`.
+-- Note that `try` only has an effect if its on the left side of a `<|>`. [1]
+--
+-- `<?>` tries the parser on its left. In the event of a failure, it presents an
+-- error message instead of trying another parser. The error message should
+-- complete the sentence, "Expecting...". [1]
+--
+-- [1]: http://book.realworldhaskell.org/read/using-parsec.html
+-- eol = try (string "\n\r\n\r")
+--         <|> try (string "\r\n\r\n")
+--         <|> try (string "\n\n")
+--         <|> string "\r\r"
+--         <?> "end of line followed by empty line"
 
 -- File format: the first line contains the numbers to draw. The rest is a new
 -- line followed by a 5x5 grid of numbers representing a board.
@@ -74,4 +116,39 @@ parseBinaryDiagnosticInput fp = do
 -- 20 11 10 24  4
 -- 14 21 16 12  6
 parseBingoInput :: FilePath -> IO (DrawnNumbers, [Board])
-parseBingoInput _ = return ([], [])
+parseBingoInput fp = do
+  dataFp <- getDataFileName fp
+  -- Objective: Try using `readFile` and see if `($!!)` is needed to fully
+  -- evaluate the contents before exiting this function.
+  fileContents <- readFile dataFp
+  case parse bingoFile "" fileContents of
+    Left e  -> do putStrLn "Error parsing input"
+                  print e
+                  return ([], [])
+    Right r -> do let parseInt :: String -> Int
+                      parseInt s = read s :: Int
+
+                      drawnNumbers = map parseInt (head r)
+
+                      tile :: String -> Tile
+                      tile x = (parseInt x, False)
+
+                      -- TODO: Figure out how to parse multiple spaces as
+                      -- separators, and get rid of the `isValidNum` filter.
+                      isValidNum :: String -> Bool
+                      isValidNum s = isJust (readMaybe s :: Maybe Int)
+
+                      parseBoards :: [[String]] -> [Board]
+                      parseBoards ([_]:l1:l2:l3:l4:l5:ls) =
+                        let
+                          nums = V.filter isValidNum (V.fromList(l1 ++ l2 ++ l3 ++ l4 ++ l5))
+                          board = V.map tile nums
+                        in (board, False) : parseBoards ls
+                      parseBoards [l1, l2, l3, l4, l5] =
+                        let
+                          nums = V.filter isValidNum (V.fromList(l1 ++ l2 ++ l3 ++ l4 ++ l5))
+                          board = V.map tile nums
+                        in [(board, False)]
+                      parseBoards _ = []
+
+                  return (drawnNumbers, parseBoards (tail r))
