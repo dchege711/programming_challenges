@@ -1,9 +1,10 @@
 module Main (main) where
 
-import AoC2021InputParser (parseBinaryDiagnosticInput)
+import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput)
 import BinaryDiagnostic.BinaryDiagnostic (powerConsumption, lifeSupportRating)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
+import GiantSquid.GiantSquid (scoreOfWinningBoard)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
   ( num3MeasurementIncreases,
@@ -56,12 +57,21 @@ testBinaryDiagnostic =
         assertEqual "Life Support Rating," 230 (lifeSupportRating input)
     )
 
+testGiantSquid :: Test
+testGiantSquid =
+  TestCase
+    ( do
+        input <- parseBingoInput "src/GiantSquid/scratchpad/sample.txt"
+        assertEqual "Power Consumption," 4512 (scoreOfWinningBoard input)
+    )
+
 tests :: Test
 tests =
   TestList
     [ TestLabel "Day 01: Sonar Sweep" testSonarSweep,
       TestLabel "Day 02: Dive!" testDive,
-      TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic
+      TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic,
+      TestLabel "Day 04: Giant Squid" testGiantSquid
     ]
 
 main :: IO Counts
