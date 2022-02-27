@@ -4,7 +4,8 @@ module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 
-import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput)
+-- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
+import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents)
 import BinaryDiagnostic.BinaryDiagnostic (powerConsumption, lifeSupportRating)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -15,6 +16,7 @@ import SonarSweep.SonarSweep as SonarSweep
     numIncreases,
   )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
+import HydrothermalVenture.HydrothermalVenture (pointsWithAtLeastTwoOverlaps)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -22,6 +24,7 @@ allSolutions = do
   solution02
   solution03
   solution04
+  solution05
 
 solution01 :: IO ()
 solution01 = do
@@ -85,3 +88,13 @@ solution04 = do
 
   putStr "\t: Part 2: Score of last winning board: "
   print (scoreOfLastWinningBoard input)
+
+solution05 :: IO ()
+solution05 = do
+  putStrLn "Day 05. Hydrothermal Venture"
+  input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/input.txt"
+
+  putStr "\t: Part 1: Num Points Where >= 2 Lines Overlap: "
+  print (pointsWithAtLeastTwoOverlaps input)
+
+

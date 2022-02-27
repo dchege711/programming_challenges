@@ -1,6 +1,6 @@
 module Main (main) where
 
-import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput)
+import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents)
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -12,6 +12,7 @@ import SonarSweep.SonarSweep as SonarSweep
   )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Test.HUnit (Counts, Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
+import HydrothermalVenture.HydrothermalVenture (pointsWithAtLeastTwoOverlaps)
 
 testSonarSweep :: Test
 testSonarSweep =
@@ -72,13 +73,25 @@ testGiantSquid =
           (scoreOfLastWinningBoard input)
     )
 
+testHydrothermalVenture :: Test
+testHydrothermalVenture =
+  TestCase
+    ( do
+        input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/sample.txt"
+        assertEqual
+          "Num Points w/ >= 2 Vents Overlapping,"
+          5
+          (pointsWithAtLeastTwoOverlaps input)
+    )
+
 tests :: Test
 tests =
   TestList
     [ TestLabel "Day 01: Sonar Sweep" testSonarSweep,
       TestLabel "Day 02: Dive!" testDive,
       TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic,
-      TestLabel "Day 04: Giant Squid" testGiantSquid
+      TestLabel "Day 04: Giant Squid" testGiantSquid,
+      TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture
     ]
 
 main :: IO Counts

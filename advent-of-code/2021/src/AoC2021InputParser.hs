@@ -7,19 +7,25 @@
 -- run into a "Not in scope: data constructor ‘BinaryDiagnostics’" error.
 --
 -- [1]: https://stackoverflow.com/a/34548070/7812406
-module AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput) where
+module AoC2021InputParser
+  ( parseBinaryDiagnosticInput,
+    parseBingoInput,
+    parseHydrothermalVents,
+  )
+where
 
-import BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics(..), diagNums, diagWidth)
+import BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics (..), diagNums, diagWidth)
 import Control.DeepSeq (($!!))
+import Data.Char (digitToInt)
+import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
-import GiantSquid.GiantSquid (DrawnNumbers, Tile, Board)
+import qualified Data.Vector as V
+import GiantSquid.GiantSquid (Board, DrawnNumbers, Tile)
+import HydrothermalVenture.HydrothermalVenture (VentLine)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
-import Data.Maybe (listToMaybe, isJust)
-import Data.Char (digitToInt)
-import qualified Data.Vector as V
-import Text.ParserCombinators.Parsec
 import Text.Parsec (endOfLine)
+import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
 
 -- The `Numeric` module has a `readBin` function [1], but for some reason, I get
@@ -60,7 +66,7 @@ parseBinaryDiagnosticInput fp = do
         -- [1]: https://stackoverflow.com/a/26949379/7812406
         -- [2]: https://hackage.haskell.org/package/deepseq-1.4.6.1/docs/Control-DeepSeq.html#v:-36--33--33-
         -- [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/html#v:readFile
-        return $!! (BinaryDiagnostics{diagWidth=width, diagNums=map readBin' ls})
+        return $!! (BinaryDiagnostics {diagWidth = width, diagNums = map readBin' ls})
     )
 
 -- `endBy` expects the very last item to be followed by the separator. It
@@ -81,7 +87,9 @@ bingoFile = endBy bingoSection endOfLine
 --
 -- [1]: http://book.realworldhaskell.org/read/using-parsec.html
 bingoSection = sepBy bingoElement bingoElementSeparator
+
 bingoElement = many digit
+
 bingoElementSeparator = try (char ',') <|> try (char ' ') <?> "separator for element"
 
 -- `try` applies a parser, and if it fails, then `try` behaves as if it hadn't
@@ -122,33 +130,36 @@ parseBingoInput fp = do
   -- evaluate the contents before exiting this function.
   fileContents <- readFile dataFp
   case parse bingoFile "" fileContents of
-    Left e  -> do putStrLn "Error parsing input"
-                  print e
-                  return ([], [])
-    Right r -> do let parseInt :: String -> Int
-                      parseInt s = read s :: Int
+    Left e -> do
+      putStrLn "Error parsing input"
+      print e
+      return ([], [])
+    Right r -> do
+      let parseInt :: String -> Int
+          parseInt s = read s :: Int
 
-                      drawnNumbers = map parseInt (head r)
+          drawnNumbers = map parseInt (head r)
 
-                      tile :: String -> Tile
-                      tile x = (parseInt x, False)
+          tile :: String -> Tile
+          tile x = (parseInt x, False)
 
-                      -- TODO: Figure out how to parse multiple spaces as
-                      -- separators, and get rid of the `isValidNum` filter.
-                      isValidNum :: String -> Bool
-                      isValidNum s = isJust (readMaybe s :: Maybe Int)
+          -- TODO: Figure out how to parse multiple spaces as
+          -- separators, and get rid of the `isValidNum` filter.
+          isValidNum :: String -> Bool
+          isValidNum s = isJust (readMaybe s :: Maybe Int)
 
-                      parseBoards :: [[String]] -> [Board]
-                      parseBoards ([_]:l1:l2:l3:l4:l5:ls) =
-                        let
-                          nums = V.filter isValidNum (V.fromList(l1 ++ l2 ++ l3 ++ l4 ++ l5))
-                          board = V.map tile nums
-                        in (board, False) : parseBoards ls
-                      parseBoards [l1, l2, l3, l4, l5] =
-                        let
-                          nums = V.filter isValidNum (V.fromList(l1 ++ l2 ++ l3 ++ l4 ++ l5))
-                          board = V.map tile nums
-                        in [(board, False)]
-                      parseBoards _ = []
+          parseBoards :: [[String]] -> [Board]
+          parseBoards ([_] : l1 : l2 : l3 : l4 : l5 : ls) =
+            let nums = V.filter isValidNum (V.fromList (l1 ++ l2 ++ l3 ++ l4 ++ l5))
+                board = V.map tile nums
+             in (board, False) : parseBoards ls
+          parseBoards [l1, l2, l3, l4, l5] =
+            let nums = V.filter isValidNum (V.fromList (l1 ++ l2 ++ l3 ++ l4 ++ l5))
+                board = V.map tile nums
+             in [(board, False)]
+          parseBoards _ = []
 
-                  return (drawnNumbers, parseBoards (tail r))
+      return (drawnNumbers, parseBoards (tail r))
+
+parseHydrothermalVents :: FilePath -> IO [VentLine]
+parseHydrothermalVents _ = return []
