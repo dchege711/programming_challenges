@@ -57,3 +57,10 @@ no matter which boards it picks, it will win for sure.
 
 Figure out which board will win last. **Once it wins, what would its
 final score be?**
+
+## My Solution
+
+{{< readfile
+    file="/content/computer-science/programming-challenges/advent-of-code/2021/src/GiantSquid/GiantSquid.hs"
+    highlight="haskell"
+    id="BinaryDiagnostic.hs" >}}
