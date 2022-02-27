@@ -49,18 +49,22 @@ type Tiles = V.Vector Tile
 
 type Board = (Tiles, Bool)
 
-bingo :: Tiles -> [Int] -> Bool
-bingo tiles [i] = snd (tiles V.! i)
-bingo tiles (i : is) = snd (tiles V.! i) && bingo tiles is
-bingo _ [] = False
-
 boardWinsFromIndex :: Tiles -> Int -> Bool
 boardWinsFromIndex tiles idx =
   -- TODO: Add error handling? This function crashes with idx = 25
   let columnTiles = [idx - 5, idx - 10 .. 0] ++ [idx] ++ [idx + 5, idx + 10 .. 24]
       mod5 = idx `mod` 5
       rowTiles = [idx - mod5, idx - mod5 + 1 .. idx + 5 - mod5 - 1]
-   in bingo tiles columnTiles || bingo tiles rowTiles
+
+      -- | Return `True` iff the tiles in the indices are all marked.
+      bingo :: [Int] -> Bool
+      bingo (j : js) = let tileIsMarked = snd (tiles V.! j)
+                       in if null js
+                           then tileIsMarked
+                           else tileIsMarked && bingo js
+      bingo []       = False
+
+   in bingo columnTiles || bingo rowTiles
 
 type TileWithIndex = (Tile, Int)
 
