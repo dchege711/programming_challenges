@@ -8,7 +8,7 @@ import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput)
 import BinaryDiagnostic.BinaryDiagnostic (powerConsumption, lifeSupportRating)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
-import GiantSquid.GiantSquid (scoreOfWinningBoard)
+import GiantSquid.GiantSquid (scoreOfFirstWinningBoard)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
   ( num3MeasurementIncreases,
@@ -81,4 +81,4 @@ solution04 = do
   input <- parseBingoInput "src/GiantSquid/scratchpad/input.txt"
 
   putStr "\t: Part 1: Score of winning board: "
-  print (scoreOfWinningBoard input)
+  print (scoreOfFirstWinningBoard input)

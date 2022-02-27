@@ -1,4 +1,4 @@
-module GiantSquid.GiantSquid (DrawnNumbers, Tile, Board, scoreOfWinningBoard) where
+module GiantSquid.GiantSquid (DrawnNumbers, Tile, Board, scoreOfFirstWinningBoard) where
 
 import qualified Data.Vector as V
 
@@ -102,6 +102,6 @@ scoreOfBoard (board, lastCalledNum) =
         unmarkedTiles = V.filter (not . snd) (fst board)
     in sum (V.map fst unmarkedTiles) * lastCalledNum
 
-scoreOfWinningBoard :: (DrawnNumbers, [Board]) -> Int
-scoreOfWinningBoard (drawnNums, boards) =
+scoreOfFirstWinningBoard :: (DrawnNumbers, [Board]) -> Int
+scoreOfFirstWinningBoard (drawnNums, boards) =
     scoreOfBoard (playBingo drawnNums boards)
