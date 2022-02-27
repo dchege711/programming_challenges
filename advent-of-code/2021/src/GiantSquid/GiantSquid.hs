@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use tuple-section" #-}
 module GiantSquid.GiantSquid
   ( DrawnNumbers,
     Tile,
@@ -8,6 +10,7 @@ module GiantSquid.GiantSquid
 where
 
 import qualified Data.Vector as V
+import Data.Maybe (fromJust)
 
 -- File format: the first line contains the numbers to draw. The rest is a new
 -- line followed by a 5x5 grid of numbers representing a board.
@@ -95,7 +98,9 @@ playRoundOnBoard num board =
       boardWins tiles (i : is) = boardWinsFromIndex tiles i || boardWins tiles is
    in (updatedTiles, boardWins updatedTiles matchedIndices)
 
-playBingo :: DrawnNumbers -> [Board] -> (Board, Int)
+type BoardWithLastCalledNum = (Board, Int)
+
+playBingo :: DrawnNumbers -> [Board] -> BoardWithLastCalledNum
 playBingo (n : nums) currBoards =
   let boardsAfterRound = map (playRoundOnBoard n) currBoards
       winner = filter snd boardsAfterRound
@@ -103,7 +108,7 @@ playBingo (n : nums) currBoards =
       if null winner then playBingo nums boardsAfterRound else (head winner, n)
 playBingo [] currBoards = (head currBoards, 0)
 
-scoreOfBoard :: (Board, Int) -> Int
+scoreOfBoard :: BoardWithLastCalledNum -> Int
 scoreOfBoard (board, lastCalledNum) =
   let unmarkedTiles :: Tiles
       unmarkedTiles = V.filter (not . snd) (fst board)
@@ -113,5 +118,26 @@ scoreOfFirstWinningBoard :: (DrawnNumbers, [Board]) -> Int
 scoreOfFirstWinningBoard (drawnNums, boards) =
   scoreOfBoard (playBingo drawnNums boards)
 
+playLastBoardBingo :: DrawnNumbers -> [Board] -> [BoardWithLastCalledNum] -> Maybe BoardWithLastCalledNum
+
+playLastBoardBingo [n] boards winningBoards =
+    let boardsAfterRound = map (playRoundOnBoard n) boards
+        currWinners = reverse (filter snd boardsAfterRound)
+        lastWinningBoardWithNum = if null currWinners
+            then head winningBoards
+            else (head currWinners, n)
+    in Just lastWinningBoardWithNum
+
+playLastBoardBingo (n:ns) boards winningBoards =
+    let boardsAfterRound = map (playRoundOnBoard n) boards
+        currWinners = reverse (filter snd boardsAfterRound)
+        pendingBoards = filter (not . snd) boardsAfterRound
+        allWinners = map (\b -> (b, n)) currWinners ++ winningBoards
+    in playLastBoardBingo ns pendingBoards allWinners
+
+playLastBoardBingo _ _ _ = Nothing
+
 scoreOfLastWinningBoard :: (DrawnNumbers, [Board]) -> Int
-scoreOfLastWinningBoard _ = 50
+scoreOfLastWinningBoard (drawnNums, boards) =
+    -- TODO: error handling?
+    scoreOfBoard(fromJust $ playLastBoardBingo drawnNums boards [])
