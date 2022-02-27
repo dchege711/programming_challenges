@@ -15,6 +15,8 @@ weight: 4
 
 ## Problem Statement
 
+### Part One
+
 You're already almost 1.5km (almost a mile) below the surface of the
 ocean, already so deep that you can't see any sunlight. What you **can**
 see, however, is a giant squid that has attached itself to the outside
@@ -42,3 +44,16 @@ the final score.
 To guarantee victory against the giant squid, figure out which board
 will win first. **What will your final score be if you choose that
 board?**
+
+### Part Two
+
+On the other hand, it might be wise to try a different strategy: let the
+giant squid win.
+
+You aren't sure how many bingo boards a giant squid could play at once,
+so rather than waste time counting its arms, the safe thing to do is to
+**figure out which board will win last** and choose that one. That way,
+no matter which boards it picks, it will win for sure.
+
+Figure out which board will win last. **Once it wins, what would its
+final score be?**
