@@ -1,4 +1,11 @@
-module GiantSquid.GiantSquid (DrawnNumbers, Tile, Board, scoreOfFirstWinningBoard) where
+module GiantSquid.GiantSquid
+  ( DrawnNumbers,
+    Tile,
+    Board,
+    scoreOfFirstWinningBoard,
+    scoreOfLastWinningBoard,
+  )
+where
 
 import qualified Data.Vector as V
 
@@ -32,76 +39,79 @@ import qualified Data.Vector as V
 -- [2]: https://hackage.haskell.org/package/vector-0.12.3.1/docs/Data-Vector-Primitive.html#t:Prim
 
 type DrawnNumbers = [Int]
+
 type Tile = (Int, Bool)
+
 type Tiles = V.Vector Tile
+
 type Board = (Tiles, Bool)
 
 bingo :: Tiles -> [Int] -> Bool
-bingo tiles [i]    = snd (tiles V.! i)
-bingo tiles (i:is) = snd (tiles V.! i) && bingo tiles is
-bingo _ []     = False
+bingo tiles [i] = snd (tiles V.! i)
+bingo tiles (i : is) = snd (tiles V.! i) && bingo tiles is
+bingo _ [] = False
 
 boardWinsFromIndex :: Tiles -> Int -> Bool
 boardWinsFromIndex tiles idx =
-    -- TODO: Add error handling? This function crashes with idx = 25
-    let columnTiles = [idx - 5, idx - 10..0] ++ [idx] ++ [idx+5, idx + 10 .. 24]
-        mod5 = idx `mod` 5
-        rowTiles = [idx - mod5, idx - mod5 + 1 .. idx + 5 - mod5 - 1]
-    in bingo tiles columnTiles || bingo tiles rowTiles
+  -- TODO: Add error handling? This function crashes with idx = 25
+  let columnTiles = [idx - 5, idx - 10 .. 0] ++ [idx] ++ [idx + 5, idx + 10 .. 24]
+      mod5 = idx `mod` 5
+      rowTiles = [idx - mod5, idx - mod5 + 1 .. idx + 5 - mod5 - 1]
+   in bingo tiles columnTiles || bingo tiles rowTiles
 
 type TileWithIndex = (Tile, Int)
 
 indicesWithMatch :: Tiles -> Int -> V.Vector Int
 indicesWithMatch tiles num =
-    let tileMatches :: Int -> TileWithIndex -> Bool
-        tileMatches numToMatch (tile, _) = fst tile  == numToMatch
+  let tileMatches :: Int -> TileWithIndex -> Bool
+      tileMatches numToMatch (tile, _) = fst tile == numToMatch
 
-        tilesWithIndex :: Tiles -> V.Vector TileWithIndex
-        -- Unxpected infinite loop.
-        --
-        -- > l1 = [1, 2, 3]
-        -- > l2 = [1 .. ]
-        -- > zip l1 l2              -- [(1,1), (2,2), (3,3)]
-        -- > v1 = [1, 2, 3]
-        -- > v2 = [1 .. ]
-        -- > V.zip v1 v2            -- Infinite loop!
-        tilesWithIndex t = V.zip t (V.fromList [0 .. (length t)])
+      tilesWithIndex :: Tiles -> V.Vector TileWithIndex
+      -- Unxpected infinite loop.
+      --
+      -- > l1 = [1, 2, 3]
+      -- > l2 = [1 .. ]
+      -- > zip l1 l2              -- [(1,1), (2,2), (3,3)]
+      -- > v1 = [1, 2, 3]
+      -- > v2 = [1 .. ]
+      -- > V.zip v1 v2            -- Infinite loop!
+      tilesWithIndex t = V.zip t (V.fromList [0 .. (length t)])
 
-        matchingTilesWithIndex :: V.Vector TileWithIndex
-        matchingTilesWithIndex = V.filter (tileMatches num) (tilesWithIndex tiles)
-
-    in V.map snd matchingTilesWithIndex
+      matchingTilesWithIndex :: V.Vector TileWithIndex
+      matchingTilesWithIndex = V.filter (tileMatches num) (tilesWithIndex tiles)
+   in V.map snd matchingTilesWithIndex
 
 playRoundOnBoard :: Int -> Board -> Board
 playRoundOnBoard num board =
-    let
-        updateTile :: Int -> Tile -> Tile
-        updateTile n tile = if fst tile == n then (n, True) else tile
+  let updateTile :: Int -> Tile -> Tile
+      updateTile n tile = if fst tile == n then (n, True) else tile
 
-        updatedTiles = V.map (updateTile num) (fst board)
-        matchedIndices = V.toList (indicesWithMatch updatedTiles num)
+      updatedTiles = V.map (updateTile num) (fst board)
+      matchedIndices = V.toList (indicesWithMatch updatedTiles num)
 
-        boardWins :: Tiles -> [Int] -> Bool
-        boardWins _ [] = False
-        boardWins tiles [i] = boardWinsFromIndex tiles i
-        boardWins tiles (i:is) = boardWinsFromIndex tiles i || boardWins tiles is
-
-    in (updatedTiles, boardWins updatedTiles matchedIndices)
+      boardWins :: Tiles -> [Int] -> Bool
+      boardWins _ [] = False
+      boardWins tiles [i] = boardWinsFromIndex tiles i
+      boardWins tiles (i : is) = boardWinsFromIndex tiles i || boardWins tiles is
+   in (updatedTiles, boardWins updatedTiles matchedIndices)
 
 playBingo :: DrawnNumbers -> [Board] -> (Board, Int)
-playBingo (n:nums) currBoards =
-    let boardsAfterRound = map (playRoundOnBoard n) currBoards
-        winner = filter snd boardsAfterRound
-    -- What is the idiomatic way of saying `if true`?
-    in if null winner then playBingo nums boardsAfterRound else (head winner, n)
+playBingo (n : nums) currBoards =
+  let boardsAfterRound = map (playRoundOnBoard n) currBoards
+      winner = filter snd boardsAfterRound
+   in -- What is the idiomatic way of saying `if true`?
+      if null winner then playBingo nums boardsAfterRound else (head winner, n)
 playBingo [] currBoards = (head currBoards, 0)
 
 scoreOfBoard :: (Board, Int) -> Int
 scoreOfBoard (board, lastCalledNum) =
-    let unmarkedTiles :: Tiles
-        unmarkedTiles = V.filter (not . snd) (fst board)
-    in sum (V.map fst unmarkedTiles) * lastCalledNum
+  let unmarkedTiles :: Tiles
+      unmarkedTiles = V.filter (not . snd) (fst board)
+   in sum (V.map fst unmarkedTiles) * lastCalledNum
 
 scoreOfFirstWinningBoard :: (DrawnNumbers, [Board]) -> Int
 scoreOfFirstWinningBoard (drawnNums, boards) =
-    scoreOfBoard (playBingo drawnNums boards)
+  scoreOfBoard (playBingo drawnNums boards)
+
+scoreOfLastWinningBoard :: (DrawnNumbers, [Board]) -> Int
+scoreOfLastWinningBoard _ = 50
