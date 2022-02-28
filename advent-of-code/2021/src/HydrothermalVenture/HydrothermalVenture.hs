@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 
 module HydrothermalVenture.HydrothermalVenture
-  ( pointsWithAtLeastTwoOverlaps,
+  ( pointsWithAtLeastTwoRightSegmentOverlaps,
     LineSegment (..),
     Point (..)
   )
@@ -34,8 +34,8 @@ discretizeRightLineSegments LineSegment{ p1=Point{x=x1, y=y1}, p2=Point{x=x2, y=
 
     | otherwise = []
 
-pointsWithAtLeastTwoOverlaps :: [LineSegment] -> Int
-pointsWithAtLeastTwoOverlaps lineSegments =
+pointsWithAtLeastTwoRightSegmentOverlaps :: [LineSegment] -> Int
+pointsWithAtLeastTwoRightSegmentOverlaps lineSegments =
     -- In an imperative language with mutable data, I'd have had a mapping from
     -- points to counts, and then looped over the map to get those w/ counts >=
     -- 2. But we don't have mutability...

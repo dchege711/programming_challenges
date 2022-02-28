@@ -6,17 +6,19 @@ module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents)
-import BinaryDiagnostic.BinaryDiagnostic (powerConsumption, lifeSupportRating)
+import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
 import GiantSquid.GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
+import HydrothermalVenture.HydrothermalVenture
+  ( pointsWithAtLeastTwoRightSegmentOverlaps,
+  )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
   ( num3MeasurementIncreases,
     numIncreases,
   )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
-import HydrothermalVenture.HydrothermalVenture (pointsWithAtLeastTwoOverlaps)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -95,6 +97,4 @@ solution05 = do
   input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/input.txt"
 
   putStr "\t: Part 1: Num Points Where >= 2 Lines Overlap: "
-  print (pointsWithAtLeastTwoOverlaps input)
-
-
+  print (pointsWithAtLeastTwoRightSegmentOverlaps input)
