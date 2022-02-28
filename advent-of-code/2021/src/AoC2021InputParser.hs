@@ -21,7 +21,7 @@ import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
 import qualified Data.Vector as V
 import GiantSquid.GiantSquid (Board, DrawnNumbers, Tile)
-import HydrothermalVenture.HydrothermalVenture (LineSegment (..))
+import qualified HydrothermalVenture.HydrothermalVenture as HV (LineSegment (..), Point (..))
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Text.Parsec (endOfLine)
@@ -161,31 +161,31 @@ parseBingoInput fp = do
 
       return (drawnNumbers, parseBoards (tail r))
 
-hydrothermalFile :: Parser [LineSegment]
+hydrothermalFile :: Parser [HV.LineSegment]
 hydrothermalFile = endBy hydrothermalLine endOfLine
 
 -- Parses "0,9 -> 5,9" into a `LineSegment`.
-hydrothermalLine :: Parser LineSegment
+hydrothermalLine :: Parser HV.LineSegment
 hydrothermalLine =
-  do (_x1, _y1) <- commaSeparatedCoordinates -- Underscores to avoid shadowing.
+  do p1 <- commaSeparatedCoordinates -- Underscores to avoid shadowing.
      _ <- string " -> "
-     (_x2, _y2) <- commaSeparatedCoordinates
-     return LineSegment {x1=_x1, y1=_y1, x2=_x2, y2=_y2}
+     p2 <- commaSeparatedCoordinates
+     return HV.LineSegment {HV.p1 = p1, HV.p2 = p2}
 
 -- Parses "0,9" into (0, 9)
-commaSeparatedCoordinates :: Parser (Int, Int)
+commaSeparatedCoordinates :: Parser HV.Point
 commaSeparatedCoordinates =
   do x <- many1 digit
      _ <- char ','
      y <- many1 digit
-     return (read x :: Int, read y :: Int)
+     return HV.Point {HV.x=read x :: Int, HV.y= read y :: Int}
 
 reportError :: ParseError -> IO ()
 reportError e = do
   putStrLn "Error parsing input"
   print e
 
-parseHydrothermalVents :: FilePath -> IO [LineSegment]
+parseHydrothermalVents :: FilePath -> IO [HV.LineSegment]
 parseHydrothermalVents fp = do
   dataFp <- getDataFileName fp
   fileContents <- readFile dataFp

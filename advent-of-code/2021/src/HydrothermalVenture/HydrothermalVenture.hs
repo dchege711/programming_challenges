@@ -3,6 +3,7 @@
 module HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoOverlaps,
     LineSegment (..),
+    Point (..)
   )
 where
 
@@ -13,7 +14,8 @@ where
 --
 -- The points don't make sense individually, so grouping them together as a line
 -- segment makes sense.
-data LineSegment = LineSegment {x1 :: Int, y1 :: Int, x2 :: Int, y2 :: Int}
+data Point = Point {x :: Int, y :: Int}
+data LineSegment = LineSegment {p1 :: Point, p2 :: Point}
 
 pointsWithAtLeastTwoOverlaps :: [LineSegment] -> Int
 pointsWithAtLeastTwoOverlaps _ = 0
