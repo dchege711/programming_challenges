@@ -21,7 +21,7 @@ import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
 import qualified Data.Vector as V
 import GiantSquid.GiantSquid (Board, DrawnNumbers, Tile)
-import HydrothermalVenture.HydrothermalVenture (VentLine)
+import HydrothermalVenture.HydrothermalVenture (LineSegment (..))
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Text.Parsec (endOfLine)
@@ -161,5 +161,35 @@ parseBingoInput fp = do
 
       return (drawnNumbers, parseBoards (tail r))
 
-parseHydrothermalVents :: FilePath -> IO [VentLine]
-parseHydrothermalVents _ = return []
+hydrothermalFile :: Parser [LineSegment]
+hydrothermalFile = endBy hydrothermalLine endOfLine
+
+-- Parses "0,9 -> 5,9" into a `LineSegment`.
+hydrothermalLine :: Parser LineSegment
+hydrothermalLine =
+  do (_x1, _y1) <- commaSeparatedCoordinates -- Underscores to avoid shadowing.
+     _ <- string " -> "
+     (_x2, _y2) <- commaSeparatedCoordinates
+     return LineSegment {x1=_x1, y1=_y1, x2=_x2, y2=_y2}
+
+-- Parses "0,9" into (0, 9)
+commaSeparatedCoordinates :: Parser (Int, Int)
+commaSeparatedCoordinates =
+  do x <- many1 digit
+     _ <- char ','
+     y <- many1 digit
+     return (read x :: Int, read y :: Int)
+
+reportError :: ParseError -> IO ()
+reportError e = do
+  putStrLn "Error parsing input"
+  print e
+
+parseHydrothermalVents :: FilePath -> IO [LineSegment]
+parseHydrothermalVents fp = do
+  dataFp <- getDataFileName fp
+  fileContents <- readFile dataFp
+  case parse hydrothermalFile "Hydrothermal Parser" fileContents of
+    Left e -> do {reportError e; return []}
+    Right r -> return r
+
