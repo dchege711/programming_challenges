@@ -69,10 +69,11 @@ discretizeDiagonalLineSegment :: LineSegmentDiscretizer
 discretizeDiagonalLineSegment LineSegment {p1 = Point {x = x1, y = y1}, p2 = Point {x = x2, y = y2}}
   | abs (x1 - x2) == abs (y1 - y2) =
     let absDiff = abs (x1 - x2)
-        xStep = (x2 - x1) `div` absDiff
-        yStep = (y2 - y1) `div` absDiff
-        xs = [x1, x1 + xStep .. x2]
-        ys = [y1, y1 + yStep .. y2]
+        xs = [x1, x1 + step .. x2] where
+            step = (x2 - x1) `div` absDiff
+        ys = [y1, y1 + step .. y2] where
+            step = (y2 - y1) `div` absDiff
+
      in zipWith (\x' y' -> Point {x = x', y = y'}) xs ys
   | otherwise = []
 
