@@ -7,6 +7,7 @@ import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepreta
 import GiantSquid.GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
 import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
+    pointsWithAtLeastTwoSegmentOverlaps,
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
@@ -81,9 +82,13 @@ testHydrothermalVenture =
     ( do
         input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/sample.txt"
         assertEqual
-          "Num Points w/ >= 2 Vents Overlapping,"
+          "Num Points w/ >= 2 Right Segments Overlapping,"
           5
           (pointsWithAtLeastTwoRightSegmentOverlaps input)
+        assertEqual
+          "Num Points w/ >= 2 Segments Overlapping,"
+          12
+          (pointsWithAtLeastTwoSegmentOverlaps input)
     )
 
 tests :: Test

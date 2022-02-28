@@ -12,6 +12,7 @@ import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepreta
 import GiantSquid.GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
 import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
+    pointsWithAtLeastTwoSegmentOverlaps,
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep.SonarSweep as SonarSweep
@@ -96,5 +97,8 @@ solution05 = do
   putStrLn "Day 05. Hydrothermal Venture"
   input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/input.txt"
 
-  putStr "\t: Part 1: Num Points Where >= 2 Lines Overlap: "
+  putStr "\t: Part 1: Num Points Where >= 2 Right Lines Overlap: "
   print (pointsWithAtLeastTwoRightSegmentOverlaps input)
+
+  putStr "\t: Part 1: Num Points Where >= 2 Lines Overlap: "
+  print (pointsWithAtLeastTwoSegmentOverlaps input)
