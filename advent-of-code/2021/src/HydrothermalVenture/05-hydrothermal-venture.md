@@ -44,3 +44,10 @@ at exactly 45 degrees. In other words:
 
 Consider all of the lines. **At how many points do at least two lines
 overlap?**
+
+## My Solution
+
+{{< readfile
+  file=`content/computer-science/programming-challenges/advent-of-code/2021/src/HydrothermalVenture/HydrothermalVenture.hs`
+  highlight="haskell"
+  id="HydrothermalVenture.hs" >}}
