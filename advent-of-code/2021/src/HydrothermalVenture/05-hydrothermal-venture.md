@@ -1,5 +1,5 @@
 ---
-title: "AoC 21 Day 5: Hydrothermal Venture"
+title: "AoC 2021 Day 05: Hydrothermal Venture"
 date: 2022-02-27
 weight: 5
 ---
