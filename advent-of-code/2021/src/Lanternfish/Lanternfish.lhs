@@ -2,12 +2,11 @@ This is a sample note.
 
 \begin{code}
 
+module Lanternfish.Lanternfish (fact) where
+
 fact :: Int -> Int
 fact 0 = 1
 fact n = n * fact(n-1)
-
-main :: IO ()
-main = print (fact 5)
 
 \end{code}
 
