@@ -182,6 +182,49 @@ source code. Haddock reminds me of Python's
 [Javadoc](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html)
 and JavaScript's [JSDoc](https://jsdoc.app/).
 
+Cabal has integrations with Haddock, and that's useful for generating
+docs for the package. For some reason, `cabal init` doesn't generate a
+`Setup.hs` that is needed in `runhaskell Setup.hs haddock --internal`.
+Update: `cabal haddock` and `cabal v2-haddock` are alternative ways of
+using `haddock` on a package.
+
+{{< figure
+  src="/img/computer-science/programming-challenges/advent-of-code/2021/sample-haddock-documentation.jpg"
+
+  caption=`"cabal haddock" generates documentation similar to ones at
+  Hackage. Notice the "# Source" link.`>}}
+
+{{< figure
+  src="/img/computer-science/programming-challenges/advent-of-code/2021/sample-haddock-documentation-src-code.jpg"
+
+  caption=`Clicking on the "#Source" link takes me to this browsable
+  version of the code`>}}
+
+However, I'd like the code inlined, and the non-code portions of the
+.lhs files rendered as normal text instead of being included inside a
+code block, like how {{% cite CIS194Spring13Monads %}} is structured.
+Maybe the `lhs2TeX` package can get me there?
+
+Aha, `lhs2tex --markdown -o Foo.md Foo.lhs` gets me a nice .md file that
+could use some additional processing, e.g. removing the two leading
+lines that only have `%`s, adding YAML, changing the opening back-ticks
+to have `hs` (HighlightJS guesses the language correctly though). Maybe
+`lhs2TeX` has some customization options that won't require me to whip
+up a Python script? Didn't find anything promising. This script
+suffices:
+
+{{< readfile
+  file=`content/computer-science/programming-challenges/advent-of-code/2021/publish_lhs_files.zsh`
+  highlight="zsh"
+  id="publish_lhs_files.zsh" >}}
+
+{{% comment %}}
+
+VS Code lacks multi-mode, which is helpful when editing .lhs files.
+Emacs it is!
+
+{{% /comment %}}
+
 ## The Standard Library
 
 {{% cite HiddingAoC2021 %}} uses the `RIO` library to replace the
