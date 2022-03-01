@@ -64,7 +64,7 @@ larger than the previous sum?**
 ## My Solution
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/SonarSweep.hs`
+  file=`content/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/SonarSweep.lhs`
   highlight="haskell"
   id="SonarSweep.hs" >}}
 

@@ -1,3 +1,16 @@
+%include polycode.fmt
+---
+date: 2022-02-18
+domains:
+- adventofcode.com
+- github.com
+- jhidding.github.io
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/01-sonar-sweep/
+title: 'AoC 2021 Day 01: Sonar Sweep'
+weight: 1
+---
+
+\begin{code}
 {-# OPTIONS_GHC -Wall #-}
 
 module SonarSweep.SonarSweep (numIncreases, num3MeasurementIncreases) where
@@ -61,3 +74,4 @@ num3MeasurementIncreases (u:w:x:y:zs) = total where
   total = contribution + num3MeasurementIncreases (w:x:y:zs)
 
 num3MeasurementIncreases _ = 0 -- Any list with less than 4 items doesn't have a delta
+\end{code}
