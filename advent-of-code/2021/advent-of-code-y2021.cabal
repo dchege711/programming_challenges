@@ -73,7 +73,7 @@ library
     exposed-modules:
         AoC2021InputParser,
         AoC2021,
-        SonarSweep.SonarSweep,
+        SonarSweep,
         Dive.Dive,
         BinaryDiagnostic.BinaryDiagnostic,
         GiantSquid.GiantSquid,

@@ -58,9 +58,8 @@ The package structure is of the form:
 │   └── Main.hs
 ├── src
 │   ├── AoC2021.hs
-│   └── SonarSweep
-│       ├── 01-sonar-sweep.md
-│       └── SonarSweep.hs
+│   ├── SonarSweep.hs
+│   └── SonarSweep.md
 └── test
     └──  AoC2021Test.hs
 ```
@@ -349,7 +348,7 @@ readInput = do
 Notice how `readInput` parses the input and takes care of converting
 into expected data types `[Int]` and takes care of parsing uncertainty
 with `*Maybe`. In comparison, my [`SonarSweep.num*Increases`]({{< ref
-"/computer-science/programming-challenges/advent-of-code/2021/src/sonarsweep/01-sonar-sweep#SonarSweep.hs"
+"/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep"
 >}}) and [`Dive.productOfFinalPosition*`]({{< ref
 "/computer-science/programming-challenges/advent-of-code/2021/src/Dive/02-dive.md#Dive.hs"
 >}}) functions receive a `[String]` which they then parse into intended

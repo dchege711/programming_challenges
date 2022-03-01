@@ -15,10 +15,7 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
-import SonarSweep.SonarSweep as SonarSweep
-  ( num3MeasurementIncreases,
-    numIncreases,
-  )
+import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 
 allSolutions :: IO ()
@@ -43,7 +40,7 @@ solution01 = do
   -- [1]: http://book.realworldhaskell.org/read/io.html#io.lazy.hGetContents
   -- [2]: https://hackage.haskell.org/package/base-4.16.0.0/docs/System-IO.html#v:hGetContents
 
-  fp <- getDataFileName "src/SonarSweep/scratchpad/input.txt"
+  fp <- getDataFileName "src/scratchpad/01-sonar-sweep.input.txt"
   putStrLn "Day 01. Sonar Sweep"
   withFile
     fp

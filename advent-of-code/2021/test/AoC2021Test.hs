@@ -10,10 +10,7 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
-import SonarSweep.SonarSweep as SonarSweep
-  ( num3MeasurementIncreases,
-    numIncreases,
-  )
+import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Test.HUnit (Counts, Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
 
@@ -21,7 +18,7 @@ testSonarSweep :: Test
 testSonarSweep =
   TestCase
     ( do
-        fp <- getDataFileName "src/SonarSweep/scratchpad/sample.txt"
+        fp <- getDataFileName "src/scratchpad/01-sonar-sweep.sample.txt"
         withFile
           fp
           ReadMode

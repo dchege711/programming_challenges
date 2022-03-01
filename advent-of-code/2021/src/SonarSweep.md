@@ -1,4 +1,3 @@
-%include polycode.fmt
 ---
 date: 2022-02-18
 domains:
@@ -16,7 +15,7 @@ weight: 1
   url="https://adventofcode.com/2021/day/1"
   accessed="2022-02-18" >}}
 
-\## Part One
+## Part One
 
 *As the submarine drops below the surface of the ocean, it automatically
 performs a sonar sweep of the nearby sea floor. On a small screen, the
@@ -35,14 +34,14 @@ first measurement.)*
 
 ***How many measurements are larger than the previous measurement?***
 
-\begin{code}
-{-# OPTIONS_GHC -Wall #-}
+```
+{-#  OPTIONS_GHC -Wall  #-}
 
-module SonarSweep.SonarSweep (numIncreases, num3MeasurementIncreases) where
+module SonarSweep (numIncreases, num3MeasurementIncreases) where
 
 import Data.Maybe (isJust, catMaybes)
 import Text.Read (readMaybe)
-\end{code}
+```
 
 Computing `numIncreases` imperatively is rather straightforward, e.g.
 
@@ -64,18 +63,18 @@ to some value. Furthermore, {{% cite Data.Text %}} says, "If you think of a
 writing inefficient code." My mindset is still on `Text` as a `[Char]`. We'll
 see! Pattern matching on lists looks promising. {{% cite YorgeyHaskellBasics %}}
 
-\begin{code}
+```
 numIncreases :: [String] -> Int
-numIncreases [] = 0 -- The empty list does not have a delta
-numIncreases [_] = 0 -- The single item list does not have a delta
+numIncreases [] = 0 --  The empty list does not have a delta
+numIncreases [_] = 0 --  The single item list does not have a delta
 numIncreases (x:y:zs) = total where
   xInt = readMaybe x :: Maybe Int
   yInt = readMaybe y :: Maybe Int
   contribution = if isJust xInt && isJust yInt && yInt > xInt then (1 :: Int) else (0 :: Int)
   total = contribution + numIncreases (y:zs)
-\end{code}
+```
 
-\## Part Two
+## Part Two
 
 *Considering every single measurement isn't as useful as you expected:
 there's just too much noise in the data.*
@@ -104,34 +103,34 @@ More on pattern matching on lists. {{% cite HaskellWikiPatternMatching %}}
 offers a more concise syntax than the one I used in `numIncreases`. It takes
 advantage of the fact that pattern matching starts from the top.
 
-\begin{code}
+```
 num3MeasurementIncreases :: [String] -> Int
 num3MeasurementIncreases (u:w:x:y:zs) = total where
-  -- Skipping error handling is not remarkably shorter as we get a
-  -- `[(a, String)]`, and the code seems less readable. Good on Haskell for not
-  -- granting my request for a footgun.
+  --  Skipping error handling is not remarkably shorter as we get a
+  --  `[(a, String)]`, and the code seems less readable. Good on Haskell for not
+  --  granting my request for a footgun.
   uInt = readMaybe u :: Maybe Int
   wInt = readMaybe w :: Maybe Int
   xInt = readMaybe x :: Maybe Int
   yInt = readMaybe y :: Maybe Int
   areAllValidInts = isJust uInt && isJust wInt && isJust xInt && isJust yInt
 
-  -- Looks like I don't need `(0 :: Int)` when the `then` part is clear.
+  --  Looks like I don't need `(0 :: Int)` when the `then` part is clear.
   prevWindow = if areAllValidInts then sum (catMaybes [uInt, wInt, xInt]) else 0
   currWindow = if areAllValidInts then sum (catMaybes [wInt, xInt, yInt]) else 0
   contribution = if currWindow > prevWindow then (1 :: Int) else 0
 
   total = contribution + num3MeasurementIncreases (w:x:y:zs)
 
-num3MeasurementIncreases _ = 0 -- Any list with less than 4 items doesn't have a delta
-\end{code}
+num3MeasurementIncreases _ = 0 --  Any list with less than 4 items doesn't have a delta
+```
 
-\## Learning from Others' Solutions
+## Learning from Others' Solutions
 
 Without the parsing of the `[String]` into an `[Int]`, my solution is
 basically:
 
-\begin{spec}
+```
 numIncreases :: [Int] -> Int
 numIncreases (x:y:zs) = total where
   contribution = if y > x then (1 :: Int) else 0
@@ -143,11 +142,11 @@ num3MeasurementIncreases (u:w:x:y:zs) = total where
   contribution = if (w + x + y) > (u + w + x) then (1 :: Int) else 0
   total = contribution + num3MeasurementIncreases (w:x:y:zs)
 num3MeasurementIncreases _ = 0
-\end{spec}
+```
 
 {{% cite HiddingAoC2021-01 %}} basically does:
 
-\begin{spec}
+```
 diff :: [Int] -> [Int]
 diff (a1:a2:as) = a2 - a1 : diff (a2:as)
 diff _ = []
@@ -161,7 +160,7 @@ slidingSum _ = []
 
 num3MeasurementIncreases :: [Int] -> Int
 num3MeasurementIncreases = numIncreases . slidingSum
-\end{spec}
+```
 
 Comparing with {{% cite HiddingAoC2021-01 %}}'s solution, mine has hints
 of imperative programming. They are working with whole lists, while I'm
@@ -170,10 +169,10 @@ more concerned about data shuffling.
 {{% cite LeAoC2021-01 %}} notes that combining `drop` and `zipWith`
 gives us a way of working with consecutive values:
 
-\begin{spec}
+```
 numIncreases :: [Int] -> Int
 numIncreases xs = length (filter (== True) (zipWith (<) xs (drop 1 xs)))
-\end{spec}
+```
 
 {{% comment %}}
 
@@ -188,14 +187,14 @@ have considered something that was more functional-oriented.
 `num3MeasurementIncreases`, the middle terms in the finite difference
 drop out, and therefore:
 
-\begin{spec}
+```
 diff3 :: [Int] -> [Int]
 diff3 (a1:a2:a3:a4:as) = a4 - a1 : diff3 (a2:a3:as)
 diff3 _ = []
 
 num3MeasurementIncreases :: [Int] -> Int
 num3MeasurementIncreases = length . filter (> 0) . diff3
-\end{spec}
+```
 
 {{% comment %}}
 
@@ -208,17 +207,17 @@ inequality check. Huh!
 {{% cite LeAoC2021-01 %}} uses the same idea, comparing `[(a1, a4), (a2,
 a5), ...]`:
 
-\begin{spec}
+```
 num3MeasurementIncreases :: [Int] -> Int
 num3MeasurementIncreases xs = length (filter (== True) (zipWith (<) xs (drop 3 xs)))
-\end{spec}
+```
 
 `zipWith` is pretty handy!
 
 I also like the `(x1:x2:x3:xs)` convention over `(w:x:y:zs)`. The former
 is more readable.
 
-\## References
+## References
 
 1. {{< citation
   id="HiddingAoC2021-01"
