@@ -78,7 +78,7 @@ library
         BinaryDiagnostic.BinaryDiagnostic,
         GiantSquid,
         HydrothermalVenture.HydrothermalVenture,
-        Lanternfish.Lanternfish
+        Lanternfish
 
     -- other-modules:
 
