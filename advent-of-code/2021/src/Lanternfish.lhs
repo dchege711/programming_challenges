@@ -39,7 +39,7 @@ of the ages of several hundred lanternfish (your puzzle input).*
 \begin{code}
 module Lanternfish (numOfFishIn80Days) where
 
-numOfFishIn80Days :: Int
-numOfFishIn80Days = 5
+numOfFishIn80Days :: [Int] -> Int
+numOfFishIn80Days _ = 5
 
 \end{code}

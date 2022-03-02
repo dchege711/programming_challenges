@@ -5,7 +5,11 @@ module AoC2021 (allSolutions) where
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
-import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents)
+import AoC2021InputParser
+    ( parseBinaryDiagnosticInput,
+      parseBingoInput,
+      parseHydrothermalVents,
+      parseLanternfishInternalTimers )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -14,6 +18,7 @@ import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
   )
+import qualified Lanternfish (numOfFishIn80Days)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -25,6 +30,7 @@ allSolutions = do
   solution03
   solution04
   solution05
+  solution06
 
 solution01 :: IO ()
 solution01 = do
@@ -97,5 +103,13 @@ solution05 = do
   putStr "\t: Part 1: Num Points Where >= 2 Right Lines Overlap: "
   print (pointsWithAtLeastTwoRightSegmentOverlaps input)
 
-  putStr "\t: Part 1: Num Points Where >= 2 Lines Overlap: "
+  putStr "\t: Part 2: Num Points Where >= 2 Lines Overlap: "
   print (pointsWithAtLeastTwoSegmentOverlaps input)
+
+solution06 :: IO()
+solution06 = do
+  putStrLn "Day 06. Lanternfish"
+  input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.input.txt"
+
+  putStr "\t Part 1: Number of lanternfish after 80 days: "
+  print (Lanternfish.numOfFishIn80Days input)

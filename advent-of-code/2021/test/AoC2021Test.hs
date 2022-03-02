@@ -1,6 +1,12 @@
 module Main (main) where
 
-import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents)
+import AoC2021InputParser
+  (
+    parseBinaryDiagnosticInput,
+    parseBingoInput,
+    parseHydrothermalVents,
+    parseLanternfishInternalTimers,
+  )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -9,6 +15,7 @@ import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
   )
+import Lanternfish (numOfFishIn80Days)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -88,6 +95,14 @@ testHydrothermalVenture =
           (pointsWithAtLeastTwoSegmentOverlaps input)
     )
 
+testLanternfish :: Test
+testLanternfish =
+  TestCase
+    ( do
+        input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.sample.txt"
+        assertEqual "Num of lantern fish in 80 days: " 5934 (numOfFishIn80Days input)
+    )
+
 tests :: Test
 tests =
   TestList
@@ -95,7 +110,8 @@ tests =
       TestLabel "Day 02: Dive!" testDive,
       TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic,
       TestLabel "Day 04: Giant Squid" testGiantSquid,
-      TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture
+      TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture,
+      TestLabel "Day 06: Lanternfish" testLanternfish
     ]
 
 main :: IO Counts
