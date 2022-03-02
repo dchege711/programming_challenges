@@ -9,7 +9,7 @@ import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHyd
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
-import GiantSquid.GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
+import GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
 import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
@@ -81,13 +81,13 @@ solution03 = do
 solution04 :: IO ()
 solution04 = do
   putStrLn "Day 04. Giant Squid"
-  input <- parseBingoInput "src/GiantSquid/scratchpad/input.txt"
+  input <- parseBingoInput "src/scratchpad/04-giant-squid.input.txt"
 
   putStr "\t: Part 1: Score of first winning board: "
-  print (scoreOfFirstWinningBoard input)
+  print (GiantSquid.scoreOfFirstWinningBoard input)
 
   putStr "\t: Part 2: Score of last winning board: "
-  print (scoreOfLastWinningBoard input)
+  print (GiantSquid.scoreOfLastWinningBoard input)
 
 solution05 :: IO ()
 solution05 = do

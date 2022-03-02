@@ -4,7 +4,7 @@ import AoC2021InputParser (parseBinaryDiagnosticInput, parseBingoInput, parseHyd
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
-import GiantSquid.GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
+import GiantSquid (scoreOfFirstWinningBoard, scoreOfLastWinningBoard)
 import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
@@ -62,7 +62,7 @@ testGiantSquid :: Test
 testGiantSquid =
   TestCase
     ( do
-        input <- parseBingoInput "src/GiantSquid/scratchpad/sample.txt"
+        input <- parseBingoInput "src/scratchpad/04-giant-squid.sample.txt"
         assertEqual
           "Score of First Winning Board,"
           4512

@@ -76,7 +76,7 @@ library
         SonarSweep,
         Dive.Dive,
         BinaryDiagnostic.BinaryDiagnostic,
-        GiantSquid.GiantSquid,
+        GiantSquid,
         HydrothermalVenture.HydrothermalVenture,
         Lanternfish.Lanternfish
 

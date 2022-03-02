@@ -20,7 +20,7 @@ import Data.Char (digitToInt)
 import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
 import qualified Data.Vector as V
-import GiantSquid.GiantSquid (Board, DrawnNumbers, Tile)
+import GiantSquid (Board, DrawnNumbers, Tile)
 import qualified HydrothermalVenture.HydrothermalVenture as HV (LineSegment (..), Point (..))
 import Paths_advent_of_code_y2021 (getDataFileName)
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
