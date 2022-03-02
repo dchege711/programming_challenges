@@ -111,5 +111,5 @@ solution06 = do
   putStrLn "Day 06. Lanternfish"
   input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.input.txt"
 
-  putStr "\t Part 1: Number of lanternfish after 80 days: "
+  putStr "\t Part 1: Number of lanternfish after 80 days: (360610) "
   print (AoC2021.Lanternfish.numOfFishIn80Days input)
