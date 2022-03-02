@@ -1,7 +1,16 @@
 #!/bin/zsh
 
+if [[ $1 == "--all" ]]
+then
 working_dir="$(dirname $0)"
 lhs_files=($working_dir/**/*.lhs)
+elif [[ $1 ]]
+then
+lhs_files=($1)
+else
+printf "Either supply a filepath to an .lhs file, or use '--all'\n"
+exit 1
+fi
 
 for lhs_file in $lhs_files ; do
     output_file=${lhs_file/.lhs/.md} # Replace .lhs with .md
