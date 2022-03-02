@@ -106,7 +106,31 @@ type Tile = (Int, Bool)
 type Tiles = V.Vector Tile
 
 type Board = (Tiles, Bool)
+\end{code}
 
+{{% cite HiddingAoC2021-04 %}} remarks that Haskell is not well-suited for
+multi-dimensional array processing, and therefore they use the `Massiv` library.
+In my case though, I represented the 5x5 board as a one-dimensional vector of 25
+elements.
+
+The `Massiv` also provided convenient APIs for the problem, which {{% cite
+HiddingAoC2021-04 %}} was able to utilize, e.g. traversing rows and columns,
+updating an entry that matches a predicate, etc.
+
+{{% comment %}}
+
+`Massiv`'s convenient APIs made me also look at APIs from {{% cite Data.Vector
+%}}. Till then, I mostly assumed that `Data.Vector` shared the same API as
+`List`, only that the under-the-hood implementation was more efficient for my
+needs, e.g. indexing. Now that I've looked at the docs, nothing stands out.
+There are a couple of mentions of "monadic actions", e.g. `Data.Vector.mapM`
+which "applies the monadic action to all elements of the vector, yielding a
+vector of results", but monadic actions can wait a bit for now. I'm yet to get
+the hang on monads in code.
+
+{{% /comment %}}
+
+\begin{code}
 boardWinsFromIndex :: Tiles -> Int -> Bool
 boardWinsFromIndex tiles idx =
   -- TODO: Add error handling? This function crashes with idx = 25
@@ -232,3 +256,14 @@ scoreOfLastWinningBoard (drawnNums, boards) =
   id="Data.Vector.Primitive"
   title="Data.Vector.Primitive"
   url="https://hackage.haskell.org/package/vector-0.12.3.1/docs/Data-Vector-Primitive.html#t:Prim" >}}
+
+1. {{< citation
+  id="HiddingAoC2021-04"
+  title="Advent of Code 2021: Day 04: Giant Squid"
+  url="https://jhidding.github.io/aoc2021/#day-4-giant-squid"
+  accessed="2022-03-02" >}}
+
+1. {{< citation
+  id="Data.Vector"
+  title="Data.Vector"
+  url="https://hackage.haskell.org/package/vector-0.12.3.1/" >}}
