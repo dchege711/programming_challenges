@@ -1,0 +1,10 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".lhs",
+                "cmd":"${workspaceFolder}/publish_lhs_files.zsh ${file}"
+            }
+        ]
+    }
+}
