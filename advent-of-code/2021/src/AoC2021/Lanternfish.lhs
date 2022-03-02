@@ -37,7 +37,7 @@ of the ages of several hundred lanternfish (your puzzle input).*
 80 days?***
 
 \begin{code}
-module Lanternfish (numOfFishIn80Days) where
+module AoC2021.Lanternfish (numOfFishIn80Days) where
 
 numOfFishIn80Days :: [Int] -> Int
 numOfFishIn80Days _ = 5

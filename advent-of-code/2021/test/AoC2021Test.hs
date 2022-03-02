@@ -15,7 +15,7 @@ import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
   )
-import Lanternfish (numOfFishIn80Days)
+import qualified AoC2021.Lanternfish (numOfFishIn80Days)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -100,7 +100,10 @@ testLanternfish =
   TestCase
     ( do
         input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.sample.txt"
-        assertEqual "Num of lantern fish in 80 days: " 5934 (numOfFishIn80Days input)
+        assertEqual
+          "Num of lantern fish in 80 days,"
+          5934
+          (AoC2021.Lanternfish.numOfFishIn80Days input)
     )
 
 tests :: Test

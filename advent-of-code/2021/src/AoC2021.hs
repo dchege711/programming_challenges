@@ -18,7 +18,7 @@ import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
   )
-import qualified Lanternfish (numOfFishIn80Days)
+import qualified AoC2021.Lanternfish (numOfFishIn80Days)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -112,4 +112,4 @@ solution06 = do
   input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.input.txt"
 
   putStr "\t Part 1: Number of lanternfish after 80 days: "
-  print (Lanternfish.numOfFishIn80Days input)
+  print (AoC2021.Lanternfish.numOfFishIn80Days input)
