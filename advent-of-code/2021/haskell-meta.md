@@ -217,12 +217,12 @@ suffices:
   highlight="zsh"
   id="publish_lhs_files.zsh" >}}
 
-{{% comment %}}
-
 VS Code lacks multi-mode, which is helpful when editing .lhs files.
-Emacs it is!
-
-{{% /comment %}}
+~~Emacs it is!~~ The editor shows highlights the non-code portions as
+Haskell, but the language server doesn't trip up. I'll keep using VS
+Code for now, especially with the [Run On Save
+extension](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave)
+for regenerating the markdown as I save.
 
 ## The Standard Library
 
