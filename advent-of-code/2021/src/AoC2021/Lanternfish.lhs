@@ -5,9 +5,7 @@ date: 2022-03-01
 weight: 6
 ---
 
-\## Part One
-
-\### Description
+\## Part I Description
 
 *The sea floor is getting steeper. Maybe the sleigh keys got carried this way?*
 
@@ -38,14 +36,7 @@ of the ages of several hundred lanternfish (your puzzle input).*
 *Find a way to simulate lanternfish. **How many lanternfish would there be after
 80 days?***
 
-{{% comment %}}
-
-Expected extension for Part II: accounting for the fact that lanternfish die
-after some time. A lanternfish does not keep reproducing indefinitely.
-
-{{% /comment %}}
-
-\### My Solution
+\## Part I Solution
 
 The input is of the form:
 
@@ -161,6 +152,46 @@ simulateFishGrowth [] internalTimers = internalTimers
 
 numOfFishIn80Days :: [Int] -> Int
 numOfFishIn80Days = length . simulateFishGrowth [1 .. 80]
+
+\end{code}
+
+\## Part II Description
+
+{{% comment %}}
+
+Expected extension for Part II: accounting for the fact that lanternfish die
+after some time. A lanternfish does not keep reproducing indefinitely.
+
+Update: Wrong guess. Death wouldn't complicate `simulateFishGrowth` too much.
+the major change would be instead of tracking only the internal timers, we'd
+track the age of the lanternfish. Immutable lists would lead to a lot of
+copying.
+
+{{% /comment %}}
+
+*Suppose the lanternfish live forever and have unlimited food and space. Would
+they take over the entire ocean?*
+
+*After 256 days in the example above, there would be a total of 26,984,457,539
+lanternfish!*
+
+***How many lanternfish would there be after 256 days?***
+
+\## Part II Solution
+
+Simulating 256 days will cripple `simulateFishGrowth`. In the sample input,
+we'll have a list with 27B items, up from 6k items! If the the same explosion is
+applied to the puzzle input, we're expecting a final list with
+\\(360{,}610 \cdot (26{,}984{,}457{,}539 / 5{,}934) \approx
+1{,}639{,}849{,}213{,}538 \\) items. Under the rosiest projections, each entry
+in the `[Int]` takes 8 bytes, we need
+\\(\ge 1{,}639{,}849{,}213{,}538 \cdot 8 / 1{,}024^4 \approx 11.93 \text{TB}\\).
+That's beyond my laptop's range.
+
+\begin{code}
+
+_numOfFishIn256Days' :: [Int] -> Int
+_numOfFishIn256Days' = length . simulateFishGrowth [1 .. 256]
 
 \end{code}
 
