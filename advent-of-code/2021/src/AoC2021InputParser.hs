@@ -11,6 +11,7 @@ module AoC2021InputParser
   ( parseBinaryDiagnosticInput,
     parseBingoInput,
     parseHydrothermalVents,
+    parseLanternfishInternalTimers,
   )
 where
 
@@ -193,3 +194,14 @@ parseHydrothermalVents fp = do
     Left e -> do {reportError e; return []}
     Right r -> return r
 
+lanternfishInternalTimersFile :: Parser [Int]
+lanternfishInternalTimersFile =
+  sepBy (do x <- many1 digit; return (read x :: Int)) (char ',')
+
+parseLanternfishInternalTimers :: FilePath -> IO [Int]
+parseLanternfishInternalTimers fp = do
+  dataFp <- getDataFileName fp
+  fileContents <- readFile dataFp
+  case parse lanternfishInternalTimersFile "Lanternfish Parser" fileContents of
+    Left e  -> do {reportError e; return []}
+    Right r -> return r
