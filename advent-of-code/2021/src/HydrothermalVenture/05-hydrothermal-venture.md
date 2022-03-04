@@ -1,6 +1,7 @@
 ---
-title: "AoC 2021 Day 05: Hydrothermal Venture"
 date: 2022-02-27
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/HydrothermalVenture/05-hydrothermal-venture/
+title: 'AoC 2021 Day 05: Hydrothermal Venture'
 weight: 5
 ---
 

@@ -1,10 +1,15 @@
 ---
+authors:
+- Yorgey, Brent
 date: 2022-02-18
 domains:
 - adventofcode.com
+- en.wikibooks.org
 - github.com
+- hackage.haskell.org
 - jhidding.github.io
-local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/01-sonar-sweep/
+- www.schoolofhaskell.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/SonarSweep/SonarSweep/
 title: 'AoC 2021 Day 01: Sonar Sweep'
 weight: 1
 ---

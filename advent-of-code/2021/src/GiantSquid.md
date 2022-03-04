@@ -2,7 +2,9 @@
 date: 2022-02-25
 domains:
 - adventofcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/GiantSquid/04-giant-squid/
+- hackage.haskell.org
+- jhidding.github.io
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/GiantSquid/
 title: 'AoC 2021 Day 04: Giant Squid'
 weight: 4
 ---
