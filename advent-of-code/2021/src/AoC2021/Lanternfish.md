@@ -1,6 +1,10 @@
 ---
-title: "AoC 2021 Day 06: Lanternfish"
 date: 2022-03-01
+domains:
+- en.wikipedia.org
+- wiki.haskell.org
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/Lanternfish/
+title: 'AoC 2021 Day 06: Lanternfish'
 weight: 6
 ---
 
