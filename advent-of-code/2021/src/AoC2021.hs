@@ -18,7 +18,7 @@ import HydrothermalVenture.HydrothermalVenture
   ( pointsWithAtLeastTwoRightSegmentOverlaps,
     pointsWithAtLeastTwoSegmentOverlaps,
   )
-import qualified AoC2021.Lanternfish (numOfFishIn80Days)
+import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -113,3 +113,6 @@ solution06 = do
 
   putStr "\t Part 1: Number of lanternfish after 80 days: (360610) "
   print (AoC2021.Lanternfish.numOfFishIn80Days input)
+
+  putStr "\t Part 2: Number of lanternfish after 256 days: (1631629590423) "
+  print (AoC2021.Lanternfish.numOfFishIn256Days input)
