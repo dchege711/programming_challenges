@@ -46,12 +46,17 @@ The input is of the form:
 ... so nothing special with parsing. Using `[Int]` should do just fine.
 
 ```hs
-module AoC2021.Lanternfish (numOfFishIn80Days) where
+{-#  LANGUAGE RecordWildCards  #-}
+{-#  OPTIONS_GHC -Wall  #-}
+
+module AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days) where
+
+import Data.List (group, sort, foldl')
 ```
 
-If the lanternfish's internal timers were all in sync, then their population on
-day \\(d\\) is of the form \\(\lfloor n_0 \cdot r \cdot d \rfloor \\), where
-\\(r\\) factor of growth per day.
+~~If the lanternfish's internal timers were all in sync, then their population
+on day \\(d\\) is of the form \\(\lfloor n_0 \cdot r \cdot d \rfloor \\), where
+\\(r\\) factor of growth per day.~~ Was unable to get a value for \\(r\\).
 
 {{% comment %}}
 
@@ -182,8 +187,98 @@ in the `[Int]` takes 8 bytes, we need
 That's beyond my laptop's range.
 
 ```hs
+--  Takes too long
 _numOfFishIn256Days' :: [Int] -> Int
 _numOfFishIn256Days' = length . simulateFishGrowth [1 .. 256]
+```
+
+One more attempt before looking up how to model unbounded population growth.
+There exists some cohort of lanternfish that are giving birth on the same day.
+If we have a lanternfish that reproduces on \\(d = [0, 7, 14, ...]\\), the
+second generation will reproduce on \\(d = [9, 16, ...]\\), the third on \\(d =
+[16, 23, ...]\\), the fourth on \\(d = [23, 30, 37, ...]\\), and so forth.
+Hmm... I don't see it. Time to consult population growth literature.
+
+The term for the kind of growth exhibited by the lanternfish is exponential
+growth, because each lanternfish gives forth one lanternfish. Exponential growth
+is described by \\(x_t = x_0 \cdot b^{t/\tau}\\), where \\(b\\) is a positive
+growth factor, and \\(\tau\\) is the time required for \\(x\\) to grow by one
+factor of \\(b\\). {{% cite WikiExpGrowth %}} The simple case where each
+lanternfish creates a new one every seven days and is in sync with every other
+lanternfish, can be modelled by \\(x_t = x_0 \cdot 2^{t/7}\\). I still don't see
+a way of adapting \\(x_t = x_0 \cdot b^{t/\tau}\\) to account for the out of
+phase internal timers, and the initial \\(\tau = 7\\).
+
+What about maintaining a list of `InternalTimer {t :: Int, count :: Int}`. This
+list will have at most 9 items because `t` can only assume values in
+\\([0,1,...9]\\). Then on each day, we can update this list. The memory blow-up
+experienced earlier is avoided by collapsing all of the `n` items of value `t`
+in the original `[Int]` into a single `InternalTimer{t = t, count = n}`.
+
+{{% comment %}}
+
+Now that I type this out, why didn't it hit me sooner?
+
+{{% /comment %}}
+
+```hs
+data InternalTimers = InternalTimers {
+    t0 :: Integer, t1 :: Integer, t2 :: Integer, t3 :: Integer, t4 :: Integer,
+    t5 :: Integer, t6 :: Integer, t7 :: Integer, t8 :: Integer} deriving Show
+
+updateInternalTimers :: InternalTimers -> Int -> InternalTimers
+updateInternalTimers InternalTimers{ .. } _ =
+    let originalT0 = t0
+    in InternalTimers{t0 = t1, t1 = t2, t2 = t3, t3 = t4, t4 = t5, t5 = t6,
+                      t6 = t7 + originalT0, t7 = t8, t8 = originalT0}
+```
+
+Ah, too much data shifting. A circular list fits better, so that we're only
+moving the pointer, and not the data itself. But given that Haskell values are
+immutable, we don't have much to gain (and potentially more to lose as we add
+an the complexity of implementing circular list and locating a given cohort)?
+
+```hs
+numPossibleInternalTimers :: Int
+numPossibleInternalTimers = 9 --  [0, 1, 2, ..., 8]
+
+extractCohortCounts :: [[Int]] -> [Integer]
+extractCohortCounts (l:ls) =
+    let currentCohort = head l
+        numFillers = if null ls && currentCohort > 0
+            then currentCohort
+            else currentCohort - head (head ls) - 1
+        cohortCountEntries = toInteger (length l) : replicate numFillers (0 :: Integer)
+    in cohortCountEntries ++ extractCohortCounts ls
+extractCohortCounts [] = []
+
+internalTimersFromRawData :: [Int] -> InternalTimers
+internalTimersFromRawData ts =
+    let
+        reversedGrouping = group $ reverse $ sort ts
+        possiblyPartialCohorts = extractCohortCounts reversedGrouping
+
+        frontPaddingSize = if null reversedGrouping
+            then numPossibleInternalTimers
+            else numPossibleInternalTimers - head (head reversedGrouping) - 1
+
+        extractedCohortCounts = reverse possiblyPartialCohorts ++
+                                replicate frontPaddingSize 0
+
+        internalTimers = InternalTimers{..} where
+            [t0, t1, t2, t3, t4, t5, t6, t7, t8] = extractedCohortCounts
+    in internalTimers
+
+numOfFishIn256Days :: [Int] -> Integer
+numOfFishIn256Days rawTimers =
+    let
+        days = [1, 2 .. 256]
+        internalTimers = internalTimersFromRawData rawTimers
+        finalTimers = foldl' updateInternalTimers internalTimers days
+        totalPopulation = t0 finalTimers + t1 finalTimers + t2 finalTimers
+                        + t3 finalTimers + t4 finalTimers + t5 finalTimers
+                        + t6 finalTimers + t7 finalTimers + t8 finalTimers
+    in totalPopulation
 ```
 
 ## References
@@ -193,3 +288,9 @@ _numOfFishIn256Days' = length . simulateFishGrowth [1 .. 256]
     title="Debugging - HaskellWiki"
     url="https://wiki.haskell.org/Debugging"
     accessed="2022-03-02" >}}
+
+1. {{< citation
+  id="WikiExpGrowth"
+  title="Exponential Growth - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Exponential_growth"
+  accessed="2022-02-22" >}}
