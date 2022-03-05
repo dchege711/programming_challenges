@@ -310,6 +310,14 @@ advanceInternalTimersOneStep InternalTimers{ .. } _ =
                       t6 = t7 + originalT0, t7 = t8, t8 = originalT0}
 \end{code}
 
+{{% comment %}}
+
+`InternalTimers` could have also been a `Data.Map Int Integer`. The named field
+has some awkward bits, e.g. the need to pad the `[Integer]` in
+`extractCohortCounts` and in `internalTimersFromRawData`.
+
+{{% /comment %}}
+
 A sample implementation of `advanceInternalTimersNSteps`:
 
 ```hs
@@ -377,6 +385,15 @@ numOfFishIn256Days rawTimers =
     in totalPopulation
 
 \end{code}
+
+{{% open-comment %}}
+
+{{% cite Hidding2021-06 %}} implemented an efficient simulation, but much of it
+went over my head, e.g. `Semigroup`, `Monoid`, `Applicative`, `TypeFamilies`,
+`ConstraintKinds`, and lifting. Revisit that solution as your Haskell maturity
+increases.
+
+{{% /open-comment %}}
 
 \## References
 
