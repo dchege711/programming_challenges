@@ -134,11 +134,9 @@ invocations of a function `f` and their results. However, `cabal install hood`
 fails because `FPretty` (dependency of `Hood`) requires `base>=4.5 && <4.11`,
 while I have `base==4.14.3.0` installed. I don't want to demote by `base`.
 
-{{% open-comment %}}
-
-Debug `_numOfFishIn80Days'`. I don't know why it hangs indefinitely.
-
-{{% /open-comment %}}
+`_numOfFishIn80Days'` is performant enough for the sample input that has `5`
+initial lanternfish being simulated for 80 days, but it chokes on part I, whose
+input has `300` initial lanternfish over the same period of time.
 
 Let's try a more straightforward (but less efficient?) approach, where we track
 individuals in `[Int]`.
@@ -158,6 +156,12 @@ numOfFishIn80Days :: [Int] -> Int
 numOfFishIn80Days = length . simulateFishGrowth [1 .. 80]
 
 \end{code}
+
+I thought `_numOfDirectChildren` was more efficient than `simulateFishGrowth`,
+but turns out that the latter handles `300` initial lanternfish over a period of
+80 days, while the former chokes. The answer of the final `simulateFishGrowth`
+call is the answer of the whole problem, so maybe the compiler did some tail
+recursion optimization?
 
 \## Part II Description
 
@@ -234,8 +238,11 @@ data InternalTimers = InternalTimers {
     t0 :: Integer, t1 :: Integer, t2 :: Integer, t3 :: Integer, t4 :: Integer,
     t5 :: Integer, t6 :: Integer, t7 :: Integer, t8 :: Integer} deriving Show
 
-updateInternalTimers :: InternalTimers -> Int -> InternalTimers
-updateInternalTimers InternalTimers{ .. } _ =
+-- TODO: How do I avoid passing a phantom int to advanceInternalTimersOneStep?
+-- I just wanted to call `advanceInternalTimersOneStep` 256 times in a fold
+-- statement...
+advanceInternalTimersOneStep :: InternalTimers -> Int -> InternalTimers
+advanceInternalTimersOneStep InternalTimers{ .. } _ =
     let originalT0 = t0
     in InternalTimers{t0 = t1, t1 = t2, t2 = t3, t3 = t4, t4 = t5, t5 = t6,
                       t6 = t7 + originalT0, t7 = t8, t8 = originalT0}
@@ -254,6 +261,8 @@ numPossibleInternalTimers = 9 -- [0, 1, 2, ..., 8]
 extractCohortCounts :: [[Int]] -> [Integer]
 extractCohortCounts (l:ls) =
     let currentCohort = head l
+        -- TODO: Is there a common idiom for this. I repeat it in
+        -- `internalTimersFromRawData` too...
         numFillers = if null ls && currentCohort > 0
             then currentCohort
             else currentCohort - head (head ls) - 1
@@ -274,6 +283,7 @@ internalTimersFromRawData ts =
         extractedCohortCounts = reverse possiblyPartialCohorts ++
                                 replicate frontPaddingSize 0
 
+        -- TODO: Link to StackOverflow answer with suggestion.
         internalTimers = InternalTimers{..} where
             [t0, t1, t2, t3, t4, t5, t6, t7, t8] = extractedCohortCounts
     in internalTimers
@@ -283,7 +293,7 @@ numOfFishIn256Days rawTimers =
     let
         days = [1, 2 .. 256]
         internalTimers = internalTimersFromRawData rawTimers
-        finalTimers = foldl' updateInternalTimers internalTimers days
+        finalTimers = foldl' advanceInternalTimersOneStep internalTimers days
         totalPopulation = t0 finalTimers + t1 finalTimers + t2 finalTimers
                         + t3 finalTimers + t4 finalTimers + t5 finalTimers
                         + t6 finalTimers + t7 finalTimers + t8 finalTimers
