@@ -1,12 +1,14 @@
 ---
+title: "AoC 2021 Day 06: Lanternfish"
 date: 2022-03-01
-domains:
-- en.wikipedia.org
-- wiki.haskell.org
-local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/Lanternfish/
-title: 'AoC 2021 Day 06: Lanternfish'
 weight: 6
 ---
+
+{{< citation
+    id="AoC2021-06"
+    title="Day 6 - Advent of Code 2021"
+    url="https://adventofcode.com/2021/day/6"
+    accessed="2022-03-02" >}}
 
 ## Part I Description
 
@@ -161,6 +163,40 @@ but turns out that the latter handles `300` initial lanternfish over a period of
 call is the answer of the whole problem, so maybe the compiler did some tail
 recursion optimization?
 
+{{% cite Hidding2021-06 %}}'s naïve solution is more elegant:
+
+```hs
+rules :: Int -> [Int]
+rules clock
+    | clock == 0 = [8, 6]
+    | otherwise  = [clock - 1]
+
+step :: [Int] -> [Int]
+step = (>>= rules)
+
+iterate :: Int -> (a -> a) -> a -> [a]
+iterate n f x
+    | n == 0    = [x]
+    | otherwise = x : iterate (n - 1) f (f x)
+
+numOfFishIn80Days :: [Int] -> Int
+numOfFishIn80Days = length . last . iterate 80 step
+```
+
+The use of the bind operator in the `step` function is foreign to me, [as I've
+only interacted with the `(>>=)` operator in monadic contexts]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/haskell-meta#monad"
+\>}}). How do we go from `as >>= bs` as syntactic sugar for `do a <- as, bs a`
+to it being used form an `[Int] -> [Int]` from an `Int -> [Int]`? Maybe the two
+are not related? Ah, `:type (>>=)` is `Monad m => m a -> (a -> m b) -> m b`,
+and the list is a monad. So in this case, we have
+`[Int] -> (Int -> [Int]) -> [Int]`, where `rules` satisfies the `(Int -> [Int])`
+part. Huh, the more you see monads, the more it starts clicking.
+
+I also have an anti-pattern in `simulateFishGrowth`, where I take `[1, 2 .. 80]`
+instead of taking `80` as an input. I could have then pattern-matched as
+{{% cite Hidding2021-06 %}} did in the `iterate` function.
+
 ## Part II Description
 
 {{% comment %}}
@@ -170,8 +206,8 @@ after some time. A lanternfish does not keep reproducing indefinitely.
 
 Update: Wrong guess. Death wouldn't complicate `simulateFishGrowth` too much.
 the major change would be instead of tracking only the internal timers, we'd
-track the age of the lanternfish. Immutable lists would lead to a lot of
-copying.
+track the age of the lanternfish. Increasing the number of days being simulated
+makes a naïve solution contend with an exponential blowup.
 
 {{% /comment %}}
 
@@ -219,15 +255,32 @@ phase internal timers, and the initial \\(\tau = 7\\).
 
 What about maintaining a list of `InternalTimer {t :: Int, count :: Int}`. This
 list will have at most 9 items because `t` can only assume values in
-\\([0,1,...9]\\). Then on each day, we can update this list. The memory blow-up
+\\([0,1,...8]\\). Then on each day, we can update this list. The memory blow-up
 experienced earlier is avoided by collapsing all of the `n` items of value `t`
 in the original `[Int]` into a single `InternalTimer{t = t, count = n}`.
 
-{{% comment %}}
+Now that I type the above out, why didn't it hit me sooner? {{% cite
+WikiExpGrowth %}} has a section on "Exponential Growth Bias", the tendency to
+underestimate compound growth processes, e.g. a king was gifted a chess board,
+and agreed to re-gifting the donor with one grain of rice for the first square,
+two grains for the second square, four grains for the third square, and so
+forth; however, the \\(2^{n-1}\\) grains ballooned up pretty quick (e.g.
+\\(2^{40} = 1{,}099{,}511{,}627{,}776\\)), that it was infeasible to provide
+them. I wouldn't go as far as to say, "Since we have an exponential growth
+process, to simulate this naively would be stupid, which is kind of the point of
+the exercise," as that is hostile to someone realizing that they have fallen to
+the exponential growth bias.
 
-Now that I type this out, why didn't it hit me sooner?
+{{< figure
+    src="/img/computer-science/programming-challenges/advent-of-code/2021/06-lanternfish-sample-simulation.jpg"
 
-{{% /comment %}}
+    caption=`I've heard the parable of the chess board and the rice, but it
+    didn't really hit me that I was the king. When I looked at this sample
+    simulation for the test input, the growth didn't seem all that fast; we add
+    a couple of 8's every so often, piece of cake. This problem was a good
+    wake-up call to not be smug about never being on the receiving side of a
+    bias that I already know! Image taken from
+    https://adventofcode.com/2021/day/6.` >}}
 
 ```hs
 data InternalTimers = InternalTimers {
@@ -237,6 +290,10 @@ data InternalTimers = InternalTimers {
 --  TODO: How do I avoid passing a phantom int to advanceInternalTimersOneStep?
 --  I just wanted to call `advanceInternalTimersOneStep` 256 times in a fold
 --  statement...
+--
+--  Answer: instead of using fold, write a recursive
+--  `advanceInternalTimersNSteps :: Int -> InternalTimers -> InternalTimers`, and
+--  do `finalTimers = advanceInternalTimersNSteps 256 internalTimers`
 advanceInternalTimersOneStep :: InternalTimers -> Int -> InternalTimers
 advanceInternalTimersOneStep InternalTimers{ .. } _ =
     let originalT0 = t0
@@ -244,10 +301,25 @@ advanceInternalTimersOneStep InternalTimers{ .. } _ =
                       t6 = t7 + originalT0, t7 = t8, t8 = originalT0}
 ```
 
-Ah, too much data shifting. A circular list fits better, so that we're only
-moving the pointer, and not the data itself. But given that Haskell values are
-immutable, we don't have much to gain (and potentially more to lose as we add
-an the complexity of implementing circular list and locating a given cohort)?
+A sample implementation of `advanceInternalTimersOneStep`:
+
+```hs
+advanceInternalTimersNSteps :: Int -> InternalTimers -> InternalTimers
+advanceInternalTimersNSteps n internalTimers@InternalTimers{ .. }
+    | n == 0 = internalTimers
+    | otherwise =
+        let originalT0 = t0
+            currTimers = InternalTimers{t0 = t1, t1 = t2, t2 = t3, t3 = t4,
+                                        t4 = t5, t5 = t6, t6 = t7 + originalT0,
+                                        t7 = t8, t8 = originalT0}
+        in advanceInternalTimersNSteps (n - 1) currTimers
+```
+
+The `t0 = t1, t1 = t2, ...` could make use of a circular data structure, so
+that we're only moving the "head", and not the data itself. But given that
+Haskell values are immutable, we don't have much to gain (and potentially more
+to lose as we add the complexity of implementing circular data structure and
+locating a given cohort).
 
 ```hs
 numPossibleInternalTimers :: Int
@@ -304,7 +376,13 @@ numOfFishIn256Days rawTimers =
     accessed="2022-03-02" >}}
 
 1. {{< citation
-  id="WikiExpGrowth"
-  title="Exponential Growth - Wikipedia"
-  url="https://en.wikipedia.org/wiki/Exponential_growth"
-  accessed="2022-02-22" >}}
+    id="WikiExpGrowth"
+    title="Exponential Growth - Wikipedia"
+    url="https://en.wikipedia.org/wiki/Exponential_growth"
+    accessed="2022-03-04" >}}
+
+1. {{< citation
+    id="Hidding2021-06"
+    title="Advent of Code 2021 : Day 06. Lanternfish"
+    url="https://jhidding.github.io/aoc2021/#day-6-lanternfish"
+    accessed="2022-03-05" >}}
