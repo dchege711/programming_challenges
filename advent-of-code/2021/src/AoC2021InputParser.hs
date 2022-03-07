@@ -79,6 +79,7 @@ parseBinaryDiagnosticInput fp = do
 -- matches a new line.
 --
 -- [1]: http://book.realworldhaskell.org/read/using-parsec.html
+bingoFile :: Parser [[String]]
 bingoFile = endBy bingoSection endOfLine
 
 -- `sepBy` takes two functions as arguments. The first function parses some sort
@@ -88,10 +89,13 @@ bingoFile = endBy bingoSection endOfLine
 -- to parse. [1]
 --
 -- [1]: http://book.realworldhaskell.org/read/using-parsec.html
+bingoSection :: Parser [String]
 bingoSection = sepBy bingoElement bingoElementSeparator
 
+bingoElement :: Parser String
 bingoElement = many digit
 
+bingoElementSeparator :: Parser Char
 bingoElementSeparator = try (char ',') <|> try (char ' ') <?> "separator for element"
 
 -- `try` applies a parser, and if it fails, then `try` behaves as if it hadn't
