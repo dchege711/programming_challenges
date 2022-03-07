@@ -9,7 +9,8 @@ import AoC2021InputParser
     ( parseBinaryDiagnosticInput,
       parseBingoInput,
       parseHydrothermalVents,
-      parseLanternfishInternalTimers )
+      parseLanternfishInternalTimers,
+      parseHorizontalCrabPositions, )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -19,6 +20,7 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
+import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales (minFuelForAlignment)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -31,6 +33,7 @@ allSolutions = do
   solution04
   solution05
   solution06
+  solution07
 
 solution01 :: IO ()
 solution01 = do
@@ -106,7 +109,7 @@ solution05 = do
   putStr "\t: Part 2: Num Points Where >= 2 Lines Overlap: "
   print (pointsWithAtLeastTwoSegmentOverlaps input)
 
-solution06 :: IO()
+solution06 :: IO ()
 solution06 = do
   putStrLn "Day 06. Lanternfish"
   input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.input.txt"
@@ -116,3 +119,11 @@ solution06 = do
 
   putStr "\t Part 2: Number of lanternfish after 256 days: (1631629590423) "
   print (AoC2021.Lanternfish.numOfFishIn256Days input)
+
+solution07 :: IO ()
+solution07 = do
+  putStrLn "Day 07. The Treachery of Whales"
+  input <- parseHorizontalCrabPositions "src/scratchpad/07-treachery-of-whales.input.txt"
+
+  putStr "\tPart 1: Fuel needed to align horizontal positions: "
+  print (TreacheryOfWhales.minFuelForAlignment input)

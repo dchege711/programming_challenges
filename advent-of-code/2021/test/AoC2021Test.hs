@@ -6,6 +6,7 @@ import AoC2021InputParser
     parseBingoInput,
     parseHydrothermalVents,
     parseLanternfishInternalTimers,
+    parseHorizontalCrabPositions,
   )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
@@ -16,6 +17,7 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
+import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales (minFuelForAlignment)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -110,6 +112,17 @@ testLanternfish =
           (AoC2021.Lanternfish.numOfFishIn256Days input)
     )
 
+testTreacheryOfWhales :: Test
+testTreacheryOfWhales =
+  TestCase
+    ( do
+        input <- parseHorizontalCrabPositions "src/scratchpad/07-treachery-of-whales.sample.txt"
+        assertEqual
+          "Min fuel needed to align horizontal positions "
+          37
+          (TreacheryOfWhales.minFuelForAlignment input)
+    )
+
 tests :: Test
 tests =
   TestList
@@ -118,7 +131,8 @@ tests =
       TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic,
       TestLabel "Day 04: Giant Squid" testGiantSquid,
       TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture,
-      TestLabel "Day 06: Lanternfish" testLanternfish
+      TestLabel "Day 06: Lanternfish" testLanternfish,
+      TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales
     ]
 
 main :: IO Counts
