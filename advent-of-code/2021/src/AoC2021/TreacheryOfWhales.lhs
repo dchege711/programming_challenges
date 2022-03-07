@@ -65,7 +65,11 @@ not the winning answer.
 
 \begin{code}
 
-module AoC2021.TreacheryOfWhales (minFuelForAlignment) where
+module AoC2021.TreacheryOfWhales
+    (   minFuelForAlignment,
+        minFuelForAlignmentWithIncreasingBurnRate
+    )
+where
 
 import Data.List (sort)
 
@@ -104,5 +108,47 @@ minFuelForAlignment positions =
             | otherwise =
                 uncurry min (head manhattanDistSums, manhattanDistSums !! 1)
     in minFuel
+
+\end{code}
+
+\## Part II Description
+
+{{% priors %}}
+
+Given that the \\(O(N\ log(N))\\) approached worked for Part I, it's not the
+bottleneck for Part II since \\(O(N\ log(N))\\) is pretty typical of efficient
+algorithms; no need to implement the \\(O(N)\\) quick-select algorithm.
+
+Maybe another variable to optimize over that's in conflict with coalescing into
+the same horizontal position? Maybe they need to spend more fuel to get into a
+better position before blasting a hole?
+
+{{% /priors %}}
+
+*The crabs don't seem interested in your proposed solution. Perhaps you
+misunderstand crab engineering?*
+
+*As it turns out, crab submarine engines don't burn fuel at a constant rate.
+Instead, each change of `1` step in horizontal position costs `1` more unit of
+fuel than the last: the first step costs `1`, the second step costs `2`, the
+third step costs `3`, and so on.*
+
+*As each crab moves, moving further becomes expensive. This changes the best
+horizontal position to align them all on.*
+
+*Determine the horizontal position that the crabs can align to using the least
+fuel possible so they can make you an escape route! **How much fuel must they
+spend to align to that position?***
+
+{{% comment %}}
+
+Huh, my guess on where Part II was headed was wrong.
+
+{{% /comment %}}
+
+\begin{code}
+
+minFuelForAlignmentWithIncreasingBurnRate :: [Int] -> Int
+minFuelForAlignmentWithIncreasingBurnRate _ = 0
 
 \end{code}

@@ -20,7 +20,11 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
-import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales (minFuelForAlignment)
+import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
+  (
+    minFuelForAlignment,
+    minFuelForAlignmentWithIncreasingBurnRate
+  )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -125,5 +129,8 @@ solution07 = do
   putStrLn "Day 07. The Treachery of Whales"
   input <- parseHorizontalCrabPositions "src/scratchpad/07-treachery-of-whales.input.txt"
 
-  putStr "\tPart 1: Fuel needed to align horizontal positions: "
+  putStr "\tPart 1: Min fuel needed to align horizontal positions: (329389) "
   print (TreacheryOfWhales.minFuelForAlignment input)
+
+  putStr "\tPart 2: Min fuel needed to align with increasing burn rate: "
+  print (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)

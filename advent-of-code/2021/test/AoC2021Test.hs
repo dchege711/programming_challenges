@@ -17,7 +17,11 @@ import HydrothermalVenture.HydrothermalVenture
     pointsWithAtLeastTwoSegmentOverlaps,
   )
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
-import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales (minFuelForAlignment)
+import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
+  (
+    minFuelForAlignment,
+    minFuelForAlignmentWithIncreasingBurnRate
+  )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -121,6 +125,10 @@ testTreacheryOfWhales =
           "Min fuel needed to align horizontal positions "
           37
           (TreacheryOfWhales.minFuelForAlignment input)
+        assertEqual
+          "Min fuel needed to align horizontal postions under increasing burn rate "
+          168
+          (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)
     )
 
 tests :: Test
