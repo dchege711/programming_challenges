@@ -5,6 +5,12 @@ date: 2022-03-05
 weight: 7
 ---
 
+{{< citation
+    id="AoC2021-07"
+    title="Day 7 - Advent of Code 2021"
+    url="https://adventofcode.com/2021/day/7"
+    accessed="2022-03-05" >}}
+
 \## Part I Description
 
 *A giant whale has decided that your submarine is its next meal, and it's much
