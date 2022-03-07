@@ -22,7 +22,7 @@ import HydrothermalVenture.HydrothermalVenture
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
 import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
   (
-    minFuelForAlignment,
+    minFuelForAlignmentWithConstantBurnRate,
     minFuelForAlignmentWithIncreasingBurnRate
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -130,7 +130,7 @@ solution07 = do
   input <- parseHorizontalCrabPositions "src/scratchpad/07-treachery-of-whales.input.txt"
 
   putStr "\tPart 1: Min fuel needed to align horizontal positions: (329389) "
-  print (TreacheryOfWhales.minFuelForAlignment input)
+  print (TreacheryOfWhales.minFuelForAlignmentWithConstantBurnRate input)
 
   putStr "\tPart 2: Min fuel needed to align with increasing burn rate: "
   print (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)

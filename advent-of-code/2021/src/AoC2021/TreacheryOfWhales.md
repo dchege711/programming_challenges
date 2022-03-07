@@ -64,7 +64,7 @@ not the winning answer.
 
 ```hs
 module AoC2021.TreacheryOfWhales
-    (   minFuelForAlignment,
+    (   minFuelForAlignmentWithConstantBurnRate,
         minFuelForAlignmentWithIncreasingBurnRate
     )
 where
@@ -88,24 +88,26 @@ median xs  =
 sumManhattanDistance :: [Int] -> Int -> Int
 sumManhattanDistance xs anchor = sum $ map (\x -> abs(x - anchor)) xs
 
-minFuelForAlignment :: [Int] -> Int
-minFuelForAlignment positions =
+minFuelForAlignment :: ([Int] -> Double) -> ([Int] -> Int -> Int) -> [Int] -> Int
+minFuelForAlignment statisticCalculator costCalculator positions =
     let
-        medianPosition = median positions
-        floorMedianPosition = floor medianPosition
-        ceilingMedianPosition = ceiling medianPosition
+        statistic = statisticCalculator positions
+        floorStatistic = floor statistic
+        ceilingStatistic = ceiling statistic
 
         manhattanDistSums =
-            map
-                (sumManhattanDistance positions)
-                [floorMedianPosition, ceilingMedianPosition]
+            map (costCalculator positions) [floorStatistic, ceilingStatistic]
 
         minFuel
-            | floorMedianPosition == ceilingMedianPosition =
-                sumManhattanDistance positions floorMedianPosition
+            | floorStatistic == ceilingStatistic =
+                costCalculator positions floorStatistic
             | otherwise =
                 uncurry min (head manhattanDistSums, manhattanDistSums !! 1)
     in minFuel
+
+minFuelForAlignmentWithConstantBurnRate :: [Int] -> Int
+minFuelForAlignmentWithConstantBurnRate =
+    minFuelForAlignment median sumManhattanDistance
 ```
 
 ## Part II Description
@@ -142,6 +144,18 @@ spend to align to that position?***
 Huh, my guess on where Part II was headed was wrong.
 
 {{% /comment %}}
+
+## Part II Solution
+
+The cost of moving from position \\(0\\) to position \\(n\\) is
+[\\(1 + 2 + ... + n = n(n+1)/2\\)]({{< ref
+"/computer-science/programming-challenges/cs97si/02-mathematics/01-sum-of-powers" >}}).
+
+The best position for \\([0,1,1,2,2,2,4,7,14,16]\\) is \\(5\\), and that is
+pretty close to the mean (\\(4.9)\\). The fuel burnt is \\(O(N^2)\\), and the
+standard deviation also has a square term,
+\\(\sqrt{ \frac{ \sum | x - \mu |^2 }{ N } } \\), so maybe it somehow works
+out?
 
 ```hs
 minFuelForAlignmentWithIncreasingBurnRate :: [Int] -> Int

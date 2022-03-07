@@ -19,7 +19,7 @@ import HydrothermalVenture.HydrothermalVenture
 import qualified AoC2021.Lanternfish (numOfFishIn80Days, numOfFishIn256Days)
 import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
   (
-    minFuelForAlignment,
+    minFuelForAlignmentWithConstantBurnRate,
     minFuelForAlignmentWithIncreasingBurnRate
   )
 import Paths_advent_of_code_y2021 (getDataFileName)
@@ -124,7 +124,7 @@ testTreacheryOfWhales =
         assertEqual
           "Min fuel needed to align horizontal positions "
           37
-          (TreacheryOfWhales.minFuelForAlignment input)
+          (TreacheryOfWhales.minFuelForAlignmentWithConstantBurnRate input)
         assertEqual
           "Min fuel needed to align horizontal postions under increasing burn rate "
           168
