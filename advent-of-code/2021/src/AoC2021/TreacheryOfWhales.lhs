@@ -53,3 +53,56 @@ Is the median the best candidate? In \\([0,0,0,7,9,9,15]\\), the median is
 gives \\(6 \cdot 4 + 4 \cdot 3 = 36\\), \\(5\\) gives \\(5 \cdot 4 + 4 \cdot 3
 = 32\\), and \\(4\\) gives \\(4 \cdot 4 + 6 \cdot 3 = 34\\). A counterexample is
 proving elusive. Maybe the median works.
+
+{{% comment %}}
+
+CLRS provides an algorithm for getting the \\(k\\)-th largest element in an
+unsorted array in \\(O(N)\\) probabilistic time, and \\(O(1)\\) space. I don't
+know if it'll come to that, but this is Advent of Code. And maybe the median is
+not the winning answer.
+
+{{% /comment %}}
+
+\begin{code}
+
+module AoC2021.TreacheryOfWhales (minFuelForAlignment) where
+
+import Data.List (sort)
+
+median :: [Int] -> Double -- Partial function !
+median xs  =
+    let
+        sortedXs = sort xs
+        lenDiv2 = length xs `div` 2
+
+        medianIdxs
+            | even (length xs) = [lenDiv2 - 1, lenDiv2]
+            | otherwise        = [lenDiv2]
+
+        medianSum = sum $ map (sortedXs !!) medianIdxs
+
+    in (fromIntegral medianSum :: Double) / (fromIntegral (length medianIdxs) :: Double)
+
+sumManhattanDistance :: [Int] -> Int -> Int
+sumManhattanDistance xs anchor = sum $ map (\x -> abs(x - anchor)) xs
+
+minFuelForAlignment :: [Int] -> Int
+minFuelForAlignment positions =
+    let
+        medianPosition = median positions
+        floorMedianPosition = floor medianPosition
+        ceilingMedianPosition = ceiling medianPosition
+
+        manhattanDistSums =
+            map
+                (sumManhattanDistance positions)
+                [floorMedianPosition, ceilingMedianPosition]
+
+        minFuel
+            | floorMedianPosition == ceilingMedianPosition =
+                sumManhattanDistance positions floorMedianPosition
+            | otherwise =
+                uncurry min (head manhattanDistSums, manhattanDistSums !! 1)
+    in minFuel
+
+\end{code}
