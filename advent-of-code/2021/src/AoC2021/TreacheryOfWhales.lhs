@@ -11,7 +11,7 @@ weight: 7
 faster than you are. There's nowhere to run!*
 
 *Suddenly, a swarm of crabs (each in its own tiny submarine - it's too deep for
-them otherwise) zooms in to rescure you! They seem to be preparing to blast a
+them otherwise) zooms in to rescue you! They seem to be preparing to blast a
 hole in the ocean floor; sensors indicate a massive underground cave system just
 beyond where they're aiming!*
 
@@ -23,7 +23,7 @@ look like they'll be aligned before the whale catches you! Maybe you can help?*
 
 *You quickly make a list of the horizontal position of each crab (your puzzle
 input). Crab submarines have limited fuel, so you need to find a way to make
-all of their horizonatal positions match, while requiring them to spend as
+all of their horizontal positions match, while requiring them to spend as
 little fuel as possible.*
 
 *Determine the horizontal position that the crabs can align to using the least
@@ -113,6 +113,8 @@ minFuelForAlignmentWithConstantBurnRate =
 
 \end{code}
 
+Whoa, the median does work. I need a solid proof for why it works.
+
 \## Part II Description
 
 {{% priors %}}
@@ -162,7 +164,20 @@ out?
 
 \begin{code}
 
+sumPlusOneIncreasingBurnRates :: [Int] -> Int -> Int
+sumPlusOneIncreasingBurnRates xs anchor = sum $ map sumPowersOfOne xs where
+    sumPowersOfOne :: Int -> Int
+    sumPowersOfOne x =
+        let d = abs(x - anchor)
+        in (d * (d + 1)) `div` 2
+
+mean :: [Int] -> Double -- Partial function !
+mean xs = (fromIntegral (sum xs) :: Double) / (fromIntegral (length xs) :: Double)
+
 minFuelForAlignmentWithIncreasingBurnRate :: [Int] -> Int
-minFuelForAlignmentWithIncreasingBurnRate _ = 0
+minFuelForAlignmentWithIncreasingBurnRate =
+    minFuelForAlignment mean sumPlusOneIncreasingBurnRates
 
 \end{code}
+
+Holy smokes! The mean works for Part II! I'm missing a lot of fundamentals.
