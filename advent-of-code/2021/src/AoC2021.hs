@@ -73,7 +73,7 @@ solution02 = do
         s <- hGetContents h
         putStr "\tPart 1: Product of final horizontal position and final depth: "
         print (productOfFinalPosition (lines (fromString s)))
-        putStr "\tPart 1: Product of final horizontal position and final depth "
+        putStr "\tPart 2: Product of final horizontal position and final depth "
         putStr "with new instructions of : "
         print (productOfFinalPositionWithNewIntepretation (lines (fromString s)))
     )
@@ -81,10 +81,10 @@ solution02 = do
 solution03 :: IO ()
 solution03 = do
   putStrLn "Day 03. Binary Diagnostic"
-  putStr "\t: Part 1: Power Consumption: "
+  putStr "\tPart 1: Power Consumption: "
   input <- parseBinaryDiagnosticInput "src/BinaryDiagnostic/scratchpad/input.txt"
   print (powerConsumption input)
-  putStr "\t: Part 2: Life Support Rating: "
+  putStr "\tPart 2: Life Support Rating: "
   print (lifeSupportRating input)
 
 solution04 :: IO ()
@@ -92,10 +92,10 @@ solution04 = do
   putStrLn "Day 04. Giant Squid"
   input <- parseBingoInput "src/scratchpad/04-giant-squid.input.txt"
 
-  putStr "\t: Part 1: Score of first winning board: "
+  putStr "\tPart 1: Score of first winning board: "
   print (GiantSquid.scoreOfFirstWinningBoard input)
 
-  putStr "\t: Part 2: Score of last winning board: "
+  putStr "\tPart 2: Score of last winning board: "
   print (GiantSquid.scoreOfLastWinningBoard input)
 
 solution05 :: IO ()
@@ -103,10 +103,10 @@ solution05 = do
   putStrLn "Day 05. Hydrothermal Venture"
   input <- parseHydrothermalVents "src/HydrothermalVenture/scratchpad/input.txt"
 
-  putStr "\t: Part 1: Num Points Where >= 2 Right Lines Overlap: "
+  putStr "\tPart 1: Num Points Where >= 2 Right Lines Overlap: "
   print (pointsWithAtLeastTwoRightSegmentOverlaps input)
 
-  putStr "\t: Part 2: Num Points Where >= 2 Lines Overlap: "
+  putStr "\tPart 2: Num Points Where >= 2 Lines Overlap: "
   print (pointsWithAtLeastTwoSegmentOverlaps input)
 
 solution06 :: IO ()
@@ -114,10 +114,10 @@ solution06 = do
   putStrLn "Day 06. Lanternfish"
   input <- parseLanternfishInternalTimers "src/scratchpad/06-lanternfish.input.txt"
 
-  putStr "\t Part 1: Number of lanternfish after 80 days: (360610) "
+  putStr "\tPart 1: Number of lanternfish after 80 days: (360610) "
   print (AoC2021.Lanternfish.numOfFishIn80Days input)
 
-  putStr "\t Part 2: Number of lanternfish after 256 days: (1631629590423) "
+  putStr "\tPart 2: Number of lanternfish after 256 days: (1631629590423) "
   print (AoC2021.Lanternfish.numOfFishIn256Days input)
 
 solution07 :: IO ()
