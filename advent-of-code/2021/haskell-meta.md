@@ -21,7 +21,7 @@ domains:
 - www.schoolofhaskell.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/haskell-meta/
 title: Learning Haskell via AoC 2021
-weight: 100
+weight: -1
 ---
 
 This page contains remarks on Haskell that I encountered when working
