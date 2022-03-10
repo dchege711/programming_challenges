@@ -1,6 +1,9 @@
 ---
-title: "AoC 2021 Day 08: Seven Segment Search"
 date: 2022-03-07
+domains:
+- adventofcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/SevenSegmentSearch/
+title: 'AoC 2021 Day 08: Seven Segment Search'
 weight: 8
 ---
 

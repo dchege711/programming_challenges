@@ -1,6 +1,11 @@
 ---
-title: "AoC 2021 Day 07: The Treachery of Whales"
 date: 2022-03-05
+domains:
+- adventofcode.com
+- en.wikipedia.org
+- jhidding.github.io
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/TreacheryOfWhales/
+title: 'AoC 2021 Day 07: The Treachery of Whales'
 weight: 7
 ---
 
