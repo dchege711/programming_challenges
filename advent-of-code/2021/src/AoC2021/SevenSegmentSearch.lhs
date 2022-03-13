@@ -169,6 +169,13 @@ numOf1478AppearancesInOutput = foldr f 0 where
 
 \end{code}
 
+Pattern-matching using `SevenSegmentDisplay{ outputValues=outputValues }` leads
+to a `Wname-shadowing` HLint warning on the second `outputValues`. {{% cite
+LeventErkok2020 %}} notes that either of the `NamedFieldPuns` or
+`RecordWildCards` extensions allows shadowing of field names. However, adding
+either language extension results in HLint warning that the `LANGUAGE` pragma is
+unused.
+
 {{% comment %}}
 
 Compared to other Part I's, this one felt too straightforward. Most of the
@@ -280,4 +287,12 @@ sumOfOutputValues _ = 0
     url="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C48&q=PATRICIA%E2%80%94practical+algorithm+to+retrieve+information+coded+in+alphanumeric&btnG="
     cited_by_count="1370"
     cited_by_count_last_mod="2022-03-13"
+    accessed="2022-03-13" >}}
+
+1. {{< citation
+    id="LeventErkok2020"
+    title="Question: Confusion between `-Wall` and `NamedFieldPuns` (#18246) · Issues · Glasgow Haskell Compiler / GHC · GitLab"
+    date="2020-05-27"
+    url="https://gitlab.haskell.org/ghc/ghc/-/issues/18246"
+    url_2="https://github.com/ndmitchell/hlint/issues/1250"
     accessed="2022-03-13" >}}
