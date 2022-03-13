@@ -98,3 +98,28 @@ combinations of signals correspond to those digits.*
 ***In the output values (the part after the `|` on each line), how many times
 do digits `1`, `4`, `7`, or `8` appear?***
 
+## Input Representation
+
+The line `be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb | fdgacbe
+cefdb cefbgd gcbe` has `cfbegad` matching with `fdgacbe` in the output value, so
+I need a representation that allows those two to be linked. Sorting the
+characters is sufficient as it gives `abcdefg` in both cases.
+
+The ten signal patterns are in no particular order, so a `[String]` will do. The
+output values do not need to be in any particular order, so a `[String]` will
+also do.
+
+```hs
+module AoC2021.SevenSegmentSearch
+    (
+        SevenSegmentDisplay(..),
+        numOf1478AppearancesInOutput,
+    )
+where
+
+data SevenSegmentDisplay = SevenSegmentDisplay{
+    uniquePatterns :: [String], outputValues :: [String]} deriving Show
+
+numOf1478AppearancesInOutput :: [SevenSegmentDisplay] -> Int
+numOf1478AppearancesInOutput _ = 0
+```

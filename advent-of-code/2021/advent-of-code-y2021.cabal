@@ -79,7 +79,8 @@ library
         GiantSquid,
         HydrothermalVenture.HydrothermalVenture,
         AoC2021.Lanternfish,
-        AoC2021.TreacheryOfWhales
+        AoC2021.TreacheryOfWhales,
+        AoC2021.SevenSegmentSearch
 
     -- other-modules:
 
