@@ -137,7 +137,7 @@ solution07 = do
 solution08 :: IO ()
 solution08 = do
   putStrLn "Day 08. Seven Segment Search"
-  input <- parseSevenSegmentsDisplay "src/scratchpad/08-seven-segment-search.sample.txt"
+  input <- parseSevenSegmentsDisplay "src/scratchpad/08-seven-segment-search.input.txt"
 
   putStr "\tPart 1: Number of times the digits 1, 4, 7, or 8 appear in output: "
   print (SevenSegmentSearch.numOf1478AppearancesInOutput input)
