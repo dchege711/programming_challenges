@@ -110,13 +110,13 @@ output values do not need to be in any particular order, so a `[String]` will
 also do.
 
 ```hs
-{-#  LANGUAGE RecordWildCards  #-}
 {-#  OPTIONS_GHC -Wall  #-}
 
 module AoC2021.SevenSegmentSearch
     (
         SevenSegmentDisplay(..),
         numOf1478AppearancesInOutput,
+        sumOfOutputValues
     )
 where
 
@@ -173,6 +173,77 @@ difficulty was in using `parsec` to parse the input line.
 
 {{% /comment %}}
 
+## Part II Description
+
+{{% priors %}}
+
+Part II might feature additional information to distinguish additional digits.
+Maybe the output values follow some pattern, e.g. the digits are always
+increasing from right to left, not all digits are possible for a given output,
+etc.
+
+Update: I was wrong. We *do* have enough information to deduce all of the
+digits. I don't see how this is always possible.
+
+{{% /priors %}}
+
+*Through a little deduction, you should now be able to determine the remaining
+digits. Consider again the first example above:*
+
+```txt
+acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf
+```
+
+*After some careful analysis, the mapping between signal wires and segments only
+make sense in the following configuration:*
+
+```md
+ dddd
+e    a
+e    a
+ ffff
+g    b
+g    b
+ cccc
+```
+
+*So, the unique signal patterns would correspond to the following digits:*
+
+```md
+acedgfb: 8
+cdfbe: 5
+gcdfa: 2
+fbcad: 3
+dab: 7
+cefabd: 9
+cdfgeb: 6
+eafb: 4
+cagedb: 0
+ab: 1
+```
+
+*Then, the four digits of the output value can be decoded:*
+
+```md
+cdfeb: 5
+fcadb: 3
+cdfeb: 5
+cdbaf: 3
+```
+
+*Therefore, the output value for this entry is `5353`.*
+
+*For each entry, determine all of the wire/segment connections and decode the
+four-digit output values. **What do you get if you add up all of the output
+values?***
+
+## Part II Solution
+
+```hs
+sumOfOutputValues :: [SevenSegmentDisplay] -> Int
+sumOfOutputValues _ = 0
+```
+
 ## References
 
 1. {{< citation
@@ -198,7 +269,7 @@ difficulty was in using `parsec` to parse the input line.
 
 1. {{< citation
     id="Morrison1968"
-    author="Morrison, Donald R."
+    author="Morrison, Donald R"
     title="PATRICIA - practical algorithm to retrieve information coded in alphanumeric."
     publication="Journal of the ACM, Vol. 15, No. 4 (1968): 514-534."
     url="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C48&q=PATRICIA%E2%80%94practical+algorithm+to+retrieve+information+coded+in+alphanumeric&btnG="

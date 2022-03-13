@@ -25,7 +25,7 @@ import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
-  (numOf1478AppearancesInOutput)
+  (numOf1478AppearancesInOutput, sumOfOutputValues)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -141,3 +141,6 @@ solution08 = do
 
   putStr "\tPart 1: Number of times the digits 1, 4, 7, or 8 appear in output: "
   print (SevenSegmentSearch.numOf1478AppearancesInOutput input)
+
+  putStr "\tPart 2: Sum of output values: "
+  print (SevenSegmentSearch.sumOfOutputValues input)

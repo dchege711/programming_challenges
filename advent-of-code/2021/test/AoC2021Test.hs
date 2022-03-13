@@ -24,7 +24,7 @@ import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
     minFuelForAlignmentWithIncreasingBurnRate
   )
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
-  (numOf1478AppearancesInOutput)
+  (numOf1478AppearancesInOutput, sumOfOutputValues)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -143,6 +143,11 @@ testSevenSegmentSearch =
         "Num times 1, 4, 7, or 8 appears in output values "
         26
         (SevenSegmentSearch.numOf1478AppearancesInOutput input)
+
+      assertEqual
+        "Sum of output values "
+        61229
+        (SevenSegmentSearch.sumOfOutputValues input)
   )
 
 tests :: Test
