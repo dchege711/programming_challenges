@@ -13,6 +13,7 @@ module AoC2021InputParser
     parseHydrothermalVents,
     parseLanternfishInternalTimers,
     parseHorizontalCrabPositions,
+    parseSevenSegmentsDisplay,
   )
 where
 
@@ -21,6 +22,8 @@ import Control.DeepSeq (($!!))
 import Data.Char (digitToInt)
 import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
+import Data.List (sort)
+import qualified Data.List.Split as Split
 import qualified Data.Vector as V
 import GiantSquid (Board, DrawnNumbers, Tile)
 import qualified HydrothermalVenture.HydrothermalVenture as HV (LineSegment (..), Point (..))
@@ -29,6 +32,7 @@ import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import Text.Parsec (endOfLine)
 import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
+import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch (SevenSegmentDisplay (..))
 
 -- The `Numeric` module has a `readBin` function [1], but for some reason, I get
 -- a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
@@ -216,3 +220,26 @@ parseLanternfishInternalTimers = parseSingleLineCommaDelimitedFile
 
 parseHorizontalCrabPositions :: FilePath -> IO [Int]
 parseHorizontalCrabPositions = parseSingleLineCommaDelimitedFile
+
+-- Sample line:
+-- fgaebd cg bdaec gdafb agbcfd gdcbef bgcad gfac gcb cdgabef | cg cg fdcagb cbg
+sevenSegmentsDisplayLine :: Parser SevenSegmentSearch.SevenSegmentDisplay
+sevenSegmentsDisplayLine = do
+  -- TODO: Is there syntax for avoiding the intermediate _allSegments variable?
+  _allSegments <- many1 (noneOf "\r\n")
+  let uniquePatternsAndOutputs = splitAt 10 $ Split.split (Split.dropDelims . Split.dropInnerBlanks $ Split.oneOf "| ") _allSegments
+
+  return SevenSegmentSearch.SevenSegmentDisplay{
+    SevenSegmentSearch.uniquePatterns = map sort (fst uniquePatternsAndOutputs),
+    SevenSegmentSearch.outputValues = map sort (snd uniquePatternsAndOutputs)}
+
+sevenSegmentsDisplayFile :: Parser [SevenSegmentSearch.SevenSegmentDisplay]
+sevenSegmentsDisplayFile = endBy sevenSegmentsDisplayLine endOfLine
+
+parseSevenSegmentsDisplay :: FilePath -> IO [SevenSegmentSearch.SevenSegmentDisplay]
+parseSevenSegmentsDisplay fp = do
+  dataFp <- getDataFileName fp
+  fileContents <- readFile dataFp
+  case parse sevenSegmentsDisplayFile "Seven Segment Display" fileContents of
+    Left e  -> do {reportError e; return []}
+    Right r -> do {return r}
