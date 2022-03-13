@@ -110,6 +110,9 @@ output values do not need to be in any particular order, so a `[String]` will
 also do.
 
 ```hs
+{-#  LANGUAGE RecordWildCards  #-}
+{-#  OPTIONS_GHC -Wall  #-}
+
 module AoC2021.SevenSegmentSearch
     (
         SevenSegmentDisplay(..),
@@ -117,9 +120,88 @@ module AoC2021.SevenSegmentSearch
     )
 where
 
+import qualified Data.IntMap as IntMap
+import qualified Data.IntSet as IntSet
+
 data SevenSegmentDisplay = SevenSegmentDisplay{
     uniquePatterns :: [String], outputValues :: [String]} deriving Show
-
-numOf1478AppearancesInOutput :: [SevenSegmentDisplay] -> Int
-numOf1478AppearancesInOutput _ = 0
 ```
+
+## Part I Solution
+
+```hs
+numActiveSegmentsToDigits :: IntMap.IntMap [Int]
+numActiveSegmentsToDigits = IntMap.fromList
+    [(6, [0, 6, 9]), (2, [1]), (5, [2, 3, 5]), (4, [4]), (3, [7]), (7, [8])]
+
+nonAmbiguousLengths :: IntSet.IntSet
+--  There is also `Map.keysSet` but that returns an
+nonAmbiguousLengths = IntSet.fromList $ IntMap.keys $
+    IntMap.filter (\t -> length t == 1) numActiveSegmentsToDigits
+```
+
+The `containers` package provides `IntMap` and `IntSet` in addition to the
+general `Map` and `Set` data structures. {{% cite containersHaskell %}} This
+distinction is motivated by {{% cite Okasaki1998 %}}'s work on finite maps that
+are based on {{% cite Morrison1968 %}}'s Patricia trees, instead of the usual
+base of balanced binary search trees. While both bases have fast lookups and
+inserts, Patricia trees have fast merges of two containers. {{% cite
+Okasaki1998 %}}
+
+{{% comment %}}
+
+I've been getting the vibe that Haskell is more explicit in its connection to
+academia, e.g. foundational papers being linked from API docs, and library
+writers and maintainers being faculty in CS departments.
+
+{{% /comment %}}
+
+```hs
+numOf1478AppearancesInOutput :: [SevenSegmentDisplay] -> Int
+numOf1478AppearancesInOutput = foldr f 0 where
+    f :: SevenSegmentDisplay -> Int -> Int
+    f SevenSegmentDisplay{ outputValues=outputValues } prevSum =
+        prevSum + length (
+            filter (\s -> IntSet.member (length s) nonAmbiguousLengths)
+            outputValues)
+```
+
+{{% comment %}}
+
+Compared to other Part I's, this one felt too straightforward. Most of the
+difficulty was in using `parsec` to parse the input line.
+
+{{% /comment %}}
+
+## References
+
+1. {{< citation
+    id="containersHaskell"
+    title="containers: Assorted concrete container types"
+    url="https://hackage.haskell.org/package/containers"
+    url_2="https://haskell-containers.readthedocs.io/en/latest/"
+    url_3="https://github.com/haskell-perf/sets"
+    accessed="2022-03-13" >}}
+
+1. {{< citation
+    id="Okasaki1998"
+    title="Fast Mergeable Integer Maps"
+    authors="Okasaki, Chris; Andy Gill"
+    affiliations="Columbia University; Semantic Designs"
+    publication="Workshop on ML, pp. 77-86"
+    year="1998"
+    url="http://ittc.ku.edu/~andygill/papers/IntMap98.pdf"
+    url_2="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C48&q=Fast+Mergeable+Integer+Maps+(1998)&btnG="
+    cited_by_count="91"
+    cited_by_count_last_mod="2022-03-13"
+    accessed="2022-03-13" >}}
+
+1. {{< citation
+    id="Morrison1968"
+    author="Morrison, Donald R."
+    title="PATRICIA - practical algorithm to retrieve information coded in alphanumeric."
+    publication="Journal of the ACM, Vol. 15, No. 4 (1968): 514-534."
+    url="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C48&q=PATRICIA%E2%80%94practical+algorithm+to+retrieve+information+coded+in+alphanumeric&btnG="
+    cited_by_count="1370"
+    cited_by_count_last_mod="2022-03-13"
+    accessed="2022-03-13" >}}

@@ -92,7 +92,8 @@ library
         deepseq     ^>=1.4.4.0,
         vector      ^>=0.12.3.1,
         parsec      ^>=3.1.15.0,
-        split       ^>=0.2.3.4
+        split       ^>=0.2.3.4,
+        containers  ^>=0.6.5.1
 
     -- Directories containing source files.
     hs-source-dirs:   src
