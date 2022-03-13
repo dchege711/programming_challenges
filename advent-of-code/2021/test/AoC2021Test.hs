@@ -7,6 +7,7 @@ import AoC2021InputParser
     parseHydrothermalVents,
     parseLanternfishInternalTimers,
     parseHorizontalCrabPositions,
+    parseSevenSegmentsDisplay,
   )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
@@ -22,6 +23,8 @@ import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
     minFuelForAlignmentWithConstantBurnRate,
     minFuelForAlignmentWithIncreasingBurnRate
   )
+import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
+  (numOf1478AppearancesInOutput)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -131,6 +134,17 @@ testTreacheryOfWhales =
           (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)
     )
 
+testSevenSegmentSearch :: Test
+testSevenSegmentSearch =
+  TestCase
+  ( do
+      input <- parseSevenSegmentsDisplay "src/scratchpad/08-seven-segment-search.sample.txt"
+      assertEqual
+        "Num times 1, 4, 7, or 8 appears in output values "
+        26
+        (SevenSegmentSearch.numOf1478AppearancesInOutput input)
+  )
+
 tests :: Test
 tests =
   TestList
@@ -140,7 +154,8 @@ tests =
       TestLabel "Day 04: Giant Squid" testGiantSquid,
       TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture,
       TestLabel "Day 06: Lanternfish" testLanternfish,
-      TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales
+      TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales,
+      TestLabel "Day 08: Seven Segment Search" testSevenSegmentSearch
     ]
 
 main :: IO Counts

@@ -3,14 +3,10 @@
 module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
-
--- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 import AoC2021InputParser
-    ( parseBinaryDiagnosticInput,
-      parseBingoInput,
-      parseHydrothermalVents,
-      parseLanternfishInternalTimers,
-      parseHorizontalCrabPositions, )
+    ( parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents,
+      parseLanternfishInternalTimers, parseHorizontalCrabPositions,
+      parseSevenSegmentsDisplay )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -28,6 +24,8 @@ import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
+import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
+  (numOf1478AppearancesInOutput)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -38,6 +36,7 @@ allSolutions = do
   solution05
   solution06
   solution07
+  solution08
 
 solution01 :: IO ()
 solution01 = do
@@ -134,3 +133,11 @@ solution07 = do
 
   putStr "\tPart 2: Min fuel needed to align with increasing burn rate: "
   print (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)
+
+solution08 :: IO ()
+solution08 = do
+  putStrLn "Day 08. Seven Segment Search"
+  input <- parseSevenSegmentsDisplay "src/scratchpad/08-seven-segment-search.sample.txt"
+
+  putStr "\tPart 1: Number of times the digits 1, 4, 7, or 8 appear in output: "
+  print (SevenSegmentSearch.numOf1478AppearancesInOutput input)
