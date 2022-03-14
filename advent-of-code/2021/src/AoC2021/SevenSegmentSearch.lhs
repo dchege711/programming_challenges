@@ -249,6 +249,150 @@ values?***
 
 \## Part II Solution
 
+In the non-jumbled up case, the matching of digits to segments is:
+
+```md
+1 -   c  f
+4 -  bcd f
+7 - a c  f
+8 - abcdefg
+
+0 - abc efg
+2 - a cde g
+3 - a cd fg
+5 - ab d fg
+6 - ab defg
+9 - abcd fg
+```
+
+From Part I, the jumbled representations of `1`, `4`, `7`, and `8` can be
+identified by counting the number of segments. We can go further and note that
+there are shared segments, for example, `0` and `1` both have segments `c` and
+`f`. So, solving Part II comes down to building up from the base provided by
+`1`, `4`, `7`, and `8`.
+
+The union of the active segments in `147` is `abcdf`, but that doesn't seem
+helpful. `8` isn't helpful because it has all of the segments active. The union
+of `1x`'s segments (for \\(x \in [4, 7, 8]\\)) doesn't seem helpful because it
+will be the same as the active segments for \\(x\\). The union of `47`'s active
+segments is `abcdf`, which also doesn't correspond to a digit.
+
+If we go one level deeper, we might deduce an additional digit. With regard to
+`x`'s active segments,  \\(x \in [1, 4, 7, 8]\\), being a subset of another
+number `y`'s active segments, \\(y \in [0, 2, 3, 5, 6, 9]\\):
+
+```md
+1: 0, 3, 9
+4: 9
+7: 0, 3, 9
+```
+
+Nothing jumps out yet. Maybe looking at `x`s and `y`s that share segments might
+be illuminating? `1`'s `cf` shares at least one active segment with all `y`s
+and therefore given that the union of `1x`'s active segments is the same as that
+of `x`, proceeding further doesn't seem useful. Maybe looking at non-shared
+segments between `x`s and `y`s helps? Nah, that wouldn't provide additional
+info than what I got from the shared segments analysis.
+
+Maybe I can do something with the `y`s:
+
+```md
+0 - abc efg (6)
+6 - ab defg (6)
+9 - abcd fg (6)
+
+2 - a cde g (5)
+3 - a cd fg (5)
+5 - ab d fg (5)
+```
+
+The union of `069`'s active segments is `abcdefg`, and so is the union of
+`235`'s active segments, so that's not helpful.
+
+The intersection of `069`'s active segments is `abfg`, and the complement of
+this intersection is `cde`; nothing useful yet.
+
+{{% comment %}}
+
+I'm mostly talking in set terminology, so maybe instead of using `String` to
+represent a display digit, I should have used a `Set Char`.
+
+{{% /comment %}}
+
+The intersection of `253`'s active segments is `adg`, and the complement of this
+intersection is `bcef`; nothing useful yet.
+
+The union of the previous two intersections (`abfg` and `adg`) is `abdfg`, and
+for once we have something useful as that equals to `5`'s active segments! The
+complement of `abdfg` is `ce`, but that's not useful.
+
+Of `23`'s active segments, the union is `acdefg`, the complement of the union is
+`b`, the intersection is `acdg`, and the complement of this intersection is
+`bef`. None of these look helpful.
+
+The knowns and unknowns are currently:
+
+```md
+8 - abcdefg (7)
+
+1 -   c  f  (2)
+4 -  bcd f  (4)
+7 - a c  f  (3)
+5 - ab d fg (5)
+
+0 - abc efg (6)
+6 - ab defg (6)
+9 - abcd fg (6)
+
+2 - a cde g (5)
+3 - a cd fg (5)
+```
+
+I had already computed combinations of `147`, but maybe there's new info now
+that `5` is also known.
+
+The unknowns, \\([0, 6, 9, 2, 3\\) have at least 5 active segments, so taking
+operations which give at least 5 elements will be most useful.
+
+The union of `15`s active segments is `abcdfg`, which matches the active
+segments of `9`. Sweet!
+
+The union of `45`'s active segments is `abcdfg`, which we've already determined
+to be `9`. The union of `75`'s active segments doesn't yield anything new
+either.
+
+The knowns and unknowns are currently:
+
+```md
+8 - abcdefg (7)
+
+1 -   c  f  (2)
+4 -  bcd f  (4)
+7 - a c  f  (3)
+5 - ab d fg (5)
+9 - abcd fg (6)
+
+0 - abc efg (6)
+6 - ab defg (6)
+
+2 - a cde g (5)
+3 - a cd fg (5)
+```
+
+The difference between `0` and `6` is that the former has a `c`, while the
+latter has a `d`. Subtracting `5 abdfg` from `9 abcdfg` gives `c`, and therefore
+distinguishes `0` from `6`.
+
+The difference between `2` and `3` is that the former has an `e`, while the
+latter has an `f`. The complement of the union of `14759`'s active segments is
+`e`, and that can be used to distinguish `2` from `3`.
+
+{{% comment %}}
+
+Tedious exercise, but rewarding in the end. I feel like Sherlock Holmes.
+
+{{% /comment %}}
+
 \begin{code}
 
 sumOfOutputValues :: [SevenSegmentDisplay] -> Int
