@@ -1,8 +1,24 @@
 ---
+affiliations:
+- Columbia University
+- Semantic Designs
+authors:
+- Gill, Andy
+- Morrison, Donald R
+- Okasaki, Chris
 date: 2022-03-07
 domains:
 - adventofcode.com
+- github.com
+- gitlab.haskell.org
+- hackage.haskell.org
+- haskell-containers.readthedocs.io
+- ittc.ku.edu
+- scholar.google.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/SevenSegmentSearch/
+publications:
+- Journal of the ACM
+- Workshop on ML
 title: 'AoC 2021 Day 08: Seven Segment Search'
 weight: 8
 ---
