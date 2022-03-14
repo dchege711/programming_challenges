@@ -19,10 +19,9 @@ where
 
 import BinaryDiagnostic.BinaryDiagnostic (BinaryDiagnostics (..), diagNums, diagWidth)
 import Control.DeepSeq (($!!))
-import Data.Char (digitToInt)
+import Data.Char (digitToInt, ord)
 import Data.Maybe (isJust, listToMaybe)
 import Data.String (IsString (fromString))
-import Data.List (sort)
 import qualified Data.List.Split as Split
 import qualified Data.Vector as V
 import GiantSquid (Board, DrawnNumbers, Tile)
@@ -33,6 +32,7 @@ import Text.Parsec (endOfLine)
 import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch (SevenSegmentDisplay (..))
+import qualified Data.IntSet as IntSet
 
 -- The `Numeric` module has a `readBin` function [1], but for some reason, I get
 -- a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
@@ -229,9 +229,10 @@ sevenSegmentsDisplayLine = do
   _allSegments <- many1 (noneOf "\r\n")
   let uniquePatternsAndOutputs = splitAt 10 $ Split.split (Split.dropDelims . Split.dropInnerBlanks $ Split.oneOf "| ") _allSegments
 
+  let stringsToIntSets = map (IntSet.fromList . map ord) :: [String] -> [IntSet.IntSet]
   return SevenSegmentSearch.SevenSegmentDisplay{
-    SevenSegmentSearch.uniquePatterns = map sort (fst uniquePatternsAndOutputs),
-    SevenSegmentSearch.outputValues = map sort (snd uniquePatternsAndOutputs)}
+    SevenSegmentSearch.uniquePatterns = stringsToIntSets (fst uniquePatternsAndOutputs),
+    SevenSegmentSearch.outputValues = stringsToIntSets (snd uniquePatternsAndOutputs)}
 
 sevenSegmentsDisplayFile :: Parser [SevenSegmentSearch.SevenSegmentDisplay]
 sevenSegmentsDisplayFile = endBy sevenSegmentsDisplayLine endOfLine

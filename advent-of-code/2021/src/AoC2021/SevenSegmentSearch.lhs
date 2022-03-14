@@ -96,17 +96,6 @@ combinations of signals correspond to those digits.*
 ***In the output values (the part after the `||` on each line), how many times
 do digits `1`, `4`, `7`, or `8` appear?***
 
-\## Input Representation
-
-The line `be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb || fdgacbe
-cefdb cefbgd gcbe` has `cfbegad` matching with `fdgacbe` in the output value, so
-I need a representation that allows those two to be linked. Sorting the
-characters is sufficient as it gives `abcdefg` in both cases.
-
-The ten signal patterns are in no particular order, so a `[String]` will do. The
-output values do not need to be in any particular order, so a `[String]` will
-also do.
-
 \begin{code}
 {-# OPTIONS_GHC -Wall #-}
 
@@ -121,10 +110,30 @@ where
 import qualified Data.IntMap as IntMap
 import qualified Data.IntSet as IntSet
 
+\end{code}
+
+\## Input Representation
+
+The line `be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb || fdgacbe
+cefdb cefbgd gcbe` has `cfbegad` matching with `fdgacbe` in the output value, so
+I need a representation that allows those two to be linked. Sorting the
+characters is sufficient as it gives `abcdefg` in both cases.
+
+The ten signal patterns are in no particular order, so a `[String]` will do. The
+output values do not need to be in any particular order, so a `[String]` will
+also do.
+
+\begin{code}
+
 data SevenSegmentDisplay = SevenSegmentDisplay{
-    uniquePatterns :: [String], outputValues :: [String]} deriving Show
+    uniquePatterns :: [IntSet.IntSet], outputValues :: [IntSet.IntSet]} deriving Show
 
 \end{code}
+
+However, the [solution for Part II]({{< ref "#part-ii-solution" >}}) makes use
+of set operations, e.g. intersection and subtraction, and therefore, using a
+`[Set Char]` instead of a `[String]` makes more sense. [Even better, an
+`[IntSet]`](#PatriciaTreesSection).
 
 \## Part I Solution
 
@@ -142,12 +151,12 @@ nonAmbiguousLengths = IntSet.fromList $ IntMap.keys $
 \end{code}
 
 The `containers` package provides `IntMap` and `IntSet` in addition to the
-general `Map` and `Set` data structures. {{% cite containersHaskell %}} This
-distinction is motivated by {{% cite Okasaki1998 %}}'s work on finite maps that
-are based on {{% cite Morrison1968 %}}'s Patricia trees, instead of the usual
-base of balanced binary search trees. While both bases have fast lookups and
-inserts, Patricia trees have fast merges of two containers. {{% cite
-Okasaki1998 %}}
+general `Map` and `Set` data structures. <a id="PatriciaTreesSection"></a> {{%
+cite containersHaskell %}} This distinction is motivated by {{% cite
+Okasaki1998 %}}'s work on finite maps that are based on {{% cite Morrison1968
+%}}'s Patricia trees, instead of the usual base of balanced binary search trees.
+While both bases have fast lookups and inserts, Patricia trees have fast merges
+of two containers. {{% cite Okasaki1998 %}}
 
 {{% comment %}}
 
@@ -162,10 +171,11 @@ writers and maintainers being faculty in CS departments.
 numOf1478AppearancesInOutput :: [SevenSegmentDisplay] -> Int
 numOf1478AppearancesInOutput = foldr f 0 where
     f :: SevenSegmentDisplay -> Int -> Int
-    f SevenSegmentDisplay{ outputValues=outputValues } prevSum =
+    f SevenSegmentDisplay{ outputValues=outputs } prevSum =
         prevSum + length (
-            filter (\s -> IntSet.member (length s) nonAmbiguousLengths)
-            outputValues)
+            filter
+            (\s -> IntSet.member (IntSet.size s) nonAmbiguousLengths)
+            outputs)
 
 \end{code}
 
