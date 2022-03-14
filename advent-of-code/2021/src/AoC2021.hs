@@ -151,4 +151,4 @@ solution08 = do
   printCheckedSolution (SevenSegmentSearch.numOf1478AppearancesInOutput input) 330
 
   putStr "\tPart 2: Sum of output values: "
-  print (SevenSegmentSearch.sumOfOutputValues input)
+  printCheckedSolution (SevenSegmentSearch.sumOfOutputValues input) 1010472

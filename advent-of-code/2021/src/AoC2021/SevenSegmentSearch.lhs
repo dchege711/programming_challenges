@@ -98,6 +98,7 @@ do digits `1`, `4`, `7`, or `8` appear?***
 
 \begin{code}
 {-# OPTIONS_GHC -Wall #-}
+{-# LANGUAGE RecordWildCards #-}
 
 module AoC2021.SevenSegmentSearch
     (
@@ -109,6 +110,9 @@ where
 
 import qualified Data.IntMap as IntMap
 import qualified Data.IntSet as IntSet
+import qualified Data.Map as Map
+import Data.Foldable (Foldable(foldl'))
+import Data.Char (ord)
 
 \end{code}
 
@@ -361,7 +365,7 @@ The knowns and unknowns are currently:
 I had already computed combinations of `147`, but maybe there's new info now
 that `5` is also known.
 
-The unknowns, \\([0, 6, 9, 2, 3\\) have at least 5 active segments, so taking
+The unknowns, \\([0, 6, 9, 2, 3]\\) have at least 5 active segments, so taking
 operations which give at least 5 elements will be most useful.
 
 The union of `15`s active segments is `abcdfg`, which matches the active
@@ -405,10 +409,64 @@ Tedious exercise, but rewarding in the end. I feel like Sherlock Holmes.
 
 \begin{code}
 
+type Segment = IntSet.IntSet
+type SegmentsMapping = Map.Map Segment Int
+
+allSegmentsActive :: IntSet.IntSet
+allSegmentsActive = (IntSet.fromList . map ord) "abcdefg"
+
+deduceMappings :: [Segment] -> SegmentsMapping
+deduceMappings input =
+    Map.fromList [(repr0, 0), (repr1, 1), (repr2, 2), (repr3, 3), (repr4, 4), (repr5, 5), (repr6, 6), (repr7, 7), (repr8, 8), (repr9, 9)] where
+        getSegmentsOfSize :: Int -> [Segment]
+        getSegmentsOfSize n = filter (\s -> IntSet.size s == n) input
+
+        repr1 = head (getSegmentsOfSize 2)
+        repr4 = head (getSegmentsOfSize 4)
+        repr7 = head (getSegmentsOfSize 3)
+        repr8 = allSegmentsActive
+
+        reprs069 = getSegmentsOfSize 6
+        intersection069 = foldl' IntSet.intersection allSegmentsActive reprs069
+
+        reprs235 = getSegmentsOfSize 5
+        intersection235 = foldl' IntSet.intersection allSegmentsActive reprs235
+
+        repr5 = IntSet.union intersection069 intersection235
+        repr9 = IntSet.union repr1 repr5
+
+        reprs06 = filter (/= repr9) reprs069
+        difference95 = IntSet.difference repr9 repr5
+
+        repr6 = head (filter (IntSet.disjoint difference95) reprs06)
+        repr0 = head (filter (/= repr6) reprs06)
+
+        union14579 = foldl' IntSet.union IntSet.empty [repr1, repr4, repr5, repr7, repr9]
+        complement14579 = IntSet.difference allSegmentsActive union14579
+
+        reprs23 = filter (/= repr5) reprs235
+        repr3 = head (filter (IntSet.disjoint complement14579) reprs23)
+        repr2 = head (filter (/= repr3) reprs23)
+
+
+parseInt :: SegmentsMapping -> [Segment] -> Int
+parseInt mapping = foldl' (\acc segment -> acc * 10 + (mapping Map.! segment)) 0
+
 sumOfOutputValues :: [SevenSegmentDisplay] -> Int
-sumOfOutputValues _ = 0
+sumOfOutputValues = foldl' (\acc display -> acc + extractOutputValue display) 0 where
+    extractOutputValue :: SevenSegmentDisplay -> Int
+    extractOutputValue SevenSegmentDisplay{ .. } = parseInt (deduceMappings uniquePatterns) outputValues
 
 \end{code}
+
+{{% comment %}}
+
+`parseInt` adapted from [AoC 21 #03: Binary Diagnostic > Converting Binary
+Representation to Decimal]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/src/BinaryDiagnostic/03-binary-diagnostic#converting-binary-representation-to-decimal"
+\>}}).
+
+{{% /comment %}}
 
 \## References
 
