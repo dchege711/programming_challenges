@@ -26,6 +26,7 @@ import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
   (numOf1478AppearancesInOutput, sumOfOutputValues)
+import Text.Printf (printf)
 
 allSolutions :: IO ()
 allSolutions = do
@@ -134,13 +135,20 @@ solution07 = do
   putStr "\tPart 2: Min fuel needed to align with increasing burn rate: "
   print (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)
 
+printCheckedSolution :: (Eq a, Show a) => a -> a -> IO ()
+printCheckedSolution actual expected = do
+  let actualStr = show actual
+  let mark | actual == expected = "✅"
+           | otherwise          = "❌ (expected " ++ show expected ++ ")"
+  printf "%s %s\n" actualStr mark
+
 solution08 :: IO ()
 solution08 = do
   putStrLn "Day 08. Seven Segment Search"
   input <- parseSevenSegmentsDisplay "src/scratchpad/08-seven-segment-search.input.txt"
 
   putStr "\tPart 1: Number of times the digits 1, 4, 7, or 8 appear in output: "
-  print (SevenSegmentSearch.numOf1478AppearancesInOutput input)
+  printCheckedSolution (SevenSegmentSearch.numOf1478AppearancesInOutput input) 330
 
   putStr "\tPart 2: Sum of output values: "
   print (SevenSegmentSearch.sumOfOutputValues input)
