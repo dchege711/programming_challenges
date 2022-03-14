@@ -1,6 +1,7 @@
 ---
 affiliations:
 - Columbia University
+- Sandia Laboratory
 - Semantic Designs
 authors:
 - Gill, Andy
@@ -505,6 +506,7 @@ Representation to Decimal]({{< ref
     author="Morrison, Donald R"
     title="PATRICIA - practical algorithm to retrieve information coded in alphanumeric."
     publication="Journal of the ACM, Vol. 15, No. 4 (1968): 514-534."
+    affiliation="Sandia Laboratory"
     url="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C48&q=PATRICIA%E2%80%94practical+algorithm+to+retrieve+information+coded+in+alphanumeric&btnG="
     cited_by_count="1370"
     cited_by_count_last_mod="2022-03-13"
