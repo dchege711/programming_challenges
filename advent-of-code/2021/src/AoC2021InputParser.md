@@ -1,6 +1,11 @@
 ---
-title: "AoC 2021 Input Parser"
+authors:
+- Mazon, Jean-Baptiste
 date: 2022-03-07
+domains:
+- xn--sant-epa.ti-pun.ch
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021InputParser/
+title: AoC 2021 Input Parser
 weight: 26
 ---
 
