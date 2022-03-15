@@ -5,17 +5,21 @@ affiliations:
 - Semantic Designs
 authors:
 - Gill, Andy
+- Mazon, Jean-Baptiste
 - Morrison, Donald R
 - Okasaki, Chris
 date: 2022-03-07
 domains:
 - adventofcode.com
+- en.wikibooks.org
 - github.com
 - gitlab.haskell.org
 - hackage.haskell.org
 - haskell-containers.readthedocs.io
 - ittc.ku.edu
 - scholar.google.com
+- wiki.haskell.org
+- xn--sant-epa.ti-pun.ch
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/SevenSegmentSearch/
 publications:
 - Journal of the ACM
@@ -205,7 +209,9 @@ unused.
 {{% comment %}}
 
 Compared to other Part I's, this one felt too straightforward. Most of the
-difficulty was in using `parsec` to parse the input line.
+difficulty was in [using `parsec` to parse the input line]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021InputParser#day-08-seven-segment-search"
+\>}}).
 
 {{% /comment %}}
 
@@ -419,6 +425,39 @@ Tedious exercise, but rewarding in the end. I feel like Sherlock Holmes.
 
 {{% /comment %}}
 
+{{% cite Mazon2021-08 %}} has simpler logic though. For convenience, here is the
+non-scrambled mapping:
+
+```md
+1 -   c  f  (2)
+4 -  bcd f  (4)
+7 - a c  f  (3)
+8 - abcdefg (7)
+
+0 - abc efg (6)
+6 - ab defg (6)
+9 - abcd fg (6)
+
+2 - a cde g (5)
+3 - a cd fg (5)
+5 - ab d fg (5)
+```
+
+\\([1, 4, 7, 8]\\) are identifiable from their unique lengths. <a
+id="Mazon2021-08-LogicDeduction"></a> `6` is the 6-segment digit digit that does
+not include `1`. `9` is the 6-segment digit that includes `4`. `0` is the
+remaining 6-segment digit. `3` is the 5-segment digit that includes `1`. `5`
+is the 5-segment digit that's included in `6`. `2` is the remaining 5-segment
+digit. {{% cite Mazon2021-08 %}}
+
+{{% comment %}}
+
+The major shortcoming of how I went about deducing the mapping was thinking in
+terms of unions and intersections, and not considering subsets. Once I found a
+working approach, I hastened to implement it and call it a day.
+
+{{% /comment %}}
+
 ```hs
 type Segment = IntSet.IntSet
 type SegmentsMapping = Map.Map Segment Int
@@ -478,6 +517,109 @@ Representation to Decimal]({{< ref
 
 {{% /comment %}}
 
+{{% cite Mazon2021-08 %}} approaches the problem differently. They note that the
+search space is small enough, \\(7! = 5{,}040\\), that there is [no need to use
+first-order logic](#Mazon2021-08-LogicDeduction).
+
+{{% open-comment %}}
+
+Why is the search space \\(7!\\) instead of \\(6!\\), given that we already know
+the representations of \\([1, 4, 7, 8]\\)?
+
+Answer: We're looking at a seven-segment display.
+
+Why \\(7!\\) though. \\(7!\\) is the number of ways \\(7\\) items can be
+ordered. I don't understand why the search space also corresponds to this.
+
+{{% /open-comment %}}
+
+```hs
+-- From https://xn--sant-epa.ti-pun.ch/posts/2021-12-aoc/day08.html
+
+type Segment = Int
+newtype Observation = Observation { view :: [Segment] }
+
+type Wire = Int
+newtype Digit = Digit [Wire] deriving (Eq, Ord)
+```
+
+{{% comment %}}
+
+So far I've been using `data` to define custom types; `newtype` is new to me.
+
+{{% /comment %}}
+
+The syntax and usage of `newtype` and `data` are identical. Replacing `newtype`
+with `data` will compile and most probably work, but `data` can only be replaced
+with `newtype` if the type has exactly one constructor with exactly one field
+inside it. The restrictions for `newtype` imply that the new type and the type
+of field are in direct correspondence (isomorphic), and therefore after the
+type is checked at compile time, at run time the two types can be treated
+essentially the same, without the overhead or indirection normally associated
+with a data constructor. {{% cite haskellWikiNewtype %}}
+
+{{% comment %}}
+
+Note that there is more subtle reasoning  on the nuance between `newtype` and
+`data` (e.g. why not use `newtype` everywhere you can?) in
+{{% cite haskellWikiNewtype %}} and in [A Gentle Introduction to Haskell: Types,
+Again](https://www.haskell.org/tutorial/moretypes.html#sect6.1). This nuance
+doesn't seem useful to me at this stage.
+
+{{% /comment %}}
+
+```hs
+-- From https://xn--sant-epa.ti-pun.ch/posts/2021-12-aoc/day08.html
+
+combine :: Observation -> Digit
+combine = Digit . sort . view
+```
+
+This syntax is possible because `Observation { view :: [Segment] }` creates an
+accessor function called `view` of type `Observation -> [Segment]` {{% cite
+wikiHaskellNamedFields %}}. `Segment` and `Wire` are synonyms for `Int`, and are
+thus entirely compatible, and that's why `Digit` can accept a `[Segment]`
+{{% cite haskellWikiTypeSynonym %}}.
+
+```hs
+-- From https://xn--sant-epa.ti-pun.ch/posts/2021-12-aoc/day08.html
+
+reference :: [Digit]
+reference = map (combine . readObservation)
+    [ "abcefg", "cf", "acdeg", "acdfg", "bcdf"
+    , "abdfg", "abdefg", "acf", "abcdefg", "abcdfg"
+    ]
+
+solve :: [Observation] -> [Observation] -> [Int]
+solve obsDigits obsDisplay =
+    let permute p = map (combine . Observation . map (p !!) . view)
+        Just perm = find ((== sort reference) . sort . flip permute obsDigits)
+                    (permutations [0..6])
+    in map (fromJust . (`elemIndex` reference)) (permute perm obsDisplay)
+```
+
+{{% open-comment %}}
+
+I don't yet follow why `solve` works, and I don't think dissecting it further
+is worthwhile. Maybe I can leave it at "exhaustive search is feasible for this
+problem"?
+
+{{% /open-comment %}}
+
+{{% comment %}}
+
+New API: `flip :: (a -> b -> c) -> b -> a -> c`, where `flip f` takes its
+(first) two arguments in the reverse order of `f`, e.g.
+
+```hs
+ >>> flip (++) "hello" "world"
+"worldhello"
+```
+
+{{% cite Prelude %}}
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -519,3 +661,40 @@ Representation to Decimal]({{< ref
     url="https://gitlab.haskell.org/ghc/ghc/-/issues/18246"
     url_2="https://github.com/ndmitchell/hlint/issues/1250"
     accessed="2022-03-13" >}}
+
+1. {{< citation
+    id="Mazon2021-08"
+    author="Jean-Baptiste Mazon"
+    title="AoC Day 8: Seven Segment Search"
+    url="https://xn--sant-epa.ti-pun.ch/posts/2021-12-aoc/day08.html"
+    accessed="2022-03-15" >}}
+
+1. {{< citation
+    id="wikiHaskellNamedFields"
+    title="Haskell/More on datatypes - Wikibooks, open books for an open world"
+    url="https://en.wikibooks.org/wiki/Haskell/More_on_datatypes#Named_Fields_(Record_Syntax)"
+    accessed="2022-03-15" >}}
+
+1. {{< citation
+    id="haskellWikiTypeSynonym"
+    title="Type synonym - HaskellWiki"
+    url="https://wiki.haskell.org/Type_synonym"
+    accessed="2022-03-15" >}}
+
+1. {{< citation
+    id="haskellWikiNewtype"
+    title="Newtype - HaskellWiki"
+    url="https://wiki.haskell.org/Newtype"
+    accessed="2022-03-15" >}}
+
+1. {{< citation
+    id="Data.List"
+    title="Data.List"
+    url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-List.html"
+    accessed="2022-03-15" >}}
+
+1. {{< citation
+    id="Prelude"
+    title="Prelude"
+    url="https://hackage.haskell.org/package/base-4.16.0.0/docs/Prelude.html#v:flip"
+    accessed="2022-03-15" >}}
