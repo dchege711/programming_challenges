@@ -40,7 +40,11 @@ import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch (SevenSegmentDisplay (..))
 import qualified Data.IntSet as IntSet
+```
 
+## Day 03: Binary Diagnostic
+
+```hs
 --  The `Numeric` module has a `readBin` function [1], but for some reason, I get
 --  a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
 --  `readHex` work...
@@ -81,7 +85,11 @@ parseBinaryDiagnosticInput fp = do
         --  [3]: https://hackage.haskell.org/package/base-4.16.0.0/docs/html#v:readFile
         return $!! (BinaryDiagnostics {diagWidth = width, diagNums = map readBin' ls})
     )
+```
 
+## Day 04: Giant Squid
+
+```hs
 --  `endBy` expects the very last item to be followed by the separator. It
 --  continues parsing until it can't parse any more content. [1]
 --
@@ -177,7 +185,11 @@ parseBingoInput fp = do
           parseBoards _ = []
 
       return (drawnNumbers, parseBoards (tail r))
+```
 
+## Day 05: Hydrothermal Venture
+
+```hs
 hydrothermalFile :: Parser [HV.LineSegment]
 hydrothermalFile = endBy hydrothermalLine endOfLine
 
@@ -221,13 +233,23 @@ parseSingleLineCommaDelimitedFile fp = do
   case parse singleLineCommaDelimitedFile "Single Comma-Delimited Int Parser" fileContents of
     Left e  -> do {reportError e; return []}
     Right r -> return r
+```
 
+## Day 06: Lanternfish
+
+```hs
 parseLanternfishInternalTimers :: FilePath -> IO [Int]
 parseLanternfishInternalTimers = parseSingleLineCommaDelimitedFile
+```
 
+## Day 07: Treachery of Whales
+
+```hs
 parseHorizontalCrabPositions :: FilePath -> IO [Int]
 parseHorizontalCrabPositions = parseSingleLineCommaDelimitedFile
 ```
+
+## Day 08: Seven Segment Search
 
 ```hs
 --  Sample line:
@@ -254,3 +276,23 @@ parseSevenSegmentsDisplay fp = do
     Left e  -> do {reportError e; return []}
     Right r -> do {return r}
 ```
+
+I gave up on using `parsec` to parse a line of the form `cg bdaec gdafb agbcfd
+gdcbef | cg cg fdcagb cbg` because the `|` and space delimiter kept tripping
+up my `endBy sevenSegmentsDisplayLine endOfLine` construction. Interested in how
+others parsed this line.
+
+{{% cite Mazon2021-08 %}} did `(digits, _:display) = splitAt 10 (map
+readObservation (words l))`. This is more readable than my
+`splitAt 10 $ Split.split (Split.dropDelims . Split.dropInnerBlanks $
+Split.oneOf "| ") l`. I was so preoccupied by taking care of the `|` that I
+didn't ask whether I could pattern-match it away using `_:display`.
+
+## References
+
+1. {{< citation
+  id="Mazon2021-08"
+  author="Jean-Baptiste Mazon"
+  title="AoC Day 8: Seven Segment Search"
+  url="https://xn--sant-epa.ti-pun.ch/posts/2021-12-aoc/day08.html"
+  accessed="2022-03-15" >}}
