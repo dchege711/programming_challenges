@@ -266,7 +266,8 @@ unboxed vectors are said to be value strict. Boxed vectors are
 
 {{% comment %}}
 
-`Data.Vector` uses stream fusion to optimize memory usage. For example,
+<a id="Data.Vector.StreamFusion"></a>`Data.Vector` uses stream fusion to
+optimize memory usage. For example,
 
 ```hs
 import qualified Data.Vector.Unboxed as V
