@@ -34,7 +34,7 @@ first measurement.)*
 
 ***How many measurements are larger than the previous measurement?***
 
-```
+```hs
 {-#  OPTIONS_GHC -Wall  #-}
 
 module SonarSweep (numIncreases, num3MeasurementIncreases) where
@@ -63,7 +63,7 @@ to some value. Furthermore, {{% cite Data.Text %}} says, "If you think of a
 writing inefficient code." My mindset is still on `Text` as a `[Char]`. We'll
 see! Pattern matching on lists looks promising. {{% cite YorgeyHaskellBasics %}}
 
-```
+```hs
 numIncreases :: [String] -> Int
 numIncreases [] = 0 --  The empty list does not have a delta
 numIncreases [_] = 0 --  The single item list does not have a delta
@@ -103,7 +103,7 @@ More on pattern matching on lists. {{% cite HaskellWikiPatternMatching %}}
 offers a more concise syntax than the one I used in `numIncreases`. It takes
 advantage of the fact that pattern matching starts from the top.
 
-```
+```hs
 num3MeasurementIncreases :: [String] -> Int
 num3MeasurementIncreases (u:w:x:y:zs) = total where
   --  Skipping error handling is not remarkably shorter as we get a
@@ -130,7 +130,7 @@ num3MeasurementIncreases _ = 0 --  Any list with less than 4 items doesn't have 
 Without the parsing of the `[String]` into an `[Int]`, my solution is
 basically:
 
-```
+```hs
 numIncreases :: [Int] -> Int
 numIncreases (x:y:zs) = total where
   contribution = if y > x then (1 :: Int) else 0
@@ -146,7 +146,7 @@ num3MeasurementIncreases _ = 0
 
 {{% cite HiddingAoC2021-01 %}} basically does:
 
-```
+```hs
 diff :: [Int] -> [Int]
 diff (a1:a2:as) = a2 - a1 : diff (a2:as)
 diff _ = []
@@ -169,7 +169,7 @@ more concerned about data shuffling.
 {{% cite LeAoC2021-01 %}} notes that combining `drop` and `zipWith`
 gives us a way of working with consecutive values:
 
-```
+```hs
 numIncreases :: [Int] -> Int
 numIncreases xs = length (filter (== True) (zipWith (<) xs (drop 1 xs)))
 ```
@@ -187,7 +187,7 @@ have considered something that was more functional-oriented.
 `num3MeasurementIncreases`, the middle terms in the finite difference
 drop out, and therefore:
 
-```
+```hs
 diff3 :: [Int] -> [Int]
 diff3 (a1:a2:a3:a4:as) = a4 - a1 : diff3 (a2:a3:as)
 diff3 _ = []
@@ -207,7 +207,7 @@ inequality check. Huh!
 {{% cite LeAoC2021-01 %}} uses the same idea, comparing `[(a1, a4), (a2,
 a5), ...]`:
 
-```
+```hs
 num3MeasurementIncreases :: [Int] -> Int
 num3MeasurementIncreases xs = length (filter (== True) (zipWith (<) xs (drop 3 xs)))
 ```
