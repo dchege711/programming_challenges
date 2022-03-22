@@ -10,7 +10,6 @@ domains:
 - www.khanacademy.org
 - www.mathblog.dk
 - www.xarg.org
-draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/019-counting-sundays/019-counting-sundays/
 tags:
 - cpp
