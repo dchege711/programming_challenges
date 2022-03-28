@@ -1,6 +1,7 @@
 ---
 title: Advent of Code 2020
 date: 2022-03-22
+draft: true
 ---
 
 {{< citation
