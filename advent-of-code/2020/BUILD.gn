@@ -1,0 +1,3 @@
+executable("aoc_2020") {
+
+}
