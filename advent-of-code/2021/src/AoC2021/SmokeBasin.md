@@ -2,8 +2,10 @@
 date: 2022-03-16
 domains:
 - adventofcode.com
+- en.cppreference.com
 - en.wikipedia.org
 - hackage.haskell.org
+- stackoverflow.com
 - wiki.haskell.org
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/SmokeBasin/
 title: 'AoC 2021 Day 09: Smoke Basin'
@@ -54,28 +56,18 @@ lists in Haskell are linked lists that lack guaranteed locality.
 In [Day 04: Giant Squid]({{< ref
 "/computer-science/programming-challenges/advent-of-code/2021/src/GiantSquid#HiddingAoC2021-04"
 \>}}), Hidding used the {{% cite Massiv %}} array library, whose tagline is
-"multi-dimensional arrays with fusion, stencils and parallel computation". It's
-at least worth checking out in the problem.
+"multi-dimensional arrays with [fusion](#MassiveFusion),
+[stencils](#MassiveStencil) and parallel computation". It's at least worth
+checking out in the problem.
 
-{{% comment %}}
-
-A stencil is a function that can read the neighboring elements of the stencil's
-center (the zero index), and only those, and then outputs a new value for the
-center element. {{% cite Massiv %}}
-
-{{% cite Massiv %}} mentions "Moore neighborhood", which led to me to the Von
-Neumann neighborhood (the cell itself and cells at a Manhattan distance of `1`)
-which happens to be the kind of neighborhood being evaluated in this problem.
-{{% cite wikiVonNeumannNeighborhood %}}
-
-{{% /comment %}}
-
-{{% comment %}}
+## Notable Design Decisions in `massiv`
 
 For example, `foo = length . filter p . map g . map f . concat` would be pretty
 inefficient if executed literally. Fusion refers to program transformations
 aimed at removing intermediate data structures. GHC has transformation rules
-that enable fusion. {{% cite haskellWikiFusion %}}
+that enable fusion. {{% cite haskellWikiFusion %}}  <a id="MassiveFusion"></a>
+
+{{% comment %}}
 
 Also encountered stream fusion [in the `Data.Vector` library]({{< ref
 "../BinaryDiagnostic/03-binary-diagnostic.md#Data.Vector.StreamFusion" >}}). A
@@ -83,6 +75,58 @@ Also encountered stream fusion [in the `Data.Vector` library]({{< ref
 functions become stream functions --  but crucially. stream operations are
 non-recursive, and can therefore be glued together. {{% cite haskellWikiFusion
 %}}
+
+{{% /comment %}}
+
+[Like `Data.Vector`]({{< ref
+"/computer-science/programming-challenges/advent-of-code/2021/src/BinaryDiagnostic/03-binary-diagnostic#efficiency-of-collections-types"
+\>}}), `Massiv` also supports boxed elements (may point to a thunk), unboxed
+elements, and storable types. However, `Massiv` has optimized containers for
+instances of [the `Prim`
+class](https://hackage.haskell.org/package/massiv-1.0.1.1/docs/Data-Massiv-Array-Manifest.html#t:Prim).
+{{% cite Massiv %}}
+
+{{% comment %}}
+
+A bit surprised that `Boolean` is not an instance of the `Prim` type. Other
+languages tend to have Boolean as one of primitive types.
+
+The size of a `bool` in C++ is defined from the implementation and may be
+greater than 1 (byte) {{% cite cppFundamentalTypes %}}. However, the `sizeof`
+for `char`, `signed char`, `unsigned char`, `std::byte` (C++17), and `char8_t`
+(C++20) will always evaluate to 1 (byte). {{% cite cppSizeOf %}}. A tad
+counter-intuitive that a `bool` is at least 8 bits in C++. {{% cite
+cpp8bitsForBoolean %}} attributes this to every C++ data type needing to be
+addressable, and most CPU architectures are designed with a 8-bit chunks as the
+smallest addressable memory.
+
+While `std::vector<bool>` is allowed to be space-efficient,
+it loses some guarantees of `std::vector` e.g. safely modifying elements
+concurrently in a multi-threaded context, contiguous storage (that allows
+pointer arithmetic), etc. {{% cite cppVectorBool %}}
+
+{{% /comment %}}
+
+`Massiv` has delayed arrays which do not exist in memory, and are instead
+defined as a function or a composition of functions. This allows to operate on
+a massive array in constant memory. {{% cite Massiv %}}
+
+`Massiv` has a wrapping data type for indices, e.g. `makeArrayR D Seq
+(Sz (3 :. 5)) (\ (i :. j) -> i * j)`, which creates a 2D array with 3 arrays,
+each with 5 elements, where the element at index `i :. j` is computed as
+`i * j`. There is a constructor, `IxN` that supports N-dimensional arrays, e.g.
+`10 :> 20 :> 30 :. 40` is an index into a 4D array. {{% cite Massiv %}}
+
+A stencil is a function that can read the neighboring elements of the stencil's
+center (the zero index), and only those, and then outputs a new value for the
+center element. {{% cite Massiv %}} <a id="MassiveStencil"></a>
+
+{{% comment %}}
+
+{{% cite Massiv %}} mentions "Moore neighborhood", which led to me to the Von
+Neumann neighborhood (the cell itself and cells at a Manhattan distance of `1`)
+which happens to be the kind of neighborhood being evaluated in this problem.
+{{% cite wikiVonNeumannNeighborhood %}}
 
 {{% /comment %}}
 
@@ -106,3 +150,27 @@ non-recursive, and can therefore be glued together. {{% cite haskellWikiFusion
     title="GHC optimisations - HaskellWiki"
     url="https://wiki.haskell.org/GHC_optimisations#Fusion"
     accessed="2022-03-16" >}}
+
+1. {{< citation
+    id="cppFundamentalTypes"
+    title="Fundamental types - cppreference.com"
+    url="https://en.cppreference.com/w/cpp/language/types#Boolean_type"
+    accessed="2022-03-28" >}}
+
+1. {{< citation
+    id="cppSizeOf"
+    title="sizeof operator - cppreference.com"
+    url="https://en.cppreference.com/w/cpp/language/sizeof"
+    accessed="2022-03-28" >}}
+
+1. {{< citation
+    id="cpp8bitsForBoolean"
+    title="boolean - C++ : why bool is 8 bits long? - Stack Overflow"
+    url="https://stackoverflow.com/questions/2064550/c-why-bool-is-8-bits-long"
+    accessed="2022-03-28" >}}
+
+1. {{< citation
+    id="cppVectorBool"
+    title="std::vector<bool> - cppreference.com"
+    url="https://en.cppreference.com/w/cpp/container/vector_bool"
+    accessed="2022-03-28" >}}
