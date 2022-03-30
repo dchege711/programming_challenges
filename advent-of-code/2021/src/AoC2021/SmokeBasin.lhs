@@ -40,6 +40,16 @@ have modeled the risk level as `1 / (1 + height)`.
 
 {{% /comment %}}
 
+\begin{code}
+
+module AoC2021.SmokeBasin (HeightMap)
+where
+
+import qualified Data.Massiv.Core.Index as MassivIndex (Ix2)
+import qualified Data.Massiv.Array as MassivArray (Array, P)
+
+\end{code}
+
 \## Input Representation
 
 The data is an \\(n \times n\\) grid. In another language, using a
@@ -123,6 +133,25 @@ which happens to be the kind of neighborhood being evaluated in this problem.
 
 {{% /comment %}}
 
+\## Input Representation (Cont'd)
+
+\begin{code}
+
+-- `A.P` because the underlying representation (Int) is an instance of the
+-- `Prim` type class.
+type HeightMap = MassivArray.Array MassivArray.P MassivIndex.Ix2 Int
+
+\end{code}
+
+{{% comment %}}
+
+For a while, I was stuck thinking of \\(a = [[0,1,2], [1,2,5], ..., [3,2,6]]\\)
+as an N-dimensional array, where \\(N\\) can only be determined after reading
+the whole file. Gleaning at {{% cite HiddingAoC21-09 %}} made me see \\(a\\) as
+the 2D array that it is.
+
+{{% /comment %}}
+
 \## References
 
 1. {{< citation
@@ -167,3 +196,10 @@ which happens to be the kind of neighborhood being evaluated in this problem.
     title="std::vector<bool> - cppreference.com"
     url="https://en.cppreference.com/w/cpp/container/vector_bool"
     accessed="2022-03-28" >}}
+
+1. {{< citation
+    id="HiddingAoC21-09"
+    author="Johan Hidding"
+    title="Advent of Code 2021: Day 9: Smoke Basin"
+    url="https://jhidding.github.io/aoc2021/#day-9-smoke-basin"
+    accessed="2022-03-29" >}}

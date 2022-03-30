@@ -80,7 +80,8 @@ library
         HydrothermalVenture.HydrothermalVenture,
         AoC2021.Lanternfish,
         AoC2021.TreacheryOfWhales,
-        AoC2021.SevenSegmentSearch
+        AoC2021.SevenSegmentSearch,
+        AoC2021.SmokeBasin
 
     -- other-modules:
 
@@ -93,7 +94,8 @@ library
         vector      ^>=0.12.3.1,
         parsec      ^>=3.1.15.0,
         split       ^>=0.2.3.4,
-        containers  ^>=0.6.5.1
+        containers  ^>=0.6.5.1,
+        massiv      ^>=1.0.1.1
 
     -- Directories containing source files.
     hs-source-dirs:   src
