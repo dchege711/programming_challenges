@@ -42,7 +42,7 @@ have modeled the risk level as `1 / (1 + height)`.
 
 \begin{code}
 
-module AoC2021.SmokeBasin (HeightMap)
+module AoC2021.SmokeBasin (HeightMap, sumOfRiskLevelsOfLowPoints)
 where
 
 import qualified Data.Massiv.Core.Index as MassivIndex (Ix2)
@@ -151,6 +151,15 @@ the whole file. Gleaning at {{% cite HiddingAoC21-09 %}} made me see \\(a\\) as
 the 2D array that it is.
 
 {{% /comment %}}
+
+\## Part I Solution
+
+\begin{code}
+
+sumOfRiskLevelsOfLowPoints :: HeightMap -> Int
+sumOfRiskLevelsOfLowPoints _ = 0
+
+\end{code}
 
 \## References
 

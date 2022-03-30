@@ -3,10 +3,11 @@
 module AoC2021 (allSolutions) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
+
 import AoC2021InputParser
     ( parseBinaryDiagnosticInput, parseBingoInput, parseHydrothermalVents,
       parseLanternfishInternalTimers, parseHorizontalCrabPositions,
-      parseSevenSegmentsDisplay )
+      parseSevenSegmentsDisplay, parseHeightMap )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
 import Dive.Dive (productOfFinalPosition, productOfFinalPositionWithNewIntepretation)
@@ -26,6 +27,7 @@ import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
   (numOf1478AppearancesInOutput, sumOfOutputValues)
+import qualified AoC2021.SmokeBasin as SmokeBasin (sumOfRiskLevelsOfLowPoints)
 import Text.Printf (printf)
 
 allSolutions :: IO ()
@@ -38,6 +40,7 @@ allSolutions = do
   solution06
   solution07
   solution08
+  solution09
 
 solution01 :: IO ()
 solution01 = do
@@ -152,3 +155,9 @@ solution08 = do
 
   putStr "\tPart 2: Sum of output values: "
   printCheckedSolution (SevenSegmentSearch.sumOfOutputValues input) 1010472
+
+solution09 :: IO ()
+solution09 = do
+  putStrLn "Day 09. Smoke Basin"
+  input <- parseHeightMap "src/scratchpad/09-smoke-basin.input.txt"
+  print (SmokeBasin.sumOfRiskLevelsOfLowPoints input)

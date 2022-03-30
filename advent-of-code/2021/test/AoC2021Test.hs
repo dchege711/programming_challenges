@@ -8,6 +8,7 @@ import AoC2021InputParser
     parseLanternfishInternalTimers,
     parseHorizontalCrabPositions,
     parseSevenSegmentsDisplay,
+    parseHeightMap
   )
 import BinaryDiagnostic.BinaryDiagnostic (lifeSupportRating, powerConsumption)
 import Data.String (IsString (fromString))
@@ -25,6 +26,7 @@ import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
   )
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
   (numOf1478AppearancesInOutput, sumOfOutputValues)
+import qualified AoC2021.SmokeBasin as SmokeBasin (sumOfRiskLevelsOfLowPoints)
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -150,6 +152,17 @@ testSevenSegmentSearch =
         (SevenSegmentSearch.sumOfOutputValues input)
   )
 
+testSmokeBasin :: Test
+testSmokeBasin =
+  TestCase
+  ( do
+      input <- parseHeightMap "src/scratchpad/09-smoke-basin.sample.txt"
+      assertEqual
+        "Sum of the risk levels of all low points on heightmap "
+        15
+        (SmokeBasin.sumOfRiskLevelsOfLowPoints input)
+  )
+
 tests :: Test
 tests =
   TestList
@@ -160,7 +173,8 @@ tests =
       TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture,
       TestLabel "Day 06: Lanternfish" testLanternfish,
       TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales,
-      TestLabel "Day 08: Seven Segment Search" testSevenSegmentSearch
+      TestLabel "Day 08: Seven Segment Search" testSevenSegmentSearch,
+      TestLabel "Day 09: Smoke Basin" testSmokeBasin
     ]
 
 main :: IO Counts
