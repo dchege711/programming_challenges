@@ -23,6 +23,7 @@ module AoC2021InputParser
     parseLanternfishInternalTimers,
     parseHorizontalCrabPositions,
     parseSevenSegmentsDisplay,
+    parseHeightMap,
   )
 where
 
@@ -42,6 +43,9 @@ import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch (SevenSegmentDisplay (..))
 import qualified Data.IntSet as IntSet
+import qualified AoC2021.SmokeBasin as SmokeBasin (HeightMap)
+import qualified Data.Massiv.Array as MassivArray (empty, fromLists')
+import qualified Data.Massiv.Core as MassivCore (Comp(Seq))
 
 \end{code}
 
@@ -302,6 +306,29 @@ readObservation (words l))`. This is more readable than my
 `splitAt 10 $ Split.split (Split.dropDelims . Split.dropInnerBlanks $
 Split.oneOf "|| ") l`. I was so preoccupied by taking care of the `||` that I
 didn't ask whether I could pattern-match it away using `_:display`.
+
+\## Day 09: Smoke Basin
+
+\begin{code}
+
+-- Sample line: "2199943210"
+heightMapLine :: Parser [Int]
+heightMapLine =
+  do heights <- many1 digit
+     return (map digitToInt heights)
+
+heightMapFile :: Parser [[Int]]
+heightMapFile = endBy heightMapLine endOfLine
+
+parseHeightMap :: FilePath -> IO SmokeBasin.HeightMap
+parseHeightMap fp =
+  do dataFp <- getDataFileName fp
+     fileContents <- readFile dataFp
+     case parse heightMapFile "Height Map" fileContents of
+       Left e -> do {reportError e; return MassivArray.empty}
+       Right r -> do {return (MassivArray.fromLists' MassivCore.Seq r)}
+
+\end{code}
 
 \## References
 

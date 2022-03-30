@@ -17,7 +17,7 @@ weight: 26
 --  The `(..)` syntax represents all of the constructors for the data type. [1]
 --  Without that export, we can pattern-match in BinaryDiagnostic.hs because we
 --  run into a "Not in scope: data constructor ‘BinaryDiagnostics’" error.
---
+-- 
 --  [1]: https://stackoverflow.com/a/34548070/7812406
 module AoC2021InputParser
   ( parseBinaryDiagnosticInput,
@@ -26,6 +26,7 @@ module AoC2021InputParser
     parseLanternfishInternalTimers,
     parseHorizontalCrabPositions,
     parseSevenSegmentsDisplay,
+    parseHeightMap,
   )
 where
 
@@ -45,6 +46,9 @@ import Text.ParserCombinators.Parsec
 import Text.Read (readMaybe)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch (SevenSegmentDisplay (..))
 import qualified Data.IntSet as IntSet
+import qualified AoC2021.SmokeBasin as SmokeBasin (HeightMap)
+import qualified Data.Massiv.Array as MassivArray (empty, fromLists')
+import qualified Data.Massiv.Core as MassivCore (Comp(Seq))
 ```
 
 ## Day 03: Binary Diagnostic
@@ -53,7 +57,7 @@ import qualified Data.IntSet as IntSet
 --  The `Numeric` module has a `readBin` function [1], but for some reason, I get
 --  a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
 --  `readHex` work...
---
+-- 
 --  [1]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Numeric.html#v:readBin
 readBin' :: String -> Int
 readBin' binString = fst $ foldr f (0, 1) binString
@@ -292,6 +296,27 @@ readObservation (words l))`. This is more readable than my
 `splitAt 10 $ Split.split (Split.dropDelims . Split.dropInnerBlanks $
 Split.oneOf "| ") l`. I was so preoccupied by taking care of the `|` that I
 didn't ask whether I could pattern-match it away using `_:display`.
+
+## Day 09: Smoke Basin
+
+```hs
+--  Sample line: "2199943210"
+heightMapLine :: Parser [Int]
+heightMapLine =
+  do heights <- many1 digit
+     return (map digitToInt heights)
+
+heightMapFile :: Parser [[Int]]
+heightMapFile = endBy heightMapLine endOfLine
+
+parseHeightMap :: FilePath -> IO SmokeBasin.HeightMap
+parseHeightMap fp =
+  do dataFp <- getDataFileName fp
+     fileContents <- readFile dataFp
+     case parse heightMapFile "Height Map" fileContents of
+       Left e -> do {reportError e; return MassivArray.empty}
+       Right r -> do {return (MassivArray.fromLists' MassivCore.Seq r)}
+```
 
 ## References
 
