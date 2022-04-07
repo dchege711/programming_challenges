@@ -160,4 +160,6 @@ solution09 :: IO ()
 solution09 = do
   putStrLn "Day 09. Smoke Basin"
   input <- parseHeightMap "src/scratchpad/09-smoke-basin.input.txt"
-  print (SmokeBasin.sumOfRiskLevelsOfLowPoints input)
+
+  putStr "\tPart 1: Sum of the risk levels of all low points on heightmap: "
+  printCheckedSolution (SmokeBasin.sumOfRiskLevelsOfLowPoints input) 417

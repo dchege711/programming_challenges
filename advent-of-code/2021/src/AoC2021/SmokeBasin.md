@@ -54,8 +54,10 @@ have modeled the risk level as `1 / (1 + height)`.
 module AoC2021.SmokeBasin (HeightMap, sumOfRiskLevelsOfLowPoints)
 where
 
-import qualified Data.Massiv.Core.Index as MassivIndex (Ix2)
-import qualified Data.Massiv.Array as MassivArray (Array, P)
+import Data.Massiv.Core.Index (Ix2(..), Sz(..), Border(..))
+import qualified Data.Massiv.Array as Massiv.Array (Array, P(..), computeAs, sum)
+import Data.Massiv.Array.Stencil (Stencil, makeStencil, mapStencil)
+import Data.List (foldl')
 ```
 
 ## Input Representation
@@ -146,7 +148,7 @@ which happens to be the kind of neighborhood being evaluated in this problem.
 ```hs
 --  `A.P` because the underlying representation (Int) is an instance of the
 --  `Prim` type class.
-type HeightMap = MassivArray.Array MassivArray.P MassivIndex.Ix2 Int
+type HeightMap = Massiv.Array.Array Massiv.Array.P Ix2 Int
 ```
 
 {{% comment %}}
@@ -161,9 +163,36 @@ the 2D array that it is.
 ## Part I Solution
 
 ```hs
+vonNeumannNeighborhood :: (Ix2 -> Int) -> [Int]
+vonNeumannNeighborhood get =
+    [get (-1 :. 0), get (1 :. 0), get (0 :. -1), get (0 :. 1)]
+
+riskIfLowPoint :: (Ix2 -> Int) -> Int
+riskIfLowPoint get =
+    let centerPoint = get (0 :. 0)
+        lowPoint = foldl' min (maxBound :: Int) (vonNeumannNeighborhood get)
+        risk
+            | centerPoint < lowPoint = 1 + centerPoint
+            | otherwise              = 0
+    in  risk
+
+riskIfLowPointStencil :: Stencil Ix2 Int Int
+riskIfLowPointStencil = makeStencil (Sz (3 :. 3)) (1 :. 1) riskIfLowPoint
+{-#  INLINE riskIfLowPointStencil  #-}
+
 sumOfRiskLevelsOfLowPoints :: HeightMap -> Int
-sumOfRiskLevelsOfLowPoints _ = 0
+sumOfRiskLevelsOfLowPoints heightMap =
+    let borderHandling = Fill (maxBound :: Int)
+        risksArrayDW = mapStencil borderHandling riskIfLowPointStencil heightMap
+        riskArray = Massiv.Array.computeAs Massiv.Array.P risksArrayDW
+    in Massiv.Array.sum riskArray
 ```
+
+{{% comment %}}
+
+Most of my time was spent trying to get the syntax and types right.
+
+{{% /comment %}}
 
 ## References
 
