@@ -26,7 +26,10 @@ import qualified AoC2021.TreacheryOfWhales as TreacheryOfWhales
   )
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
   (numOf1478AppearancesInOutput, sumOfOutputValues)
-import qualified AoC2021.SmokeBasin as SmokeBasin (sumOfRiskLevelsOfLowPoints)
+import qualified AoC2021.SmokeBasin as SmokeBasin
+  ( sumOfRiskLevelsOfLowPoints,
+    productOf3LargestBasins
+  )
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
@@ -161,6 +164,10 @@ testSmokeBasin =
         "Sum of the risk levels of all low points on heightmap "
         15
         (SmokeBasin.sumOfRiskLevelsOfLowPoints input)
+      assertEqual
+        "Product of the 3 largest basins "
+        1134
+        (SmokeBasin.productOf3LargestBasins input)
   )
 
 tests :: Test

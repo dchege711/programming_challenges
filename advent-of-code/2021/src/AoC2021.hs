@@ -27,7 +27,11 @@ import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
 import qualified AoC2021.SevenSegmentSearch as SevenSegmentSearch
   (numOf1478AppearancesInOutput, sumOfOutputValues)
-import qualified AoC2021.SmokeBasin as SmokeBasin (sumOfRiskLevelsOfLowPoints)
+import qualified AoC2021.SmokeBasin as SmokeBasin
+  (
+    sumOfRiskLevelsOfLowPoints,
+    productOf3LargestBasins
+  )
 import Text.Printf (printf)
 
 allSolutions :: IO ()
@@ -163,3 +167,6 @@ solution09 = do
 
   putStr "\tPart 1: Sum of the risk levels of all low points on heightmap: "
   printCheckedSolution (SmokeBasin.sumOfRiskLevelsOfLowPoints input) 417
+
+  putStr "\tPart 2: Product of the 3 largest basins: "
+  print (SmokeBasin.productOf3LargestBasins input)
