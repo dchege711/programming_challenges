@@ -3,6 +3,7 @@
 title: "AoC 2021 Day 09: Smoke Basin"
 date: 2022-03-16
 weight: 9
+summary: "Multi-dimensional arrays using `massiv`; Fusion; Box vs. Unboxed; Connected Components; `Data.Set`"
 ---
 
 {{< citation
@@ -41,15 +42,30 @@ have modeled the risk level as `1 / (1 + height)`.
 {{% /comment %}}
 
 \begin{code}
+{-# OPTIONS_GHC -Wall #-}
 
-module AoC2021.SmokeBasin (
-    HeightMap, sumOfRiskLevelsOfLowPoints, productOf3LargestBasins)
+module AoC2021.SmokeBasin
+    (
+        HeightMap,
+        sumOfRiskLevelsOfLowPoints,
+        productOf3LargestBasins
+    )
 where
 
-import Data.Massiv.Core.Index (Ix2(..), Sz(..), Border(..))
-import qualified Data.Massiv.Array as Massiv.Array (Array, P(..), computeAs, sum)
+import Data.Massiv.Core.Index (Ix2(..), Sz(..), Border(..), unSz)
+import qualified Data.Massiv.Array as A
+    (
+        Array, P(..), computeAs, sum, (!?), (!), flatten, size, zeroIndex,
+        (..:), toList
+    )
 import Data.Massiv.Array.Stencil (Stencil, makeStencil, mapStencil)
-import Data.List (foldl')
+import Data.List (foldl', sort)
+import Data.Maybe (isJust, fromJust, maybeToList)
+import qualified Data.Set as Set
+    (
+        Set, fromList, union, empty, singleton, null, deleteFindMin, insert,
+        difference, size, member
+    )
 
 \end{code}
 
@@ -142,7 +158,7 @@ which happens to be the kind of neighborhood being evaluated in this problem.
 
 -- `A.P` because the underlying representation (Int) is an instance of the
 -- `Prim` type class.
-type HeightMap = Massiv.Array.Array Massiv.Array.P Ix2 Int
+type HeightMap = A.Array A.P Ix2 Int
 
 \end{code}
 
@@ -179,14 +195,15 @@ sumOfRiskLevelsOfLowPoints :: HeightMap -> Int
 sumOfRiskLevelsOfLowPoints heightMap =
     let borderHandling = Fill (maxBound :: Int)
         risksArrayDW = mapStencil borderHandling riskIfLowPointStencil heightMap
-        riskArray = Massiv.Array.computeAs Massiv.Array.P risksArrayDW
-    in Massiv.Array.sum riskArray
+        riskArray = A.computeAs A.P risksArrayDW
+    in A.sum riskArray
 
 \end{code}
 
 {{% comment %}}
 
-Most of my time was spent trying to get the syntax and types right.
+Most of my time was spent trying to get the syntax and types right. I'm spending
+a lot of time deciphering `massiv`'s syntax as opposed to learning Haskell.
 
 {{% /comment %}}
 
@@ -205,10 +222,158 @@ low point.
 
 What do you get if you multiply together the sizes of the three largest basins?
 
+\## Part II Solution
+
+\begin{code}
+
+maxHeight :: Int
+maxHeight = 9
+
+\end{code}
+
+I initially tried to be "efficient" about this problem by only considering
+right and bottom neighbors to prevent double-counting.
+
+```hs
+buggyBasinSize :: HeightMap -> Ix2 -> Int
+buggyBasinSize heightMap ix@@(row :. col) =
+    let localBasinSize height
+            || height == maxHeight = 0
+            || otherwise = 1 + basinSize heightMap (row+1 :. col)
+                            + basinSize heightMap (row :. col +1)
+    in localBasinSize (A.defaultIndex maxHeight heightMap ix)
+```
+
+Even if the above implementation were correct, the size of a basin would depend
+on what the initial `(i, j)` are. If `(i, j)` are not the top-left cell in the
+basin, then we might not get the correct answer as the locations to the left and
+above the starting location are omitted.
+
+This question reduces to the connected components problem in graph theory. Two
+neighboring locations are considered connected if their heights are both less
+than `maxheight = 9`.
+
+{{% comment %}}
+
+{{% cite AoC2021-09 %}} is not explicit about what counts as a neighbor. In this
+height map:
+
+```md
+19
+92
+```
+
+... are `1` and `2` considered to be in the same basin? Maybe not because the
+two `9`s form a wall that prevents water in `1` from flowing to `2`. If it does
+flow, then all `9`s are submerged, and we have one huge basin, which is not in
+the spirit of the problem.
+
+{{% /comment %}}
+
+Is there a way of finding the connected components using stencils? ~~It feels
+like there should, given `vonNeumannNeighborhood`...~~ Stencils make sense when
+we're applying a function to each element while taking its neighbors into
+account. In the case of finding neighbors, I don't think a stencil will be
+useful.
+
+\begin{code}
+
+isInABasin :: Int -> Bool
+isInABasin height = height < maxHeight
+
+computeBasinNeighbors :: HeightMap -> Ix2 -> Locations
+computeBasinNeighbors heightMap (row :. col) =
+    let candidates = [row-1 :. col, row+1 :. col, row :. col-1, row :. col+1]
+        heights = map (heightMap A.!?) candidates
+        isNeighbor (_, maybeHeight) =
+            isJust maybeHeight && isInABasin (fromJust maybeHeight)
+    in Set.fromList (map fst $ filter isNeighbor (zip candidates heights))
+
+\end{code}
+
+{{% open-comment %}}
+
+Is there a more idiomatic way of checking that a given index is within bounds?
+
+{{% /open-comment %}}
+
+\begin{code}
+
+type Locations = Set.Set Ix2
+
+getBasin :: HeightMap -> Ix2 -> Maybe Locations
+getBasin heightMap location
+    | not (isInABasin (heightMap A.! location)) = Nothing
+    | otherwise = Just (getLocationsInBasin Set.empty (Set.singleton location)) where
+        getLocationsInBasin :: Locations -> Locations -> Locations
+        getLocationsInBasin visited visiting
+            | Set.null visiting = visited
+            | otherwise =
+                let (currLocation, otherLocations) = Set.deleteFindMin visiting
+                    visited' = Set.insert currLocation visited
+                    currNeighbors = computeBasinNeighbors heightMap currLocation
+                    unseenLocations = Set.difference currNeighbors visited
+                    visiting' = Set.union otherLocations unseenLocations
+                in getLocationsInBasin visited' visiting'
+
+collectBasins :: HeightMap -> [Ix2] -> Locations -> [Locations]
+collectBasins heightMap (location:locations) visited =
+    let maybeBasin
+            | Set.member location visited = Nothing
+            | otherwise                   = getBasin heightMap location
+        visited'
+            | isJust maybeBasin = Set.union visited (fromJust maybeBasin)
+            | otherwise         = Set.insert location visited
+    in maybeToList maybeBasin ++ collectBasins heightMap locations visited'
+collectBasins _ [] _ = []
+
+\end{code}
+
+{{% comment %}}
+
+I'm spending too much time writing down code for collecting the connected
+components. Two sources of delay:
+
+* In my head, I have a vague idea of how I'd solve this problem in Python, and
+I'm trying to translate that into Haskell, which demands a functional style with
+immutability. I need to learn how to think in functional terms, i.e. going from
+the algorithm to functional implementation, instead of going from an imperative
+implementation to a functional one.
+
+* Not understanding the documentation at {{% cite Massiv %}}. I'm struggling
+with things that are relatively straightforward in other languages' docs, e.g.
+given an N-dimensional array, how do I construct a list of all the valid
+indices? Or am I asking questions that only an imperative thinker would? How do
+I verify that an index into a given array is valid, without trying to fetch the
+element at that index?
+
+{{% /comment %}}
+
+The `Set` library does not offer a generic `Set.pop` API. Instead, it has
+`Set.lookupMin` and `Set.lookupMax`, which both run in \\(O(log\ n)\\) time.
+These APIs make it apparent that the `Set` container is ordered.
+
+{{% comment %}}
+
+C++17 introduced `std::set<Key,Compare,Allocator>::extract`, which is amortized
+\\(O(1)\\) when passing in an iterator. {{% cite cppSetExtract %}}
+`std::unordered_set`, which hashes items into buckets, has its `extract` method
+taking \\(O(1)\\) in the average case, and \\(O(n)\\) in the worst case.
+{{% cite cppUnorderedSetExtract %}}
+
+Python's `set.pop` specifies that an arbitrary element is removed and returned.
+There aren't explicit guidelines, but I assume the underlying implementation has
+similar complexity. {{% cite pySetPop %}}
+
+{{% /comment %}}
+
 \begin{code}
 
 productOf3LargestBasins :: HeightMap -> Int
-productOf3LargestBasins _ = 0
+productOf3LargestBasins heightMap =
+    let indexes = A.toList $ A.flatten $ (A.zeroIndex :: Ix2) A...: unSz (A.size heightMap)
+        basinSizes = map Set.size (collectBasins heightMap indexes Set.empty)
+    in (product . take 3 . reverse . sort) basinSizes
 
 \end{code}
 
@@ -263,3 +428,27 @@ productOf3LargestBasins _ = 0
     title="Advent of Code 2021: Day 9: Smoke Basin"
     url="https://jhidding.github.io/aoc2021/#day-9-smoke-basin"
     accessed="2022-03-29" >}}
+
+1. {{< citation
+    id="haskellWikiSectionInfixOp"
+    title="Section of an infix operator - HaskellWiki"
+    url="https://wiki.haskell.org/Section_of_an_infix_operator"
+    accessed="2022-04-08" >}}
+
+1. {{< citation
+    id="cppSetExtract"
+    title="std::set<Key,Compare,Allocator>::extract - cppreference.com"
+    url="https://en.cppreference.com/w/cpp/container/set/extract"
+    accessed="2022-04-08" >}}
+
+1. {{< citation
+    id="pySetPop"
+    title="Built-in Types — Python 3.10.4 documentation"
+    url="https://docs.python.org/3/library/stdtypes.html#frozenset.pop"
+    accessed="2022-04-08" >}}
+
+1. {{< citation
+    id="cppUnorderedSetExtract"
+    title="std::unordered_set - cppreference.com"
+    url="https://en.cppreference.com/w/cpp/container/unordered_set"
+    accessed="2022-04-08" >}}

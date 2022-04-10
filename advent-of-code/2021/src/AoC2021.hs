@@ -169,4 +169,4 @@ solution09 = do
   printCheckedSolution (SmokeBasin.sumOfRiskLevelsOfLowPoints input) 417
 
   putStr "\tPart 2: Product of the 3 largest basins: "
-  print (SmokeBasin.productOf3LargestBasins input)
+  printCheckedSolution (SmokeBasin.productOf3LargestBasins input) 1148965
