@@ -1,3 +1,10 @@
+---
+title: "AoC 2021 Test Code"
+date: 2022-04-11
+weight: 98
+---
+
+```hs
 module Main (main) where
 
 import AoC2021InputParser
@@ -33,7 +40,9 @@ import qualified AoC2021.SmokeBasin as SmokeBasin
 import Paths_advent_of_code_y2021 (getDataFileName)
 import SonarSweep ( num3MeasurementIncreases, numIncreases )
 import System.IO (IOMode (ReadMode), hGetContents, withFile)
-import Test.HUnit (Counts, Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
+import Test.HUnit (Counts(..), Test (TestCase, TestLabel, TestList), assertEqual, runTestTT)
+import AoC2021Args (Args(..), aocArgParser)
+import Options.Applicative
 
 testSonarSweep :: Test
 testSonarSweep =
@@ -50,6 +59,9 @@ testSonarSweep =
               assertEqual "numIncreases," 5 (SonarSweep.num3MeasurementIncreases ls)
           )
     )
+
+test01 :: Test
+test01 = TestLabel "Day 01: Sonar Sweep" testSonarSweep
 
 testDive :: Test
 testDive =
@@ -70,6 +82,9 @@ testDive =
           )
     )
 
+test02 :: Test
+test02 = TestLabel "Day 02: Dive!" testDive
+
 testBinaryDiagnostic :: Test
 testBinaryDiagnostic =
   TestCase
@@ -78,6 +93,9 @@ testBinaryDiagnostic =
         assertEqual "Power Consumption," 198 (powerConsumption input)
         assertEqual "Life Support Rating," 230 (lifeSupportRating input)
     )
+
+test03 :: Test
+test03 = TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic
 
 testGiantSquid :: Test
 testGiantSquid =
@@ -94,6 +112,9 @@ testGiantSquid =
           (scoreOfLastWinningBoard input)
     )
 
+test04 :: Test
+test04 = TestLabel "Day 04: Giant Squid" testGiantSquid
+
 testHydrothermalVenture :: Test
 testHydrothermalVenture =
   TestCase
@@ -108,6 +129,9 @@ testHydrothermalVenture =
           12
           (pointsWithAtLeastTwoSegmentOverlaps input)
     )
+
+test05 :: Test
+test05 = TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture
 
 testLanternfish :: Test
 testLanternfish =
@@ -124,6 +148,9 @@ testLanternfish =
           (AoC2021.Lanternfish.numOfFishIn256Days input)
     )
 
+test06 :: Test
+test06 = TestLabel "Day 06: Lanternfish" testLanternfish
+
 testTreacheryOfWhales :: Test
 testTreacheryOfWhales =
   TestCase
@@ -138,6 +165,9 @@ testTreacheryOfWhales =
           168
           (TreacheryOfWhales.minFuelForAlignmentWithIncreasingBurnRate input)
     )
+
+test07 :: Test
+test07 = TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales
 
 testSevenSegmentSearch :: Test
 testSevenSegmentSearch =
@@ -155,6 +185,9 @@ testSevenSegmentSearch =
         (SevenSegmentSearch.sumOfOutputValues input)
   )
 
+test08 :: Test
+test08 = TestLabel "Day 08: Seven Segment Search" testSevenSegmentSearch
+
 testSmokeBasin :: Test
 testSmokeBasin =
   TestCase
@@ -170,20 +203,37 @@ testSmokeBasin =
         (SmokeBasin.productOf3LargestBasins input)
   )
 
+test09 :: Test
+test09 = TestLabel "Day 09: Smoke Basin" testSmokeBasin
+
 tests :: Test
 tests =
   TestList
-    [ TestLabel "Day 01: Sonar Sweep" testSonarSweep,
-      TestLabel "Day 02: Dive!" testDive,
-      TestLabel "Day 03: Binary Diagnostic" testBinaryDiagnostic,
-      TestLabel "Day 04: Giant Squid" testGiantSquid,
-      TestLabel "Day 05: Hydrothermal Venture" testHydrothermalVenture,
-      TestLabel "Day 06: Lanternfish" testLanternfish,
-      TestLabel "Day 07: The Treachery Of Whales" testTreacheryOfWhales,
-      TestLabel "Day 08: Seven Segment Search" testSevenSegmentSearch,
-      TestLabel "Day 09: Smoke Basin" testSmokeBasin
-    ]
+    [ test01, test02, test03, test04, test05, test06, test07, test08, test09 ]
+
+runTest :: Int -> IO Counts
+runTest 0 = do runTestTT tests
+runTest 1 = do runTestTT test01
+runTest 2 = do runTestTT test02
+runTest 3 = do runTestTT test03
+runTest 4 = do runTestTT test04
+runTest 5 = do runTestTT test05
+runTest 6 = do runTestTT test06
+runTest 7 = do runTestTT test07
+runTest 8 = do runTestTT test08
+runTest 9 = do runTestTT test09
+runTest x = do
+  putStrLn ("Day " ++ show x ++ " has no associated test.")
+  return (Counts 0 0 0 0)
+
+runAoCSolutions :: Args -> IO Counts
+runAoCSolutions (Args d) = runTest d
 
 main :: IO Counts
-main = do
-  runTestTT tests
+main = runAoCSolutions =<< execParser opts
+  where
+    opts = info (aocArgParser <**> helper)
+      ( fullDesc
+     <> progDesc "Run tests for a given DAY of AoC 2021"
+     <> header "A module for running tests for AoC 2021")
+```

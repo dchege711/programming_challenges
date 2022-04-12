@@ -56,7 +56,9 @@ common shared-properties
     -- Other library packages from which modules are imported.
     -- ^>=1.0.0.0 means use version 1.0.0.0 of the library or any more recent
     -- minor release with the same major version.
-    build-depends:      base ^>=4.14.3.0
+    build-depends:
+        base                 ^>=4.14.3.0,
+        optparse-applicative ^>=0.17.0.0
 
     -- Modules included in this library but not exported.
     other-modules:      Paths_advent_of_code_y2021
@@ -73,6 +75,7 @@ library
     exposed-modules:
         AoC2021InputParser,
         AoC2021,
+        AoC2021Args,
         SonarSweep,
         Dive.Dive,
         BinaryDiagnostic.BinaryDiagnostic,
@@ -104,7 +107,7 @@ executable advent-of-code-y2021
     import:           shared-properties
 
     -- .hs or .lhs file containing the Main module.
-    main-is:          Main.hs
+    main-is:          Main.lhs
 
     -- Modules included in this executable, other than Main.
     -- other-modules:
@@ -128,7 +131,7 @@ test-suite advent-of-code-y2021-test
     hs-source-dirs:   test
 
     -- The entrypoint to the test suite.
-    main-is:          AoC2021Test.hs
+    main-is:          AoC2021Test.lhs
 
     -- Test dependencies.
     build-depends:

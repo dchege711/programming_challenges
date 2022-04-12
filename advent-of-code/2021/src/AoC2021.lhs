@@ -1,6 +1,15 @@
+%include polycode.fmt
+---
+title: "AoC 2021 Solution Runner"
+date: 2022-04-11
+weight: 96
+---
+
+\begin{code}
+
 {-# OPTIONS_GHC -Wall #-}
 
-module AoC2021 (allSolutions) where
+module AoC2021 (runSolution) where
 
 -- https://cabal.readthedocs.io/en/3.4/cabal-package.html#accessing-data-files-from-package-code
 
@@ -45,6 +54,19 @@ allSolutions = do
   solution07
   solution08
   solution09
+
+runSolution :: Int -> IO ()
+runSolution 0 = do allSolutions
+runSolution 1 = do solution01
+runSolution 2 = do solution02
+runSolution 3 = do solution03
+runSolution 4 = do solution04
+runSolution 5 = do solution05
+runSolution 6 = do solution06
+runSolution 7 = do solution07
+runSolution 8 = do solution08
+runSolution 9 = do solution09
+runSolution x = do putStrLn ("Day " ++ show x ++ " has no associated solution.")
 
 solution01 :: IO ()
 solution01 = do
@@ -170,3 +192,5 @@ solution09 = do
 
   putStr "\tPart 2: Product of the 3 largest basins: "
   printCheckedSolution (SmokeBasin.productOf3LargestBasins input) 1148965
+
+\end{code}
