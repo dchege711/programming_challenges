@@ -53,6 +53,10 @@ The `sconcat` function allows us to combine multiple values, e.g.
 
 {{% /comment %}}
 
+With the integration in the `main` functions of [Main]({{< ref "../app/Main"
+\>}}) and [AoC2021Test]({{< ref "../test/AoC2021Test" >}}), I'm able to run code
+like `time cabal run advent-of-code-y2021 -- --day 9`.
+
 \## References
 
 1. {{< citation
