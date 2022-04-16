@@ -1,18 +1,24 @@
 ---
 authors:
+- Dev, BOC
+- Gill, Andy
 - Hidding, Johan
+- Kmett, Edward
+- Kuleshevich, Alexey
+- Snoyman, Michael
 date: 2022-03-16
 domains:
 - adventofcode.com
 - docs.python.org
 - en.cppreference.com
 - en.wikipedia.org
+- github.com
 - hackage.haskell.org
 - jhidding.github.io
 - stackoverflow.com
 - wiki.haskell.org
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2021/src/AoC2021/SmokeBasin/
-summary: Multi-dimensional arrays using `massiv`; Fusion; Box vs. Unboxed; Connected Components; `Data.Set`
+summary: Multi-dimensional arrays using `massiv`; Fusion; Box vs. Unboxed; Connected Components; `Data.Set`; Monadic map
 title: 'AoC 2021 Day 09: Smoke Basin'
 weight: 9
 ---
@@ -214,6 +220,57 @@ a lot of time deciphering `massiv`'s syntax as opposed to learning Haskell.
 
 {{% /comment %}}
 
+### Learnings from Others' Part I Solutions
+
+{{% cite HiddingAoC21-09 %}} has more succinct solution:
+
+```hs
+type Array2' r a = A.Array r Ix2 a
+type Array2 a = Array2' A.U a
+```
+
+The `U` is the `Unbox` type class. The array is usually just as fast as `P`, but
+can work with a wider range of data types. {{% cite Massiv %}} Using `Array2`
+allowed {{% cite HiddingAoC21-09 %}} to define more types, e.g. `Array2 Int` for
+the height map, `Array2 Int` for the risk values, `Array2 (Int, Int)` in Part
+II, and so forth. However, the `Array2'` type was unncessary IMO.
+
+```hs
+neighbours :: [Ix2]
+neighbours = [-1 :. 0, 1 :. 0, 0 :. -1, 0 :. 1]
+```
+
+My analogous function, `vonNeumannNeighborhood :: (Ix2 -> Int) -> [Int]`, could
+have been simplified into {{% cite HiddingAoC21-09 %}}'s. After all, I kept on
+using the `get` parameter for all 4 elements, and that's not in tune with
+the wholemeal programming advocated for in Haskell. My lack of understanding of
+`get` as a function that knows how to fetch values made me blind to {{% cite
+HiddingAoC21-09 %}} use of `get` in `findMinStencil`.
+
+```hs
+findMinStencil :: Stencil Ix2 Int Int
+findMinStencil = makeStencil (Size (3 :. 3)) (1 :. 1) go
+    where go get
+            | all ((centerPoint <) . get) neighbors = value + 1
+            | otherwise                             = 0
+            where centerPoint = get (0 :. 0)
+```
+
+`all` returns `True` if all elements of a `Foldable` structure satisfy the
+predicate (and interestingly, `all (> 3) [] == True`) {{% cite Prelude %}}. It's
+also possible to nest `where` definitions. Neat!
+
+```hs
+sumOfRiskLevelsOfLowPoints :: Array2 Int -> Int
+sumOfRiskLevelsOfLowPoints heightMap = A.sum riskArray
+    where riskArray :: Array2 Int
+          riskArray = A.compute $ mapStencil (Fill 10) findMinStencil heightMap
+```
+
+My use of `Fill (maxBound :: Int)` for border handling was unncessary. The
+max height is `9` so `10` suffices. However, I also think that `maxBound :: Int`
+is more self explanatory.
+
 ## Part II {{% cite AoC2021-09 %}}
 
 Next, you need to find the largest basins so you know what areas are most
@@ -376,11 +433,70 @@ productOf3LargestBasins heightMap =
     in (product . take 3 . reverse . sort) basinSizes
 ```
 
+### Learnings from Others' Part II Solutions
+
+{{% cite HiddingAoC21-09 %}}'s approach was different: mark the minima, and then
+repeatedly grow neighborhood around each minimum until two patches meet.
+
+Given an `Array2 Int` where minima are denoted as non-zero elements, {{% cite
+HiddingAoC21-09 %}} labels each minima with a unique integer, with the help of
+{{% cite RIO.State %}} (which re-exports {{% cite Control.Monad %}}).
+
+```hs
+-- `evalState :: State s a -> s -> a` evaluates a state computation with the
+-- initial state, and returns the final value, discarding the final state.
+--
+-- `State s a` is a state-passing computation to execute.
+-- `s` is the initial value.
+-- `a` is the return value of the state computation.
+
+markBasins :: Array2 Int -> Array2 Int
+markBasins a = evalState (A.mapM markNonZero a) 0 -- Initial ID is zero.
+    where markNonZero :: Int -> State Int Int
+          markNonZero x
+            -- `modify` maps an old state to a new state inside a state monad;
+            -- the old state is thrown away. `modify'` is its strict variant.
+            --
+            -- `get` returns the state from the internals of the monad.
+            --
+            -- So whenever x is a minimum, we increase the state, and then
+            -- assign the value to that array element. That's why the IDs are
+            -- all greater than zero and unique.
+            | x /= 0    = modify (+ 1) >> get
+            | otherwise = return 0
+```
+
+{{% comment %}}
+
+The `(>>)` "and then" operator sequentially composes two actions, discarding
+any value produced by the first. [Previous encounter with `(>>)` operator]({{<
+ref "../../haskell-meta#monad" >}}).
+
+{{% /comment %}}
+
+{{% comment %}}
+
+The technique used in `markBasins` looks promising for future endeavors where I
+need to process a collection whle keeping track of some state. Previously, I've
+found such problems tricky because I'm used to state being in a mutable
+variable. The monad state feels mutable, but somehow abstracted from me.
+
+{{% /comment %}}
+
+## Misc. Learnings from Others' Solutions
+
+{{% cite Qualia91AoC21-09 %}} used the {{% cite Debug.Trace %}} library, and it
+looks promising, there are functions in the package that are not "referentially
+transparent", e.g. `trace :: String -> a -> a` whose type indicates purity, but
+it actually has a side effect of outputting the trace message. I didn't know
+this was possible.
+
 ## References
 
 1. {{< citation
     id="Massiv"
     title="massiv: Massiv (Массив) is an Array Library."
+    author="Alexey Kuleshevich"
     url="https://hackage.haskell.org/package/massiv"
     url_2="https://hackage.haskell.org/package/massiv#stencil"
     accessed="2022-03-16" >}}
@@ -451,3 +567,36 @@ productOf3LargestBasins heightMap =
     title="std::unordered_set - cppreference.com"
     url="https://en.cppreference.com/w/cpp/container/unordered_set"
     accessed="2022-04-08" >}}
+
+1. {{< citation
+    id="Qualia91AoC21-09"
+    author="BOC Dev"
+    title="AdventOfCode2021/day9.hs at master · Qualia91/AdventOfCode2021"
+    url="https://github.com/Qualia91/AdventOfCode2021/blob/master/Day9/day9.hs"
+    accessed="2022-04-15" >}}
+
+1. {{< citation
+    id="Debug.Trace"
+    title="Debug.Trace"
+    url="https://hackage.haskell.org/package/base-4.16.1.0/docs/Debug-Trace.html"
+    accessed="2022-04-15" >}}
+
+1. {{< citation
+    id="Prelude"
+    title="Prelude"
+    url="https://hackage.haskell.org/package/base-4.16.1.0/docs/Prelude.html#v:all"
+    accessed="2022-04-15" >}}
+
+1. {{< citation
+    id="RIO.State"
+    title="RIO.State"
+    author="Michael Snoyman"
+    url="https://hackage.haskell.org/package/rio-0.1.21.0/docs/RIO-State.html"
+    accessed="2022-04-15" >}}
+
+1. {{< citation
+    id="Control.Monad"
+    author="Andy Gill; Edward Kmett"
+    title="mtl: Monad classes, using functional dependencies"
+    url="https://hackage.haskell.org/package/mtl"
+    accessed="2022-04-15" >}}
