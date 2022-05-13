@@ -4,6 +4,7 @@ authors:
 date: 2022-05-12
 domains:
 - en.cppreference.com
+- en.wikipedia.org
 - isocpp.org
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes-in-cpp/
 title: Classes in C++
@@ -103,10 +104,31 @@ instructions](https://www.ibm.com/docs/en/xl-fortran-aix/15.1.2?topic=calls-mixi
 
 Simple operations (such as constructors, `+=`, `imag`, etc.) must be
 inlined (implemented without function calls in the generated machine
-code). {{% cite Stroustrup2018 %}} While inlining increases performance
-by avoiding function call overhead, it may result in a larger executable
-as the code for the function has to be repeated multiple times. That
-said, compilers are not obligated to `inline` (or not to `inline`). The
+code) {{% cite Stroustrup2018 %}}. {{% cite isoCPPInlineFunctions %}}
+paints a more subtle picture of the effect of inlining on performance.
+Inline functions might make the executable:
+
+* Larger as the inlined functions get expanded in multiple
+  places.
+* Smaller if the expansion generates less code than the code to
+  push/pop registers/parameters.
+* Faster by removing unnecessary instructions, increasing cache
+  hits because of improved locality.
+* Slower if it's larger and therefore more thrashing.
+
+{{% comment %}}
+
+Thrashing occurs when a computer's virtual memory resources are
+overused, leading to a constant state of paging and page faults. {{%
+cite wikiThrashing %}}
+
+{{% /comment %}}
+
+Inlining might even be irrelevant to speed because most systems are not
+CPU-bound (most are I/O-bound, database-bound, or network-bound). {{%
+cite isoCPPInlineFunctions %}}
+
+Compilers are not obligated to `inline` (or not to `inline`). The
 meaning of `inline` has evolved to be "multiple definitions are
 permitted" rather than "inlining is preferred". {{% cite
 cppReferenceInlineSpecifier %}}
@@ -187,4 +209,16 @@ isoCPPOperatorOverloading %}}
   id="isoCPPOperatorOverloading"
   title="Operator Overloading, C++ FAQ"
   url="https://isocpp.org/wiki/faq/operator-overloading"
+  accessed="2022-05-13" >}}
+
+1. {{< citation
+  id="isoCPPInlineFunctions"
+  title="Inline Functions, C++ FAQ"
+  url="https://isocpp.org/wiki/faq/inline-functions#inline-member-fns-more"
+  accessed="2022-05-13" >}}
+
+1. {{< citation
+  id="wikiThrashing"
+  title="Thrashing (computer science)"
+  url="https://en.wikipedia.org/wiki/Thrashing_(computer_science)"
   accessed="2022-05-13" >}}
