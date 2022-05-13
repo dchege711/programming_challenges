@@ -4,6 +4,7 @@ authors:
 date: 2022-05-12
 domains:
 - en.cppreference.com
+- isocpp.org
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes-in-cpp/
 title: Classes in C++
 ---
@@ -98,6 +99,8 @@ instructions](https://www.ibm.com/docs/en/xl-fortran-aix/15.1.2?topic=calls-mixi
 
 {{% /comment %}}
 
+### Inlining
+
 Simple operations (such as constructors, `+=`, `imag`, etc.) must be
 inlined (implemented without function calls in the generated machine
 code). {{% cite Stroustrup2018 %}} While inlining increases performance
@@ -108,11 +111,55 @@ meaning of `inline` has evolved to be "multiple definitions are
 permitted" rather than "inlining is preferred". {{% cite
 cppReferenceInlineSpecifier %}}
 
+### Default Constructors
+
 By defining a default constructor (one that can be invoked without
 arguments), one eliminates the possibility of uninitialized variables of
 that type. {{% cite Stroustrup2018 %}} One can also have `complex() =
 delete;`, which will cause a compiler error if the default constructor
 gets selected. {{% cite cppReferenceDefaultConstructor %}}
+
+### Out-of-Class Operator Definitions
+
+Operations that do not require direct access to the representation can
+be defined separately from the class definition, e.g.
+
+```cpp
+complex operator+(complex a, complex b) { return a += b; }
+complex operator-(complex a, complex b) { return a -= b; }
+complex operator-(complex a) { return {-a.real(), -a.imag()}; }
+complex operator*(complex a, complex b) { return a *= b; }
+complex operator/(complex a, complex b) { return a /= b; }
+```
+
+An argument passed by value is copied, and therefore it can be modified
+without affecting the caller's copy. {{% cite Stroustrup2018 %}} Had
+we received the arguments by reference, implementing `a + b` as `a += b`
+because of performance may lead to buggy programs because users expect
+`a + b` to make a copy. {{% cite isoCPPOperatorOverloading %}}
+
+{{% comment %}}
+
+The `return a += b;` statement caught me off-guard. Looks like invalid
+syntax.
+
+{{% /comment %}}
+
+ISOCPP has considered letting users define their own operators several
+times, and the answer has always been that the likely problems outweigh
+the likely benefits {{% cite isoCPPOperatorOverloading %}}.
+
+{{% comment %}}
+
+Other languages, like Haskell, allow custom operators. I've sometimes
+found the syntax unintuitive, e.g. `<|>`.
+
+{{% /comment %}}
+
+Some operators, e.g. `.`, `::`, `sizeof`, and `?:`, cannot be
+overridden. Furthermore, one can't define an operator all of whose
+operands/parameters are of primitive types. {{% cite
+isoCPPOperatorOverloading %}}
 
 ## References
 
@@ -135,3 +182,9 @@ gets selected. {{% cite cppReferenceDefaultConstructor %}}
   title="Default constructors"
   url="https://en.cppreference.com/w/cpp/language/default_constructor"
   accessed="2022-05-12" >}}
+
+1. {{< citation
+  id="isoCPPOperatorOverloading"
+  title="Operator Overloading, C++ FAQ"
+  url="https://isocpp.org/wiki/faq/operator-overloading"
+  accessed="2022-05-13" >}}
