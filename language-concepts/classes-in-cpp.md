@@ -3,9 +3,11 @@ authors:
 - Stroustrup, Bjarne
 date: 2022-05-12
 domains:
+- clang.llvm.org
 - en.cppreference.com
 - en.wikipedia.org
 - isocpp.org
+- stackoverflow.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes-in-cpp/
 title: Classes in C++
 ---
@@ -293,6 +295,133 @@ cite cppReferenceSizeT %}}
 
 {{% /comment %}}
 
+## Abstract Types
+
+An abstract type is a type that completely insulates a user from
+implementation details. The interface is decoupled from the
+representation, and there are no genuine local variables. {{% cite
+Stroustrup2018-Ch4 %}}
+
+```cpp
+// Container is an abstract class because it has a pure virtual
+// function.
+class Container {
+ public:
+  // It is common for abstract classes to not have a constructor. After
+  // all, there is no data to initialize.
+
+  // The destructor is declared virtual so that derived classes can
+  // define implementations. Someone destroying a Container through a
+  // pointer has no idea what resources are owned by its implementation.
+  virtual ~Container() {}
+
+  // The "= 0" syntax says the function is pure virtual. Some class
+  // derived from Container MUST define the function.
+  virtual double& operator[](int) = 0;
+
+  virtual int size() const = 0;
+};
+```
+
+{{% cite Stroustrup2018-Ch4 %}}
+
+{{% open-comment %}}
+
+Is it a code smell to have instance variables in an abstract class?
+
+{{% /open-comment %}}
+
+An abstract class cannot be instantiated; we can't do `Container c;` -
+we don't even know the size of `Container`. {{% cite Stroustrup2018-Ch4
+%}}
+
+For `Container` to be useful, we need a class that implements the
+functions required by the interface:
+
+```cpp
+// ": public" can be read as "is derived from".
+// Vector_container is said to be derived from class Container, or a
+// subclass.
+// Container is said to be a base class of Vector_container, or a
+// superclass.
+// The derived class is said to inherit members from its base class, and
+// so the use of base and derived classes is commonly referred to as
+// inheritance.
+class Vector_container : public Container {
+ public:
+  Vector_container(int s) : v(s) {}
+
+  // `-Winconsistent-missing-destructor-override` warns about the
+  // missing "override" below.
+  // {{% cite clangDiagnosticsMissingOverrides %}}
+  ~Vector_container() {}
+
+  // The use of "override" is optional, but being explicit helps the
+  // compiler catch mistakes.
+  //
+  // `-Winconsistent-missing-override`, which warns if the "override"
+  // keyword is not specified when it should, is enabled by default.
+  // {{% cite clangDiagnosticsMissingOverrides %}}
+  double& operator[](int i) override { return v[i]; }
+  int size() const override { return v.size(); }
+
+ private:
+  Vector v;
+};
+```
+
+... and `Vector_container` can be initialized and referred to as a
+`Container`, i.e. `Container* p = new Vector_container(10)`. {{% cite
+Stroustrup2018-Ch4 %}}
+
+There is also protected inheritance, and private inheritance. It is all
+about access to the inherited members. From {{% cite
+soPublicPrivateAndProtectedInheritance %}}:
+
+```cpp
+class A {
+ public:
+  int x;
+ protected:
+  int y;
+ private:
+  int z;
+};
+
+class B : public A {
+  // x is public; y is protected; z is not accessible from B.
+};
+
+class C : protected A {
+  // x is protected; y is protected; z is not accessible from C.
+};
+
+class D : private A { // 'private' is default for classes.
+  // x is private; y is private; z is not accessible from D
+}
+```
+
+Notice that derived classes cannot expose inherited members beyond the
+access level defined in the base class. But a derived class can hide the
+inherited members.
+
+A `Container` can be used like this:
+
+```cpp
+void use(Container& c) {
+  const int sz = c.size();
+  for (int i = 0; i != sz; ++i)
+    std::cout << c[i] << '\n';
+}
+```
+
+.. `use(Container&)` has no idea if its argument is a
+`Vector_container`, or some other kind of container, and it doesn't need
+to know. If the implementation of `Vector_container` changed,
+`use(Container&)` need not be re-compiled. The flip side of this
+flexibility is that `Container` objects must be manipulated through
+pointers or references. {{% cite Stroustrup2018-Ch4 %}}
+
 ## References
 
 1. {{< citation
@@ -349,4 +478,17 @@ cite cppReferenceSizeT %}}
   id="cppReferenceSizeT"
   title="std::size_t - cppreference.com"
   url="https://en.cppreference.com/w/cpp/types/size_t"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="clangDiagnosticsMissingOverrides"
+  title="Diagnostic flags in Clang — Clang 15.0.0 git documentation > Winconsistent-missing-*override"
+  url="https://clang.llvm.org/docs/DiagnosticsReference.html#winconsistent-missing-override"
+  url_2="https://clang.llvm.org/docs/DiagnosticsReference.html#winconsistent-missing-destructor-override"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="soPublicPrivateAndProtectedInheritance"
+  title="What is the difference between public, private, and protected inheritance in C++? - Stack Overflow"
+  url="https://stackoverflow.com/a/1372858/7812406"
   accessed="2022-05-28" >}}
