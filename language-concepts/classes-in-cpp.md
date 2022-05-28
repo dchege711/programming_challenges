@@ -12,7 +12,7 @@ title: Classes in C++
 
 {{% open-comment %}}
 
-{{% cite Stroustrup2018 %}} quotes Doug McIlroy:
+{{% cite Stroustrup2018-Ch4 %}} quotes Doug McIlroy:
 
 > Those types are not "abstract"; they are as real as `int` and `float`.
 
@@ -23,7 +23,7 @@ What is the context of this quote?
 A class is a user-defined type provided to represent a concept in the
 code of a program. Essentially, all language facilities beyond the
 fundamental types, operators, and statements exist to help define better
-class or to use them more conveniently. {{% cite Stroustrup2018 %}}
+class or to use them more conveniently. {{% cite Stroustrup2018-Ch4 %}}
 
 {{% comment %}}
 
@@ -39,21 +39,24 @@ The basic idea of concrete classes is that they behave "just like
 built-in types". The defining characteristic of a concrete type is that
 its representation is part of its definition. If the representation
 changes in any significant way, a user must recompile. {{% cite
-Stroustrup2018 %}}
+Stroustrup2018-Ch4 %}}
 
 For some concrete types, e.g. `std::vector` and `std::string`, the
 representation may have pointers to data stored in the free store
 (dynamic memory, heap). Such types can be considered resource handles
-with carefully crafted interfaces. {{% cite Stroustrup2018 %}}
+with carefully crafted interfaces. {{% cite Stroustrup2018-Ch4 %}}
 
 The "representation is part of definition" property allows us to:
 
 * Place objects of concrete types on the stack and in other objects.
-* Refer to objects directly (and not just through pointers or references).
+* Refer to objects directly (and not just through pointers or
+  references).
 * Initialize objects immediately and completely.
 * Copy and move objects.
 
-{{% cite Stroustrup2018 %}}
+{{% cite Stroustrup2018-Ch4 %}}
+
+### An Arithmetic Type
 
 ```cpp
 // From Stroustrup2018
@@ -90,8 +93,8 @@ class complex {
 
 {{% comment %}}
 
-{{% cite Stroustrup2018 %}} notes that `complex`'s representation has
-to be compatible with what Fortran provided 60 years ago.
+{{% cite Stroustrup2018-Ch4 %}} notes that `complex`'s representation
+has to be compatible with what Fortran provided 60 years ago.
 
 Why is C++'s compatibility with Fortran important? [Intel says something
 similar](https://www.intel.com/content/www/us/en/develop/documentation/onemkl-macos-developer-guide/top/language-specific-usage-options/mixed-language-programming-with-onemkl/using-complex-types-in-c-c.html).
@@ -100,20 +103,19 @@ instructions](https://www.ibm.com/docs/en/xl-fortran-aix/15.1.2?topic=calls-mixi
 
 {{% /comment %}}
 
-### Inlining
+#### Inlining
 
 Simple operations (such as constructors, `+=`, `imag`, etc.) must be
 inlined (implemented without function calls in the generated machine
-code) {{% cite Stroustrup2018 %}}. {{% cite isoCPPInlineFunctions %}}
-paints a more subtle picture of the effect of inlining on performance.
-Inline functions might make the executable:
+code) {{% cite Stroustrup2018-Ch4 %}}. {{% cite isoCPPInlineFunctions
+%}} paints a more subtle picture of the effect of inlining on
+performance. Inline functions might make the executable:
 
-* Larger as the inlined functions get expanded in multiple
-  places.
-* Smaller if the expansion generates less code than the code to
-  push/pop registers/parameters.
-* Faster by removing unnecessary instructions, increasing cache
-  hits because of improved locality.
+* Larger as the inlined functions get expanded in multiple places.
+* Smaller if the expansion generates less code than the code to push/pop
+  registers/parameters.
+* Faster by removing unnecessary instructions, increasing cache hits
+  because of improved locality.
 * Slower if it's larger and therefore more thrashing.
 
 {{% comment %}}
@@ -133,15 +135,15 @@ meaning of `inline` has evolved to be "multiple definitions are
 permitted" rather than "inlining is preferred". {{% cite
 cppReferenceInlineSpecifier %}}
 
-### Default Constructors
+#### Default Constructors
 
 By defining a default constructor (one that can be invoked without
 arguments), one eliminates the possibility of uninitialized variables of
-that type. {{% cite Stroustrup2018 %}} One can also have `complex() =
-delete;`, which will cause a compiler error if the default constructor
+that type. {{% cite Stroustrup2018-Ch4 %}} One can also have `complex()
+= delete;`, which will cause a compiler error if the default constructor
 gets selected. {{% cite cppReferenceDefaultConstructor %}}
 
-### Out-of-Class Operator Definitions
+#### Out-of-Class Operator Definitions
 
 Operations that do not require direct access to the representation can
 be defined separately from the class definition, e.g.
@@ -155,7 +157,7 @@ complex operator/(complex a, complex b) { return a /= b; }
 ```
 
 An argument passed by value is copied, and therefore it can be modified
-without affecting the caller's copy. {{% cite Stroustrup2018 %}} Had
+without affecting the caller's copy. {{% cite Stroustrup2018-Ch4 %}} Had
 we received the arguments by reference, implementing `a + b` as `a += b`
 because of performance may lead to buggy programs because users expect
 `a + b` to make a copy. {{% cite isoCPPOperatorOverloading %}}
@@ -183,10 +185,103 @@ overridden. Furthermore, one can't define an operator all of whose
 operands/parameters are of primitive types. {{% cite
 isoCPPOperatorOverloading %}}
 
+### Containers
+
+A **container** is an object holding a collection of elements. It should
+be simple to understand, establish useful invariants, and provide
+range-checked access. {{% cite Stroustrup2018-Ch4 %}}
+
+#### Motivation for the Destructor Mechanism
+
+Although C++ provides an interface for plugging in a garbage collector,
+aim to use the destructor pattern to reduce headache (e.g. GC's
+availability not being guaranteed) {{% cite Stroustrup2018-Ch4 %}}:
+
+```cpp
+class Vector {
+ public:
+  Vector(int s) : elem{new double[s]}, sz{s} { // Ctor: acquires
+    // resources from the free store.
+    for (int i = 0; i != s; ++i) // Initialize elements
+      elem[i] = 0;
+  }
+
+  ~Vector() { // Destructor: release resources
+    delete[] elem;
+  }
+
+  double& operator[](int i);
+  int size() const;
+
+ private:
+  double* elem; // Points to an array of sz doubles
+  int sz;
+};
+```
+
+The technique of acquiring resources in a constructor and releasing them
+in a destructor, known as **Resource Acquisition Is Initialization
+(RAII)**, allows us to avoid naked `new` and `delete` operations in
+general code. {{% cite Stroustrup2018-Ch4 %}}
+
+In RAII, resource acquisition must succeed for initialization to
+succeed. The resource is guaranteed to be held between when
+initialization finishes and finalization starts (holding the resources)
+is a class invariant, and to be held only when the object is alive. If
+there are no object leaks, then there are no resource leaks. {{% cite
+wikiRAII %}}
+
+RAII only works for resources acquired and released by stack-allocated
+objects, where there is a well-defined static object lifetime. Heap
+based objects must be deleted along all possible execution paths to
+trigger their destructor. {{% cite wikiRAII %}}
+
+In C++, stack unwinding (popping one or more frames off the stack to
+resume execution elsewhere in the program) is only guaranteed to happen
+if the exception is caught somewhere. If it's not caught, `terminate` is
+called and stack unwinding at this point is implementation-defined. The
+OS usually releases program resources at termination, so it usually
+works out. {{% cite wikiRAII %}}
+
+#### Initializing Containers
+
+```cpp
+class Vector {
+  public:
+    Vector(std::initializer_list<double>);
+    // ...
+    void push_back(double); // Useful for an arbitrary number of elements.
+    // ...
+};
+```
+
+The `std::initializer_list` is a standard-library type know to the
+compiler. Whenever we use a `{}`-list, the compiler creates an object of
+type `initializer_list` to give to the program, e.g. `Vector v = {1, 2,
+3, 4, 5}`. The initializer-list constructor may be defined as: {{% cite
+Stroustrup2018-Ch4 %}}
+
+```cpp
+Vector::Vector(std::initializer_list<double> lst)
+    : elem{new double[lst.size()]}, sz{static_cast<int>(lst.size())} {
+  copy(lst.begin(), lst.end(), elem) // Copy from lst into elem
+}
+```
+
+An object of type `std::initializer_list<T>` is a lightweight proxy
+object that provides access to an array of objects of type `const T`.
+Copying a `std::initializer_list` does not copy the underlying objects.
+{{% cite cppReferenceInitializerList %}}
+
+The `static_cast` is used to convert from the unsigned `size_t` returned
+by `initializer_list::size()`. We're assuming that a handwritten list
+won't have more elements than the largest integer. `*cast`s should be
+used sparingly as they are error-prone. {{% cite Stroustrup2018-Ch4 %}}
+
 ## References
 
 1. {{< citation
-  id="Stroustrup2018"
+  id="Stroustrup2018-Ch4"
   title="A Tour of C++ (Second Edition)"
   sub-title="Chapter 4. Classes"
   author="Bjarne Stroustrup"
@@ -222,3 +317,15 @@ isoCPPOperatorOverloading %}}
   title="Thrashing (computer science)"
   url="https://en.wikipedia.org/wiki/Thrashing_(computer_science)"
   accessed="2022-05-13" >}}
+
+1. {{< citation
+  id="wikiRAII"
+  title="Resource acquisition is initialization - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="cppReferenceInitializerList"
+  title="std::initializer_list - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/utility/initializer_list"
+  accessed="2022-05-28" >}}
