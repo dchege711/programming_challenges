@@ -278,6 +278,21 @@ by `initializer_list::size()`. We're assuming that a handwritten list
 won't have more elements than the largest integer. `*cast`s should be
 used sparingly as they are error-prone. {{% cite Stroustrup2018-Ch4 %}}
 
+{{% comment %}}
+
+Containers may define their `container::size_type` as they wish. It may
+not always be `std::size_t`. That said, `std::size_t` can store the
+maximum size of a theoretically object of any type (including array). A
+type whose size cannot be represented by `std::size_t` is ill-formed.
+{{% cite cppReferenceSizeT %}}
+
+Programs using other types, e.g. `unsigned int`, for array-indexing and
+loop counting may fail on 64-bit systems when the index exceeds
+`UINT_MAX` or if the program relies on 32-bit modular arithmetic. {{%
+cite cppReferenceSizeT %}}
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -328,4 +343,10 @@ used sparingly as they are error-prone. {{% cite Stroustrup2018-Ch4 %}}
   id="cppReferenceInitializerList"
   title="std::initializer_list - cppreference.com"
   url="https://en.cppreference.com/w/cpp/utility/initializer_list"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="cppReferenceSizeT"
+  title="std::size_t - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/types/size_t"
   accessed="2022-05-28" >}}
