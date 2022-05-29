@@ -1,6 +1,9 @@
 ---
 authors:
+- Conway, Damian
+- Liskov, Barbara
 - Stroustrup, Bjarne
+- Sutter, Herb
 date: 2022-05-12
 domains:
 - clang.llvm.org
@@ -8,6 +11,8 @@ domains:
 - en.wikipedia.org
 - isocpp.org
 - stackoverflow.com
+- www.azquotes.com
+- www.gotw.ca
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes-in-cpp/
 title: Classes in C++
 ---
@@ -295,6 +300,30 @@ cite cppReferenceSizeT %}}
 
 {{% /comment %}}
 
+{{% comment %}}
+
+Dangerous casting can allow one to modify private variables:
+
+```cpp
+class Foo {
+ public:
+  Foo(int i) : i_(i) {}
+  int i() { return i_; }
+ private:
+  int i_;
+};
+
+Foo foo(10);
+*(reinterpret_cast<int*>(&foo)) = -500;
+std::cout << foo.i(); // prints -500.
+```
+
+{{% cite soWhyDoesCppAllowPrivateMemberModification %}}
+
+C++ tries to guard against Murphy, not Machiavelli. {{% cite Conway %}}
+
+{{% /comment %}}
+
 ## Abstract Types
 
 An abstract type is a type that completely insulates a user from
@@ -381,11 +410,18 @@ void use(Container& c) {
 ```
 
 `use(Container&)` has no idea if its argument is a `Vector_container`,
-or some other kind of container, and it doesn't need to know. If the
-implementation of `Vector_container` changed, `use(Container&)` need not
-be re-compiled. The flip side of this flexibility is that `Container`
-objects must be manipulated through pointers or references. {{% cite
-Stroustrup2018-Ch4 %}}
+or some other kind of container, and it doesn't need to know.
+{{% cite Stroustrup2018-Ch4 %}}
+
+The Liskov Substitution Principle states: *If \\(S\\) is a subtype of
+\\(\ T\\), then objects of type \\(T\\) in a program may be replaced with
+objects of type \\(S\\) without altering any of the desirable properties
+of that program (e.g. correctness).* {{% cite wikiLoskov %}}
+
+If the implementation of `Vector_container` changed, `use(Container&)`
+need not be re-compiled. The flip side of this flexibility is that
+`Container` objects must be manipulated through pointers or references.
+{{% cite Stroustrup2018-Ch4 %}}
 
 ### The Virtual Function Table
 
@@ -403,21 +439,6 @@ pointer to the `vtbl` in a `Container`, and the index used for each
 virtual function. The virtual call mechanism can be made almost as
 efficient as the "normal function call mechanism (within 25%). {{% cite
 Stroustrup2018-Ch4 %}}
-
-{{% open-comment %}}
-
-[Herb Stutter recommends](http://www.gotw.ca/publications/mill18.htm):
-
-* Prefer to make interfaces non-virtual, using Template Method.
-* Prefer to make virtual functions private.
-* Only if derived classes need to invoke the base implementation of a
-  virtual function, make the class protected.
-* A base destructor should be either public and virtual, or protected
-  and non-virtual.
-
-Review the arguments for the above recommendations.
-
-{{% /open-comment %}}
 
 ### Protected and Private Inheritance
 
@@ -445,12 +466,100 @@ class C : protected A {
 
 class D : private A { // 'private' is default for classes.
   // x is private; y is private; z is not accessible from D
-}
+};
 ```
 
 Notice that derived classes cannot expose inherited members beyond the
 access level defined in the base class. But a derived class can hide the
 inherited members.
+
+Note that neither `C` nor `D` can be accessed through a pointer or
+reference to `A`, i.e. `A* a = new C();` fails to compile with the error
+`'A' is an inaccessible base of 'C'`.
+
+`class D : private A {};` can be read as, *"`D` is implemented in terms
+of `A` (with a possibly more restricted interface)"*. {{% cite
+soAIsAnInaccessibleBaseOfB %}}
+
+{{% comment %}}
+
+In true Machiavellian fashion, we can also do:
+
+```cpp
+class D : private A {
+ public:
+  A* AsA() { return this; }
+};
+```
+
+... which in turn allows:
+
+```cpp
+D* d = new D();
+A* a = d->AsA()
+```
+
+{{% cite soAIsAnInaccessibleBaseOfB %}}
+
+{{% /comment %}}
+
+### The Case for Private Virtual Functions
+
+Consider this traditional base class:
+
+```cpp
+class Widget {
+ public:
+  virtual int Process(Gadget&);
+  virtual bool IsDone();
+};
+```
+
+Each virtual function is specifying two things: the interface
+(because it's `public`), and the implementation detail (because derived
+classes can replace the implementation). {{% cite Sutter2001 %}}
+
+To separate interface from internals, consider the Template Method
+pattern:
+
+```cpp
+class Widget {
+ public:
+  int Process(Gadget&); // Uses DoProcess...()
+  bool IsDone(); // Uses DoIsDone()
+
+ private:
+  virtual int DoProcessPhase1(Gadget&);
+  virtual int DoProcessPhase2(Gadget&);
+  virtual bool DoIsDone() = 0;
+};
+```
+
+With this separation, there are several benefits:
+
+* The base class has complete control of its interface and policy. It
+  can enforce invariants, and insert instrumentation in the non-virtual
+  interface functions.
+* The interface and the implementation can be changed independently,
+  e.g. adding `DoProcessPhase3` would only affect classes that subclass
+  `Widget`, while users of `Widget` will be unaffected.
+
+{{% cite Sutter2001 %}}
+
+If the derived class need to invoke the base implementation of a virtual
+function, then declare the virtual function in the `protected` section.
+Otherwise, default to virtual functions being `private` because they
+exist to customize behavior, and not to be called. {{% cite Sutter2001
+%}}
+
+{{% comment %}}
+
+My intuition was that a private virtual function could not be overridden
+in a derived class because the derived class can't access the virtual
+function. But there's a difference, the derived class indeed can't
+*call* the base class's virtual function, but it can *override* it!
+
+{{% /comment %}}
 
 ## References
 
@@ -521,4 +630,38 @@ inherited members.
   id="soPublicPrivateAndProtectedInheritance"
   title="What is the difference between public, private, and protected inheritance in C++? - Stack Overflow"
   url="https://stackoverflow.com/a/1372858/7812406"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="Sutter2001"
+  author="Herb Sutter"
+  title="Virtuality"
+  date="2001-09-01"
+  url="http://www.gotw.ca/publications/mill18.htm"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="soAIsAnInaccessibleBaseOfB"
+  title="c++ - Inheritance: 'A' is an inaccessible base of 'B' - Stack Overflow"
+  url="https://stackoverflow.com/a/9661959/7812406"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="soWhyDoesCppAllowPrivateMemberModification"
+  title="Why does C++ allow private members to be modified using this approach? - Stack Overflow"
+  url="https://stackoverflow.com/questions/12093319/why-does-c-allow-private-members-to-be-modified-using-this-approach"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="Conway"
+  author="Damian Conway"
+  title="Damian Conway quote: C++ tries to guard against Murphy, not Machiavelli."
+  url="https://www.azquotes.com/quote/678702"
+  accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="wikiLoskov"
+  title="Liskov substitution principle - Wikipedia"
+  author="Barbara Liskov"
+  url="https://en.wikipedia.org/wiki/Liskov_substitution_principle"
   accessed="2022-05-28" >}}
