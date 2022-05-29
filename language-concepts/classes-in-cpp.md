@@ -325,15 +325,11 @@ class Container {
 
 {{% cite Stroustrup2018-Ch4 %}}
 
-{{% open-comment %}}
-
-Is it a code smell to have instance variables in an abstract class?
-
-{{% /open-comment %}}
-
 An abstract class cannot be instantiated; we can't do `Container c;` -
 we don't even know the size of `Container`. {{% cite Stroustrup2018-Ch4
 %}}
+
+### Using an Abstract Class
 
 For `Container` to be useful, we need a class that implements the
 functions required by the interface:
@@ -370,9 +366,60 @@ class Vector_container : public Container {
 };
 ```
 
-... and `Vector_container` can be initialized and referred to as a
-`Container`, i.e. `Container* p = new Vector_container(10)`. {{% cite
+`Vector_container` can be initialized and referred to as a `Container`,
+i.e. `Container* p = new Vector_container(10)`. {{% cite
 Stroustrup2018-Ch4 %}}
+
+A `Container` can be used like this:
+
+```cpp
+void use(Container& c) {
+  const int sz = c.size();
+  for (int i = 0; i != sz; ++i)
+    std::cout << c[i] << '\n';
+}
+```
+
+`use(Container&)` has no idea if its argument is a `Vector_container`,
+or some other kind of container, and it doesn't need to know. If the
+implementation of `Vector_container` changed, `use(Container&)` need not
+be re-compiled. The flip side of this flexibility is that `Container`
+objects must be manipulated through pointers or references. {{% cite
+Stroustrup2018-Ch4 %}}
+
+### The Virtual Function Table
+
+A `Container` object must contain information to allow it to select the
+right function to call at runtime. A common implementation is a virtual
+function table, or simply the `vtbl`. Each class with virtual functions
+has its own `vtbl`. {{% cite Stroustrup2018-Ch4 %}}
+
+{{< figure
+  src="/img/computer-science/programming-challenges/language-concepts/cpp/virtual-function-table.jpg"
+  caption=`Graphical representation of a virtual function table. Source: Stroustrup2018-Ch4.`>}}
+
+The implementation of the caller needs only to know the location of the
+pointer to the `vtbl` in a `Container`, and the index used for each
+virtual function. The virtual call mechanism can be made almost as
+efficient as the "normal function call mechanism (within 25%). {{% cite
+Stroustrup2018-Ch4 %}}
+
+{{% open-comment %}}
+
+[Herb Stutter recommends](http://www.gotw.ca/publications/mill18.htm):
+
+* Prefer to make interfaces non-virtual, using Template Method.
+* Prefer to make virtual functions private.
+* Only if derived classes need to invoke the base implementation of a
+  virtual function, make the class protected.
+* A base destructor should be either public and virtual, or protected
+  and non-virtual.
+
+Review the arguments for the above recommendations.
+
+{{% /open-comment %}}
+
+### Protected and Private Inheritance
 
 There is also protected inheritance, and private inheritance. It is all
 about access to the inherited members. From {{% cite
@@ -404,23 +451,6 @@ class D : private A { // 'private' is default for classes.
 Notice that derived classes cannot expose inherited members beyond the
 access level defined in the base class. But a derived class can hide the
 inherited members.
-
-A `Container` can be used like this:
-
-```cpp
-void use(Container& c) {
-  const int sz = c.size();
-  for (int i = 0; i != sz; ++i)
-    std::cout << c[i] << '\n';
-}
-```
-
-.. `use(Container&)` has no idea if its argument is a
-`Vector_container`, or some other kind of container, and it doesn't need
-to know. If the implementation of `Vector_container` changed,
-`use(Container&)` need not be re-compiled. The flip side of this
-flexibility is that `Container` objects must be manipulated through
-pointers or references. {{% cite Stroustrup2018-Ch4 %}}
 
 ## References
 
