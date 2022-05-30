@@ -4,6 +4,7 @@ authors:
 - Liskov, Barbara
 - Stroustrup, Bjarne
 - Sutter, Herb
+- Yorgey, Brent
 date: 2022-05-12
 domains:
 - clang.llvm.org
@@ -13,6 +14,7 @@ domains:
 - stackoverflow.com
 - www.azquotes.com
 - www.gotw.ca
+- www.seas.upenn.edu
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes-in-cpp/
 title: Classes in C++
 ---
@@ -413,15 +415,14 @@ void use(Container& c) {
 or some other kind of container, and it doesn't need to know.
 {{% cite Stroustrup2018-Ch4 %}}
 
-The Liskov Substitution Principle states: *If \\(S\\) is a subtype of
-\\(\ T\\), then objects of type \\(T\\) in a program may be replaced with
-objects of type \\(S\\) without altering any of the desirable properties
-of that program (e.g. correctness).* {{% cite wikiLoskov %}}
-
 If the implementation of `Vector_container` changed, `use(Container&)`
 need not be re-compiled. The flip side of this flexibility is that
 `Container` objects must be manipulated through pointers or references.
 {{% cite Stroustrup2018-Ch4 %}}
+
+Objects are constructed "bottom up" (base first) by constructors, and
+destroyed "top down" (derived first) by destructors. {{% cite
+Stroustrup2018-Ch4 %}}
 
 ### The Virtual Function Table
 
@@ -500,6 +501,120 @@ A* a = d->AsA()
 ```
 
 {{% cite soAIsAnInaccessibleBaseOfB %}}
+
+{{% /comment %}}
+
+### Class Hierarchies
+
+A class hierarchy is a set of classes ordered in a lattice created by
+derivation (e.g., `: public`).
+
+```cpp
+class Shape {
+ public:
+  virtual ~Shape() {}
+
+  virtual Point center() const = 0;
+  virtual void move(Point to) = 0;
+
+  virtual void draw() const = 0;
+  virtual void rotate(int angle) = 0;
+};
+
+class Circle : public Shape {
+ public:
+  Circle(Point center, int radius);
+
+  Point center() const override { return center_; }
+  void move(Point to) override { center_ = to; }
+
+  void draw() const override;
+  void rotate(iny) override {}
+
+ private:
+  Point center_;
+  int radius_;
+};
+
+class Smiley : public Circle {
+ public:
+  Smiley(Point center, int radius)
+      : Circle{center, radius}, mouth_{nullptr} {}
+
+  void move(Point to) override;
+
+  void draw() const override;
+  void rotate(int) override;
+
+  void add_eye(std::unique_ptr<Shape> s) {
+    eyes.push_back(s);
+  }
+  void set_mouth(std::unique_ptr<Shape> s);
+
+  virtual void wink(int eye_index);
+
+ private:
+  // We use unique_ptr so that we don't have to manually call delete in
+  // our destructor. unique_ptr will call delete on our behalf.
+  std::vector<std::unique_ptr<Shape>> eyes_;
+  std::unique_ptr<Shape> mouth_;
+};
+```
+
+{{% cite Stroustrup2018-Ch4 %}}
+
+{{% comment %}}
+
+`Circle` is a kind of a `Shape`, but the "is a kind of a" relationship
+starts breaking down when relating `Smiley` to `Circle`. Perhaps a
+better definition would be `class Smiley : private Circle {};` because
+while `Smiley` is implemented using a `Circle`, it is awkward to say
+that it's a circle.
+
+{{% /comment %}}
+
+A class hierarchy offers **interface inheritance**: an object of a
+derived class can be used used wherever an object of a base class is
+required. {{% cite Stroustrup2018-Ch4 %}} A stronger version of this is
+**The Liskov Substitution Principle**: *If \\(S\\) is a subtype of \\(\
+T\\), then objects of type \\(T\\) in a program may be replaced with
+objects of type \\(S\\) without altering any of the desirable properties
+of that program (e.g. correctness).* {{% cite wikiLoskov %}}
+
+A class hierarchy also offers **implementation inheritance**, e.g.
+`Smiley` uses `Circle`'s constructor, and may use `Circle::draw()`. Such
+base classes often have data members and constructors. {{% cite
+Stroustrup2018-Ch4 %}}
+
+{{% open-comment %}}
+
+There's an alternate school of though popularized by Item #33 in Scott
+Myers' "Effective C++": *Make non-leaf classes abstract*. The major
+argument, as gleaned from [this mailing
+list](https://lists.accu.org/pipermail/effective-cpp/2003-June/002221.html),
+is to avoid partial assignment.
+
+{{% /open-comment %}}
+
+`dynamic_cast<Derived*>(p)` returns `nullptr` if `p` does not point to a
+`Derived`, while `dynamic_cast<Derived>(*p)` throws a `bad_cast`
+exception if `*p` is not of type `Derived`. For example:
+
+```cpp
+void use(Shape* shape) {
+  if (Smiley* smiley = dynamic_cast<Smiley*>(shape)) {
+    // `shape` points to a Smiley.
+  }
+}
+```
+
+{{% cite Stroustrup2018-Ch4 %}}
+
+{{% comment %}}
+
+Some typed languages like Haskell do not have the ability to query types
+at runtime. They do type erasure. {{% cite
+cis194Spring2013ParametricPolymorphism %}} {{% cite wikiTypeErasure %}}
 
 {{% /comment %}}
 
@@ -665,3 +780,16 @@ function. But there's a difference, the derived class indeed can't
   author="Barbara Liskov"
   url="https://en.wikipedia.org/wiki/Liskov_substitution_principle"
   accessed="2022-05-28" >}}
+
+1. {{< citation
+  id="wikiTypeErasure"
+  title="Type erasure - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Type_erasure"
+  accessed="2022-05-30" >}}
+
+1. {{< citation
+  id="cis194Spring2013ParametricPolymorphism"
+  author="Brent Yorgey"
+  title="05-type-classes"
+  url="https://www.seas.upenn.edu/~cis194/spring13/lectures/05-type-classes.html#parametricity"
+  accessed="2022-05-30" >}}
