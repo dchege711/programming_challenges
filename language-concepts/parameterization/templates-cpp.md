@@ -22,7 +22,7 @@ template:
 
 ```cpp
 // `template<typename T>` can be read as "for all types T". Older code
-// uses `template<classs T>`, which is equivalent.
+// uses `template<class T>`, which is equivalent.
 template<typename T>
 class Vector {
  public:
@@ -105,15 +105,6 @@ concept Hashable = requires(T a) {
 template<Hashable T>
 void f(T) {}
 
-// Another way of applying the constraint.
-template<typename T>
-  requires Hashable<T>
-void g(T) {}
-
-//  Yet another way of applying the constraint.
-template<typename T>
-void h(T) requires Hashable<T> {}
-
 struct Foo;
 
 int main {
@@ -147,6 +138,89 @@ to reference the `Hashable` concept anywhere in its code.
 
 {{% /comment %}}
 
+### Value Template Arguments
+
+In addition to to type arguments, a template can take value arguments
+(which must be constant expressions), e.g.
+
+```cpp
+template<typename T, int N>
+struct Buffer {
+  // Convenience functions for accessng the template arguments.
+  using value_type = T;
+  constexpr int size() { return N; }
+
+  T[N];
+  // ...
+};
+```
+
+{{% cite Stroustrup2018-Ch6 %}}
+
+Value arguments are useful in many contexts. For example, `Buffer`
+allows us to create arbitrarily sized buffers with no use of the free
+store. {{% cite Stroustrup2018-Ch6 %}}
+
+### Template Argument Deduction
+
+Argument deduction can help reduce redundant typing, e.g.
+
+```cpp
+Vector v1 {1, 2, 3};  // Deduce v1's element type from the initializer list element type
+Vector v2 = v1;       // Deduce v2's element type form v1's element type
+Vector<int> v3(1);    // Need to be explicit as no element type is mentioned
+```
+
+{{% cite Stroustrup2018-Ch6 %}}
+
+But deduction can also cause surprises, e.g.
+
+```cpp
+Vector<string> vs1 {"Hello", "World"};  // Vector<string>
+Vector vs {"Hello", "World"};           // Deduces to Vector<const char*>
+```
+
+{{% cite Stroustrup2018-Ch6 %}}
+
+When a template argument can't be deduced from the constructor
+arguments, we can provide a **deduction guide**, e.g.
+
+```cpp
+// Template declaration
+template<typename T>
+class Vector2 {
+ public:
+  using value_type = T;
+
+  Vector2(std::initializer_list<T>);  // Initializer-list constructor
+
+  template<typename Iter>
+    Vector2(Iter b, Iter e);          // [b:e) range constructor
+};
+
+// Additional deduction guide
+template<typename Iter>
+  Vector2(Iter, Iter) -> Vector2<typename Iter::value_type>;
+```
+
+{{% cite Stroustrup2018-Ch6 %}}
+
+The user-defined deduction guide needs not be a template, e.g.
+
+```cpp
+template<class T> struct S {
+  S(T);
+};
+S(char const*) -> S<std::string>;
+
+S s{"Hello"}; // Deduced to S<std::string>
+```
+
+{{% cite cppReferenceCTAD %}}
+
+The effects of deduction guides are often subtle, so limit their use;
+prefer using concepts. {{% cite Stroustrup2018-Ch6 %}}
+
 ## References
 
 1. {{< citation
@@ -169,4 +243,10 @@ to reference the `Hashable` concept anywhere in its code.
   title="05-type-classes"
   url="https://www.cis.upenn.edu/~cis194/spring13/lectures/05-type-classes.html#type-classes"
   year="2013"
+  accessed="2022-05-30" >}}
+
+1. {{< citation
+  id="cppReferenceCTAD"
+  title="Class template argument deduction (CTAD) (since C++17) - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/language/class_template_argument_deduction"
   accessed="2022-05-30" >}}
