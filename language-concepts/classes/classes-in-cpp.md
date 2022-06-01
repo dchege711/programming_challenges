@@ -7,6 +7,7 @@ authors:
 - Yorgey, Brent
 date: 2022-05-12
 domains:
+- abseil.io
 - clang.llvm.org
 - en.cppreference.com
 - en.wikipedia.org
@@ -193,6 +194,25 @@ Some operators, e.g. `.`, `::`, `sizeof`, and `?:`, cannot be
 overridden. Furthermore, one can't define an operator all of whose
 operands/parameters are of primitive types. {{% cite
 isoCPPOperatorOverloading %}}
+
+#### Defining Instance Variables
+
+| | `Bar` | `optional<Bar>` | `unique_ptr<Bar>` |
+| --- | --- | --- | --- |
+| Supports delayed construction | | ✅ | ✅ |
+| Always safe to access | ✅ | | |
+| Can transfer ownership of `Bar` | | | ✅ |
+| Can store subclasses of `Bar` | | | ✅ |
+| Movable | If `Bar` is movable | If `Bar` is movable | ✅ |
+| Copyable | If `Bar` is copyable | If `Bar` is copyable | |
+| Friendly to CPU caches | ✅ | ✅ | |
+| No heap allocation | ✅ | ✅ | |
+| Memory usage | `sizeof(Bar)` | `sizeof(Bar) + sizeof(bool)` (+ padding) | `sizeof(Bar*)` (+ non-empty custom deleter if present) when null; `sizeof(Bar*) + sizeof(Bar)` otherwise |
+| Object lifetime | Same as enclosing scope | Restricted to enclosing scope | Unrestricted |
+| Call `f(Bar*)` | `f(&bar_)` | `f(opt_.value())` or `f(&*opt_)` | `f(ptr_.get())` or `f(&*ptr_)` |
+| Remove value | N/A | `opt_.reset()` or `opt_ = nullopt` | `ptr_.reset()` or `ptr_ = nullptr` |
+
+{{% cite abseilToTW123 %}}
 
 ### Containers
 
@@ -793,3 +813,9 @@ function. But there's a difference, the derived class indeed can't
   title="05-type-classes"
   url="https://www.seas.upenn.edu/~cis194/spring13/lectures/05-type-classes.html#parametricity"
   accessed="2022-05-30" >}}
+
+1. {{< citation
+  id="abseilToTW123"
+  title="abseil / Tip of the Week #123: absl::optional and std::unique_ptr"
+  url="https://abseil.io/tips/123"
+  accessed="2022-05-31" >}}
