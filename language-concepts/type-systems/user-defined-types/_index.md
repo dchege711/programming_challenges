@@ -6,6 +6,7 @@ domains:
 - en.cppreference.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/
 title: User-Defined Types
+weight: 1
 ---
 
 ## Definition from C++

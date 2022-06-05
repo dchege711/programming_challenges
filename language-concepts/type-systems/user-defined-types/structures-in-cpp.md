@@ -4,6 +4,7 @@ authors:
 date: 2022-06-04
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/structures-in-cpp/
 title: Structures in C++
+weight: 20
 ---
 
 A **struct** helps us organize the elements that a type needs into a

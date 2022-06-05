@@ -4,6 +4,7 @@ authors:
 date: 2022-06-04
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/unions-in-cpp/
 title: Unions in C++
+weight: 40
 ---
 
 A **union** is a `struct` in which all members are allocated at the same

@@ -18,6 +18,7 @@ domains:
 - www.seas.upenn.edu
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp/
 title: Classes in C++
+weight: 10
 ---
 
 {{% open-comment %}}
