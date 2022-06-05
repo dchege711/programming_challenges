@@ -4,47 +4,9 @@ authors:
 date: 2022-06-04
 domains:
 - en.cppreference.com
-local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types-cpp/
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/user-defined-types-cpp/
 title: User-Defined Types in C++
 ---
-
-## The Motivation for User-Defined Types
-
-**Built-in types** are ones that can be built from the fundamental types
-(e.g. `void`, `std::nullptr_t`, `int`, `bool`, `char`, `float`, `double`
-{{% cite cppReferenceFundamentalTypes %}}), the `const` modifier, and
-the declarator operators (e.g. `int[3]`, `int*`, `int&`). {{% cite
-Stroustrup2018-Ch2 %}}
-
-While the built-in types directly and efficiently represent the
-capabilities of conventional computer hardware, they're too low-level to
-conveniently write advanced applications in. C++ abstraction mechanisms
-let programmers design and implement **user-defined types** using both
-built-in types and other user-defined types. {{% cite Stroustrup2018-Ch2
-%}}
-
-{{% comment %}}
-
-Before this, I thought user-defined types did _not_ include STL types. I
-thought that user meant me, or library authors, but not the C++ language
-devs, who, I assume, write the STL.
-
-{{% /comment %}}
-
-Prefer user-defined types as they are easier to use, less error prone,
-and typically as efficient as direct use of built-in types. {{% cite
-Stroustrup2018-Ch2 %}}
-
-{{% open-comment %}}
-
-{{% cite Stroustrup2018-Ch2 %}} says that sometimes user-defined types
-can be more efficient than built-in types. When would this be? Maybe
-something like
-[`std::vector<bool>`](https://en.cppreference.com/w/cpp/container/vector_bool),
-which is possibly (implementation-defined) more space-efficient than a
-`std::vector` (and thus an array) of `bool`?
-
-{{% /open-comment %}}
 
 ## Structures
 
@@ -106,7 +68,7 @@ Stroustrup2018-Ch2 %}}
 {{% comment %}}
 
 More in-depth discussion at [Classes in C++]({{< ref
-"/computer-science/programming-challenges/language-concepts/classes/classes-in-cpp.md">}})
+"/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp.md">}})
 
 {{% /comment %}}
 
