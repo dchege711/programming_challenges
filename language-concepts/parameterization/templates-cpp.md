@@ -16,7 +16,7 @@ set of types or values. {{% cite Stroustrup2018-Ch6 %}}
 ## Parameterized Types
 
 The [vector-of-doubles]({{< ref
-"/computer-science/programming-challenges/language-concepts/classes/classes-in-cpp.md#containers"
+"/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp.md#containers"
 >}}) can be generalized to a vector-of-anything type by making it a
 template:
 

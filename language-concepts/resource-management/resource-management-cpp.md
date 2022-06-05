@@ -14,7 +14,7 @@ title: Resource Management in C++
 
 RAII is also covered in [Classes in C++ > Motivation for the Destructor
 Mechanism]({{< ref
-"/computer-science/programming-challenges/language-concepts/classes/classes-in-cpp#motivation-for-the-destructor-mechanism"
+"/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp.md#motivation-for-the-destructor-mechanism"
 >}})
 
 {{% /priors %}}
@@ -118,7 +118,7 @@ pointer semantics are needed:
 * When we share an object, we need pointers (or references) to refer to
   the shared object.
 * When we refer to [a polymorphic object]({{< ref
-  "/computer-science/programming-challenges/language-concepts/classes/classes-in-cpp#abstract-types"
+  "/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp.md#abstract-types"
   >}}), we need a pointer (or a reference) because we don't know the
   exact type of the object referred to.
 * When using legacy APIs that return raw pointers to owned data. {{%

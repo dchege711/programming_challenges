@@ -16,7 +16,7 @@ domains:
 - www.azquotes.com
 - www.gotw.ca
 - www.seas.upenn.edu
-local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes/classes-in-cpp/
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/classes-in-cpp/
 title: Classes in C++
 ---
 
