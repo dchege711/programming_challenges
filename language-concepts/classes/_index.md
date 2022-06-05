@@ -4,6 +4,7 @@ authors:
 date: 2022-05-30
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/classes/
 title: Classes
+weight: 10
 ---
 
 A class is a user-defined type provided to represent a concept in the

@@ -4,6 +4,7 @@ authors:
 date: 2022-05-31
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/
 title: Resource Management
+weight: 20
 ---
 
 A **resource** is something that must be acquired, and later (explicitly
