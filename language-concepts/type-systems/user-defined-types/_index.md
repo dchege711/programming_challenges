@@ -1,5 +1,9 @@
 ---
+authors:
+- Stroustrup, Bjarne
 date: 2022-06-04
+domains:
+- en.cppreference.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/
 title: User-Defined Types
 ---
@@ -49,3 +53,9 @@ which is possibly (implementation-defined) more space-efficient than a
   author="Bjarne Stroustrup"
   isbn="978-0-13-499783-4"
   year="2018" >}}
+
+1. {{< citation
+  id="cppReferenceFundamentalTypes"
+  title="Fundamental types - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/language/types"
+  accessed="2022-06-04" >}}

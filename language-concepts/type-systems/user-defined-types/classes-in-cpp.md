@@ -43,6 +43,34 @@ to common patterns like `FooManager`.
 
 {{% /comment %}}
 
+A **class** is the language mechanism for separating the interface to a
+type (to be used by all), and its implementation (which has access to
+otherwise inaccessible data), e.g.
+
+```cpp
+class Vector {
+ public:
+  // The constructor is a special function that has the same name as the
+  // class. It's guaranteed to be called when initializing objects of
+  // this class. We no longer need `vector_init`.
+  Vector(int s) : elem{new double[s]}, sz{s} {}
+
+  double& operator[](int i) { return elem[i]; }
+  int size() { return sz; }
+
+ private:
+  double* elem;   // pointer to elements on the free store
+  int sz;         // the number of elements
+};
+```
+
+{{% cite Stroustrup2018-Ch2 %}}
+
+Notice that regardless of the number of elements, the `Vector` object
+itself is always the same size. A fixed-size handle referring to a
+variable amount of data "elsewhere" is a common technique for handling
+varying amounts of information in C++. {{% cite Stroustrup2018-Ch2 %}}
+
 ## Concrete Types
 
 The basic idea of concrete classes is that they behave "just like
@@ -697,6 +725,14 @@ function. But there's a difference, the derived class indeed can't
 {{% /comment %}}
 
 ## References
+
+1. {{< citation
+  id="Stroustrup2018-Ch2"
+  title="A Tour of C++ (Second Edition)"
+  sub-title="Chapter 2. User-Defined Types"
+  author="Bjarne Stroustrup"
+  isbn="978-0-13-499783-4"
+  year="2018" >}}
 
 1. {{< citation
   id="Stroustrup2018-Ch4"
