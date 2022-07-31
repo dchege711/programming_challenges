@@ -28,11 +28,13 @@ helper function to convert from the 2D coordinates to the corresponding
 
 ## Counting Unique Paths
 
+### Moving Down/Right
+
 > Starting from the top-left corner, what is the number of possible
 > unique paths to reach the bottom-right corner, if you can only move
 > either down or right at any point in time? {{% cite LCUniquePaths %}}
 
-### Dynamic Programming Solution
+#### Dynamic Programming Solution for Moving Down/Right
 
 {{% tag dynamic-programming %}}
 
@@ -45,21 +47,21 @@ the left, so if we update our values left-to-right, we can use \\(n\\)
 space.
 
 ```cpp
-int unique_paths(int m, int n) {
+int uniquePaths(int m, int n) {
   if (m <= 0 || n <= 0) return 0;
 
-  std::vector<int> num_paths_to_position(n, 0);
-  num_paths_to_position[0] = 1;
+  std::vector<int> numPathsToPosition(n, 0);
+  numPathsToPosition[0] = 1;
 
   for (int r = 0; r < m; ++r) {
     for (int c = 0; c < n; ++c) {
-      if (int next_c = c + 1; next_c < n) {
-          num_paths_to_position[next_c] += num_paths_to_position[c];
+      if (int nextC = c + 1; nextC < n) {
+          numPathsToPosition[nextC] += numPathsToPosition[c];
       }
     }
   }
 
-  return num_paths_to_position[n-1];
+  return numPathsToPosition[n-1];
 }
 ```
 
@@ -88,7 +90,7 @@ uses 32-bit `int`s. Update: no improvement, both `sizeof(int)` and
 
 {{% /comment %}}
 
-### Combinatorics Solution
+#### Combinatorics Solution for Moving Down/Right
 
 {{% tag combinatorics %}}
 
@@ -146,7 +148,7 @@ is defined such that \\(n \le 100\\), which is close to \\(O(1)\\).
 
 {{% /comment %}}
 
-### Takeaways
+#### Takeaways
 
 I was wrong to earlier assume that because other people's solutions were
 within one magnitude of 6MB, the DP solution was the optimal one.
@@ -155,6 +157,66 @@ sub-optimal solutions.
 
 The regularity of the problem (well-defined grid; only moving
 right/down) should hint at a (probably optimal) math-based answer.
+
+### Moving Down/Right With Obstacles
+
+> Starting from the top-left corner, what is the number of possible
+> unique paths to reach the bottom-right corner, if you can only move
+> either down or right at any point in time, and the path cannot include
+> any square that is an obstacle? {{% cite LCUniquePathsII %}}
+
+The addition of obstacles has these implications:
+
+* I can't use the combinatorics formula because the problem is no longer
+  easy to define in general terms.
+* The logic in the inner loop of the DP solution needs to take the
+  obstacles into account.
+
+{{% tag dynamic-programming %}}
+
+```cpp
+int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+  if (obstacleGrid[0][0] == 1) return 0;
+
+  const int m = obstacleGrid.size();
+  const int n = obstacleGrid[0].size();
+
+  std::vector<int> numPathsToPosition(n, 0);
+  numPathsToPosition[0] = 1;
+
+  for (int r = 0; r < m; r++) {
+    for (int c = 0; c < n; c++) {
+      if (int nextC = c + 1; nextC < n) {
+        if (obstacleGrid[r][nextC] == 1) {
+          numPathsToPosition[nextC] = 0;
+        } else {
+          numPathsToPosition[nextC] += numPathsToPosition[c];
+        }
+      }
+
+      if (int nextR = r + 1; nextR < m && obstacleGrid[nextR][0] == 1) {
+        numPathsToPosition[0] = 0;
+      }
+    }
+  }
+
+  return numPathsToPosition[n-1];
+}
+```
+
+The time and space usage is the same as the [earlier DP
+solution](#dynamic-programming-solution-for-moving-downright):
+\\(O(m n)\\) running time, and \\(O(n)\\) space usage. I don't think we
+can do better.
+
+{{% comment %}}
+
+Curiously, the reference solution for {{% cite LCUniquePathsII %}} uses
+\\(O(1)\\) space by modifying the input `vector<vector<int>>&`. I did
+not consider this as an option; I assumed the input should remain
+unchanged (despite it not being a const-ref).
+
+{{% /comment %}}
 
 ## References
 
@@ -183,3 +245,10 @@ right/down) should hint at a (probably optimal) math-based answer.
   title="✅ [C++/Python] 5 Simple Solutions w/ Explanation | Optimization from Brute-Force to DP to Math - LeetCode Discuss"
   url="https://leetcode.com/problems/unique-paths/discuss/1581998/C%2B%2BPython-4-Simple-Solutions-w-Explanation-or-Optimization-from-Brute-Force-to-DP-to-Math"
   accessed="2022-07-30" >}}
+
+1. {{< citation
+  id="LCUniquePathsII"
+  title="Unique Paths II (Medium) - LeetCode"
+  url="https://leetcode.com/problems/unique-paths-ii/"
+  url_2="https://leetcode.com/submissions/detail/761291032/"
+  accessed="2022-07-31" >}}
