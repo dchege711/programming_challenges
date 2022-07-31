@@ -3,6 +3,8 @@ date: 2022-07-30
 domains:
 - en.cppreference.com
 - leetcode.com
+- math.stackexchange.com
+- proofwiki.org
 local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/traversing-grids/
 tags:
 - combinatorics
@@ -110,13 +112,44 @@ algebraically. It's not a special property of the problem.
 
 Assuming \\(m > n\\) in order to eliminate \\((m-1)!\\) gives us:
 
-$$ C_{m-1}^{m+n-2} = \frac{(m+n-2) \times (m+n-3) \times (m+n) \times ... \times (m+n-n) \times (m-1) \times ... \times 1 }{ ((m-1) \times (m-2) \times ... \times 1) (n-1)!} $$
-$$ = \frac{(m+n-2) \times (m+n-3) \times (m+n) \times ... \times m}{(n-1)!} $$
+$$ C_{m-1}^{m+n-2} = \frac{(m+n-2) \times (m+n-3) \times ... \times (m+n-n) \times (m-1) \times ... \times 1 }{ ((m-1) \times (m-2) \times ... \times 1) (n-1)!} $$
+$$ = \frac{(m+n-2) \times (m+n-3) \times ... \times m}{(n-1)!} $$
 
 {{% open-comment %}}
 
-How is the above guaranteed to be an integer? My combinatorics
-fundamentals are missing.
+How is the above guaranteed to be an integer?
+
+By definition, \\(C^{n}_{k}\\) counts something, and therefore it's an
+integer. {{% cite SECombinationIsAnInteger %}}
+
+From {{% cite proofWikiBinomialCoefficientInteger %}}:
+
+$$ C^{n}_{k} = \binom{n}{k} = \frac{n}{k!(n-k)!} $$
+$$ = \frac{n (n-1) (n-2) ... (n - k + 1)}{k!} $$
+
+... the numerator is a product of \\(k\\) successive integers, and {{%
+cite proofWikiBFactorialDividesProductOfSuccessiveNumbers %}} (whose
+proof is beyond my mathematical maturity) states that the factorial of
+\\(k\\) divides the product of \\(k\\) successive numbers.
+
+The mathematical aspect is settled, but why does the code before work
+without running into precision errors? Shouldn't we first compute the
+numerator, and then divide out the denominator? Dividing integral types
+is pretty bad as it truncates the result.
+
+The largest numerator possible is when \\(m = 100, n = 100\\), which is
+\\(198 \cdot 197 \cdot ... \cdot 100 = \frac{198!}{99!} < 2^{712}\\).
+The largest ints in {{% cite cppReferenceFundamentalTypes %}} are 64
+bits wide, and thus too small to hold \\(2^{712}\\). `long double`'s max
+is \\(1.18973 \cdot 10^{4932}\\), which can hold \\(2^{712} < 2.155
+\cdot 10^{214}\\), but with loss of precision. To use a `long double`
+without losing precision, then we're limited by `LDBL_MANT_DIG`, which
+is typically `64`, and thus not better than the biggest `int` from the
+standard library. {{% cite cppReferenceNumericLimits %}}
+
+Maybe the takeaway is that if you're worried about large numbers
+(factorials and such), use a language that natively supports
+infinite-precision arithmetic, e.g. Python?
 
 {{% /open-comment %}}
 
@@ -251,4 +284,29 @@ unchanged (despite it not being a const-ref).
   title="Unique Paths II (Medium) - LeetCode"
   url="https://leetcode.com/problems/unique-paths-ii/"
   url_2="https://leetcode.com/submissions/detail/761291032/"
+  accessed="2022-07-31" >}}
+
+1. {{< citation
+  id="SECombinationIsAnInteger"
+  title="elementary number theory - Proof that a Combination is an integer - Mathematics Stack Exchange"
+  url="https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer"
+  accessed="2022-07-31" >}}
+
+1. {{< citation
+  id="proofWikiBinomialCoefficientInteger"
+  title="Binomial Coefficient is Integer - ProofWiki"
+  url="https://proofwiki.org/wiki/Binomial_Coefficient_is_Integer"
+  accessed="2022-07-31" >}}
+
+1. {{< citation
+  id="proofWikiBFactorialDividesProductOfSuccessiveNumbers"
+  title="Factorial Divides Product of Successive Numbers - ProofWiki"
+  url="https://proofwiki.org/wiki/Factorial_Divides_Product_of_Successive_Numbers"
+  accessed="2022-07-31" >}}
+
+1. {{< citation
+  id="cppReferenceNumericLimits"
+  title="std::numeric_limits - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/types/numeric_limits"
+  url_2="https://en.cppreference.com/w/cpp/types/climits"
   accessed="2022-07-31" >}}
