@@ -350,6 +350,15 @@ bit-masking for any \\(MN\\), instead of only using it for \\(MN \le
 
 {{% /comment %}}
 
+{{% comment %}}
+
+C++'s `std::bitset` needs to have its number of bits specified at
+compile time. For a variable number of bits, `std::vector<bool>` is
+recommended. {{% cite cppReferenceBitset %}} In this case though, a
+`std::bitset<20> visited` is sufficient.
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -422,3 +431,9 @@ bit-masking for any \\(MN\\), instead of only using it for \\(MN \le
   title="✅ [C++] DFS + Backtracking + Bit Manipulation | Short & Simple w/ Explanation | Beats 100% - LeetCode Discuss"
   url="https://leetcode.com/problems/unique-paths-iii/discuss/1554054/C%2B%2B-DFS-%2B-Backtracking-%2B-Bit-Manipulation-or-Short-and-Simple-w-Explanation-or-Beats-100"
   accessed="2022-07-31" >}}
+
+1. {{< citation
+  id="cppReferenceBitset"
+  title="std::bitset<N>::bitset - cppreference.com"
+  url="https://en.cppreference.com/w/cpp/utility/bitset/bitset"
+  accessed="2022-08-02" >}}
