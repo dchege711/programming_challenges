@@ -1,6 +1,16 @@
 ---
-title: "Sorting and Searching"
+authors:
+- Arjomandi, E.
+- Mirzaian, A.
 date: 2022-08-01
+domains:
+- en.cppreference.com
+- leetcode.com
+- www.cse.yorku.ca
+local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/sorting-and-searching/
+publications:
+- Information Processing Letters
+title: Sorting and Searching
 ---
 
 ## Order Statistics
