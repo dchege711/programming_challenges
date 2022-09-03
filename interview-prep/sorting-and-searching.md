@@ -93,7 +93,7 @@ have a meaningful result for `infinity()`. {{% cite cppReferenceInfinity
 
 DFS as described above doesn't work. While \\(1 \le k \le N^2\\), the
 longest path from going down/right is \\(N + N - 1 = 2N - 1 \le N^2,
-\ \ \forall N \in [1, 300]\\).
+\ \ \forall N \ge 1\\).
 
 {{% comment %}}
 
