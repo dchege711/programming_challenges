@@ -515,7 +515,7 @@ Till now, I thought `c2 :: [a]` was a good old list!
 {{% comment %}}
 
 Forums say that the Spring 2013 version of CIS 194 is the best one. I
-find the writings of [Brent Yorgey]({{< ref "/authors/yorgey-brent"
+find the writings of [Brent Yorgey]({{< ref "/cited-authors/yorgey-brent"
 >}}), the Spring 2013 instructor, clearer.
 
 {{% /comment %}}
