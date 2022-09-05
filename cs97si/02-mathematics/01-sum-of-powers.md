@@ -5,6 +5,7 @@ date: '2020-06-20'
 domains:
 - brilliant.org
 - stanford.edu
+local_url: http://localhost:1313/computer-science/programming-challenges/cs97si/02-mathematics/01-sum-of-powers/
 title: 01. Sum of Powers
 ---
 
