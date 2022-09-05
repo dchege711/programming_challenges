@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Yorgey, Brent
 date: 2022-02-18
 domains:

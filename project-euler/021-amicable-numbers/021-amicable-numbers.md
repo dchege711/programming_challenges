@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Caldwell, Chris K.
 - Yorgey, Brent
 date: 2021-02-06

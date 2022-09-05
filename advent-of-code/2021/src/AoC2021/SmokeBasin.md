@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Dev, BOC
 - Gill, Andy
 - Hidding, Johan

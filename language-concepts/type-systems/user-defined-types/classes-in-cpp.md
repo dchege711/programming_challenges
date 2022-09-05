@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Conway, Damian
 - Liskov, Barbara
 - Stroustrup, Bjarne

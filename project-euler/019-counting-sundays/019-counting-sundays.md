@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Edlund, Kristian
 - Eisele, Robert
 date: 2022-01-07

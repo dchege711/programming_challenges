@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Mazon, Jean-Baptiste
 date: 2022-03-07
 domains:
@@ -17,7 +17,7 @@ weight: 26
 --  The `(..)` syntax represents all of the constructors for the data type. [1]
 --  Without that export, we can pattern-match in BinaryDiagnostic.hs because we
 --  run into a "Not in scope: data constructor ‘BinaryDiagnostics’" error.
--- 
+--
 --  [1]: https://stackoverflow.com/a/34548070/7812406
 module AoC2021InputParser
   ( parseBinaryDiagnosticInput,
@@ -57,7 +57,7 @@ import qualified Data.Massiv.Core as MassivCore (Comp(Seq))
 --  The `Numeric` module has a `readBin` function [1], but for some reason, I get
 --  a "Variable not in scope: readBin" error. However, `readDec`, `readOct` and
 --  `readHex` work...
--- 
+--
 --  [1]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Numeric.html#v:readBin
 readBin' :: String -> Int
 readBin' binString = fst $ foldr f (0, 1) binString

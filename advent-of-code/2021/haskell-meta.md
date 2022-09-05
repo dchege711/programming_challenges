@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Breitner, Joachim
 - Hidding, Johan
 - Karpov, Mark

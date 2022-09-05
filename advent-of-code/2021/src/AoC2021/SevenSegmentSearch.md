@@ -3,7 +3,7 @@ affiliations:
 - Columbia University
 - Sandia Laboratory
 - Semantic Designs
-authors:
+cited-authors:
 - Gill, Andy
 - Mazon, Jean-Baptiste
 - Morrison, Donald R

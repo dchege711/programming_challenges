@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Arjomandi, E.
 - Mirzaian, A.
 date: 2022-08-01

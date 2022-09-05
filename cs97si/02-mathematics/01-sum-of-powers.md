@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Park, Jaehyun
 date: '2020-06-20'
 domains:

@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Stroustrup, Bjarne
 date: 2022-06-04
 domains:

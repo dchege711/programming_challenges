@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Stroustrup, Bjarne
 - Yorgey, Brent
 date: 2022-05-30

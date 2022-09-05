@@ -1,5 +1,5 @@
 ---
-authors:
+cited-authors:
 - Stroustrup, Bjarne
 date: 2022-05-31
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/
