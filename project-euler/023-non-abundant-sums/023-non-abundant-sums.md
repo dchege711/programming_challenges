@@ -2,8 +2,10 @@
 date: 2023-02-19
 domains:
 - docs.python.org
+- mathworld.wolfram.com
 - projecteuler.net
 - wiki.python.org
+- www.hackerrank.com
 local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/023-non-abundant-sums/023-non-abundant-sums/
 title: 023. Non-Abundant Sums
 weight: 23
@@ -222,6 +224,68 @@ expensive.
 Not the \\(50\\%\\) boost I anticipated, but \\(27\\%\\) is good enough?
 I wasn't expecting the code to be an order of magnitude faster.
 
+## Learning from Others
+
+{{% cite HackerRankPE023 %}} has a variation of this problem, where
+given a list of numbers, print `YES` if the number can be written as the
+sum of two abundant numbers, and `NO` otherwise. Caching
+`abundant_sums_less_than_K` is important to avoid repeated work.
+
+```py
+if __name__ == "__main__":
+  K = 28123
+  abundant_sums_less_than_K = pairwise_sums(generate_abundant_nums(1, K - 1), K)
+
+  num_test_cases = int(input().strip())
+  for _ in range(num_test_cases):
+      N = int(input().strip())
+      if N > K or N in abundant_sums_less_than_K: print("YES")
+      else: print("NO")
+```
+
+{{% cite WolframAbundantNumber %}} notes that every number greater than
+\\(20,161\\) can be expressed as a sum of two abundant numbers. This
+improves on {{% cite ProjectEuler023 %}}'s floor of \\(28,123\\). With
+this info, we go down to \\(1.833s\\) and \\(6,282,406\\) function
+calls.
+
+{{% cite ProjectEuler023ThreadTherryka %}}'s Python solution runs in
+\\(0.512s\\) (\\(-85.59\\%\\)), and with \\(140,563\\) function calls
+(\\(-98.85\\%\\)). The special sauce is in avoiding `pairwise_sums`:
+
+{{< readfile
+  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums_deluxe_therryka.py`
+  highlight="python"
+  id="PE023PyDeluxeTherryka" >}}
+
+The perf is comparable to {{% cite ProjectEuler023ThreadTherryka %}}:
+
+```log
+4179871.0
+         35094 function calls in 0.578 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.395    0.395    0.578    0.578 non_abundant_sums_deluxe_therryka.py:8(sum_of_non_abundant_sums)
+    28122    0.176    0.000    0.176    0.000 non_abundant_sums.py:8(sum_of_proper_divisors)
+     6966    0.006    0.000    0.182    0.000 non_abundant_sums.py:29(generate_abundant_nums)
+        1    0.001    0.001    0.183    0.183 {built-in method builtins.sorted}
+        1    0.000    0.000    0.578    0.578 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.578    0.578 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+```
+
+{{% comment %}}
+
+{{% cite ProjectEuler023ThreadTherryka %}} did not cross my mind at all.
+Probably because I tunnel-visioned myself into thinking about
+monotonically increasing grid traversals? That sounded math-like, and
+given I'm on Project Euler, the more math the better?
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -234,4 +298,23 @@ I wasn't expecting the code to be an order of magnitude faster.
   id="PythonGenerators"
   title="Generators - Python Wiki"
   url="https://wiki.python.org/moin/Generators"
+  accessed="2023-02-20" >}}
+
+1. {{< citation
+  id="HackerRankPE023"
+  title="Project Euler #23: Non-abundant sums | HackerRank"
+  url="https://www.hackerrank.com/contests/projecteuler/challenges/euler023/problem"
+  url_2="https://www.hackerrank.com/contests/projecteuler/challenges/euler023/submissions/code/1356679785"
+  accessed="2023-02-20" >}}
+
+1. {{< citation
+   id="WolframAbundantNumber"
+   title="Abundant Number -- from Wolfram MathWorld"
+   url="https://mathworld.wolfram.com/AbundantNumber.html"
+   accessed="2023-02-20" >}}
+
+1. {{< citation
+  id="ProjectEuler023ThreadTherryka"
+  title="Thread 23 - Project Euler"
+  url="https://projecteuler.net/thread=23;page=8#411899"
   accessed="2023-02-20" >}}
