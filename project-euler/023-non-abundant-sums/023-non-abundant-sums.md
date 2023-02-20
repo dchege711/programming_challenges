@@ -3,6 +3,7 @@ date: 2023-02-19
 domains:
 - docs.python.org
 - projecteuler.net
+- wiki.python.org
 local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/023-non-abundant-sums/023-non-abundant-sums/
 title: 023. Non-Abundant Sums
 weight: 23
@@ -108,6 +109,119 @@ uniformly spread out in \\([2, ..., 2N]\\), and therefore \\(\approx
 
 {{% /open-comment %}}
 
+## Generating Monotonically Increasing Pairwise Sums
+
+Given a list \\(A = [a_1, a_2, ..., a_n]\\), how can one generate all
+\\(s\\), where \\(s = a_i + a_j\\) and \\(s \le k\\)?
+
+The first order of business is sorting \\(A\\) because without some
+order in \\(A\\), we can't possibly produce monotonically increasing
+sums.
+
+A sample grid to help visualize the problem:
+
+|          |          |          |          |          |          |          |          |
+|     ---- |     ---- |     ---- |     ---- |     ---- |     ---- |     ---- |     ---- |
+|        - |    **1** |    **4** |    **5** |    **8** |  **100** | **1000** | **1001** |
+|    **1** |    **2** |        5 |        6 |        9 |      101 |     1001 |     1002 |
+|    **4** |        5 |    **8** |        9 |       12 |      104 |     1004 |     1005 |
+|    **5** |        6 |        9 |   **10** |       13 |      105 |     1005 |     1006 |
+|    **8** |        9 |       12 |       13 |   **16** |      108 |     1008 |     1009 |
+|  **100** |      101 |      104 |      105 |      108 |  **200** |     1100 |     1101 |
+| **1000** |     1001 |     1004 |     1005 |     1008 |     1100 | **2000** |     2001 |
+| **1001** |     1002 |     1005 |     1006 |     1009 |     1101 |     2001 | **2002** |
+
+The grid is reflected across the diagonal because addition is
+commutative (\\( a + b = b + a\\)). So as far as unique sums are
+concerned exploring either the upper or lower triangle should lead to
+the same result.
+
+For convenience, evaluating the lower triangle. On each row, the max is
+in the right-most cell, and the min is in the left-most cell. However,
+given rows \\(r_i\\) and \\(r_{i+1}\\), it's not always the case that
+all of \\(r_i\\)'s cells have lower values than those in \\(r_{i+1}\\)'s
+cells.
+
+While I can't devise a monotonically increasing traversal path in the
+grid, there are perf improvements to be made from limiting what we
+evaluate on row of the lower triangle.
+
+{{% comment %}}
+
+The usage of generators tripped me up:
+
+```py
+def unsorted_gen():
+  for x in (1, 4, 3, 2, 5):
+    yield x
+
+def sorted_gen():
+  for x in range(1, 6):
+    yield x
+
+def pairs_with_replacement(iterable):
+  for a in iterable:
+    for b in iterable:
+      yield (a, b)
+
+if __name__ == "__main__":
+  print(len(list(pairs_with_replacement(sorted_gen())))) # 6
+  print(len(list(pairs_with_replacement(unsorted_gen())))) # 4
+  print(len(list(pairs_with_replacement(sorted(unsorted_gen()))))) # 25
+```
+
+In hindsight, this makes sense because generators visit any given value
+at most once. However, given a generator, `pairs_with_replacement` tries
+to loop over it twice, which is impossible. This code avoids the bug:
+
+```py
+def pairs_with_replacement(iterable):
+  iterable = sorted(iterable)
+  for a in iterable:
+    for b in iterable:
+      yield (a, b)
+```
+
+The additional memory usage is necessary for correctness.
+
+TIL that `range` returns a `list`, while `xrange` returns a generator,
+and therefore `xrange` is more memory-efficient.
+
+{{% cite PythonGenerators %}}
+
+{{% /comment %}}
+
+{{< readfile
+  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums_deluxe.py`
+  highlight="python"
+  id="PE023PyDeluxe" >}}
+
+The perf profile shows that the total time in `pairwise_sums` decreased
+by \\(.915s \approx 27\\%\\). The additional `sort` call was not even
+expensive.
+
+```log
+4179871.0
+         12183910 function calls in 3.554 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    2.442    2.442    3.552    3.552 non_abundant_sums_deluxe.py:8(pairwise_sums)
+ 12148815    0.931    0.000    0.931    0.000 {method 'add' of 'set' objects}
+    28122    0.172    0.000    0.172    0.000 non_abundant_sums.py:8(sum_of_proper_divisors)
+     6966    0.006    0.000    0.178    0.000 non_abundant_sums.py:29(generate_abundant_nums)
+        1    0.002    0.002    3.554    3.554 non_abundant_sums_deluxe.py:33(sum_of_non_abundant_sums)
+        1    0.001    0.001    0.179    0.179 {built-in method builtins.sorted}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    3.554    3.554 {built-in method builtins.exec}
+        1    0.000    0.000    3.554    3.554 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+```
+
+Not the \\(50\\%\\) boost I anticipated, but \\(27\\%\\) is good enough?
+I wasn't expecting the code to be an order of magnitude faster.
+
 ## References
 
 1. {{< citation
@@ -115,3 +229,9 @@ uniformly spread out in \\([2, ..., 2N]\\), and therefore \\(\approx
   title="importlib — The implementation of import — Python 3.11.2 documentation"
   url="https://docs.python.org/3/library/importlib.html#importing-a-source-file-directly"
   accessed="2023-02-19" >}}
+
+1. {{< citation
+  id="PythonGenerators"
+  title="Generators - Python Wiki"
+  url="https://wiki.python.org/moin/Generators"
+  accessed="2023-02-20" >}}
