@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import cProfile
+from pstats import SortKey
+
 from itertools import combinations_with_replacement
 
 def sum_of_proper_divisors(n):
@@ -30,6 +33,19 @@ def generate_abundant_nums(lo, hi):
     for n in range(lo, hi + 1):
         if sum_of_proper_divisors(n) > n: yield n
 
+def pairwise_sums(nums, N):
+    """
+    Given nums like [1, 4, 6], return unique sums like [2, 5, 7, 8, 10, 12].
+    Sums that are greater than N are excluded.
+    """
+    sums = set([])
+    for (a, b) in combinations_with_replacement(nums, 2):
+        n = a + b
+        if n > N: continue
+        else: sums.add(n)
+
+    return sums
+
 def sum_of_non_abundant_sums():
     """
     Solution for https://projecteuler.net/problem=23
@@ -42,17 +58,11 @@ def sum_of_non_abundant_sums():
 
     # Generate all numbers that can be expressed as the sum of two abundant
     # numbers. Stop at 28124 because beyond that is a futile exercise.
-    abundant_sums = set([])
     abundant_nums = generate_abundant_nums(1, N - 1)
-    for (a, b) in combinations_with_replacement(abundant_nums, 2):
-        n = a + b
-        if n > N: continue
-        else: abundant_sums.add(n)
-
-    for n in abundant_sums:
+    for n in pairwise_sums(abundant_nums, N):
         ans -= n
 
     return ans
 
 if __name__ == "__main__":
-    print(sum_of_non_abundant_sums())
+    cProfile.run("print(sum_of_non_abundant_sums())", sort=SortKey.TIME)

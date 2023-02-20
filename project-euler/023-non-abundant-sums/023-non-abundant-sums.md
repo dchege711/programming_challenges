@@ -69,8 +69,44 @@ With [`sum_of_proper_divisors(n)` from PE 021]({{< ref
   highlight="python"
   id="PE023BruteForcePy" >}}
 
-From `time ./brute_force_non_abundant_sums.py`, the script takes
-\\(\approx 3.2s\\) to generate the answer.
+Performance-wise:
+
+```log
+4179871.0
+         12183909 function calls in 4.462 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    3.357    3.357    4.460    4.460 brute_force_non_abundant_sums.py:36(pairwise_sums)
+ 12148815    0.924    0.000    0.924    0.000 {method 'add' of 'set' objects}
+    28122    0.172    0.000    0.172    0.000 brute_force_non_abundant_sums.py:8(sum_of_proper_divisors)
+     6966    0.006    0.000    0.179    0.000 brute_force_non_abundant_sums.py:29(generate_abundant_nums)
+        1    0.002    0.002    4.462    4.462 brute_force_non_abundant_sums.py:49(sum_of_non_abundant_sums)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    4.462    4.462 {built-in method builtins.exec}
+        1    0.000    0.000    4.462    4.462 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+```
+
+How much better can `pairwise_sums` get? Well, `nums` is \\(O(N)\\), and
+\\(\_{N}C_{2} = \frac{N \cdot (N-1)}{2 \cdot 1} = O(N^2)\\). Although
+generating the pairwise sums in a monotonically increasing order can
+avoid generating \\(n > N\\), the overall runtime will still be
+\\(O(N^2)\\). How much additional work are we doing anyway? Logging
+shows that \\(\approx 50\\%\\) of the sums generated greater than
+\\(N\\), and so a better `pairwise_sums` should shave about half of the
+total running time. That's an optimization worth pursuing.
+
+{{% open-comment %}}
+
+Why logging gave a quick and precise answer, is this hand-waving
+correct? Assuming that the abundant nums are more or less uniformly
+spread out in \\([1, ...,  N]\\), their pairwise sums should also be
+uniformly spread out in \\([2, ..., 2N]\\), and therefore \\(\approx
+50\\%\\) of the sums will be greater than \\(N\\).
+
+{{% /open-comment %}}
 
 ## References
 
