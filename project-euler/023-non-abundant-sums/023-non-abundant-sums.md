@@ -65,7 +65,7 @@ With [`sum_of_proper_divisors(n)` from PE 021]({{< ref
 >}}), a brute-force algorithm is:
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/brute_force_non_abundant_sums.py`
+  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums.py`
   highlight="python"
   id="PE023BruteForcePy" >}}
 
