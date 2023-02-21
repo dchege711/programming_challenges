@@ -35,7 +35,7 @@ make it feasible to solve by hand. Will solve this in Haskell to
 continue learning more about functional programming.
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/022-name-scores/name_scores.hs`
+  file=`content/computer-science/programming-challenges/project_euler/name_scores/name_scores.hs`
   highlight="haskell" >}}
 
 ## Learning from Others' Solutions

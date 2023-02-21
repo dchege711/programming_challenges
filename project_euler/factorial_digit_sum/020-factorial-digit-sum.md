@@ -106,7 +106,7 @@ efficiently. I think that's pretty cool. Python's REPL is the closest
 that I've come to such a development environment.
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/020-factorial-digit-sum/factorial_digit_sum.lisp`
+  file=`content/computer-science/programming-challenges/project_euler/factorial_digit_sum/factorial_digit_sum.lisp`
   highlight="lisp" >}}
 
 Emacs + Slime has a steep learning curve. The keyboard bindings are

@@ -17,9 +17,9 @@ weight: 1
 
 Objective: Get better at Haskell, and at functional programming in
 general. Picks up from Haskell learnings in [Project Euler 021]({{< ref
-"/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers"
+"/computer-science/programming-challenges/project_euler/amicable_numbers/021-amicable-numbers"
 >}}) and [Project Euler 022]({{< ref
-"/computer-science/programming-challenges/project-euler/022-name-scores/022-name-scores">}}).
+"/computer-science/programming-challenges/project_euler/name_scores/022-name-scores">}}).
 
 The source code is [available on
 Github](https://github.com/dchege711/programming_challenges/tree/master/advent-of-code/2021).

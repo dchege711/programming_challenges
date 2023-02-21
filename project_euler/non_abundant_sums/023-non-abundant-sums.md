@@ -64,11 +64,11 @@ To refresh the contents after editing the file:
 {{% /comment %}}
 
 With [`sum_of_proper_divisors(n)` from PE 021]({{< ref
-"/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers#computing-sumofproperdivisors-efficiently"
+"/computer-science/programming-challenges/project_euler/amicable_numbers/021-amicable-numbers#computing-sumofproperdivisors-efficiently"
 >}}), a brute-force algorithm is:
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums.py`
+  file=`content/computer-science/programming-challenges/project_euler/non_abundant_sums/non_abundant_sums.py`
   highlight="python"
   id="PE023BruteForcePy" >}}
 
@@ -194,7 +194,7 @@ and therefore `xrange` is more memory-efficient.
 {{% /comment %}}
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums_deluxe.py`
+  file=`content/computer-science/programming-challenges/project_euler/non_abundant_sums/non_abundant_sums_deluxe.py`
   highlight="python"
   id="PE023PyDeluxe" >}}
 
@@ -254,7 +254,7 @@ calls.
 (\\(-98.85\\%\\)). The special sauce is in avoiding `pairwise_sums`:
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/023-non-abundant-sums/non_abundant_sums_deluxe_therryka.py`
+  file=`content/computer-science/programming-challenges/project_euler/non_abundant_sums/non_abundant_sums_deluxe_therryka.py`
   highlight="python"
   id="PE023PyDeluxeTherryka" >}}
 

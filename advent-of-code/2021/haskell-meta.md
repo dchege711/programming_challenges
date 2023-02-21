@@ -142,7 +142,7 @@ so that's promising!
 ## Literate Programming
 
 Literate Haskell [intrigued me]({{< ref
-"/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers#PE021Haskell"
+"/computer-science/programming-challenges/project_euler/amicable_numbers/021-amicable-numbers#PE021Haskell"
 >}}), but I don't use it much because it's not well-integrated into VS
 Code's intellisense and linting extensions.
 

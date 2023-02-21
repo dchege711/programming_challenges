@@ -5,26 +5,7 @@ from pstats import SortKey
 
 from itertools import combinations_with_replacement
 
-def sum_of_proper_divisors(n):
-    if n == 0: return 0
-    orig_n = n
-    s, factor = 1, 2
-    while factor * factor <= n and n > 1: # We only need to check up to sqrt(n)
-        multiplicity = 0
-        while n % factor == 0:
-            n /= factor
-            multiplicity += 1
-
-        if multiplicity > 0:
-            s *= (factor ** (multiplicity + 1) - 1) / (factor - 1)
-
-        factor = 3 if factor == 2 else factor + 2
-
-    # Account for any remaining prime factor greater than sqrt(n). There will be
-    # at most one such factor. (n^2 - 1) / (n-1) simplifies to (n + 1).
-    if n > 1: s *= (n + 1)
-
-    return s - orig_n
+from project_euler.amicable_numbers.amicable_numbers_deluxe import sum_of_proper_divisors
 
 def generate_abundant_nums(lo, hi):
     """

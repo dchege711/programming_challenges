@@ -10,7 +10,7 @@ domains:
 - www.khanacademy.org
 - www.mathblog.dk
 - www.xarg.org
-local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/019-counting-sundays/019-counting-sundays/
+local_url: http://localhost:1313/computer-science/programming-challenges/project_euler/counting-sundays/019-counting-sundays/
 tags:
 - cpp
 title: 019. Counting Sundays
@@ -42,7 +42,7 @@ century (1 Jan 1901 to 31 Dec 2000)?
 
 ### Programmatic Attempt
 
-{{< readfile file="content/computer-science/programming-challenges/project-euler/019-counting-sundays/counting_sundays.cc" highlight="cpp" >}}
+{{< readfile file="content/computer-science/programming-challenges/project_euler/counting_sundays/counting_sundays.cc" highlight="cpp" >}}
 
 Tried setting up a C++ build, like the one used in [the Chromium
 Project](https://www.chromium.org/Home). Setting up

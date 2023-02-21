@@ -14,7 +14,7 @@ domains:
 - www.haskell.org
 - www.schoolofhaskell.com
 - www.seas.upenn.edu
-local_url: http://localhost:1313/computer-science/programming-challenges/project-euler/021-amicable-numbers/021-amicable-numbers/
+local_url: http://localhost:1313/computer-science/programming-challenges/project_euler/amicable_numbers/021-amicable-numbers/
 tags:
 - haskell
 - programming-environment
@@ -67,7 +67,7 @@ and whistles for interactive programming.
 {{% /comment %}}
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/021-amicable-numbers/amicable_numbers.lhs`
+  file=`content/computer-science/programming-challenges/project_euler/amicable_numbers/amicable_numbers.lhs`
   highlight="haskell"
   id="PE021Haskell" >}}
 
@@ -159,7 +159,7 @@ fact that if \\(i : i \le \lfloor \sqrt{n} \rfloor \\) is a divisor, then
 have even numbers as divisors. {{% cite ProjectEuler021Solutions %}}
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/021-amicable-numbers/amicable_numbers_deluxe.hs`
+  file=`content/computer-science/programming-challenges/project_euler/amicable_numbers/amicable_numbers_deluxe.hs`
   highlight="haskell"
   id="PE021HaskellOptimizedSumDivisorsLoop" >}}
 
@@ -195,7 +195,7 @@ and therefore the sum of its proper divisors is:
 $$ \left( \frac{2^3 - 1}{1} \cdot \frac{5^2 - 1}{4} \cdot \frac{11^2 - 1}{10} \right) - 220 = 284 $$
 
 {{< readfile
-  file=`content/computer-science/programming-challenges/project-euler/021-amicable-numbers/amicable_numbers_deluxe.py`
+  file=`content/computer-science/programming-challenges/project_euler/amicable_numbers/amicable_numbers_deluxe.py`
   highlight="python" >}}
 
 {{% open-comment %}}
