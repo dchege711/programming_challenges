@@ -3,8 +3,6 @@ title: Server Logs
 date: 2024-03-27
 ---
 
-## Logging Providers
-
 The app is [hosted at
 render.com](https://dashboard.render.com/web/srv-cdb17nqen0hldb3lqj6g),
 and Render suggests [several options for
@@ -46,4 +44,18 @@ tier](https://www.sumologic.com/pricing/#get-what-you-need-for-monitoring-troubl
 has daily limits of 1GB logs, 3k DPM metrics, 1.5GB of traces.
 
 Datadog is out for being vague with pricing and rumored to be expensive.
-Papertrail costs money, and the flashcard app does not make money.
+Papertrail costs money, and the flashcard app does not make money. Sumo
+Logic seems like the clear winner with their generous free tier, [or
+maybe
+not](https://www.reddit.com/r/devops/comments/12jhxbg/grafana_to_sumologic_pricing/)?
+
+[The Complete Guide to the ELK
+Stack](https://logz.io/learn/complete-guide-elk-stack/#what-elk-stack)
+summarizes the state of self-hosted open-source logging solutions. The
+ELK stack combines Elasticsearch ( a full-text search and analysis
+engine), Logstash (a log aggregator), and Kibana (a visualization
+layer). In 2021, Elastic made the ELK stack no longer open source,
+prompting AWS's OpenSearch and OpenSearch Dashboards.
+
+The main motivation for collecting logs today is to find out when users
+tend to log in, and thus reduce the cold start.
