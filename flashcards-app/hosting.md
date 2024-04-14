@@ -91,3 +91,35 @@ post](https://stackoverflow.com/a/75680364), we created a cron job at
 [https://cards.c13u.com/wiki](https://cards.c13u.com/wiki) every 14min.
 \\(31 \times 25 = 775\\) which means the app will be down on the 31st of
 every month.
+
+## Moving `cards.c13u.com` to `cards.curiosities.dev`
+
+[http://www.c13u.com/](http://www.c13u.com/) issues a 302 redirect to
+[http://www.curiosities.dev](http://www.curiosities.dev). This is fine
+because both are static sites that don't need user authentication.
+`c13u.com` costs $12/year and so does `curiosities.dev`. `c13u.com`'s
+registration renews in May.
+
+Should I transition in one month, or should I transition by May 2025?
+The site doesn't have many users, so a month-long transition should
+suffice. Tentative transition plan:
+
+1. Host second app instance at `cards.curiosities.dev`.
+2. Have a banner at `cards.c13u.com` indicating that on May 13th,
+  `cards.c13u.com` will not work.
+3. Shut down `cards.c13u.com` on May 13th.
+4. Let `c13u.com` registration expire.
+
+Render makes step #1 easy. It's a matter of pointing
+`cards.curiosities.dev` to `flashcards-k0u4.onrender.com` via `CNAME`
+record. A [Canonical Name (CNAME)
+record](https://en.wikipedia.org/wiki/CNAME_record) maps one domain name
+(an alias) to another (the canonical name). In this case, in an Address
+(A) record lookup for `cards.curiosities.dev` the resolver will see
+`flashcards-k0u4.onrender.com` and restart the checking at
+`flashcards-k0u4.onrender.com` where an `A` record managed by Render
+will provide an IP address where the app is hosted. So there is no
+second app instance at `cards.curiosities.dev`; it's mostly DNS-fu, and
+that's why it's so seamless.
+[#142](https://github.com/dchege711/study_buddy/pull/142) adds a banner
+to the app.
