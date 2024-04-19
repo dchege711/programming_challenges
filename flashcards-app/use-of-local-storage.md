@@ -9,15 +9,6 @@ However, with two data stores (`localStorage` and the server), the
 former has a possibility of going stale. What usage is correct and how
 can we avoid stale data?
 
-## `localStorage.clear()`
-
-On a user confirming that they wish to delete their account, we send a
-`POST` message to `/account/delete-account`, and on any valid response,
-clear `localStorage` and set `window.location.href = "/"`.
-
-This usage of `localStorage` is not informative as there is no data
-written there by the `/account` page.
-
 ## `localStorage['session_info']`
 
 `getAccountInfo: () => AuthenticateUser | null` fetches the
@@ -77,6 +68,19 @@ for web components, but turns out the platform already has
 `sessionStorage` for that!
 
 {{% /comment %}}
+
+Using `sessionStorage` for the cards seems like it'd be less
+stale-prone.
+
+## `localStorage.clear()`
+
+On a user confirming that they wish to delete their account, we send a
+`POST` message to `/account/delete-account`, and on any valid response,
+clear `localStorage` and set `window.location.href = "/"`. We do a
+similar thing after a successful `POST` message to `/logout`.
+
+So even though `localStorage` is forever, we do clear it on logout and
+account deletion.
 
 ## References
 

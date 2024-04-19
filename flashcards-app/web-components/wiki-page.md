@@ -93,10 +93,12 @@ to show the `Log Out` and `Your Account` buttons.
 
 Encapsulating the style is somewhat desirable, but I think we can
 achieve that with [`<template
-shadowrootmode="open">...</template>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template#implementing_a_declarative_shadow_dom).
+shadowrootmode="open">...</template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template#implementing_a_declarative_shadow_dom).
 
 There is a script that issues a `POST` request to `/logout`, and on
 success (the return value doesn't matter) clears `localStorage` and sets
 `window.location.href` to `/`. The last bit can be done server-side by
-issuing a redirect to `/`. [Why do we need `localStorage` though?]({{<
-ref "../use-of-local-storage" >}}).
+issuing a redirect to `/`. [We don't even need `localStorage`]({{< ref
+"../use-of-local-storage" >}}).
+
+Ultimately, the wiki page can be completely server rendered.
