@@ -66,6 +66,34 @@ different syntax, varying browser support, etc. {{% cite Andrew2016 %}}
 
 {{% /comment %}}
 
+## Typing the Client/Server Interface
+
+One source of bugs is the server and the client being out of sync w.r.t.
+the shape of the data being exchanged. Granted, I have both the server
+and the client in the same repo, how can I avoid mismatches in data? [Is
+there a library or a standard way of creating an interface for my api
+endpoints? :
+typescript](https://www.reddit.com/r/typescript/comments/yryz83/is_there_a_library_or_a_standard_way_of_creating/)
+floats `tRPC`, `GraphQL`, `OpenAPI`, and some others, with `tRPC` coming
+in first and `GraphQL` as the incumbent.
+
+GitHub Copilot can help out here with quick intros on what `tRPC` and
+`GraphQL` entail. With `GraphQL`, the client can strongly type the API,
+define the data payloads, fetch all the data in one request, query for
+supported types, and subscribe to real-time updates. `GraphQL` is
+intended to be an improvement over `REST`. `tRPC` is designed with
+TypeScript in mind. Advantages of `tRPC` include no schema syncing as
+the input/output is inferred directly from function signatures, and can
+work with GraphQL (or any other data fetching method). In the case of my
+app, using `tRPC` involves replacing `Express` routes with `tRPC`
+procedures. Let's try `tRPC`!
+
+{{% comment %}}
+
+Impressed by Copilot. Definitely saved me time on this one.
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
