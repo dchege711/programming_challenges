@@ -86,13 +86,47 @@ TypeScript in mind. Advantages of `tRPC` include no schema syncing as
 the input/output is inferred directly from function signatures, and can
 work with GraphQL (or any other data fetching method). In the case of my
 app, using `tRPC` involves replacing `Express` routes with `tRPC`
-procedures. Let's try `tRPC`!
+procedures. Trying `tRPC`!
 
 {{% comment %}}
 
 Impressed by Copilot. Definitely saved me time on this one.
 
 {{% /comment %}}
+
+What's the use case for `tRPC` for endpoints that return a static page
+in response to a `GET` request? Copilot says that serving HTML files
+should be left to traditional web frameworks like `Express` as those
+have built-in support for SSR of HTML.
+
+[Adding tRPC endpoints that don't need
+authentication](https://github.com/dchege711/study_buddy/compare/f662e388435764043fa2c23619353c59b23d8dc7..cc2f374acd6f2f9a11c72f61927b6b989964fc25)
+was mostly mechanical. However, there were a few gotchas. Some
+methods/props on a `Mongoose` document (e.g., the `Document` interface)
+cannot be shared between the server and the client, and so we need to
+define a safe interface that can be inferred by `tRPC` and availed on
+the client side. {{% cite trpcUnknownTypeMongo %}} We also encountered a
+challenge in typing the inputs, given that the app relies on `Mongoose`
+validation that occurs after `tRPC` has seen the inputs. Ended up adding
+a passthrough input parser, e.g.,
+
+```ts
+export const authRouter = router({
+  registerUser: publicProcedure
+    .input((params: unknown) => params as RegisterUserAndPasswordParams)
+    .mutation(({ input }) => {
+      return registerUserAndPassword(input);
+    }),
+});
+```
+
+{{% cite trpcTypeInputWOValidation %}} The docs are not explicit about
+this because not validating is considered unsafe, and the `tRPC`
+maintainers don't want to advocate for it. With the base knowledge from
+non-auth endpoints and reading the docs several times, [adding
+auth-dependent
+endpoints](https://github.com/dchege711/study_buddy/compare/cc2f374...ea80ac5?diff=split&w=)
+integrated nicely with `Express`'s session management.
 
 ## References
 
@@ -114,3 +148,15 @@ Impressed by Copilot. Definitely saved me time on this one.
   date="2016-02-03"
   url="https://www.javascriptstuff.com/ajax-libraries/"
   accessed="2024-04-19" >}}
+
+1. {{< citation
+  id="trpcUnknownTypeMongo"
+  title="[Next.JS] x.data.user is of type 'unknown' · trpc/trpc · Discussion #3661"
+  url="https://github.com/trpc/trpc/discussions/3661"
+  accessed="2024-04-20" >}}
+
+1. {{< citation
+  id="trpcTypeInputWOValidation"
+  title="docs: Howto add typed input (without validation) · Issue #3339 · trpc/trpc"
+  url="https://github.com/trpc/trpc/issues/3339"
+  accessed="2024-04-20" >}}
