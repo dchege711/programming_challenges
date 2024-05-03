@@ -128,6 +128,53 @@ auth-dependent
 endpoints](https://github.com/dchege711/study_buddy/compare/cc2f374...ea80ac5?diff=split&w=)
 integrated nicely with `Express`'s session management.
 
+## Augmenting Server Objects Client Side
+
+For example, the server transmits JSON data of the `ICardRaw` shape. Is
+it possible to add helper methods in the client for ease of use? {{%
+cite declMerging %}} suggests that we can do:
+
+```ts
+// server-side-card.ts
+export class Card {}
+
+// client-side-card.ts
+import { Card } from '../../server-side-card.js';
+declare module '../../server-side-card.js' {
+  interface Card {
+    get formattedTags(): string[];
+  }
+}
+
+Card.prototype.formattedTags = function() {
+  return tags.split(' ').filter(Boolean).map(t => `#${t}`);
+}
+
+// consumer.ts
+import { Card } from '../../server-side-card.js';
+import 'client-side-card.js';
+
+let c: Card;
+console.log(c.formattedTags);
+```
+
+However, we have `type PrivateCardResult = RouterOutput['fetchCard'][0]`
+in `trpc.ts`. While we can extend the `type` {{% cite extendTypesSO %}},
+it doesn't seem like we can add dynamic properties of the form:
+
+```ts
+type Foo = { s: string };
+interface FooDeluxe extends Foo {
+  emphasized: () => string;
+}
+// 'FooDeluxe' only refers to a type, but is being used as a value here.ts(2693)
+FooDeluxe.prototype.emphasized = function() {
+  return this.s.toUpperCase();
+}
+```
+
+Foregoing `tRPC`'s typed procedures is not worth it.
+
 ## References
 
 1. {{< citation
@@ -160,3 +207,15 @@ integrated nicely with `Express`'s session management.
   title="docs: Howto add typed input (without validation) · Issue #3339 · trpc/trpc"
   url="https://github.com/trpc/trpc/issues/3339"
   accessed="2024-04-20" >}}
+
+1. {{< citation
+  id="declMerging"
+  title="TypeScript: Documentation - Declaration Merging > Module Augmentation"
+  url="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation"
+  accessed="2024-04-30" >}}
+
+1. {{< citation
+  id="extendTypesSO"
+  title="javascript - Possible to extend types in Typescript? - Stack Overflow"
+  url="https://stackoverflow.com/a/41385149"
+  accessed="2024-05-03" >}}
