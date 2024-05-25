@@ -238,6 +238,17 @@ time; the mixin adds more code unnecessarily. What about
 definition. Mixins seem overly complicated for my use case. Plain
 inheritance it is unless there's a reason to do otherwise.
 
+{{% comment %}}
+
+A good mixin could be `ToolbarA11yMixin` that implements [ARIA: toolbar
+role - Accessibility |
+MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/toolbar_role).
+This mixin can be used by the app bar (e.g., home, browse, wiki,
+account, logout) and by the card's action bar (e.g., move to trash,
+previous, next, save).
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
