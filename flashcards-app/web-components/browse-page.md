@@ -96,47 +96,6 @@ deeper in the hierarchy. There is no need for immediate children to be
 context consumers given that the context provider can provide bindings
 in the HTML template.
 
-## Rendering Lists
-
-Both `<search-bar>` and `<search-results>` need to render a collection
-of N items. {{% cite listsLit %}} offers two options: looping, or using
-the `repeat(items, keyFunction, itemTemplate)` directive.
-
-```ts
-const cards = html`
-  ${cards.map(
-    (card) => html`<div><input type="checkbox">${card.title}</div>`
-  )}
-`;
-
-const template2 = html`
-  ${repeat(
-    cards, (card) => card.id
-    (card) => html`<div><input type="checkbox">${card.id}</div>`
-  )}
-`;
-```
-
-When performing updates, `repeat` moves DOM nodes, while `map` reuses
-DOM nodes. This is also beneficial when there is some part of the node
-that isn't controlled by a template expression because `repeat` will
-keep that state, e.g, in the example above, the `checked` property. If
-none of these apply, then `map` or loops can be used over `repeat`. {{%
-cite listsLit %}}
-
-{{% comment %}}
-
-While React does not have a dedicated `repeat` equivalent, React issues
-a `Warning: Each child in a list should have a unique "key" prop` when
-rendering a list without specifying keys for the individual items. {{%
-cite listsReact %}}
-
-The recommended behaviors in Lit and React make it seem like using keys
-is almost always the correct approach to use. We'd need perf numbers to
-justify not using keys.
-
-{{% /comment %}}
-
 ## References
 
 1. {{< citation
@@ -170,15 +129,3 @@ justify not using keys.
   url="https://medium.com/@quincarter/understanding-component-state-and-using-lit-element-context-40981e808535"
   date="2023-02-26"
   accessed="2024-04-25" >}}
-
-1. {{< citation
-  id="listsLit"
-  title="Lists – Lit"
-  url="https://lit.dev/docs/templates/lists/"
-  accessed="2024-05-28" >}}
-
-1. {{< citation
-  id="listsReact"
-  title="Rendering Lists – React"
-  url="https://react.dev/learn/rendering-lists"
-  accessed="2024-05-28" >}}
