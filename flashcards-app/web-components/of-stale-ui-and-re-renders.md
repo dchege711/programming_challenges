@@ -65,7 +65,6 @@ export class SampleApp extends LitElement {
   }
 
   render() {
-    console.log('SampleApp.render called');
     return html`<p>${this.content}</p>`;
   }
 }
@@ -75,6 +74,54 @@ export class SampleApp extends LitElement {
 %}}. The fact that `this.counter` is not referenced in the rendered
 template does not prevent an update cycle. In this case, `this.counter`
 need not be reactive; a vanilla instance variable will do.
+
+In this example though:
+
+```ts
+function getTimeString() {
+  let now = new Date(Date.now());
+  return `${now.getMinutes()}:${now.getSeconds()}`;
+}
+
+@customElement('input-wrapper')
+class InputWrapperElement extends LitElement {
+  render() {
+    return html`<input value=${getTimeString()} >`;
+  }
+}
+
+@customElement('sample-app')
+export class SampleApp extends LitElement {
+  @state() content = 'Hello world';
+
+  constructor() {
+    super();
+    setInterval(this.updateContent.bind(this), 1000);
+  }
+
+  render() {
+    return html`
+      <div>Expected value: ~${this.content}</div>
+      <input-wrapper></input-wrapper>
+    `;
+  }
+
+  private updateContent() {
+    this.content = getTimeString();
+  }
+}
+```
+
+`<input>` does not update every second {{% cite litWrappedInput %}}.
+This might be because `<sample-app>` decides that `<input-wrapper>`
+should not be updated.
+
+What if we want to reset `<input>` from `SampleApp.updateContent()`?
+Exposing `InputWrapperElement.reset()` could do the trick, but that
+breaks away from the "events go up; properties come down" philosophy for
+encapsulated web components. Syncing `InputWrapperElement.value` with
+the `<input>`'s value does not work either. {{% cite
+litWrappedInputSynced %}}
 
 ## References
 
@@ -95,3 +142,15 @@ need not be reactive; a vanilla instance variable will do.
   title="Lit Playground - Updating State"
   accessed="2024-06-02"
   url="https://lit.dev/playground/#sample=v3-docs%2Fcomponents%2Foverview%2Fsimple-greeting&gist=bec4f87f52af81e81d53bcd90ee5be79" >}}
+
+1. {{< citation
+  id="litWrappedInput"
+  title="Lit Playground - Wrapped Input Element"
+  accessed="2024-06-02"
+  url="https://lit.dev/playground/#sample=v3-docs%2Fcomponents%2Foverview%2Fsimple-greeting&gist=db11191cca7ca3d5aaa0b9f6285bfa55" >}}
+
+1. {{< citation
+  id="litWrappedInputSynced"
+  title="Lit Playground - Wrapped Input Synced Props"
+  accessed="2024-06-02"
+  url="https://lit.dev/playground/#sample=v3-docs%2Fcomponents%2Foverview%2Fsimple-greeting&gist=e32781380feff4768ad2d97c72d661be" >}}
