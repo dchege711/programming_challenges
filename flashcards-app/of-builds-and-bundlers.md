@@ -40,6 +40,19 @@ complicated; we have CommonJS working and the attempt at ESM ended up
 with challenges similar to those of {{% cite esmNodeReddit %}}. Shelving
 ESM on the server to a later iteration of the app.
 
+## Build Recipe for Deployment
+
+On the server-side, we need to (1) transpile the TS into JS, so that we
+can do `node dist/server.js`. However, static resources like EJS
+templates are not covered by the transpilation step, and thus we need to
+(2) copy them over to `dist/`.
+
+On the client side, we need to (3) transpile the TS into JS. Because the
+JS is to be ran in a browser environment, we also need to (4) bundle it
+for the web. Lastly, we need to (5) provide the static resources to
+where the server will look for them. The current state of things is:
+`1:tsc`, `2:webpack`, `3:tsc`, and `4,5:webpack`.
+
 ## References
 
 1. {{< citation
