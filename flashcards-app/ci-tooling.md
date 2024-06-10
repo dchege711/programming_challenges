@@ -35,10 +35,25 @@ their own style, going through the exercise should help in future
 collaborative endeavors.
 
 I've had prior experiences with {{% cite dprint %}}, but {{% cite
-Prettier %}} is the front-runner for JS/TS {{% cite StateofJS2021 %}}.
-`dprint`'s selling point is speed; it can even incorporate `Prettier` as
-a plugin with a 3X speed boost due to parallelism {{% cite Sherret2022
-%}}.
+Prettier %}} is the front-runner for JS/TS {{% cite bestOfJSFormatters
+%}}. `dprint`'s selling point is speed; it can even incorporate
+`Prettier` as a plugin with a 3X speed boost due to parallelism {{% cite
+Sherret2022 %}}.
+
+{{% comment %}}
+
+Interesting that "built in Rust" is becoming more of a selling point. Is
+Rust the new hacker's language?
+
+StackOverflow's 2023 Developer Survey has an "Admired and Desired"
+section for technologies. "Desired" captures the % of respondents that
+want to use a technology. "Admired" captures the % of users that have
+used the same technology in 2023, and want to keep using it. The top 5
+admired languages of 2023 were Rust (84.66%), Elixir (73.13%),
+TypeScript (71.7%), Zig (71.33%), and Clojure (68.51%). {{% cite
+SOSurvey2023 %}}
+
+{{% /comment %}}
 
 Integrating `dprint` was a matter of (1) installing it as a dependency
 and adding its config, (2) formatting the code base, and (3) enabling a
@@ -46,6 +61,31 @@ CI check and adding (2) to `.git-blame-ignore-revs` for a better
 `git-blame` experience. {{% cite "issue158" %}} Unlike linters,
 formatters do not change the semantics of your code, and so adding their
 effects to `.git-blame-ignore-revs` is not error-prone.
+
+## Linter
+
+A linter enforces statically-defined rules that discourage bug-prone
+constructs. {{% cite issue162 %}} captures adding a linter to the
+project.
+
+{{% cite bestOfJSLinters %}} floats {{% cite StandardJS %}}, {{% cite
+ESLint %}} and {{% cite RomeTools %}} as the top 3 in terms of Github
+stars. {{% cite RomeTools %}} was pretty ambitious, but the company
+failed, and {{% cite Biome %}} became its successor. {{% cite
+typescript-eslint %}} enables {{% cite ESLint %}} and {{% cite Prettier
+%}} for TypeScript. In terms of downloads over the last month, {{% cite
+ESLint %}} and {{% cite typescript-eslint %}} dominate. Will try {{%
+cite typescript-eslint %}}, using its popularity as a proxy for it being
+worth a shot.
+
+{{% comment %}}
+
+Evaluating various JS/TS technologies seems tedious for a first-time
+user. The above reasoning should have made me pick {{% cite Prettier %}}
+over {{% cite dprint %}} were it not for my prior experience with it,
+and {{% cite Sherret2022 %}}.
+
+{{% /comment %}}
 
 ## References
 
@@ -74,9 +114,9 @@ effects to `.git-blame-ignore-revs` is not error-prone.
   accessed="2024-06-09" >}}
 
 1. {{< citation
-  id="StateofJS2021"
-  title="The State of JS 2021: Other Tools"
-  url="https://2021.stateofjs.com/en-US/other-tools/#utilities"
+  id="bestOfJSFormatters"
+  title="Best of JS • Formatter projects"
+  url="https://bestofjs.org/projects?tags=formatter&sort=total"
   accessed="2024-06-09" >}}
 
 1. {{< citation
@@ -97,4 +137,53 @@ effects to `.git-blame-ignore-revs` is not error-prone.
   id="issue158"
   title="Consistent styling using dprint · Issue #158 · dchege711/study_buddy"
   url="https://github.com/dchege711/study_buddy/issues/158"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="issue162"
+  title="[ES] Add linter to catch common TS errors · Issue #162 · dchege711/study_buddy"
+  url="https://github.com/dchege711/study_buddy/issues/162"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="bestOfJSLinters"
+  title="Best of JS • Linter projects"
+  url="https://bestofjs.org/projects?tags=lint&sort=total"
+  url_2="https://bestofjs.org/projects?tags=lint&sort=monthly-downloads"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="SOSurvey2023"
+  title="Stack Overflow Developer Survey 2023"
+  url="https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="StandardJS"
+  title="JavaScript Standard Style"
+  url="https://standardjs.com/"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="ESLint"
+  title="Find and fix problems in your JavaScript code - ESLint - Pluggable JavaScript Linter"
+  url="https://eslint.org/"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="RomeTools"
+  title="rome/tools: Unified developer tools for JavaScript, TypeScript, and the web"
+  url="https://github.com/rome/tools"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="Biome"
+  title="Announcing Biome | Biome"
+  url="https://biomejs.dev/blog/annoucing-biome/"
+  accessed="2024-06-09" >}}
+
+1. {{< citation
+  id="typescript-eslint"
+  title="typescript-eslint"
+  url="https://typescript-eslint.io/"
   accessed="2024-06-09" >}}
