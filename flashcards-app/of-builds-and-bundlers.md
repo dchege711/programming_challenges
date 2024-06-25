@@ -40,6 +40,12 @@ complicated; we have CommonJS working and the attempt at ESM ended up
 with challenges similar to those of {{% cite esmNodeReddit %}}. Shelving
 ESM on the server to a later iteration of the app.
 
+Some libraries do ship ESM variants, i.e., instead of `const foo =
+require('./foo')`, you'd have `import foo from 'foo/dist/foo.mjs'`. Some
+library authors respond to demand for ESM. Some popular libraries have
+ESM forks, e.g., `@esm-bundle` and `@bundled-es-modules` have
+collections of such forks. {{% cite esModulesWebDev %}}
+
 ## Build Recipe for Deployment
 
 On the server-side, we need to (1) transpile the TS into JS, so that we
@@ -78,3 +84,9 @@ where the server will look for them. The current state of things is:
   title="ESM not gaining traction in back-end Node? : node"
   url="https://www.reddit.com/r/node/comments/14rg9ym/esm_not_gaining_traction_in_backend_node/"
   accessed="2024-04-29" >}}
+
+1. {{< citation
+  id="esModulesWebDev"
+  title="Going Buildless: ES Modules: Modern Web"
+  url="https://modern-web.dev/guides/going-buildless/es-modules/"
+  accessed="2024-06-22" >}}
