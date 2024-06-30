@@ -175,6 +175,42 @@ FooDeluxe.prototype.emphasized = function() {
 
 Foregoing `tRPC`'s typed procedures is not worth it.
 
+## Validating Inputs
+
+We use `zod` (vouched for by `tRPC`) to parse/validate the input on the
+server. {{% cite zod %}} {{% cite pr182 %}} The "parse, don't validate"
+mantra resonates as something to apply to programming projects: instead
+of validating input, parse it such that incorrect state is impossible to
+represent. {{% cite King2019 %}}
+
+`zod` and `tRPC` work especially well:
+
+```ts
+const fetchCardParamsValidator = z.object({
+  cardID: z.string().refine(isMongoId, { message: "Invalid card ID" }),
+});
+
+const inAppRouter = router({
+  fetchCard: authedProcedure
+    .input(fetchCardParamsValidator)
+    .query(({ input, ctx }) => {
+      return CardsDB.read({ ...input, userIDInApp: ctx.user.userIDInApp });
+    }),
+});
+```
+
+Executing `fetchCard({cardID: { $ne: "000000000000000000000000" }})`
+leads to a `TRPCError` caused by a `ZodError`. At the input stage, we
+did not just validate that `input` is of the correct shape, we discarded
+`input`s that were not of the correct shape. `CardsDB.read` no longer
+needs to worry that `cardID` could be corrupted.
+
+Typical Express middleware {{% cite expressMiddleware %}} falls short of
+the "parse, don't validate" approach because the type information is not
+inferrable from the `request` object. For this, we fallback to assuming
+that the validation middleware was applied, and it's safe to trust
+`request.body`.
+
 ## References
 
 1. {{< citation
@@ -219,3 +255,29 @@ Foregoing `tRPC`'s typed procedures is not worth it.
   title="javascript - Possible to extend types in Typescript? - Stack Overflow"
   url="https://stackoverflow.com/a/41385149"
   accessed="2024-05-03" >}}
+
+1. {{< citation
+  id="zod"
+  title="Zod | Documentation"
+  url="https://zod.dev/"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="pr182"
+  title="[Major] Add server-side input validation by dchege711 · Pull Request #182 · dchege711/study_buddy"
+  url="https://github.com/dchege711/study_buddy/pull/182"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="King2019"
+  title="Parse, don't validate"
+  author="Alexis King"
+  url="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/"
+  date="2019-11-05"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="expressMiddleware"
+  title="Using Express middleware"
+  url="https://expressjs.com/en/guide/using-middleware.html"
+  accessed="2024-06-30" >}}

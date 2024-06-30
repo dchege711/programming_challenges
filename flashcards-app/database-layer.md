@@ -84,6 +84,18 @@ apply to the current project.
 
 {{% /comment %}}
 
+A sample NoSQL injection is navigating to
+`/trpc/fetchPublicCard?batch=1&input=%7B%220%22%3A%7B%22cardID%22%3A%7B%22%24ne%22%3A%22000000000000000000000000%22%7D%7D%7D`.
+The user should not be able to execute a query like `{cardID: {$ne:
+"000000000000000000000000" }` and fetch a card. The tRPC endpoint should
+be able to strip out the non-literal card ID.
+
+What about vanilla Express endpoints? CodeQL highlighted the injection
+attack surfaces for endpoints like `/login`, `/account`,
+`/reset-password`, and `/send-validation-email` and we fixed them. {{%
+cite commit0f5b088 %}} Seems like CodeQL's queries are good at finding
+vulnerabilities in Express, but not in tRPC.
+
 ### NoSQL Injection Prevention Libraries
 
 {{% cite mongo-sanitize %}} is similar to {{% cite commit186da7c %}} in
@@ -115,6 +127,9 @@ express-mongo-sanitize %}} means by "`.` could change the context of a
 database operation"?
 
 {{% /comment %}}
+
+Doing `app.use(mongoSanitize())` as advised by {{% cite
+express-mongo-sanitize %}} doesn't prevent injection attacks via `tRPC`.
 
 ## References
 
@@ -176,3 +191,10 @@ database operation"?
   title="Field Names with Periods - MongoDB Manual v7.0"
   url="https://www.mongodb.com/docs/manual/core/dot-dollar-considerations/periods/"
   accessed="2024-06-16" >}}
+
+1. {{< citation
+  id="commit0f5b088"
+  title="[DB] Fix js/sql-injection violations · dchege711/study_buddy@0f5b088"
+  url="https://github.com/dchege711/study_buddy/commit/0f5b0882011c8f3721252ffa101e4ca7fa196f78"
+  date="2024-06-09"
+  accessed="2024-06-24" >}}
