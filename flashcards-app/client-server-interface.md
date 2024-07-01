@@ -211,6 +211,72 @@ inferrable from the `request` object. For this, we fallback to assuming
 that the validation middleware was applied, and it's safe to trust
 `request.body`.
 
+## Cross-Site Request Forgery (CSRF) Prevention
+
+In a CSRF attack, the attacker wants the victim to perform
+state-changing requests unknowingly. Suppose Alice is logged into
+`bank.com` in her browser. To send money to Bob, the request is of the
+form `GET http://bank.com/transfer.do?acct=BOB&amount=100 HTTP/1.1`.
+Maria, the attacker, send Alice an email with an invisible picture:
+`<img src="http://bank.com/transfer.do?acct=MARIA&amount=100000"
+width="0" height="0" border="0">`. When Alice opens the email, the
+browser will try loading the image, thereby submitting the transfer
+request to `bank.com`, without Alice's knowledge. {{% cite csrfOWASP %}}
+
+Token-based mitigation involves the server setting a CSRF token, which
+the client then echoes back. The server rejects the request if the
+echoed token is not valid. Because CSRF tokens are ephemeral, the chance
+that the token will still be valid when an attacker attempts a CSRF
+attack is reduced. Session-based tokens offer a good compromise between
+security and usability. Request-based tokens have usability concerns,
+e.g., breaking when the user uses the back button. {{% cite
+csrfPreventionOWASP %}}
+
+The `lusca` package provides CSRF protection for Express apps. {{% cite
+codeQLMissingTokenValidation %}} {{% cite lusca %}} `lusca` docs were
+lacking as they showed how to configure CSRF protection on the server
+but not on the client, leaving me with `403` errors to handle.
+
+One technique is to use `<form>` tags:
+
+```html
+<form action="/transfer.do" method="post">
+<input type="hidden" name="_csrf" value="OWY4NmQwODE4ODRjN2Q2NTlhMmZlYWEwYzU1YWQwMTVhM2JmNGYxYjJiMGI4MjJjZDE1ZDZMGYwMGEwOA==">
+[...]
+</form>
+```
+
+{{% cite csrfPreventionOWASP %}}. This approach works well for forms
+rendered through `response.render`.
+
+What about for `tRPC` endpoints? A breakpoint in
+`node_modules/lusca/lib/csrf.js` shows that the CSRF token is looked for
+in either `req.body["_csrf"]` or `req.headers["x-csrf-token"]`. `tRPC`
+sends payloads of the form:
+
+```json
+{
+  "0": {
+    "_id": "6682027e7c0aca290ed4ab4c",
+    "title": "Modified title",
+  }
+}
+```
+
+... where `0` is a `tRPC` internal; the client code for the above call
+is something like `trpc.updateCard.mutate({_id, title})`. `tRPC`
+supports computing custom headers per request {{% cite headerstRPC %}}.
+By setting the CSRF token in a `<meta>` element, and then reading that
+before issuing the `tRPC` call, we're able to have `tRPC` calls succeed.
+
+What about testing? The client-side tests [uses a dev server]({{< ref
+"/computer-science/programming-challenges/flashcards-app/testing#e2e-testing"
+>}}), which doesn't come with CSRF enforcement. The server-side uses an
+actual server instance, and it seems that each state-mutating test would
+need to pass a CSRF token. Maybe we can have a few tests that
+specifically check CSRF protections, and then disable CSRF for the rest
+of the tests?
+
 ## References
 
 1. {{< citation
@@ -280,4 +346,34 @@ that the validation middleware was applied, and it's safe to trust
   id="expressMiddleware"
   title="Using Express middleware"
   url="https://expressjs.com/en/guide/using-middleware.html"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="csrfOWASP"
+  title="Cross Site Request Forgery (CSRF) | OWASP Foundation"
+  url="https://owasp.org/www-community/attacks/csrf"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="codeQLMissingTokenValidation"
+  title="Missing CSRF middleware — CodeQL query help documentation"
+  url="https://codeql.github.com/codeql-query-help/javascript/js-missing-token-validation/"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="lusca"
+  title="krakenjs/lusca: Application security for express apps."
+  url="https://github.com/krakenjs/lusca#readme"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="csrfPreventionOWASP"
+  title="Cross-Site Request Forgery Prevention - OWASP Cheat Sheet Series"
+  url="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html"
+  accessed="2024-06-30" >}}
+
+1. {{< citation
+  id="headerstRPC"
+  title="Custom header | tRPC"
+  url="https://trpc.io/docs/client/headers"
   accessed="2024-06-30" >}}
