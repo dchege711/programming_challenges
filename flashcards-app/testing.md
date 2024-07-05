@@ -3,7 +3,7 @@ title: Testing in a Monorepo
 date: 2024-06-22
 ---
 
-## Choosing `web-test-runner` as the Client Test Framework
+## Testing Web Components
 
 While any test framework can work, it's better to test web components in
 a browser environment because that's where they'll be used. Node-based
@@ -151,6 +151,36 @@ There is an open GitHub thread on others encountering this issue. {{%
 cite modernWeb2127 %}} Posted a question in the Discord channel linked
 from [modern-web.dev](https://modern-web.dev/discover/slack/).
 
+## Coverage
+
+Code coverage is a lossy metric and should not be treated as the only
+source of truth. Prioritizing coverage tends to bake in testability when
+writing code. Code coverage only asserts that lines have been executed
+by a test, and not whether they've been tested. A lot of the value of
+code coverage is to highlight what's not covered; deliberating on the
+parts not covered is more valuable than over-indexing on some threshold
+for code coverage. {{% cite Arguelles2020 %}}
+
+## Mutation Testing
+
+Mutation testing offers stronger guarantees than statement coverage. It
+involves inserting small faults into programs and measuring the ability
+of the test suite to catch them. {{% cite Petrovic2018 %}}
+
+`StrykerJS` seems like the dominant mutation testing package for TS
+projects. For example, given this code:
+
+```ts
+function isUserOldEnough(user: User): boolean {
+  return user.age >= 18;
+}
+```
+
+... the `BinaryOperator` and `RemoveConditionals` mutators generate
+mutants like `return user.age > 18`, `return user.age < 18`, `return
+false`, `return true`. Stryker then runs the tests for each mutation,
+expecting that at least one test will fail. {{% cite Stryker %}}
+
 ## References
 
 1. {{< citation
@@ -261,3 +291,26 @@ from [modern-web.dev](https://modern-web.dev/discover/slack/).
   title="Snapshot testing is not working · Issue #2127 · modernweb-dev/web"
   url="https://github.com/modernweb-dev/web/issues/2127"
   accessed="2024-06-23" >}}
+
+1. {{< citation
+  id="Arguelles2020"
+  date="2020-08-07"
+  authors="Carlos Arguelles; Marko Ivanković; Adam Bender"
+  title="Google Testing Blog: Code Coverage Best Practices"
+  url="https://testing.googleblog.com/2020/08/code-coverage-best-practices.html"
+  accessed="2024-07-04" >}}
+
+1. {{< citation
+  id="Petrovic2018"
+  date="2018-05-27"
+  authors="Goran Petrović; Marko Ivanković"
+  title="State of Mutation Testing at Google"
+  url="https://dl.acm.org/doi/10.1145/3183519.3183521"
+  url_2="https://dl.acm.org/doi/pdf/10.1145/3183519.3183521"
+  accessed="2024-07-04" >}}
+
+1. {{< citation
+  id="Stryker"
+  title="Introduction | Stryker Mutator"
+  url="https://stryker-mutator.io/docs/"
+  accessed="2024-07-04" >}}
