@@ -52,6 +52,9 @@ single pass through the \\(k\\) obstacles. Running time is
 \\(\mathcal{O}(k)\\). I prefer this over the former as the former might
 have less cache locality when looping back from the beginning.
 
+We can't do better than \\(\mathcal{O}(k)\\) because we do need to see
+each obstacle at least once.
+
 <details>
 <summary>Implementation</summary>
 
@@ -60,3 +63,11 @@ have less cache locality when looping back from the beginning.
   highlight="py" >}}
 
 </details>
+
+Tripping points:
+
+* The indices are 1-based, and not 0-based. Had some off-by-one errors
+  when computing the number of squares attackable in a given direction.
+* Messing up the update logic. Adding the assertion at the end of the
+  loop body that all 8 values are non-negative helped pinpoint where the
+  error was.

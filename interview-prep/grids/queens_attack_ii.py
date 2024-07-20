@@ -46,7 +46,7 @@ def queens_attack(n: int, _: int, r_q: int, c_q: int, obstacles: List[Tuple[int,
             if c < c_q:
                 west = min(west, c_q - c - 1)
             else:
-                east = min(east, c_q - c - 1)
+                east = min(east, c - c_q - 1)
         elif is_diagonal_to_queen(r, c):
             if r > r_q and c > c_q:
                 north_east = min(north_east, r - r_q - 1)
@@ -57,31 +57,20 @@ def queens_attack(n: int, _: int, r_q: int, c_q: int, obstacles: List[Tuple[int,
             elif r < r_q and c < c_q:
                 south_west = min(south_west, r_q - r - 1)
 
+        limits = [
+            north,
+            north_east,
+            east,
+            south_east,
+            south,
+            south_west,
+            west,
+            north_west,
+        ]
+        assert all(
+            limit >= 0 for limit in limits
+        ), f"{limits} -ve after applying obstacle ({r}, {c}) to queen at ({r_q}, {c_q})"
+
     return sum(
         [north, north_east, east, south_east, south, south_west, west, north_west]
     )
-
-
-def test_from_file(fp: str):
-    """Run test cases from file at `fp`."""
-
-    with open(fp, "r", encoding="utf-8") as f:
-        first_multiple_input = f.readline().rstrip().split()
-        n = int(first_multiple_input[0])
-        k = int(first_multiple_input[1])
-
-        second_multiple_input = f.readline().rstrip().split()
-        r_q = int(second_multiple_input[0])
-        c_q = int(second_multiple_input[1])
-
-        obstacles = []
-        for _ in range(k):
-            obstacles.append(list(map(int, f.readline().rstrip().split())))
-
-        expected = int(f.readline().rstrip())
-        result = queens_attack(n, k, r_q, c_q, obstacles)
-        assert result == expected, f"Expected {expected}, got {result}"
-
-
-if __name__ == "__main__":
-    test_from_file("./scratchpad/queens_attack_ii/test_case_7.txt")
