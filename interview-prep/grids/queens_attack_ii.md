@@ -71,3 +71,42 @@ Tripping points:
 * Messing up the update logic. Adding the assertion at the end of the
   loop body that all 8 values are non-negative helped pinpoint where the
   error was.
+
+## Learnings from Editorial
+
+{{% cite hrQueensAttackIIEditorial %}} features an algorithm that
+expands out. When parsing the obstacle \\((r, c)\\), they flag it in a
+`map<pair<int, int>, int>`, e.g., `mp[{x, 1}] = 1`. For each of the eight
+starting positions, they get the number of free cells along that
+direction:
+
+```cpp
+bool in_range(int x, int y) {
+  return x <= n && x > 0 && y <= n && y > 0;
+}
+
+int num_free_cells(int x, int y, int dx, int dy) {
+  int ans = 0;
+  while(in_range(x, y) && !mp[{x, y}]) {
+    x += dx;
+    y += dy;
+    ans++;
+  }
+  return ans;
+}
+```
+
+The `std::map` is not strictly necessary as we only need a presence
+check. `std::set` would have sufficed. `num_free_cells`'s runtime is
+\\(\mathcal{O}(n)\\). This approach uses \\(\mathcal{O}(k)\\) space. Why
+does {{% cite hrQueensAttackIIEditorial %}} consider this an
+\\(\mathcal{O}(n)\\) algorithm? They still need to parse the \\(k\\)
+obstacles, and so shouldn't it be \\(\mathcal{O}(k + n)\\)?
+
+## References
+
+1. {{< citation
+  id="hrQueensAttackIIEditorial"
+  title="Queen's Attack II > Editorial"
+  url="https://www.hackerrank.com/challenges/queens-attack-2/editorial"
+  accessed="2024-07-20" >}}
