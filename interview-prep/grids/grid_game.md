@@ -1,5 +1,5 @@
 ---
-title: Grid Game
+title: Minimizing Bottom-Right Paths in a 2xN Grid
 date: 2024-07-20
 ---
 

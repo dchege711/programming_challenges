@@ -1,5 +1,5 @@
 ---
-title: Queen's Attack II
+title: Queen's Movements on a Chessboard w/ Obstacles
 date: 2024-07-20
 ---
 

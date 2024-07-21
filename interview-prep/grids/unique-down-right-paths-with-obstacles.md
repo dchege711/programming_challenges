@@ -1,5 +1,5 @@
 ---
-title: Unique Paths to the Bottom-Right Corner with Obstacles
+title: Unique Paths to the Bottom-Right Corner w/ Obstacles
 date: 2022-07-31
 ---
 
