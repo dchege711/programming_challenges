@@ -1,6 +1,7 @@
 ---
-title: Wiki Page
 date: 2024-04-18
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/wiki-page/
+title: Wiki Page
 weight: 1
 ---
 

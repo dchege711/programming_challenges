@@ -1,6 +1,14 @@
 ---
-title: Browse Page
+cited-authors:
+- Carter, Quin
 date: 2024-04-20
+domains:
+- github.com
+- lit.dev
+- medium.com
+- www.fast.design
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/browse-page/
+title: Browse Page
 weight: 3
 ---
 

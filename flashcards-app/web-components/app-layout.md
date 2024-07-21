@@ -1,7 +1,10 @@
 ---
+date: 2024-04-19
+domains:
+- ejs.co
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/app-layout/
 title: App Layout
 weight: 2
-date: 2024-04-19
 ---
 
 Is there a use-case for the container that lays out the various app

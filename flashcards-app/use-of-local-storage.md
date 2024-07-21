@@ -1,6 +1,9 @@
 ---
-title: "Use of Local Storage"
 date: 2024-04-18
+domains:
+- developer.mozilla.org
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/use-of-local-storage/
+title: Use of Local Storage
 ---
 
 Back when I wrote this, the motivation for using `localStorage` was to

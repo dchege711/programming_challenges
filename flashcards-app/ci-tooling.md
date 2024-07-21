@@ -1,6 +1,23 @@
 ---
-title: "Continuous Integration Tooling"
+cited-authors:
+- Sherret, David
 date: 2024-06-09
+domains:
+- bestofjs.org
+- biomejs.dev
+- codeql.github.com
+- david.deno.dev
+- dprint.dev
+- eslint.org
+- github.com
+- news.ycombinator.com
+- prettier.io
+- standardjs.com
+- survey.stackoverflow.co
+- typescript-eslint.io
+- www.ebi.ac.uk
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/ci-tooling/
+title: Continuous Integration Tooling
 ---
 
 What automatic tools can I add to keep code quality high?

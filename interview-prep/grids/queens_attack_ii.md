@@ -1,6 +1,9 @@
 ---
-title: Queen's Movements on a Chessboard w/ Obstacles
 date: 2024-07-20
+domains:
+- www.hackerrank.com
+local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/queens_attack_ii/
+title: Queen's Movements on a Chessboard w/ Obstacles
 ---
 
 {{< citation

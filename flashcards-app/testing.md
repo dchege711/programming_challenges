@@ -1,6 +1,26 @@
 ---
-title: Testing in a Monorepo
+cited-authors:
+- Arguelles, Carlos
+- Bender, Adam
+- Ivanković, Marko
+- Petrović, Goran
 date: 2024-06-22
+domains:
+- dl.acm.org
+- docs.npmjs.com
+- git-scm.com
+- github.com
+- lit.dev
+- modern-web.dev
+- nodejs.org
+- open-wc.org
+- stackoverflow.com
+- stryker-mutator.io
+- testing.googleblog.com
+- webdriver.io
+- www.npmjs.com
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/testing/
+title: Testing in a Monorepo
 ---
 
 ## Testing Web Components

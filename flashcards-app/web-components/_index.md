@@ -1,6 +1,10 @@
 ---
-title: Using Web Components
 date: 2024-04-18
+domains:
+- open-wc.org
+- webcomponents.dev
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/
+title: Using Web Components
 weight: 1
 ---
 

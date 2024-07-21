@@ -1,6 +1,14 @@
 ---
-title: Inheritance
+cited-authors:
+- Fagnani, Justin
 date: 2024-05-05
+domains:
+- developer.mozilla.org
+- justinfagnani.com
+- lit.dev
+- stackoverflow.com
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/inheritance/
+title: Inheritance
 ---
 
 ## Mixins

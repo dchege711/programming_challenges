@@ -1,6 +1,9 @@
 ---
-title: Home Page
 date: 2024-05-05
+domains:
+- lit.dev
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/home-page/
+title: Home Page
 weight: 6
 ---
 

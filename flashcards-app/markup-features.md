@@ -1,6 +1,16 @@
 ---
-title: Markup Features
 date: 2024-04-27
+domains:
+- github.com
+- highlightjs.org
+- katex.org
+- markdown-it.github.io
+- news.ycombinator.com
+- showdownjs.com
+- stackoverflow.com
+- w3c.github.io
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/markup-features/
+title: Markup Features
 ---
 
 ## Syntax Highlighting

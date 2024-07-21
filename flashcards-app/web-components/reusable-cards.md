@@ -1,6 +1,9 @@
 ---
-title: Reusable Cards
 date: 2024-05-03
+domains:
+- lit.dev
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/reusable-cards/
+title: Reusable Cards
 weight: 5
 ---
 

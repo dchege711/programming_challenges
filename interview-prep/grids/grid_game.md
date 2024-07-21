@@ -1,6 +1,9 @@
 ---
-title: Minimizing Bottom-Right Paths in a 2xN Grid
 date: 2024-07-20
+domains:
+- leetcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/grid_game/
+title: Minimizing Bottom-Right Paths in a 2xN Grid
 ---
 
 {{< citation

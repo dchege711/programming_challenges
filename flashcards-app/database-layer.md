@@ -1,6 +1,13 @@
 ---
-title: "Database Layer"
 date: 2024-06-16
+domains:
+- codeql.github.com
+- github.com
+- owasp.org
+- www.mongodb.com
+- www.npmjs.com
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/database-layer/
+title: Database Layer
 ---
 
 Currently using MongoDB's free tier, which has shared RAM, and up to 5GB

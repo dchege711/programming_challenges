@@ -1,6 +1,13 @@
 ---
-title: Of Builds and Bundlers
 date: 2024-04-20
+domains:
+- modern-web.dev
+- nodejs.org
+- webpack.js.org
+- www.reddit.com
+- www.typescriptlang.org
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/of-builds-and-bundlers/
+title: Of Builds and Bundlers
 ---
 
 Moving to TypeScript entails configuring how the JavaScript will be

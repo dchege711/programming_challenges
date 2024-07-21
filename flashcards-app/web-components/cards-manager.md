@@ -1,6 +1,10 @@
 ---
-title: The Cards Manager
 date: 2024-04-28
+domains:
+- developer.mozilla.org
+- github.com
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/cards-manager/
+title: The Cards Manager
 weight: 4
 ---
 

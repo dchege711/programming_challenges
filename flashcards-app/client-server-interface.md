@@ -1,6 +1,22 @@
 ---
-title: Client/Server Interface
+cited-authors:
+- King, Alexis
 date: 2024-04-19
+domains:
+- cheatsheetseries.owasp.org
+- codeql.github.com
+- developer.mozilla.org
+- expressjs.com
+- github.com
+- lexi-lambda.github.io
+- owasp.org
+- stackoverflow.com
+- trpc.io
+- www.javascriptstuff.com
+- www.typescriptlang.org
+- zod.dev
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/client-server-interface/
+title: Client/Server Interface
 ---
 
 ## How to handle redirects without setting `window.location.href`?

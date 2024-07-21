@@ -1,6 +1,10 @@
 ---
-title: Of Stale UI and Re-renders
 date: 2024-05-28
+domains:
+- lit.dev
+- react.dev
+local_url: http://localhost:1313/computer-science/programming-challenges/flashcards-app/web-components/of-stale-ui-and-re-renders/
+title: Of Stale UI and Re-renders
 ---
 
 More than once, I've been surprised by a web component either showing

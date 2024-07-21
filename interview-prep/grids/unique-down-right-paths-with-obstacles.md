@@ -1,6 +1,11 @@
 ---
-title: Unique Paths to the Bottom-Right Corner w/ Obstacles
 date: 2022-07-31
+domains:
+- leetcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/unique-down-right-paths-with-obstacles/
+tags:
+- dynamic-programming
+title: Unique Paths to the Bottom-Right Corner w/ Obstacles
 ---
 
 ## Problem
