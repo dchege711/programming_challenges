@@ -3,7 +3,7 @@ date: 2022-07-31
 domains:
 - en.cppreference.com
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/4-directional-spanning-walks-with-obstacles/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/4-directional-spanning-walks-with-obstacles/
 tags:
 - backtracking
 - depth-first-search

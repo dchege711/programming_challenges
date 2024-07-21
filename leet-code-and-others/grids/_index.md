@@ -1,6 +1,6 @@
 ---
 date: 2024-07-20
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/
 title: Grids
 ---
 

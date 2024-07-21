@@ -7,7 +7,7 @@ domains:
 - en.cppreference.com
 - leetcode.com
 - www.cse.yorku.ca
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/sorting-and-searching/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/sorting-and-searching/
 publications:
 - Information Processing Letters
 title: Sorting and Searching

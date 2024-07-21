@@ -3,7 +3,7 @@ date: 2024-07-21
 domains:
 - en.wikipedia.org
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/strings/minimum-penalty-for-a-shop/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/strings/minimum-penalty-for-a-shop/
 tags:
 - prefix-sum
 title: Minimum Penalty for a Shop
@@ -84,7 +84,7 @@ Runtime \\(\mathcal{O}(N)\\). Space usage: \\(\mathcal{O}(1)\\).
 
 I've seen this pattern before in [Minimizing Bottom-Right Paths in a 2xN
 Grid]({{< ref
-"/computer-science/programming-challenges/interview-prep/grids/grid_game">}}),
+"/computer-science/programming-challenges/leet-code-and-others/grids/grid_game">}}),
 where we have a initial value that we update on seeing the next item in
 the collection.
 
@@ -163,7 +163,7 @@ it's the penalty of the hours relative to each other that matters, not
 the specific penalty value. {{% cite leetCode2483Editorial %}}
 
 {{< figure
-  src="/img/computer-science/programming-challenges/interview-prep/strings/min-penalty-shop/ref-point-does-not-affect-result.png"
+  src="/img/computer-science/programming-challenges/leet-code-and-others/strings/min-penalty-shop/ref-point-does-not-affect-result.png"
   caption="The reference shifts the graph up or down. However, the shape of the graph does not change. Source: leetCode2483Editorial" >}}
 
 <details>

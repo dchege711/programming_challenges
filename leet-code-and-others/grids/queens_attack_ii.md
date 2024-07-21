@@ -2,7 +2,7 @@
 date: 2024-07-20
 domains:
 - www.hackerrank.com
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/queens_attack_ii/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/queens_attack_ii/
 title: Queen's Movements on a Chessboard w/ Obstacles
 ---
 
@@ -27,7 +27,7 @@ chessboard, each preventing the queen from attacking any square beyond
 it on that path.
 
 {{< figure
-  src="/img/computer-science/programming-challenges/interview-prep/grids/queens_attack_ii/sample_5x5.png"
+  src="/img/computer-science/programming-challenges/leet-code-and-others/grids/queens_attack_ii/sample_5x5.png"
   caption="The queen at \\((4, 3)\\) on a \\(5 \times 5\\) chess board obstacles at \\((2, 3)\\), \\((4, 2)\\), and \\((5, 5)\\). The queen can attack \\(10\\) positions." >}}
 
 Given the queen's position and the locations of all the \\(k\\)
@@ -62,7 +62,7 @@ each obstacle at least once.
 <summary>Implementation</summary>
 
 {{< readfile
-  file="content/computer-science/programming-challenges/interview-prep/grids/queens_attack_ii.py"
+  file="content/computer-science/programming-challenges/leet-code-and-others/grids/queens_attack_ii.py"
   highlight="py" >}}
 
 </details>

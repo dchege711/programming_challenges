@@ -2,7 +2,7 @@
 date: 2022-07-31
 domains:
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/unique-down-right-paths-with-obstacles/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/unique-down-right-paths-with-obstacles/
 tags:
 - dynamic-programming
 title: Unique Paths to the Bottom-Right Corner w/ Obstacles
@@ -58,7 +58,7 @@ int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
 
 The time and space usage is the same as the [earlier DP solution]({{<
 ref
-"/computer-science/programming-challenges/interview-prep/grids/unique-down-right-paths#dynamic-programming-solution-for-moving-downright"
+"/computer-science/programming-challenges/leet-code-and-others/grids/unique-down-right-paths#dynamic-programming-solution-for-moving-downright"
 >}}): \\(O(m n)\\) running time, and \\(O(n)\\) space usage. I don't
 think we can do better.
 

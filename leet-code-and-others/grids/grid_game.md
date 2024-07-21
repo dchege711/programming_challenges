@@ -2,7 +2,7 @@
 date: 2024-07-20
 domains:
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/grids/grid_game/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/grid_game/
 title: Minimizing Bottom-Right Paths in a 2xN Grid
 ---
 
@@ -34,7 +34,7 @@ of points it collects. If both robots play optimally, return the number
 of points collected by the second robot.
 
 {{< figure
-  src="/img/computer-science/programming-challenges/interview-prep/grids/grid_game/sample_input.png"
+  src="/img/computer-science/programming-challenges/leet-code-and-others/grids/grid_game/sample_input.png"
   caption="The input grid is \\([[2, 5, 4], [1, 5, 1]]\\). The first robot takes the optimal path in red resulting in \\([[0, 0, 4], [1, 0, 0]]\\). The second robot will take the optimal path collecting \\(0 + 0 + 4 + 0 = 4\\)." >}}
 
 Constraints:
@@ -120,14 +120,14 @@ If \\(R_1\\) can be less greedy, then it can force a lower score for
 possible paths.
 
 {{< figure
-  src="/img/computer-science/programming-challenges/interview-prep/grids/grid_game/hiepit_explanation.png"
+  src="/img/computer-science/programming-challenges/leet-code-and-others/grids/grid_game/hiepit_explanation.png"
   caption="For each path traversed by \\(R_1\\), the max points that \\(R_2\\) can get are either the points left on the top row, or those left on the bottom row. Credits: hiepit2021" >}}
 
 <details>
 <summary>Implementation</summary>
 
 {{< readfile
-  file="content/computer-science/programming-challenges/interview-prep/grids/grid_game.py"
+  file="content/computer-science/programming-challenges/leet-code-and-others/grids/grid_game.py"
   highlight="py" >}}
 
 </details>
