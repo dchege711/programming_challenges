@@ -14,12 +14,22 @@ or right at any point in time? {{% cite LCUniquePaths %}}
 {{% tag dynamic-programming %}}
 
 The number of unique paths to `grid[r][c]` is the number of unique paths
-to `grid[r-1][c]` plus the number of unique paths to `grid[r][c-1]`.
+to `grid[r-1][c]` plus the number of unique paths to `grid[r][c-1]`,
+e.g.,
+
+<table>
+<tbody>
+<tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><td>1</td><td>3</td><td>6</td><td>10</td></tr>
+</tbody>
+</table>
 
 At any given time, we're interested in two adjacent rows, so our space
 usage should be at most \\(2n\\). Furthermore, we do not back-track to
 the left, so if we update our values left-to-right, we can use \\(n\\)
-space.
+space because the current cell will have the value from what would have
+been in the previous row.
 
 ```cpp
 int uniquePaths(int m, int n) {
