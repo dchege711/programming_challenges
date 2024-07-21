@@ -1,8 +1,11 @@
 ---
 date: 2024-07-21
 domains:
+- en.wikipedia.org
 - leetcode.com
 local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/strings/minimum-penalty-for-a-shop/
+tags:
+- prefix-sum
 title: Minimum Penalty for a Shop
 ---
 
@@ -20,7 +23,7 @@ zero-indexed string `customers` consisting only of characters `N` and
 at the \\(i^{th}\\) hour, whereas `N` indicates that no customers come
 at the \\(i^{th}\\) hour.
 
-If the shop closes at the \\(j^{th}\\) hour (\\(0 le j \le n\\)), the
+If the shop closes at the \\(j^{th}\\) hour (\\(0 \le j \le n\\)), the
 penalty is calculated as follows:
 
 * For every hour when the shop is open and no customers come, the
@@ -84,3 +87,121 @@ Grid]({{< ref
 "/computer-science/programming-challenges/interview-prep/grids/grid_game">}}),
 where we have a initial value that we update on seeing the next item in
 the collection.
+
+## Learnings
+
+{{% cite leetCode2483 %}} tags this problem with "Prefix Sum", a class
+of problems that feature the pattern \\(y_i = y_{i-1} + x_i\\).
+{{% tag prefix-sum %}}
+
+We do not need to separately maintain `prefix_penalty` and
+`suffix_penalty`. {{% cite leetCode2483Editorial %}}
+
+<details>
+<summary>Implementation with single penalty value</summary>
+
+```py
+def best_closing_time(customers: str) -> int:
+    # Set the initial values. Assume that we are closed at hour 0.
+    penalty = sum(1 if c == 'Y' else 0 for c in customers)
+    earliest_closing_hour = 0
+    min_penalty = penalty
+
+    # Try closing the shop at hours 1, ..., n-1
+    for latest_open_hour, c in enumerate(customers):
+        # If there is a customer at this hour, moving it to open hours
+        # decreases the penalty by one. If there's no customer, then we
+        # incur a penalty by having the shop open.
+        penalty += -1 if c == 'Y' else 1
+
+        if penalty < min_penalty:
+            earliest_closing_hour = latest_open_hour + 1
+            penalty = min_penalty
+
+    return earliest_closing_hour
+```
+
+</details>
+
+{{% comment %}}
+
+From a pure refactor perspective, could I have been able to infer this?
+
+```py
+prefix_penalty = 0
+suffix_penalty = sum(1 if c == 'Y' else 0 for c in customers)
+min_penalty = prefix_penalty + suffix_penalty
+
+for hour in range(1, len(customers) + 1):
+  if customers[hour-1] == 'Y': suffix_penalty -= 1
+  else: prefix_penalty += 1
+  penalty = prefix_penalty + suffix_penalty
+```
+
+`min_penalty` is trivially `suffix_penalty` because `prefix_penalty` is
+\\(0\\).
+
+In the `Y` case, `penalty = prefix_penalty + suffix_penalty - 1`, while
+in the `N` case, `penalty = prefix_penalty + 1 + suffix_penalty`.
+Therefore, `prefix_penalty + suffix_penalty` can be collapsed into one
+value.
+
+{{% /comment %}}
+
+{{% comment %}}
+
+In the rewrite, using `for latest_open_hour, c in enumerate(customer)`
+instead of `for hour in range(1, len(customers) + 1)` clarified my
+thinking a lot. Another point for selecting good variable names and
+using idiomatic constructs.
+
+{{% /comment %}}
+
+The initial pass over `customers` gets us the starting penalty. However,
+the question asks for the earliest hour with the lowest penalty, and so
+it's the penalty of the hours relative to each other that matters, not
+the specific penalty value. {{% cite leetCode2483Editorial %}}
+
+{{< figure
+  src="/img/computer-science/programming-challenges/interview-prep/strings/min-penalty-shop/ref-point-does-not-affect-result.png"
+  caption="The reference shifts the graph up or down. However, the shape of the graph does not change. Source: leetCode2483Editorial" >}}
+
+<details>
+<summary>Implementation in a single pass</summary>
+
+```py
+def best_closing_time(customers: str) -> int:
+    # Assume that we are closed at hour 0. Set zero as the reference
+    # point.
+    penalty = 0
+    earliest_closing_hour = 0
+    min_penalty = penalty
+
+    for latest_open_hour, c in enumerate(customers):
+        # If there is a customer at this hour, moving it to open hours
+        # decreases the penalty by one. If there's no customer, then we
+        # incur a penalty by having the shop open.
+        penalty += -1 if c == 'Y' else 1
+
+        if penalty < min_penalty:
+            earliest_closing_hour = latest_open_hour + 1
+            min_penalty = penalty
+
+    return earliest_closing_hour
+```
+
+</summary>
+
+## References
+
+1. {{< citation
+  id="prefixSumWiki"
+  title="Prefix sum - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Prefix_sum"
+  accessed="2024-07-21" >}}
+
+1. {{< citation
+  id="leetCode2483Editorial"
+  title="Minimum Penalty for a Shop > Editorial"
+  url="https://leetcode.com/problems/minimum-penalty-for-a-shop/editorial/"
+  accessed="2024-07-21" >}}
