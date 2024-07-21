@@ -1,44 +1,15 @@
 ---
+title: Unique Paths to the Bottom-Right Corner
 date: 2022-07-30
-domains:
-- en.cppreference.com
-- leetcode.com
-- math.stackexchange.com
-- proofwiki.org
-local_url: http://localhost:1313/computer-science/programming-challenges/interview-prep/traversing-grids/
-tags:
-- backtracking
-- combinatorics
-- depth-first-search
-- dynamic-programming
-title: Traversing Grids
 ---
 
-{{% priors %}}
+## Problem
 
-\\(M \times N\\) grids are naturally represented as 2-dimensional
-arrays. Traversing row-by-row is important as it takes advantage of
-locality.
+Starting from the top-left corner, what is the number of possible unique
+paths to reach the bottom-right corner, if you can only move either down
+or right at any point in time? {{% cite LCUniquePaths %}}
 
-{{% /priors %}}
-
-{{% priors %}}
-
-One can also represent the grid as a one-dimensional arrays, with a
-helper function to convert from the 2D coordinates to the corresponding
-1D index.
-
-{{% /priors %}}
-
-## Counting Unique Paths
-
-### Moving Down/Right
-
-> Starting from the top-left corner, what is the number of possible
-> unique paths to reach the bottom-right corner, if you can only move
-> either down or right at any point in time? {{% cite LCUniquePaths %}}
-
-#### Dynamic Programming Solution for Moving Down/Right
+## Dynamic Programming Solution for Moving Down/Right
 
 {{% tag dynamic-programming %}}
 
@@ -94,7 +65,7 @@ uses 32-bit `int`s. Update: no improvement, both `sizeof(int)` and
 
 {{% /comment %}}
 
-#### Combinatorics Solution for Moving Down/Right
+## Combinatorics Solution for Moving Down/Right
 
 {{% tag combinatorics %}}
 
@@ -183,7 +154,7 @@ is defined such that \\(n \le 100\\), which is close to \\(O(1)\\).
 
 {{% /comment %}}
 
-#### Takeaways
+## Takeaways
 
 I was wrong to earlier assume that because other people's solutions were
 within one magnitude of 6MB, the DP solution was the optimal one.
@@ -192,172 +163,6 @@ sub-optimal solutions.
 
 The regularity of the problem (well-defined grid; only moving
 right/down) should hint at a (probably optimal) math-based answer.
-
-### Moving Down/Right With Obstacles
-
-> Starting from the top-left corner, what is the number of possible
-> unique paths to reach the bottom-right corner, if you can only move
-> either down or right at any point in time, and the path cannot include
-> any square that is an obstacle? {{% cite LCUniquePathsII %}}
-
-The addition of obstacles has these implications:
-
-* I can't use the combinatorics formula because the problem is no longer
-  easy to define in general terms.
-* The logic in the inner loop of the DP solution needs to take the
-  obstacles into account.
-
-{{% tag dynamic-programming %}}
-
-```cpp
-int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-  if (obstacleGrid[0][0] == 1) return 0;
-
-  const int m = obstacleGrid.size();
-  const int n = obstacleGrid[0].size();
-
-  std::vector<int> numPathsToPosition(n, 0);
-  numPathsToPosition[0] = 1;
-
-  for (int r = 0; r < m; r++) {
-    for (int c = 0; c < n; c++) {
-      if (int nextC = c + 1; nextC < n) {
-        if (obstacleGrid[r][nextC] == 1) {
-          numPathsToPosition[nextC] = 0;
-        } else {
-          numPathsToPosition[nextC] += numPathsToPosition[c];
-        }
-      }
-
-      if (int nextR = r + 1; nextR < m && obstacleGrid[nextR][0] == 1) {
-        numPathsToPosition[0] = 0;
-      }
-    }
-  }
-
-  return numPathsToPosition[n-1];
-}
-```
-
-The time and space usage is the same as the [earlier DP
-solution](#dynamic-programming-solution-for-moving-downright):
-\\(O(m n)\\) running time, and \\(O(n)\\) space usage. I don't think we
-can do better.
-
-{{% comment %}}
-
-Curiously, the reference solution for {{% cite LCUniquePathsII %}} uses
-\\(O(1)\\) space by modifying the input `vector<vector<int>>&`. I did
-not consider this as an option; I assumed the input should remain
-unchanged (despite it not being a const-ref).
-
-{{% /comment %}}
-
-### 4-Directional Spanning Walks
-
-> Given an \\(M \times N\\) integer array `grid` where `grid[i][j]`
-> could be:
->
-> * `1` representing the starting square. There is exactly one starting square.
-> * `2` representing the ending square. There is exactly one ending square.
-> * `0` representing empty squares that we can walk over.
-> * `-1` representing obstacles that we cannot walk over.
->
-> Return the number of 4-directional walks from the starting square to
-> the ending square, that walk over every non-obstacle square exactly
-> once.
-
-DP no longer seems appropriate for this question because we'd need to
-store a lot of information at every cell. Furthermore, given that we can
-move in any of the four directions, it's not clear what the DP relation
-(e.g. `grid[r][c] ?= grid[r-1][c-1] + ... + grid[r+1][c+1]`) applies.
-
-Of the path traversals in a grid, depth-first-search seems like a better
-fit because we can "cache" results through the call stack. The longest
-possible path is \\(MN \le 20\\), so we'll not run into a call stack
-overflow.
-
-```py
-def uniquePathsIII(self, grid: List[List[int]]) -> int:
-  visited = [[False] * len(l) for l in grid]
-  M = len(grid)
-  N = len(grid[0])
-
-  # Find the starting location, and the number of obstacles
-  r_origin = -inf
-  c_origin = -inf
-  num_obstacles = 0
-  for r in range(M):
-    for c in range(N):
-      if grid[r][c] == 1:
-        r_origin = r
-        c_origin = c
-      elif grid[r][c] == -1:
-        num_obstacles += 1
-
-  num_non_obstacles = (M * N) - num_obstacles
-
-  # Starting from grid[r][c], do a DFS counting complete spanning paths.
-  def dfs(r: int, c: int, num_visited: int) -> int:
-    if (grid[r][c] == 2):
-      return 1 if num_visited == num_non_obstacles else 0
-
-    num_complete_trips = 0
-    for delta in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-      new_r = r + delta[0]
-      new_c = c + delta[1]
-      is_valid_idx = new_r >= 0 and new_r < M and new_c >= 0 and new_c < N
-      if is_valid_idx and not visited[new_r][new_c]:
-        if grid[new_r][new_c] != -1:
-          visited[new_r][new_c] = True
-          num_complete_trips += dfs(new_r, new_c, num_visited + 1)
-          visited[new_r][new_c] = False
-
-    return num_complete_trips
-
-  visited[r_origin][c_origin] = True
-  return dfs(r_origin, c_origin, 1)
-```
-
-{{% tag depth-first-search %}}
-{{% tag backtracking %}}
-
-{{% comment %}}
-
-The fact that when we reach an invalid path, we discard the path and try
-out other options makes this problem a backtracking problem.
-
-{{% /comment %}}
-
-The running time of DFS is \\(O(V + E)\\), and given that \\(V = MN\\)
-and \\(E \le 4 \cdot MN\\), the overall runtime is \\(O(MN)\\).
-Computing `r_origin`, `c_origin` and `num_obstacles` is also
-\\(O(MN)\\). So the overall runtime is still \\(O(MN)\\). I doubt we can
-do better than DFS. On {{% cite LCUniquePathsIII %}}'s leaderboard, the
-above solution is faster than 69% of the submissions.
-
-The space usage is \\(O(MN)\\) for the `visited` array. I prefer not to
-modify the incoming `grid`. On {{% cite LCUniquePathsIII %}}'s
-leaderboard, the above solution uses less memory than 94% of the
-submissions. The fact that \\(MN \le 20\\) allows us to optimize space
-usage further by using a bit-mask. {{% cite Archit91LCUniquePathsIII %}}
-
-{{% comment %}}
-
-With Python's infinite arithmetic precision, we could presumably use
-bit-masking for any \\(MN\\), instead of only using it for \\(MN \le
-64\\).
-
-{{% /comment %}}
-
-{{% comment %}}
-
-C++'s `std::bitset` needs to have its number of bits specified at
-compile time. For a variable number of bits, `std::vector<bool>` is
-recommended. {{% cite cppReferenceBitset %}} In this case though, a
-`std::bitset<20> visited` is sufficient.
-
-{{% /comment %}}
 
 ## References
 
@@ -388,13 +193,6 @@ recommended. {{% cite cppReferenceBitset %}} In this case though, a
   accessed="2022-07-30" >}}
 
 1. {{< citation
-  id="LCUniquePathsII"
-  title="Unique Paths II (Medium) - LeetCode"
-  url="https://leetcode.com/problems/unique-paths-ii/"
-  url_2="https://leetcode.com/submissions/detail/761291032/"
-  accessed="2022-07-31" >}}
-
-1. {{< citation
   id="SECombinationIsAnInteger"
   title="elementary number theory - Proof that a Combination is an integer - Mathematics Stack Exchange"
   url="https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer"
@@ -418,22 +216,3 @@ recommended. {{% cite cppReferenceBitset %}} In this case though, a
   url="https://en.cppreference.com/w/cpp/types/numeric_limits"
   url_2="https://en.cppreference.com/w/cpp/types/climits"
   accessed="2022-07-31" >}}
-
-1. {{< citation
-  id="LCUniquePathsIII"
-  title="Unique Paths III (Hard) - LeetCode"
-  url="https://leetcode.com/problems/unique-paths-iii/submissions/"
-  url_2="https://leetcode.com/submissions/detail/762026448/"
-  accessed="2022-07-31" >}}
-
-1. {{< citation
-  id="Archit91LCUniquePathsIII"
-  title="✅ [C++] DFS + Backtracking + Bit Manipulation | Short & Simple w/ Explanation | Beats 100% - LeetCode Discuss"
-  url="https://leetcode.com/problems/unique-paths-iii/discuss/1554054/C%2B%2B-DFS-%2B-Backtracking-%2B-Bit-Manipulation-or-Short-and-Simple-w-Explanation-or-Beats-100"
-  accessed="2022-07-31" >}}
-
-1. {{< citation
-  id="cppReferenceBitset"
-  title="std::bitset<N>::bitset - cppreference.com"
-  url="https://en.cppreference.com/w/cpp/utility/bitset/bitset"
-  accessed="2022-08-02" >}}
