@@ -1,6 +1,9 @@
 ---
-title: "Shortest Path in a Grid w/ Obstacles Elimination"
 date: 2024-07-21
+domains:
+- leetcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/grids/shortest-path-in-grid-with-obstacles-elimination/
+title: Shortest Path in a Grid w/ Obstacles Elimination
 ---
 
 {{< citation
