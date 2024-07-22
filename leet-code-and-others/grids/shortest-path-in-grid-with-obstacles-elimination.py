@@ -1,6 +1,6 @@
-from typing import List, NamedTuple
+from typing import List, NamedTuple, Tuple
 from math import inf
-from functools import lru_cache
+from heapq import heappush, heappop
 
 
 class Step(NamedTuple):
@@ -28,41 +28,36 @@ def shortest_path_in_grid_with_obstacles_elimination(
     def has_obstacle(r, c):
         return grid[r][c] == 1
 
-    def dfs(r: int, c: int, k: int, visited: set, depth: int):
-        assert k >= 0, f"Should not traverse with a -ve k: {k}"
+    def bfs():
+        cells_to_visit: List[Tuple[int, Tuple[int, int, int]]] = []
+        heappush(cells_to_visit, (0, (0, 0, K)))
+        visited = set()
 
-        prefix = ' ' * depth
-        print(f"{prefix}Visiting ({r}, {c}), k={k}")
-        assert (r, c) not in visited, f"Should not revisit ({r}, {c})"
-        visited.add((r, c))
+        while cells_to_visit:
+            num_steps, (r, c, k) = heappop(cells_to_visit)
+            visited.add((r, c))
 
-        # If we've gotten to the destination, return zero. The path length will
-        # be computed as the DFS returns.
-        if r == R - 1 and c == C - 1:
-            print(f"{prefix}Gotten to destination ({R-1}, {C-1})")
-            return 0
+            if r == R - 1 and c == C - 1:
+                return num_steps
 
-        # Advance the DFS in all possible unvisited directions
-        fewest_steps = inf
-        for dr, dc in possible_steps:
-            new_r, new_c = r + dr, c + dc
-            if not in_range(new_r, new_c):
-                continue
+            for dr, dc in possible_steps:
+                next_r, next_c = r + dr, c + dc
 
-            if (new_r, new_c) in visited:
-                continue
+                if not in_range(next_r, next_c):
+                    continue
 
-            new_k = k - 1 if has_obstacle(new_r, new_c) else k
-            if new_k < 0:
-                continue
+                if (next_r, next_c) in visited:
+                    continue
 
-            steps = dfs(new_r, new_c, new_k, visited, depth + 1)
-            fewest_steps = min(steps, fewest_steps)
+                next_k = k - 1 if has_obstacle(next_r, next_c) else k
+                if next_k < 0:
+                    continue
 
-        print(f"{prefix}Result: {fewest_steps + 1} to get to ({r}, {c})")
-        return fewest_steps + 1
+                heappush(cells_to_visit, (num_steps + 1, (next_r, next_c, next_k)))
 
-    fewest_steps_to_dest = dfs(0, 0, K, set(), 0)
+        return inf
+
+    fewest_steps_to_dest = bfs()
     return fewest_steps_to_dest if fewest_steps_to_dest != inf else -1
 
 
@@ -72,7 +67,6 @@ def test(grid: List[List[int]], k: int, expected: int):
 
 
 if __name__ == "__main__":
-    # test([[0, 1], [1, 0]], 1, 2)
-    # test([[0, 1, 1], [1, 1, 1], [1, 0, 0]], 2, 4)
+    test([[0, 1], [1, 0]], 1, 2)
+    test([[0, 1, 1], [1, 1, 1], [1, 0, 0]], 2, 4)
     test([[0, 0, 0], [1, 1, 0], [0, 0, 0], [0, 1, 1], [0, 0, 0]], 1, 6)
-

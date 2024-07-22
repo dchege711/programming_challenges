@@ -35,9 +35,9 @@ Constraints:
 
 ## Solution
 
-Can I model this as a DP problem? The shortest path to `grid[r][c]` is
-the \\(1\\) plus shortest path to any of the 4 ways at getting to
-`grid[r][c]`.
+Can I model this as a dynamic programming (DP) problem? The shortest
+path to `grid[r][c]` is the \\(1\\) plus shortest path to any of the 4
+ways at getting to `grid[r][c]`.
 
 <details>
 <summary>DP attempt</summary>
@@ -101,11 +101,11 @@ But this ignores the fact that the shortest path to `grid[r][c]` might
 have used up \\(k\\). A longer path might have conserved \\(k\\) and
 used it to create a better shortcut further down.
 
-What about modeling it as a DFS problem? Let the `dfs` succeed if it
-gets to `grid[m -1][n - 1]`. When collecting the `dfs` results, discard
-the longer path. That way, \\(k\\) is implicitly taken care of because a
-successful `dfs` must have reached the `grid[m -1][n - 1]`, and we don't
-need to minimize \\(k\\).
+What about modeling it as a depth-first-search (DFS) problem? Let the
+`dfs` succeed if it gets to `grid[m -1][n - 1]`. When collecting the
+`dfs` results, discard the longer path. That way, \\(k\\) is implicitly
+taken care of because a successful `dfs` must have reached the `grid[m
+-1][n - 1]`, and we don't need to minimize \\(k\\).
 
 <details>
 
@@ -161,6 +161,66 @@ def shortest_path_in_grid_with_obstacles_elimination(grid: List[List[int]], K: i
     return fewest_steps_to_dest if fewest_steps_to_dest != inf else -1
 ```
 
+</details>
+
 While I can find *a* path, the above doesn't give me the shortest path.
+Breadth-first-search (BFS) should give me the shortest path from \\((0,
+0)\\) to \\((m-1, n-1)\\).
+
+<details>
+<summary>BFS implementation that exceeds the time limit</summary>
+
+```py
+def shortest_path_in_grid_with_obstacles_elimination(
+    grid: List[List[int]], K: int
+) -> int:
+    R = len(grid)
+    assert R > 0, "There should be at least one row"
+
+    C = len(grid[0])
+    assert all(len(row) == C for row in grid), f"All rows should have {C} columns"
+
+    assert grid[0][0] == 0, "(0, 0) should not have an obstacle"
+    assert grid[R - 1][C - 1] == 0, "Destination should not have an obstacle"
+
+    possible_steps = [Step(0, -1), Step(0, 1), Step(1, 0), Step(-1, 0)]
+
+    def in_range(r, c):
+        return r >= 0 and c >= 0 and r < R and c < C
+
+    def has_obstacle(r, c):
+        return grid[r][c] == 1
+
+    def bfs():
+        cells_to_visit: List[Tuple[int, Tuple[int, int, int]]] = []
+        heappush(cells_to_visit, (0, (0, 0, K)))
+        visited = set()
+
+        while cells_to_visit:
+            num_steps, (r, c, k) = heappop(cells_to_visit)
+            visited.add((r, c))
+
+            # We've gotten to the dest. BFS ensures minimal cost.
+            if r == R - 1 and c == C - 1: return num_steps
+
+            for dr, dc in possible_steps:
+                next_r, next_c = r + dr, c + dc
+
+                if not in_range(next_r, next_c): continue
+                if (next_r, next_c) in visited: continue
+
+                next_k = k - 1 if has_obstacle(next_r, next_c) else k
+                if next_k < 0: continue
+
+                heappush(cells_to_visit, (num_steps + 1, (next_r, next_c, next_k)))
+
+        return inf
+
+    fewest_steps_to_dest = bfs()
+    return fewest_steps_to_dest if fewest_steps_to_dest != inf else -1
+```
 
 </details>
+
+The above implementation passes 23 of 55 test cases, and fails for being
+too slow.
