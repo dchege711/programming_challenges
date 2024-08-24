@@ -1,6 +1,6 @@
-from typing import List, NamedTuple, Tuple
+from typing import List, NamedTuple, Tuple, Deque
 from math import inf
-from heapq import heappush, heappop
+from collections import deque
 
 
 class Step(NamedTuple):
@@ -20,6 +20,10 @@ def shortest_path_in_grid_with_obstacles_elimination(
     assert grid[0][0] == 0, "(0, 0) should not have an obstacle"
     assert grid[R - 1][C - 1] == 0, "Destination should not have an obstacle"
 
+    # Shortest possible path is along the edges.
+    if K > (R - 1 + C - 1):
+        return R - 1 + C - 1
+
     possible_steps = [Step(0, -1), Step(0, 1), Step(1, 0), Step(-1, 0)]
 
     def in_range(r, c):
@@ -29,16 +33,11 @@ def shortest_path_in_grid_with_obstacles_elimination(
         return grid[r][c] == 1
 
     def bfs():
-        cells_to_visit: List[Tuple[int, Tuple[int, int, int]]] = []
-        heappush(cells_to_visit, (0, (0, 0, K)))
-        visited = set()
+        cells_to_visit: Deque[Tuple[int, int, int, int]] = deque([(0, 0, 0, K)])
+        visited = set([(0, 0, K)])
 
         while cells_to_visit:
-            num_steps, (r, c, k) = heappop(cells_to_visit)
-            visited.add((r, c))
-
-            if r == R - 1 and c == C - 1:
-                return num_steps
+            num_steps, r, c, k = cells_to_visit.popleft()
 
             for dr, dc in possible_steps:
                 next_r, next_c = r + dr, c + dc
@@ -46,14 +45,18 @@ def shortest_path_in_grid_with_obstacles_elimination(
                 if not in_range(next_r, next_c):
                     continue
 
-                if (next_r, next_c) in visited:
-                    continue
-
                 next_k = k - 1 if has_obstacle(next_r, next_c) else k
                 if next_k < 0:
                     continue
 
-                heappush(cells_to_visit, (num_steps + 1, (next_r, next_c, next_k)))
+                if (next_r, next_c, next_k) in visited:
+                    continue
+
+                if next_r == R - 1 and next_c == C - 1:
+                    return num_steps + 1
+
+                visited.add((next_r, next_c, next_k))
+                cells_to_visit.append((num_steps + 1, next_r, next_c, next_k))
 
         return inf
 

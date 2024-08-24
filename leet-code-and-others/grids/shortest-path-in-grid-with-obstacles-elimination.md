@@ -227,3 +227,24 @@ def shortest_path_in_grid_with_obstacles_elimination(
 
 The above implementation passes 23 of 55 test cases, and fails for being
 too slow.
+
+## Learnings from Others' Solutions
+
+```py
+if has_obstacle(next_r, next_c) and k > 0 and (next_r, next_c, k - 1) not in visited:
+    visited.add((next_r, next_c, k - 1))
+    cells_to_visit.append((num_steps+1, next_r, next_c, k - 1))
+
+if (not has_obstacle(next_r, next_c)) and (next_r, next_c, k) not in visited:
+    visited.add((next_r, next_c, k))
+    cells_to_visit.append((num_steps+1, next_r, next_c, k))
+```
+
+## References
+
+1. {{< citation
+  id="laser2019"
+  date="2019-12-14"
+  title="Shortest Path in a Grid with Obstacles Elimination - LeetCode"
+  url="https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/solutions/451787/python-o-m-n-k-bfs-solution-with-explanation/"
+  accessed="2024-07-22" >}}
