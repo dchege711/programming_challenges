@@ -1,4 +1,0 @@
-out
-
-# In this case, the build folder contains definitions needed by GN.
-!build
