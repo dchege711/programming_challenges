@@ -1,4 +1,6 @@
-﻿// Uses top-level statements. The compiler generates a `Program` class with an
+﻿using AoC2024.Day01;
+
+// Uses top-level statements. The compiler generates a `Program` class with an
 // entry point method. This code is roughly equivalent to
 //
 // ```cs
@@ -16,4 +18,5 @@
 // ```
 //
 // [1]: https://aka.ms/new-console-template
-Console.WriteLine("Hello, World!");
+
+Solution.PartOne();
