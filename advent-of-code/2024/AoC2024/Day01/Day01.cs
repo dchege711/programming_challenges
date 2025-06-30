@@ -6,7 +6,7 @@ internal partial class Solution
 {
     internal static void PartOne()
     {
-        string baseFileName = "sample";
+        string inputBaseName = "test-01";
         // When you use the positional syntax for property definition, the
         // compiler creates a `Deconstruct` method with an `out` parameter for
         // each positional parameter provided in the record declaration. The
@@ -15,40 +15,64 @@ internal partial class Solution
         // syntax.
         //
         // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#positional-syntax-for-property-and-field-definition
-        var (right, left, expectedTotalDistance) = ParseLocationIds(baseFileName);
-        right = from id in right
-                orderby id descending
-                select id;
+        var (left, right, expectedTotalDistance) = ParseLocationIds(inputBaseName, "pt1");
         left = from id in left
                orderby id descending
                select id;
+        right = from id in right
+                orderby id descending
+                select id;
         var totalDistance = left.Zip(right, (x1, x2) => int.Abs(x1 - x2)).Sum();
+        ReportExecution(inputBaseName, totalDistance, expectedTotalDistance);
+    }
 
-        if (expectedTotalDistance is int expectedVal)
+    internal static void PartTwo()
+    {
+        string inputBaseName = "test-01";
+        var (left, right, expectedSimilarity) = ParseLocationIds(inputBaseName, "pt2");
+
+        // Objective: Use a functional approach. Avoid mutating values.
+        var rightGroupedIds = from id in right
+                              group id by id;
+        var rightLookupTable = new Dictionary<int, int>(
+            from g in rightGroupedIds
+            select new KeyValuePair<int, int>(g.Key, g.Count())
+        );
+        var similarityScore = (
+            from id in left
+            select id * rightLookupTable.GetValueOrDefault(id, 0)
+        ).Sum();
+        ReportExecution(inputBaseName, similarityScore, expectedSimilarity);
+    }
+
+    private static void ReportExecution(string inputBaseName, int actual, int? expected)
+    {
+        if (expected is int expectedVal)
         {
-            if (totalDistance != expectedVal)
+            if (actual != expectedVal)
             {
                 throw new InvalidOperationException(
-                    $"Expected {expectedVal} for {baseFileName}.in.txt; instead got {totalDistance}");
+                    $"Expected {expectedVal} for {inputBaseName}.in.txt; instead got {actual}");
             }
             else
             {
-                Console.WriteLine($"Successfully computed {totalDistance} for {baseFileName}.in.txt");
+                Console.WriteLine($"Successfully computed {actual} for {inputBaseName}.in.txt");
             }
         }
         else
         {
-            Console.WriteLine($"Total distance for {baseFileName}.in.txt is {totalDistance}");
+            Console.WriteLine($"Computed value for {inputBaseName}.in.txt is {actual}");
         }
-
     }
 
-    private static LocationIdsAndDistance ParseLocationIds(string baseFileName)
+    private static LocationIdsAndDistance ParseLocationIds(
+        string inputBaseName,
+        string outputSuffix)
     {
         List<int> left = [];
         List<int> right = [];
 
-        using StreamReader inputReader = new($"Day01/data/{baseFileName}.in.txt");
+        using StreamReader inputReader = new($"Day01/data/{inputBaseName}.in.txt");
         string? line;
         while ((line = inputReader.ReadLine()) != null)
         {
@@ -60,7 +84,7 @@ internal partial class Solution
             right.Add(int.Parse(match.Groups["right"].Value));
         }
 
-        var expectedDistanceFilePath = $"Day01/data/{baseFileName}.ans.txt";
+        var expectedDistanceFilePath = $"Day01/data/{inputBaseName}.{outputSuffix}.ans.txt";
         if (!File.Exists(expectedDistanceFilePath))
             return new(left, right, null);
 
