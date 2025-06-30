@@ -1,14 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--
-      `Exe` `OutputType` creates a console application. If not specified, we'd
-      create a code library instead.
-
-      [1]: https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties
-    -->
-    <OutputType>Exe</OutputType>
-
     <TargetFramework>net9.0</TargetFramework>
 
     <!--

@@ -16,11 +16,10 @@ namespace AoC2024.Day01;
 // the class contains static members that require non-trivial initialization.
 //
 // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
-internal static partial class Solution
+public static partial class Solution
 {
-    internal static void PartOne()
+    public static int PartOne(LocationIds locationIds)
     {
-        string inputBaseName = "test-01";
         // When you use the positional syntax for property definition, the
         // compiler creates a `Deconstruct` method with an `out` parameter for
         // each positional parameter provided in the record declaration. The
@@ -29,58 +28,34 @@ internal static partial class Solution
         // syntax.
         //
         // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#positional-syntax-for-property-and-field-definition
-        var (left, right, expectedTotalDistance) = ParseLocationIds(inputBaseName, "pt1");
+        var (left, right) = locationIds;
 
         left.Sort();
         right.Sort();
-        var totalDistance = left.Zip(right, (x1, x2) => int.Abs(x1 - x2)).Sum();
-        ReportExecution(inputBaseName, totalDistance, expectedTotalDistance);
+        return left.Zip(right, (x1, x2) => int.Abs(x1 - x2)).Sum();
     }
 
-    internal static void PartTwo()
+    public static int PartTwo(LocationIds locationIds)
     {
-        string inputBaseName = "test-01";
-        var (left, right, expectedSimilarity) = ParseLocationIds(inputBaseName, "pt2");
+        var (left, right) = locationIds;
 
         // Objective: Use a functional approach. Avoid mutating values.
         var rightLookupTable = right
             .GroupBy(id => id)
             .ToDictionary(group => group.Key, group => group.Count());
-        var similarityScore = (
+        return (
             from id in left
             select id * rightLookupTable.GetValueOrDefault(id, 0)
         ).Sum();
-        ReportExecution(inputBaseName, similarityScore, expectedSimilarity);
     }
 
-    private static void ReportExecution(string inputBaseName, int actual, int? expected)
-    {
-        if (expected is int expectedVal)
-        {
-            if (actual != expectedVal)
-            {
-                throw new InvalidOperationException(
-                    $"Expected {expectedVal} for {inputBaseName}.in.txt; instead got {actual}");
-            }
-            else
-            {
-                Console.WriteLine($"Successfully computed {actual} for {inputBaseName}.in.txt");
-            }
-        }
-        else
-        {
-            Console.WriteLine($"Computed value for {inputBaseName}.in.txt is {actual}");
-        }
-    }
-
-    private static LocationIdsAndExpectedValue ParseLocationIds(
-        string inputBaseName,
-        string outputSuffix)
+    public static LocationIds ParseLocationIds(
+        string filePath)
     {
         List<int> left = [];
         List<int> right = [];
 
-        using StreamReader inputReader = new($"Day01/data/{inputBaseName}.in.txt");
+        using StreamReader inputReader = new(filePath);
         string? line;
         while ((line = inputReader.ReadLine()) != null)
         {
@@ -92,20 +67,10 @@ internal static partial class Solution
             right.Add(int.Parse(match.Groups["right"].Value));
         }
 
-        var expectedDistanceFilePath = $"Day01/data/{inputBaseName}.{outputSuffix}.ans.txt";
-        if (!File.Exists(expectedDistanceFilePath))
-            return new(left, right, null);
-
-        using StreamReader outputReader = new(expectedDistanceFilePath);
-        line = outputReader.ReadLine();
-        if (line is null)
-            throw new ArgumentException($"Unexpected null from {expectedDistanceFilePath}");
-
-        return new(left, right, int.Parse(line));
+        return new(left, right);
     }
 
-    private readonly record struct LocationIdsAndExpectedValue(
-        List<int> Left, List<int> Right, int? Expected);
+    public readonly record struct LocationIds(List<int> Left, List<int> Right);
 
     // Using source generation provides the most efficient code.
     //
