@@ -2,7 +2,21 @@ using System.Text.RegularExpressions;
 
 namespace AoC2024.Day01;
 
-internal partial class Solution
+// Creating a static class is basically the same as creating a class that
+// contains only static members and a private constructor. A private constructor
+// prevents the class from being instantiated. The advantage of using a static
+// class is that the compiler can check to make sure that no instance members
+// are accidentally added. The compiler guarantees that instances of this class
+// can't be created.
+//
+// Static classes are sealed and therefore can't be inherited. They can't
+// inherit from any class or interface except Object. Static classes can't
+// contain an instance constructor. However, they can contain a static
+// constructor. Non-static classes should also define a static constructor if
+// the class contains static members that require non-trivial initialization.
+//
+// [1]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
+internal static partial class Solution
 {
     internal static void PartOne()
     {
@@ -17,10 +31,10 @@ internal partial class Solution
         // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#positional-syntax-for-property-and-field-definition
         var (left, right, expectedTotalDistance) = ParseLocationIds(inputBaseName, "pt1");
         left = from id in left
-               orderby id descending
+               orderby id ascending
                select id;
         right = from id in right
-                orderby id descending
+                orderby id ascending
                 select id;
         var totalDistance = left.Zip(right, (x1, x2) => int.Abs(x1 - x2)).Sum();
         ReportExecution(inputBaseName, totalDistance, expectedTotalDistance);
@@ -65,7 +79,7 @@ internal partial class Solution
         }
     }
 
-    private static LocationIdsAndDistance ParseLocationIds(
+    private static LocationIdsAndExpectedValue ParseLocationIds(
         string inputBaseName,
         string outputSuffix)
     {
@@ -96,8 +110,8 @@ internal partial class Solution
         return new(left, right, int.Parse(line));
     }
 
-    private readonly record struct LocationIdsAndDistance(
-        IEnumerable<int> Left, IEnumerable<int> Right, int? ExpectedTotalDistance);
+    private readonly record struct LocationIdsAndExpectedValue(
+        IEnumerable<int> Left, IEnumerable<int> Right, int? Expected);
 
     // Using source generation provides the most efficient code.
     //
