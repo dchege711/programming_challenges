@@ -19,5 +19,5 @@
 //
 // [1]: https://aka.ms/new-console-template
 
-// Solution.PartOne();
+Solution.PartOne();
 Solution.PartTwo();

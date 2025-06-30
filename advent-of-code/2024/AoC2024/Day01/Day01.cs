@@ -30,12 +30,9 @@ internal static partial class Solution
         //
         // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#positional-syntax-for-property-and-field-definition
         var (left, right, expectedTotalDistance) = ParseLocationIds(inputBaseName, "pt1");
-        left = from id in left
-               orderby id ascending
-               select id;
-        right = from id in right
-                orderby id ascending
-                select id;
+
+        left.Sort();
+        right.Sort();
         var totalDistance = left.Zip(right, (x1, x2) => int.Abs(x1 - x2)).Sum();
         ReportExecution(inputBaseName, totalDistance, expectedTotalDistance);
     }
@@ -46,12 +43,9 @@ internal static partial class Solution
         var (left, right, expectedSimilarity) = ParseLocationIds(inputBaseName, "pt2");
 
         // Objective: Use a functional approach. Avoid mutating values.
-        var rightGroupedIds = from id in right
-                              group id by id;
-        var rightLookupTable = new Dictionary<int, int>(
-            from g in rightGroupedIds
-            select new KeyValuePair<int, int>(g.Key, g.Count())
-        );
+        var rightLookupTable = right
+            .GroupBy(id => id)
+            .ToDictionary(group => group.Key, group => group.Count());
         var similarityScore = (
             from id in left
             select id * rightLookupTable.GetValueOrDefault(id, 0)
@@ -111,7 +105,7 @@ internal static partial class Solution
     }
 
     private readonly record struct LocationIdsAndExpectedValue(
-        IEnumerable<int> Left, IEnumerable<int> Right, int? Expected);
+        List<int> Left, List<int> Right, int? Expected);
 
     // Using source generation provides the most efficient code.
     //
