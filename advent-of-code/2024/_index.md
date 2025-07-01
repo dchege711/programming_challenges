@@ -2,6 +2,7 @@
 date: 2025-06-25
 domains:
 - adventofcode.com
+- github.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/
 title: Advent of Code 2024
 ---

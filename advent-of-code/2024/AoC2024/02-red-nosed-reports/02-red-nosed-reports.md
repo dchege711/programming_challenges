@@ -1,6 +1,7 @@
 ---
-title: "AoC 2024 Day 02: Red-Nosed Reports"
 date: 2025-06-30
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/02-red-nosed-reports/
+title: 'AoC 2024 Day 02: Red-Nosed Reports'
 ---
 
 ## Problem Statement
