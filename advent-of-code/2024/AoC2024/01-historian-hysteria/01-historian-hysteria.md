@@ -84,6 +84,6 @@ score?**
 ## My Solution
 
 {{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/Day01/Day01.cs"
+  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/01-historian-hysteria/HistorianHysteria.cs"
   highlight="cs"
-  id="Day01.cs">}}
+  id="HistorianHysteria.cs">}}

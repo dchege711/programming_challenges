@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace AoC2024.Day01;
+namespace AoC2024;
 
 // Creating a static class is basically the same as creating a class that
 // contains only static members and a private constructor. A private constructor
@@ -16,7 +16,7 @@ namespace AoC2024.Day01;
 // the class contains static members that require non-trivial initialization.
 //
 // [1]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
-public static partial class Solution
+public static partial class HistorianHysteria
 {
     public static int PartOne(LocationIds locationIds)
     {
