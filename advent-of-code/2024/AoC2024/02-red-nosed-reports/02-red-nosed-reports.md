@@ -35,3 +35,24 @@ decreasing by 1 or 2. `1 2 7 8 9` is **unsafe** because `2 7` is an increase of
 5. In this example, 2 reports are **safe**.
 
 Analyze the unusual data from the engineers. **How many reports are safe?**
+
+### Part Two
+
+The Problem Dampener is a reactor-mounted module that lets the reactor safety
+systems **tolerate a single bad level** in what would otherwise be a safe
+report. It's like the bad level never happened!
+
+Now, the same rules apply as before, except if removing a single level from an
+unsafe report would make it safe, the report instead counts as safe. In the
+example above, `8 6 4 4 1` is **safe** by removing the third level (4).
+
+Update your analysis by handling situations where the Problem Dampener can
+remove a single level from the unsafe reports. **How many reports are now
+safe?**
+
+## My Solution
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/RedNosedReports.cs"
+  highlight="cs"
+  id="RedNosedReports.cs">}}

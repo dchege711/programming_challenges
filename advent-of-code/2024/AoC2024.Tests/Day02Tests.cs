@@ -14,4 +14,12 @@ public sealed class Day02RedNosedReports
     {
         RedNosedReports.PartOne(filePath).Should().Be(expected);
     }
+
+    [TestMethod]
+    [DataRow("day-02-sample.in.txt", 5)]
+    [DataRow("day-02-test.in.txt", 540)]
+    public void RedNosedReports02(string filePath, int expected)
+    {
+        RedNosedReports.PartTwo(filePath).Should().Be(expected);
+    }
 }
