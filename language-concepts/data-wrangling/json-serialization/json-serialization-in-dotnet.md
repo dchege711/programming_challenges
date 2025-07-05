@@ -177,6 +177,68 @@ numerical values are inconsequential.
 
 {{% /comment %}}
 
+## How to Exclude Properties
+
+By default, all public properties are serialized. The `JsonIgnore` attribute
+allows us to ignore individual properties, e.g.,
+
+```cs
+public class Foo
+{
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public string s1 { get; set; } = "Paukwa"; // Will not be serialized.
+    public string s2 { get; set; } = "Pakawa";
+}
+```
+
+`JsonIgnoreCondition` values include `Always` (default), `Never`,
+`WhenWritingDefault`, and `WhenWritingNull`. {{% cite IgnoreProperties %}}
+
+Read-only properties are ones with a public getter but a non-public setter,
+e.g., `public string s { get; private set; } = "Top Secret"`.
+`JsonSerializerOptions`'s `IgnoreReadOnlyProperties` can be set to `true` to
+override the default behavior where such properties get serialized. {{% cite
+IgnoreProperties %}}
+
+`JsonSerializerOptions`'s `DefaultIgnoreCondition` can be set to ignore
+properties based on a criteria, e.g., `WhenWritingNull` to drop `null`s,
+`WhenWritingDefault` to drop `default`s and `null`s. {{% cite IgnoreProperties
+%}}
+
+## How to Include Fields
+
+{{% comment %}}
+
+A `field` defines a storage location.
+
+```cs
+public class Person
+{
+  public string? FirstName;
+}
+```
+
+... while a `property` is an outward-facing declaration:
+
+```cs
+public class Person
+{
+  // The compiler generates a hidden backing field, and implements the body of
+  // the get and set accessors.
+  public string FirstName { get; set; } = string.Empty;
+}
+```
+
+Think of properties as smart fields. You can provide validation, lazy
+evaluation, different accessibility, etc. {{% cite Properties %}}
+
+{{% /comment %}}
+
+By default, fields are not serialized. Set `JsonSerializerOptions.IncludeFields`
+or use the `[JsonInclude]` attribute on them to include them. Set
+`JsonSerializerOptions.IgnoreReadOnlyFields` to ignore fields marked with
+`readonly`. {{% cite IncludeFields %}}
+
 ## Reflection vs. Source Generation
 
 By default, `System.Text.Json` gathers the metadata needed to access properties
@@ -212,4 +274,22 @@ reduces app size. {{% cite JsonSerializationOverview %}}
   id="CustomizePropertyNamesAndValues"
   title="How to customize property names and values with System.Text.Json - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/customize-properties"
+  accessed="2025-07-05" >}}
+
+1. {{< citation
+  id="IgnoreProperties"
+  title="How to ignore properties with System.Text.Json - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/ignore-properties"
+  accessed="2025-07-05" >}}
+
+1. {{< citation
+  id="Properties"
+  title="Properties - C# | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties"
+  accessed="2025-07-05" >}}
+
+1. {{< citation
+  id="IncludeFields"
+  title="Include fields in serialization - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/fields"
   accessed="2025-07-05" >}}
