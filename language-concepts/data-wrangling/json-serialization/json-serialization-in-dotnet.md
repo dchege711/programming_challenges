@@ -16,20 +16,28 @@ extensive feature set. It has built-in UTF-8 support because UTF-8 is the most
 prevalent encoding for data on the web and files on disk. {{% cite
 JsonSerializationOverview %}}
 
-## How to Serialize .NET Objects as JSON
+## How to Serialize and Deserialize .NET Objects
 
-To write JSON to a string, call `JsonSerializer.Serialize`, e.g.,
+To write JSON to a string, call `JsonSerializer.Serialize`. To read from a JSON
+string, call `JsonSerializer.Deserialize<T>`. For example:
 
 ```cs
 Foo foo = new(1, "two");
-Console.WriteLine(JsonSerializer.Serialize(foo)); // {"s":"two","n":1}
+
+var jsonStr = JsonSerializer.Serialize(foo);
+Console.WriteLine(jsonStr); // {"s":"two","n":1}
+
+var roundTripSuccess = JsonSerializer.Deserialize<Foo>(jsonStr) == foo;
+Console.WriteLine(roundTripSuccess); // True 
 
 abstract record Base(int n);
 record Foo(int n, string s): Base(n);
 ```
 
-`JsonSerializer.Serialize<Base>(foo)` onlys serialize properties in `Base`,
-i.e., `{"n":1}`. {{% cite HowToSerialize %}}
+`JsonSerializer.Serialize<Base>(foo)` only serializes properties in `Base`,
+i.e., `{"n":1}`. When deserializing, any properties not represented in your `T`
+are ignored by default. {{% cite HowToSerialize %}} {{% cite HowToDeserialize
+%}}
 
 {{% comment %}}
 
@@ -38,14 +46,34 @@ Using `JsonSerializer.Serialize<T>(foo)` where `Foo` cannot be converted to a
 
 {{% /comment %}}
 
-One can also serialize to a file, e.g.,
+One can also serialize to and deserialize from a file using
+`JsonSerializer.SerializeAsync` and `JsonSerializer.DeserializeAsync<T>`,
+respectively, e.g.,
 
 ```cs
-await using FileStream outputStream = File.Create("my-data.json");
+string fileName = "my-data.json";
+
+await using FileStream outputStream = File.Create(fileName);
 await JsonSerializer.SerializeAsync(outputStream, foo);
+
+await using FileStream inputStream = File.OpenRead(fileName);
+Foo? foo = await JsonSerializer.DeserializeAsync<Foo>(inputStream);
 ```
 
-{{% cite HowToSerialize %}}
+{{% open-comment %}}
+
+There exist synchronous APIs as well, e.g., `File.WriteAllText` and
+`File.ReadAllText`. When would one choose the synchronous versions over the
+asynchronous versions? I've been under the impression that I/O should be done
+async whenever possible.
+
+{{% /open-comment %}}
+
+{{% cite HowToSerialize %}} {{% cite HowToDeserialize %}}
+
+If you don't have a `T` to deserialize into, you can use the `Utf8JsonReader`
+directly, or deserialize into a `JsonNode` DOM, which lets you navigate to any
+subsection of a JSON payload. {{% cite HowToDeserialize %}}
 
 Types supported out-of-the-box include: .NET primitives that map to JavaScript
 primitives; user-defined plain old CLR objects; `T[]` and `T[][]`, collections
@@ -53,7 +81,9 @@ and dictionaries from `System.Collections`. {{% cite HowToSerialize %}}
 
 Because bytes (as UTF-8) don't need to be converted to strings (UTF-16), it is
 5-10% faster to use `JsonSerializer.SerializeToUtf8Bytes` instead of
-`JsonSerializer.Serialize`. {{% cite HowToSerialize %}}
+`JsonSerializer.Serialize` {{% cite HowToSerialize %}}. There is a
+`JsonSerializer.Deserialize<T>` overload that takes in a `Utf8JsonReader` or a
+`ReadOnlySpan<byte>` to deserialize the bytes. {{% cite HowToDeserialize %}}
 
 `JsonSerializer.Serialize` accepts a `JsonSerializerOptions` to configure the
 output, e.g.,
@@ -64,6 +94,38 @@ string jsonString = JsonSerializer.Serialize(foo, options);
 ```
 
 {{% cite HowToSerialize %}} {{% cite JsonSerializerOptions %}}
+
+## How to Deserialize with Required Properties
+
+If there are any `required` properties of `T` missing from the JSON payload,
+then deserialization throws a `JsonException` at runtime. {{% cite
+DeserializeWithRequiredProps %}}
+
+```cs
+public class Foo
+{
+    // Option 1: `s` is required in all contexts, even outside of serialization.
+    public required string s { get; set; }
+
+    // Option 2: `n` is required only in a serialization context.
+    [JsonRequired]
+    public int n {get; set; }
+}
+```
+
+From a deserialization perspective, the `required` keyword is equivalent to the
+`JsonRequired` attribute. The latter is useful when using source generation
+because at compile time, the `required` constraint can't be satisfied. {{% cite
+DeserializeWithRequiredProps %}}
+
+The `required` constraint is checked at runtime. It's possible to control this
+through the `TypeInfoResolver` passed to the `JsonSerializerOptions`, e.g., by
+setting `JsonPropertyInfo.IsRequired`. {{% cite DeserializeWithRequiredProps %}}
+
+With `JsonSerializerOptions.RespectRequiredConstructorParameters` set,
+non-optional constructor parameters, e.g., `Name` in `record Person(string Name,
+int? Age = null)`, are treated as required. {{% cite
+DeserializeWithRequiredProps %}}
 
 ## How to Customize Property Names and Values
 
@@ -293,3 +355,15 @@ reduces app size. {{% cite JsonSerializationOverview %}}
   title="Include fields in serialization - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/fields"
   accessed="2025-07-05" >}}
+
+1. {{< citation
+  id="HowToDeserialize"
+  title="How to deserialize JSON in C# - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/deserialization"
+  accessed="2025-07-06" >}}
+
+1. {{< citation
+  id="DeserializeWithRequiredProps"
+  title="Require properties for deserialization - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/required-properties"
+  accessed="2025-07-06" >}}
