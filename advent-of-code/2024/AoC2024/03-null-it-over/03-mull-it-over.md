@@ -32,3 +32,34 @@ result of each instruction produces \\(2 \times 4 + 5 \times 5 + 11 \times 8 + 8
 
 Scan the corrupted memory for uncorrupted `mul` instructions. **What do you get
 if you add up all of the results of the multiplications?**
+
+### Part Two
+
+There are **two** new instructions you'll need to handle:
+
+* The `do()` instruction **enables** future `mul` instructions.
+* The `don't()` instruction **disables** future `mul` instructions.
+
+Only the **most recent** `do()` or `don't()` instruction applies. At the
+beginning of the program, `mul` instructions are **enabled**.
+
+For example:
+
+x**mul(2,4)**&mul[3,7]!^**don't()**_mul(5,5)+mul(32,64](mul(11,8)un**do()**?**mul(8,5)**)
+
+The `mul(5,5)` and `mull(11,8)` instructions are **disabled** because there is a
+`don't()` instruction before them. The other `mul` instructions function
+normally, including the one at the end that gets **re-enabled** by a `do()`
+instruction.
+
+This time, the sum of the results is \\( 2 \times 4 + 8 \times 5 = 48\\).
+
+Handle the new instructions; **what do you get if you add up all of the results
+of just the enabled multiplications?**
+
+## My Solution
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/MullItOver.cs"
+  highlight="cs"
+  id="MullItOver.cs">}}
