@@ -44,7 +44,7 @@ if you add up all of the results of the multiplications?**
   highlight="cs"
   id="MullItOver.PartOne.cs" >}}
 
-### Part Two
+## Part Two
 
 There are **two** new instructions you'll need to handle:
 
