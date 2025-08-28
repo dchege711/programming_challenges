@@ -5,9 +5,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 03: Mull It Over'
 ---
 
-## Problem Statement
-
-### Part One
+## Data
 
 The computer appears to be trying to run a program, but its memory is
 **corrupted**. All of the instructions have been jumbled up!
@@ -30,8 +28,22 @@ Only the four highlighted sections are real `mul` instructions. Adding up the
 result of each instruction produces \\(2 \times 4 + 5 \times 5 + 11 \times 8 + 8
 \times 5 = 161\\).
 
+To parse:
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/MullItOver.Parse.cs"
+  highlight="cs"
+  id="MullItOver.Parse.cs" >}}
+
+## Part One
+
 Scan the corrupted memory for uncorrupted `mul` instructions. **What do you get
 if you add up all of the results of the multiplications?**
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/MullItOver.PartOne.cs"
+  highlight="cs"
+  id="MullItOver.PartOne.cs" >}}
 
 ### Part Two
 
@@ -57,9 +69,7 @@ This time, the sum of the results is \\( 2 \times 4 + 8 \times 5 = 48\\).
 Handle the new instructions; **what do you get if you add up all of the results
 of just the enabled multiplications?**
 
-## My Solution
-
 {{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/MullItOver.cs"
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/MullItOver.PartTwo.cs"
   highlight="cs"
-  id="MullItOver.cs">}}
+  id="MullItOver.PartTwo.cs" >}}

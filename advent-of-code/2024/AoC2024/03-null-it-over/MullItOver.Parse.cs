@@ -4,27 +4,6 @@ namespace AoC2024;
 
 public static partial class MullItOver
 {
-    public static int PartOne(string filePath)
-    {
-        return ParseCommands(filePath)
-            .OfType<MultiplyCommand>()
-            .Select(cmd => cmd.Num1 * cmd.Num2)
-            .Sum();
-    }
-
-    public static int PartTwo(string filePath)
-    {
-        return ParseCommands(filePath).Aggregate(
-            (true, 0), 
-            (res, cmd) => cmd switch {
-                DoCommand doCmd => (true, res.Item2),
-                DontCommand dontCmd => (false, res.Item2),
-                MultiplyCommand multCmd => (res.Item1, res.Item1 ? res.Item2 + (multCmd.Num1 * multCmd.Num2) : res.Item2),
-                _ => throw new ArgumentException($"Unrecognized type {cmd.GetType()}")
-            },
-            res => res.Item2);
-    }
-
     private static IEnumerable<ICommand> ParseCommands(string filePath)
     {
         using StreamReader inputReader = new(filePath);
