@@ -3,7 +3,7 @@ date: 2025-06-25
 domains:
 - adventofcode.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/
-title: Advent of Code 2024
+title: Advent of Code 2024 - C#
 ---
 
 Objective: Get better at C#.
