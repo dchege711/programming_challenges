@@ -1,6 +1,5 @@
 ---
 date: 2025-07-02
-draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/03-null-it-over/03-mull-it-over/
 title: 'AoC 2024 Day 03: Mull It Over'
 ---
