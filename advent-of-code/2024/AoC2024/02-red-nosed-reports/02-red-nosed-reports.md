@@ -4,9 +4,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 02: Red-Nosed Reports'
 ---
 
-## Problem Statement
-
-### Part One
+## Data
 
 The unusual data consists of many **reports**, one report per line. Each report
 is a list of numbers called **levels** that are separated by spaces. For
@@ -21,23 +19,34 @@ example:
 1 3 6 7 9
 ```
 
-This example data contains six reports each containing five levels.
+To parse:
 
-The engineers are trying to figure out which reports are **safe.** The Red-Nosed
-reactor safety systems can only tolerate levels that are either gradually
-increasing or gradually decreasing. So, a report only counts as safe if both of
-the following are true:
+{{< readfile
+  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/RedNosedReports.Parse.cs"
+  highlight="cs"
+  id="RedNosedReports.Parse.cs" >}}
+
+## Part One
+
+The Red-Nosed reactor safety systems can only tolerate levels that are either
+gradually increasing or gradually decreasing. So, a report only counts as safe
+if both of the following are true:
 
 * The levels are either **all increasing** or **all decreasing**.
 * Any two adjacent levels that differ by **at least one** and **at most three**.
 
 In the example above, `7 6 4 2 1` is **safe** because the levels are all
 decreasing by 1 or 2. `1 2 7 8 9` is **unsafe** because `2 7` is an increase of
-5. In this example, 2 reports are **safe**.
+`1`. In this example, 2 reports are **safe**.
 
 Analyze the unusual data from the engineers. **How many reports are safe?**
 
-### Part Two
+{{< readfile
+  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/RedNosedReports.PartOne.cs"
+  highlight="cs"
+  id="RedNosedReports.PartOne.cs" >}}
+
+## Part Two
 
 The Problem Dampener is a reactor-mounted module that lets the reactor safety
 systems **tolerate a single bad level** in what would otherwise be a safe
@@ -51,9 +60,7 @@ Update your analysis by handling situations where the Problem Dampener can
 remove a single level from the unsafe reports. **How many reports are now
 safe?**
 
-## My Solution
-
 {{< readfile
-  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/RedNosedReports.cs"
+  file="/content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/02-red-nosed-reports/RedNosedReports.PartTwo.cs"
   highlight="cs"
-  id="RedNosedReports.cs">}}
+  id="RedNosedReports.PartTwo.cs" >}}
