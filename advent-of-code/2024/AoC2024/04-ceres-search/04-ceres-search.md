@@ -7,9 +7,7 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 04: Ceres Search'
 ---
 
-## Problem Statement
-
-### Part One
+## Data
 
 As the search for the Chief continues, a small Elf who lives on the station tugs
 on your shirt; she'd like to know if you could help her with her **word search**
@@ -43,6 +41,15 @@ SAXAMASAAA
 MAMMMXMMMM
 MXMXAXMASX
 ```
+
+To parse:
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/CeresSearch.Parse.cs"
+  highlight="cs"
+  id="CeresSearch.Parse.cs" >}}
+
+## Part One
 
 In this word search, `XMAS` occurs a total of `18` times; here's the same word
 search again, but where letters not involved in any `XMAS` have been replaced
