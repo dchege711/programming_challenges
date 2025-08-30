@@ -12,7 +12,8 @@ public sealed class Day04CeresSearchTests
     public void PartOne(string filePath, int expectedNumOccurrences)
     {
         var words = CeresSearch.ParseWordSearch(filePath);
-        words.Count().Should().Be(10);
-        words.Last().Should().Be("MXMXAXMASX");
+        words.Length.Should().Be(10);
+        words.Last().Should().BeEquivalentTo(
+            ['M', 'X', 'M', 'X', 'A', 'X', 'M', 'A', 'S', 'X']);
     }
 }
