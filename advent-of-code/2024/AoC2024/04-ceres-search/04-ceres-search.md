@@ -2,7 +2,6 @@
 date: 2025-08-23
 domains:
 - adventofcode.com
-draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/04-ceres-search/
 title: 'AoC 2024 Day 04: Ceres Search'
 ---
