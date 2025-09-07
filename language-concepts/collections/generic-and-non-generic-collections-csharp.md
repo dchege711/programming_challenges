@@ -1,16 +1,26 @@
 ---
 date: 2025-09-06
 domains:
+- github.com
 - learn.microsoft.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/collections/generic-and-non-generic-collections-csharp/
 title: Generic and Non-Generic Collection Interfaces in C#
 ---
 
 There are two main types of collections: non-generic (`ICollection`) and generic
-(`ICollection<T>`). `ICollection`. `ICollection<T>`s are type-safe at compile
-time; they don't require that you cast to and from the `Object` type when adding
-and removing items. Therefore, `ICollection<T>` offers better performance. {{%
-cite CollectionsAndDataStructures %}}
+(`ICollection<T>`). {{% cite CollectionsAndDataStructures %}}
+
+Non-generic collections only exist because .NET did not originally have generic
+data types. They shouldn't be used because:
+
+* They are untyped at compile time. The frequent casting from `object` and the
+  actual type is error-prone; it's easy to put the wrong type in the wrong
+  collection.
+* Value types need to be boxed as `object`, e.g., `List<int>` stores its data in
+  an `int[]`, which is more performant than using `object[]` as that requires
+  boxing.
+
+{{% cite PlatformCompatDE0006 %}}
 
 ## Non-Generic Collections (`ICollection`)
 
@@ -199,45 +209,9 @@ two sequences and a computed sequence.
   accessed="2025-09-06" >}}
 
 1. {{< citation
-  id="SelectingACollection"
-  title="Selecting a Collection Class - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/selecting-a-collection-class"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="CommonCollectionTypes"
-  title="Commonly Used Collection Types - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="UsingGenericCollections"
-  title="When to Use Generic Collections - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/when-to-use-generic-collections"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="ComparisonsAndSortsInCollections"
-  title="Comparisons and Sorts Within Collections - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/comparisons-and-sorts-within-collections"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="SortedCollections"
-  title="Sorted Collection Types - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/sorted-collection-types"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="DictionaryCollections"
-  title="Hashtable and Dictionary Collection Types - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/hashtable-and-dictionary-collection-types"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="ThreadSafeCollections"
-  title="Thread-Safe collections - .NET | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/standard/collections/thread-safe/"
+  id="PlatformCompatDE0006"
+  title="platform-compat/docs/DE0006.md at master · dotnet/platform-compat"
+  url="https://github.com/dotnet/platform-compat/blob/master/docs/DE0006.md"
   accessed="2025-09-06" >}}
 
 1. {{< citation
@@ -256,12 +230,6 @@ two sequences and a computed sequence.
   id="System.Collections.Frozen"
   title="System.Collections.Frozen Namespace | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/api/system.collections.frozen?view=net-9.0"
-  accessed="2025-09-06" >}}
-
-1. {{< citation
-  id="DataTable"
-  title="DataTable Class (System.Data) | Microsoft Learn"
-  url="https://learn.microsoft.com/en-us/dotnet/api/system.data.datatable?view=net-9.0"
   accessed="2025-09-06" >}}
 
 1. {{< citation
