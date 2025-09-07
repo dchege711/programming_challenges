@@ -78,7 +78,7 @@ appear**?
 
 Tripped up the first time. This isn't a valid `XMAS` occurrence because it's not
 horizontal, vertical, diagonal, written backwards, or even overlapping other
-`XMAS`. In some sense, `XMAS` needs to be in one direction.
+`XMAS`. `XMAS` needs to be in one direction.
 
 | | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -92,6 +92,42 @@ horizontal, vertical, diagonal, written backwards, or even overlapping other
 | 7 | S | A | X | A | M | A | S | A | A | A |
 | 8 | M | A | M | M | M | X | M | M | M | M |
 | 9 | M | X | M | X | A | X | M | A | S | X |
+
+## Part Two
+
+This isn't actually an `XMAS` puzzle; it's an `X-MAS` puzzle in which you're
+supposed to find two `MAS` in the shape of an `X`. One way to achieve that is
+like this:
+
+<table>
+  <tr><td>M</td><td>.</td><td>S</td></tr>
+  <tr><td>.</td><td>A</td><td>.</td></tr>
+  <tr><td>M</td><td>.</td><td>S</td></tr>
+</table>
+
+Within the `X`, each `MAS` can be written forwards or backwards. Using the
+example from above with all of the `X-MAS`es kept:
+
+| | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | . | M | . | S | . | . | . | . | . | . |
+| 1 | . | . | A | . | . | M | S | M | S | . |
+| 2 | . | M | . | S | . | M | A | A | . | . |
+| 3 | . | . | A | . | A | S | M | S | M | . |
+| 4 | . | M | . | S | . | M | . | . | . | . |
+| 5 | . | . | . | . | . | . | . | . | . | . |
+| 6 | S | . | S | . | S | . | S | . | S | . |
+| 7 | . | A | . | A | . | A | . | A | . | . |
+| 8 | M | . | M | . | M | . | M | . | M | . |
+| 9 | . | . | . | . | . | . | . | . | . | . |
+
+In this example, an `X-MAS` appears `9` times. **How many times does an `X-MAS`
+appear**?
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/CeresSearch.PartTwo.cs"
+  highlight="cs"
+  id="CeresSearch.PartTwo.cs" >}}
 
 ## References
 

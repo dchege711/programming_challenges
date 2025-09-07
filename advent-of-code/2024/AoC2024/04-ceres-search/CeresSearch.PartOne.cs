@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace AoC2024;
 
 public partial class CeresSearch
