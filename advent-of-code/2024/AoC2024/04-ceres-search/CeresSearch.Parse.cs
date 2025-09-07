@@ -1,9 +1,18 @@
-using System.Collections.Immutable;
-
 namespace AoC2024;
 
-public static partial class CeresSearch
+public partial class CeresSearch
 {
+    private readonly char[][] grid;
+    private readonly int numRows;
+    private readonly int numCols;
+
+    public CeresSearch(string filePath)
+    {
+        grid = ParseWordSearch(filePath);
+        numRows = grid.Length;
+        numCols = grid.First().Length;
+    }
+
     public static char[][] ParseWordSearch(string filePath)
     {
         using StreamReader inputReader = new(filePath);
