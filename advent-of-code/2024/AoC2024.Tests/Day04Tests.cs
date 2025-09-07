@@ -9,7 +9,7 @@ public sealed class Day04CeresSearchTests
 {
     [TestMethod]
     [DataRow("day-04-sample.in.txt", 18)]
-    [DataRow("day-04-test.in.txt", 18)]
+    [DataRow("day-04-test.in.txt", 2496)]
     public void PartOne(string filePath, int expectedNumOccurrences)
     {
         var ceresSearch = new CeresSearch(filePath);

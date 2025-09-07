@@ -71,6 +71,11 @@ with `.`:
 Take a look at the little Elf's word search. **How many times does XMAS
 appear**?
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/CeresSearch.PartOne.cs"
+  highlight="cs"
+  id="CeresSearch.PartOne.cs" >}}
+
 Tripped up the first time. This isn't a valid `XMAS` occurrence because it's not
 horizontal, vertical, diagonal, written backwards, or even overlapping other
 `XMAS`. In some sense, `XMAS` needs to be in one direction.
