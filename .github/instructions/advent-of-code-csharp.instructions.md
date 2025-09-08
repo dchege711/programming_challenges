@@ -1,7 +1,8 @@
 ---
-applyTo: "advent-of-code/2024/**/*"
-title: "LLM Instructions for Advent of Code Using C#"
+applyTo: advent-of-code/2024/**/*
 date: 2025-09-07
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/aoc-csharp.instructions/
+title: LLM Instructions for Advent of Code Using C#
 weight: -1
 ---
 

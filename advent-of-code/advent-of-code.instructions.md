@@ -1,7 +1,8 @@
 ---
-applyTo: "advent-of-code/**/*"
-title: "LLM Instructions for Advent of Code"
+applyTo: advent-of-code/**/*
 date: 2025-09-07
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/advent-of-code.instructions/
+title: LLM Instructions for Advent of Code
 weight: -1
 ---
 
