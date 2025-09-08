@@ -17,15 +17,11 @@ public partial class CeresSearch
             $"{nameof(crossTargetString)} must be an odd-length string");
     }
 
-    public int PartTwo()
-    {
-        int numOccurrences = 0;
-        for (var r = crossTargetStringRadius; r < grid.GetLength(0) - crossTargetStringRadius; r++)
-            for (var c = crossTargetStringRadius; c < grid.GetLength(1) - crossTargetStringRadius; c++)
-                numOccurrences += HasCrossOccurence(r, c) ? 1 : 0;
-
-        return numOccurrences;
-    }
+    public int PartTwo() =>
+        Enumerable.Range(crossTargetStringRadius, grid.GetLength(0) - crossTargetStringRadius)
+            .SelectMany(r => Enumerable.Range(crossTargetStringRadius, grid.GetLength(1) - crossTargetStringRadius)
+                .Select(c => HasCrossOccurence(r, c)))
+            .Count(found => found);
 
     private bool HasCrossOccurence(int r, int c)
     {        
