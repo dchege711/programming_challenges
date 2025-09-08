@@ -7,14 +7,11 @@ public partial class CeresSearch
 
     static readonly private char[] targetString = ['X', 'M', 'A', 'S'];
 
-    public int PartOne()
-    {
-        int numOccurrences = 0;
-        for (var r = 0; r < grid.GetLength(0); r++)
-            for (var c = 0; c < grid.GetLength(1); c++)
-                numOccurrences += NumOccurrences(r, c);
-        return numOccurrences;
-    }
+    public int PartOne() => 
+        Enumerable.Range(0, grid.GetLength(0))
+            .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
+                .Select(c => NumOccurrences(r, c)))
+            .Sum();
 
     private int NumOccurrences(int r, int c)
     {

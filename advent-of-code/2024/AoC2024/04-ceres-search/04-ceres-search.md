@@ -89,22 +89,18 @@ appear**?
   highlight="cs"
   id="CeresSearch.PartOne.cs" >}}
 
-Tripped up the first time. This isn't a valid `XMAS` occurrence because it's not
-horizontal, vertical, diagonal, written backwards, or even overlapping other
-`XMAS`. `XMAS` needs to be in one direction.
+The declarative form packs quite the punch:
 
-| | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0 | M | M | M | S | <span style="color: red;">X</span> | X | M | A | S | M |
-| 1 | M | S | A | M | X | <span style="color: red;">M</span> | S | M | S | A |
-| 2 | A | M | X | S | X | M | <span style="color: red;">A</span> | A | M | M |
-| 3 | M | S | A | M | A | <span style="color: red;">S</span> | M | S | M | X |
-| 4 | X | M | A | S | A | M | X | A | M | M |
-| 5 | X | X | A | M | M | X | X | A | M | A |
-| 6 | S | M | S | M | S | A | S | X | S | S |
-| 7 | S | A | X | A | M | A | S | A | A | A |
-| 8 | M | A | M | M | M | X | M | M | M | M |
-| 9 | M | X | M | X | A | X | M | A | S | X |
+```cs
+return Enumerable.Range(0, grid.GetLength(0))
+  .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
+    .Select(c => NumOccurrences(r, c)))
+  .Sum()
+```
+
+`r` is a variable that is in scope when `c => ...` is defined. When `c => ...`
+uses `r`, it captures it. `r` is stored for use in `c => ...` even if `r` would
+have otherwise gone out of scope. {{% cite LambdaExpressions %}}
 
 ## Part Two
 
@@ -162,4 +158,10 @@ appear**?
   author="Dusko Mirkovic"
   title="Multidimensional Array vs Jagged Array in C#"
   url="https://code-maze.com/charp-multidimensional-jagged-array/"
+  accessed="2025-09-07" >}}
+
+1. {{< citation
+  id="LambdaExpressions"
+  title="Lambda expressions - Lambda expressions and anonymous functions - C# reference | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions"
   accessed="2025-09-07" >}}
