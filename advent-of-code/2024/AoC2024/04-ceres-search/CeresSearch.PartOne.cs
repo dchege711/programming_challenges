@@ -17,26 +17,23 @@ public partial class CeresSearch
     {
         if (grid[r, c] != targetString[0])
             return 0;
-    
-        int numOccurrences = 0;
-        foreach (var (deltaR, deltaC) in possibleMoves)
-        {
-            for (var i = 1; i < targetString.Length; i++)
-            {
-                var nextR = r + (i * deltaR);
-                var nextC = c + (i * deltaC);
+        
+        return possibleMoves
+            .Select(move => HasPatternStartingFromPosition(r, c, move.Item1, move.Item2))
+            .Count(hasPattern => hasPattern);
+    }
 
-                if (nextR < 0 || nextR >= grid.GetLength(0) || nextC < 0 || nextC >= grid.GetLength(1))
-                    break;
-
-                if (grid[nextR, nextC] != targetString[i])
-                    break;
-                    
-                if (i == targetString.Length - 1)
-                    numOccurrences += 1;
-            }
-        }
-
-        return numOccurrences;
+    private bool HasPatternStartingFromPosition(int r, int c, int dr, int dc)
+    {
+        return targetString.Index()
+            .All(indexAndChar => {
+                int nr = r + indexAndChar.Index * dr;
+                int nc = c + indexAndChar.Index * dc;
+                return nr >= 0
+                    && nr < grid.GetLength(0)
+                    && nc >= 0
+                    && nc < grid.GetLength(1)
+                    && grid[nr, nc] == indexAndChar.Item;
+            });
     }
 }
