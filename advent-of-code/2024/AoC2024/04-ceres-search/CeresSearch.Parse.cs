@@ -2,26 +2,22 @@ namespace AoC2024;
 
 public partial class CeresSearch
 {
-    private readonly char[][] grid;
-    private readonly int numRows;
-    private readonly int numCols;
+    private readonly char[,] grid;
 
     public CeresSearch(string filePath)
     {
-        grid = ParseWordSearch(filePath);
-        numRows = grid.Length;
-        numCols = grid.First().Length;
-    }
-
-    public static char[][] ParseWordSearch(string filePath)
-    {
         using StreamReader inputReader = new(filePath);
-        List<char[]> grid = [];
+        List<char[]> rows = [];
         string? line;
         while((line = inputReader.ReadLine()) != null)
-        {
-            grid.Add(line.ToCharArray());
-        }
-        return [.. grid];
+            rows.Add(line.ToCharArray());
+
+        int rowCount = rows.Count;
+        int colCount = rows.First().Length;
+
+        grid = new char[rowCount, colCount];
+        for (int r = 0; r < rowCount; r++)
+            for (int c = 0; c < colCount; c++)
+                grid[r, c] = rows[r][c];
     }
 }

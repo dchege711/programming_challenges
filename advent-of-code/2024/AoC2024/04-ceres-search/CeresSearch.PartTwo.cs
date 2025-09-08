@@ -20,8 +20,8 @@ public partial class CeresSearch
     public int PartTwo()
     {
         int numOccurrences = 0;
-        for (var r = crossTargetStringRadius; r < numRows - crossTargetStringRadius; r++)
-            for (var c = crossTargetStringRadius; c < numCols - crossTargetStringRadius; c++)
+        for (var r = crossTargetStringRadius; r < grid.GetLength(0) - crossTargetStringRadius; r++)
+            for (var c = crossTargetStringRadius; c < grid.GetLength(1) - crossTargetStringRadius; c++)
                 numOccurrences += HasCrossOccurence(r, c) ? 1 : 0;
 
         return numOccurrences;
@@ -29,7 +29,7 @@ public partial class CeresSearch
 
     private bool HasCrossOccurence(int r, int c)
     {        
-        if (grid[r][c] != crossTargetString[crossTargetStringRadius])
+        if (grid[r, c] != crossTargetString[crossTargetStringRadius])
             return false;
 
         var crossPaths = GetCrossPaths(r, c);
@@ -37,7 +37,7 @@ public partial class CeresSearch
             return false;
         
         return crossPaths.All(coordinates => {
-            var chars = coordinates.Select(coordinate => grid[coordinate.R][coordinate.C]);            
+            var chars = coordinates.Select(coordinate => grid[coordinate.R, coordinate.C]);            
             return crossTargetStringVariations.Contains(string.Concat(chars));
         });
     }
@@ -49,7 +49,7 @@ public partial class CeresSearch
         int leftC = c - crossTargetStringRadius;
         int rightC = c + crossTargetStringRadius;
 
-        if (topR < 0 || bottomR >= numRows || leftC < 0 || rightC >= numCols)
+        if (topR < 0 || bottomR >= grid.GetLength(0) || leftC < 0 || rightC >= grid.GetLength(1))
             yield break;
 
         yield return GetRange(new(topR, leftC), new(1, 1), crossTargetString.Length);

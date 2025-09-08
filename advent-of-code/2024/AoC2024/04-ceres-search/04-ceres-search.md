@@ -1,7 +1,11 @@
 ---
+cited-authors:
+- Mirkovic, Dusko
 date: 2025-08-23
 domains:
 - adventofcode.com
+- code-maze.com
+- learn.microsoft.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/04-ceres-search/
 title: 'AoC 2024 Day 04: Ceres Search'
 ---
@@ -47,6 +51,16 @@ MXMXAXMASX
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/04-ceres-search/CeresSearch.Parse.cs"
   highlight="cs"
   id="CeresSearch.Parse.cs" >}}
+
+For \\(M \times N\\) grids, C# has multi-dimensional arrays. These differ from
+jagged arrays, whose elements are arrays with possibly different sizes. {{% cite
+Array %}} In memory, multi-dimensional arrays are laid out as 1D arrays. When
+processing array data, cache locality impacts performance. If the computation
+needs to access multiple rows (e.g., image convolution, this problem), then
+multi-dimensional arrays offer an advantage. If processing row-by-row, then
+jagged arrays will also have cache locality. However, if the array is larger
+than 85Kb, then it ends in the large object heap, which is slower. {{% cite
+Mirkovic2024 %}}
 
 ## Part One
 
@@ -135,3 +149,17 @@ appear**?
   title="Day 4 - Advent of Code 2024: Ceres Search"
   url="https://adventofcode.com/2024/day/4"
   accessed="2025-08-23" >}}
+
+1. {{< citation
+  id="Array"
+  title="The array reference type - C# reference | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays"
+  accessed="2025-09-07" >}}
+
+1. {{< citation
+  id="Mirkovic2024"
+  date="2024-03-22"
+  author="Dusko Mirkovic"
+  title="Multidimensional Array vs Jagged Array in C#"
+  url="https://code-maze.com/charp-multidimensional-jagged-array/"
+  accessed="2025-09-07" >}}
