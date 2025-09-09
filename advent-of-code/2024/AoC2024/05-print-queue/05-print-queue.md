@@ -4,6 +4,7 @@ cited-authors:
 date: 2025-08-23
 domains:
 - adventofcode.com
+- en.wikipedia.org
 - learn.microsoft.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/05-print-queue/05-print-queue/
 title: 'AoC 2024 Day 05: Print Queue'
@@ -50,6 +51,22 @@ just those updates?
   highlight="cs"
   id="PrintQueue.PartTwo.cs" >}}
 
+## Simple Sort vs. Topological Sort
+
+This a sorting problem and not a graph problem because the input ordering rules
+are total, e.g., if `X|Y` and `Y|Z`, then `X|Z` is also in the input. If `X|Z`
+were not in the input, then I'd need to process the input as a graph to infer
+`X|Z`.
+
+For instance, to validate that the input ordering rules are consistent, then one
+would need to compute a topological sort of a directed graph where \\(X \to Y\\)
+exists if job \\(X\\) must be completed before job \\(Y\\). {{% cite
+WikiTopologicalSort %}}
+
+In {{% cite AoC2024Day05 %}}, it seems like the input ordering rules are
+complete enough for the puzzle problem to not require inference of \\(X \leadsto
+Z\\) nor to validate the consistency of ordering rules.
+
 ## References
 
 1. {{< citation
@@ -69,4 +86,10 @@ just those updates?
   id="Enumerable.Select"
   title="Enumerable.Select Method (System.Linq) | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=net-9.0"
+  accessed="2025-09-09" >}}
+
+1. {{< citation
+  id="WikiTopologicalSort"
+  title="Topological sorting - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Topological_sorting"
   accessed="2025-09-09" >}}
