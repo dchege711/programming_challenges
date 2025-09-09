@@ -7,11 +7,11 @@ public partial class PrintQueue
     public int PartTwo() =>
         printJobs
             .Where(job => !IsValidJob(job))
-            .Select(job => job.Sort(ComparePage))
+            .Select(job => job.Sort(PageComparer))
             .Select(job => job[job.Count / 2])
             .Sum();
 
-    private int ComparePage(int p1, int p2)
+    private int PageComparer(int p1, int p2)
     {
         if (p1 == p2)
             return 0;
