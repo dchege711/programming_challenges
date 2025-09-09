@@ -26,4 +26,13 @@ public sealed class Day05PrintQueueTests
         var printQueue = new PrintQueue(filePath);
         printQueue.PartOne().Should().Be(expectedSum);
     }
+
+    [TestMethod]
+    [DataRow("day-05-sample.in.txt", 123)]
+    [DataRow("day-05-test.in.txt", 4077)]
+    public void PartTwo(string filePath, int expectedSum)
+    {
+        var printQueue = new PrintQueue(filePath);
+        printQueue.PartTwo().Should().Be(expectedSum);
+    }
 }
