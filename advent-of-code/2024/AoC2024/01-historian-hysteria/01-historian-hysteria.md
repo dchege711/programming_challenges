@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-06-25
 domains:
 - adventofcode.com
@@ -11,6 +13,7 @@ title: 'AoC 2024 Day 01: Historian Hysteria'
   id="AoC2024Day01"
   title="Day 1 - Advent of Code 2024: Historian Hysteria"
   url="https://adventofcode.com/2024/day/1"
+  author="Eric Wastl"
   accessed="2025-06-25" >}}
 
 ## Data

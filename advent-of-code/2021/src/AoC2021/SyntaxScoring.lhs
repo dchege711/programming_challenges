@@ -9,6 +9,7 @@ weight: 10
     id="AoC2021-10"
     title="Day 10 - Advent of Code 2021"
     url="https://adventofcode.com/2021/day/10"
+    author="Eric Wastl"
     accessed="2022-04-12" >}}
 
 \## Part I

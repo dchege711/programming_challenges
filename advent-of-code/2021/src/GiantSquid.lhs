@@ -12,6 +12,7 @@ weight: 4
   id="AoC2021-04"
   title="Day 4 - Advent of Code 2021"
   url="https://adventofcode.com/2021/day/4"
+  author="Eric Wastl"
   accessed="2022-02-25" >}}
 
 \## Part One

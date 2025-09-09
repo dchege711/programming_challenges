@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2022-02-18
 domains:
 - adventofcode.com
@@ -12,6 +14,7 @@ title: Advent of Code 2021 - Haskell
   id="AoC2021"
   title="Advent of Code 2021"
   url="https://adventofcode.com/2021"
+  author="Eric Wastl"
   accessed="2022-02-18" >}}
 
 Objective: Get better at Haskell, and at functional programming in

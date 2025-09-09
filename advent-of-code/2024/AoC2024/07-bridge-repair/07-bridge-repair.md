@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -51,4 +53,5 @@ calibration result?**
   id="AoC2024Day07"
   title="Day 07 - Advent of Code 2024: Bridge Repair"
   url="https://adventofcode.com/2024/day/7"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}

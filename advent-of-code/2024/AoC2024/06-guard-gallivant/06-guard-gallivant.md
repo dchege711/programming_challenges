@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -61,4 +63,5 @@ visit before leaving the mapped area?**
   id="AoC2024Day06"
   title="Day 06 - Advent of Code 2024: Guard Gallivant"
   url="https://adventofcode.com/2024/day/6"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}

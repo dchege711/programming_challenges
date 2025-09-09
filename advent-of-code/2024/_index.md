@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-06-25
 domains:
 - adventofcode.com
@@ -20,4 +22,5 @@ add hyperlinks in `.cs` code comments?
   id="AoC2024"
   title="Advent of Code 2024"
   url="https://adventofcode.com/"
+  author="Eric Wastl"
   accessed="2025-06-25" >}}

@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -71,4 +73,5 @@ bounds of the map contain an antinode?**
   id="AoC2024Day08"
   title="Day 08 - Advent of Code 2024: Resonant Collinearity"
   url="https://adventofcode.com/2024/day/8"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}

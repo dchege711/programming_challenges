@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2022-03-05
 domains:
 - adventofcode.com
@@ -13,6 +15,7 @@ weight: 7
     id="AoC2021-07"
     title="Day 7 - Advent of Code 2021"
     url="https://adventofcode.com/2021/day/7"
+    author="Eric Wastl"
     accessed="2022-03-05" >}}
 
 ## Part I Description

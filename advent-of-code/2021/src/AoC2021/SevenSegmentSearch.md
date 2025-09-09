@@ -8,6 +8,7 @@ cited-authors:
 - Mazon, Jean-Baptiste
 - Morrison, Donald R
 - Okasaki, Chris
+- Wastl, Eric
 date: 2022-03-07
 domains:
 - adventofcode.com
@@ -32,6 +33,7 @@ weight: 8
     id="AoC2021-08"
     title="Day 8 - Advent of Code 2021"
     url="https://adventofcode.com/2021/day/8"
+    author="Eric Wastl"
     accessed="2022-03-07" >}}
 
 ## Part I Description

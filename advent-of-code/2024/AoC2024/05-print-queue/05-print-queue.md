@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -67,4 +69,5 @@ you add up the middle page number from those correctly-ordered updates?**
   id="AoC2024Day05"
   title="Day 5 - Advent of Code 2024: Print Queue"
   url="https://adventofcode.com/2024/day/5"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}

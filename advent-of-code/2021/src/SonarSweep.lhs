@@ -14,6 +14,7 @@ weight: 1
   id="AoC2021-01"
   title="Day 1 - Advent of Code 2021: Sonar Sweep"
   url="https://adventofcode.com/2021/day/1"
+  author="Eric Wastl"
   accessed="2022-02-18" >}}
 
 \## Part One

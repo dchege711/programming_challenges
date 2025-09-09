@@ -10,6 +10,7 @@ summary: "Multi-dimensional arrays using `massiv`; Fusion; Box vs. Unboxed; Conn
     id="AoC2021-09"
     title="Day 9 - Advent of Code 2021"
     url="https://adventofcode.com/2021/day/9"
+    author="Eric Wastl"
     accessed="2022-03-16" >}}
 
 \## Part I {{% cite AoC2021-09 %}}

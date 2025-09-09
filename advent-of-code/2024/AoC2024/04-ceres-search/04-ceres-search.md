@@ -133,6 +133,7 @@ Within the `X`, each `MAS` can be written forwards or backwards.
   author="Eric Wastl"
   title="Day 4 - Advent of Code 2024: Ceres Search"
   url="https://adventofcode.com/2024/day/4"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}
 
 1. {{< citation

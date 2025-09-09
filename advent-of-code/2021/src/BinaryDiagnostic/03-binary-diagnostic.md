@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2022-02-23
 domains:
 - adventofcode.com
@@ -18,6 +20,7 @@ weight: 3
     id="AoC2021-03"
     title="Day 3 - Advent of Code 2021"
     url="https://adventofcode.com/2021/day/3"
+    author="Eric Wastl"
     accessed="2022-02-23" >}}
 
 ## Problem Description

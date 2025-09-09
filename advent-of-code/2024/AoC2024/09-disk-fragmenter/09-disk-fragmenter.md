@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -61,4 +63,5 @@ resulting filesystem checksum?**
   id="AoC2024Day09"
   title="Day 09 - Advent of Code 2024: Disk Fragmenter"
   url="https://adventofcode.com/2024/day/9"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}

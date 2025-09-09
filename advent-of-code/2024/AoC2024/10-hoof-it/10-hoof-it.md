@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Wastl, Eric
 date: 2025-08-23
 domains:
 - adventofcode.com
@@ -38,4 +40,5 @@ a single `9` (the one in the bottom left).
   id="AoC2024Day10"
   title="Day 10 - Advent of Code 2024: Hoof It"
   url="https://adventofcode.com/2024/day/10"
+  author="Eric Wastl"
   accessed="2025-08-23" >}}
