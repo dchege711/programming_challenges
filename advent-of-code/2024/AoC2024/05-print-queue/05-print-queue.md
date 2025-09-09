@@ -20,6 +20,11 @@ point before page number `Y`.
 The input contains page ordering rules (pairs of `X|Y`) and print queues (e.g.,
 `75, 47, 61, 53, 29`).
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/05-print-queue/PrintQueue.Parse.cs"
+  highlight="cs"
+  id="PrintQueue.Parse.cs" >}}
+
 ## Part One
 
 Determine which updates are already in the correct order. What do you get if
