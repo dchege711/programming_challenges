@@ -30,6 +30,11 @@ The input contains page ordering rules (pairs of `X|Y`) and print queues (e.g.,
 Determine which updates are already in the correct order. What do you get if
 you add up the middle page number from those correctly-ordered updates?
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/05-print-queue/PrintQueue.PartOne.cs"
+  highlight="cs"
+  id="PrintQueue.PartOne.cs" >}}
+
 ## References
 
 1. {{< citation

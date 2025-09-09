@@ -17,4 +17,13 @@ public sealed class Day05PrintQueueTests
         printQueue.printJobs.Count.Should().Be(6);
         printQueue.printJobs[0].Should().BeEquivalentTo([75,47,61,53,29]);
     }
+
+    [TestMethod]
+    [DataRow("day-05-sample.in.txt", 143)]
+    [DataRow("day-05-test.in.txt", 5129)]
+    public void PartOne(string filePath, int expectedSum)
+    {
+        var printQueue = new PrintQueue(filePath);
+        printQueue.PartOne().Should().Be(expectedSum);
+    }
 }
