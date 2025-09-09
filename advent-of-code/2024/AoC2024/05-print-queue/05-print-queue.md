@@ -4,6 +4,7 @@ cited-authors:
 date: 2025-08-23
 domains:
 - adventofcode.com
+- learn.microsoft.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/05-print-queue/05-print-queue/
 title: 'AoC 2024 Day 05: Print Queue'
@@ -33,6 +34,11 @@ you add up the middle page number from those correctly-ordered updates?
   highlight="cs"
   id="PrintQueue.PartOne.cs" >}}
 
+While {{% cite Enumerable.Index %}} returns an `IEnumerable` that incorporates
+each element index into a tuple, {{% cite Enumerable.Select %}} passes the index
+of the source element as the second parameter of the selector function. No need
+to call `Index` when we don't need an explicit tuple.
+
 ## Part Two
 
 For each of the incorrectly-ordered updates, use the page ordering rules to put
@@ -53,3 +59,15 @@ just those updates?
   url="https://adventofcode.com/2024/day/5"
   author="Eric Wastl"
   accessed="2025-08-23" >}}
+
+1. {{< citation
+  id="Enumerable.Index"
+  title="Enumerable.Index<TSource>(IEnumerable<TSource>) Method (System.Linq) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.index?view=net-9.0"
+  accessed="2025-09-09" >}}
+
+1. {{< citation
+  id="Enumerable.Select"
+  title="Enumerable.Select Method (System.Linq) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=net-9.0"
+  accessed="2025-09-09" >}}

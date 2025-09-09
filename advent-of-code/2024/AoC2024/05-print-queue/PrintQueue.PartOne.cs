@@ -9,9 +9,8 @@ public partial class PrintQueue
             .Sum();
 
     private bool IsValidJob(IEnumerable<int> job) =>
-        job.Index()
-            .SelectMany(idxAndP1 => job.Skip(idxAndP1.Index + 1)
-                .Select(p2 => IsValidOrderedPair(idxAndP1.Item, p2)))
+        job.SelectMany((p1, idx) => job.Skip(idx + 1)
+                .Select(p2 => IsValidOrderedPair(p1, p2)))
             .All(valid => valid);
 
     private bool IsValidOrderedPair(int p1, int p2) =>
