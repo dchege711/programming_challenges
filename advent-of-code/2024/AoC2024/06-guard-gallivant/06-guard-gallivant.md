@@ -48,6 +48,17 @@ How many distinct positions will the guard visit before leaving the mapped area?
   highlight="cs"
   id="GuardGallivant.PartOne.cs" >}}
 
+## Part Two
+
+How many different positions can you choose for adding a new obstruction that
+gets the guard stuck in a loop? The new obstruction can't be placed at the
+guard's starting position.
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/06-guard-gallivant/GuardGallivant.PartTwo.cs"
+  highlight="cs"
+  id="GuardGallivant.PartTwo.cs" >}}
+
 ## Reference
 
 1. {{< citation

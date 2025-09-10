@@ -31,6 +31,7 @@ public sealed class Day06GuardGallivantTests
 
     [TestMethod]
     [DataRow("day-06-sample.in.txt", 6)]
+    [DataRow("day-06-test.in.txt", 1951)]
     public void PartTwo(string filePath, int expectedNumDistinctPositions)
     {
         var guardGallivant = new GuardGallivant(filePath);
