@@ -64,6 +64,15 @@ particular `Array` index.
 
 `Cast<TResult>` casts the elements of an `IEnumerable` to `TResult`.
 
+{{% open-comment %}}
+
+I still don't understand the rationale. In []({{< ref
+"/computer-science/programming-challenges/advent-of-code/2024/AoC2024/06-guard-gallivant/06-guard-gallivant"
+>}}), `Cast` helped me iterate over a multi-dimensional array. Why wouldn't the
+multi-dimensional array expose LINQ methods instead of needing `Cast`?
+
+{{% /open-comment %}}
+
 `OfType<TResult>` filters the `TResult` instances in an `IEnumerable`.
 
 `AsParallel` enables parallelization of a query.

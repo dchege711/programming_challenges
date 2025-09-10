@@ -10,11 +10,8 @@ public partial class GuardGallivant
             startingPosition.dr,
             startingPosition.dc);
         
-        int numDistinctPositions = 0;
-        foreach (PositionState state in areaMap)
-            numDistinctPositions += state == PositionState.kVisited ? 1 : 0;
-        
-        return numDistinctPositions;
+        return areaMap.Cast<PositionState>()
+            .Count(state => state == PositionState.kVisited);;
     }
 
     private void SimulateGuardMoves(int r, int c, int dr, int dc)
