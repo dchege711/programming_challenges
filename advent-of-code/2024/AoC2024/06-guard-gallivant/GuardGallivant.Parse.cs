@@ -1,11 +1,15 @@
+using System.Collections;
+
 namespace AoC2024;
 
 public partial class GuardGallivant
 {
-    public readonly PositionState[,] areaMap;
-    public readonly (int r, int c, int dr, int dc) startingPosition;
+    public readonly (bool Blocked, BitArray Visits)[,] areaMap;
+    public readonly (int r, int c) startingPosition;
 
     public enum PositionState { kBlocked, kVisited, kUnVisited }
+
+    public enum Orientation { Up, Down, Left, Right }
 
     public GuardGallivant(string filePath)
     {
@@ -19,39 +23,41 @@ public partial class GuardGallivant
         int rowCount = rows.Count;
         int colCount = rows.First().Length;
 
-        areaMap = new PositionState[rowCount, colCount];
+        areaMap = new (bool Blocked, BitArray Visits)[rowCount, colCount];
         for (int r = 0; r < rowCount; r++)
         {
             foreach (var (c, val) in rows[r].Index())
             {
-                var state = GetPositionState(val);
-                areaMap[r, c] = state;
+                var positionState = GetPositionState(val);
+                areaMap[r, c] = positionState;
 
-                if (state == PositionState.kVisited)
-                {
-                    var (dr, dc) = GetOrientation(val);
-                    startingPosition = (r, c, dr, dc);
-                }
+                if (positionState.Visits?.HasAnySet() == true)
+                    startingPosition = (r, c);
             }
         }
-
     }
 
-    private static (int dr, int dc) GetOrientation(char val) => val switch {
-        '^' => (-1, 0),
-        '<' => (0, -1),
-        '>' => (0, 1),
-        'v' => (1, 0),
+    private static Orientation GetOrientation(char val) => val switch {
+        '^' => Orientation.Up,
+        '<' => Orientation.Left,
+        '>' => Orientation.Right,
+        'v' => Orientation.Down,
         _ => throw new ArgumentException($"Unrecognized input: {val}")
     };
 
-    private static PositionState GetPositionState(char c) => c switch {
-        '.' => PositionState.kUnVisited,
-        '#' => PositionState.kBlocked,
-        '^' => PositionState.kVisited,
-        '<' => PositionState.kVisited,
-        '>' => PositionState.kVisited,
-        'v' => PositionState.kVisited,
+    private static (bool Blocked, BitArray Visits) GetPositionState(char c) => c switch {
+        '.' => (false, new BitArray(4)),
+        '#' => (true, new BitArray(4)),
+        '^' => (false, GetBitArray(Orientation.Up)),
+        '<' => (false, GetBitArray(Orientation.Left)),
+        '>' => (false, GetBitArray(Orientation.Right)),
+        'v' => (false, GetBitArray(Orientation.Down)),
         _ => throw new ArgumentException($"Unrecognized input: {c}")
     };
+
+    private static BitArray GetBitArray(Orientation orientation) =>
+        new(
+            Enumerable.Range(0, 4)
+                .Select(i => i == Convert.ToInt32(orientation))
+                .ToArray());
 }
