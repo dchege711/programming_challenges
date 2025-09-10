@@ -43,6 +43,11 @@ these steps:
 
 How many distinct positions will the guard visit before leaving the mapped area?
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/06-guard-gallivant/GuardGallivant.PartOne.cs"
+  highlight="cs"
+  id="GuardGallivant.PartOne.cs" >}}
+
 ## Reference
 
 1. {{< citation
