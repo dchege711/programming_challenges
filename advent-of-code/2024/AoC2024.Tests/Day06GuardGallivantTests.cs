@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace AoC2024.Tests;
 
 [TestClass]
@@ -15,18 +13,11 @@ public sealed class Day06GuardGallivantTests
         guardGallivant.areaMap.GetLength(0).Should().Be(10);
         guardGallivant.areaMap.GetLength(1).Should().Be(10);
 
-        var position = guardGallivant.areaMap[3, 2];
-        position.Blocked.Should().BeTrue();
-        position.Visits.HasAnySet().Should().BeFalse();
+        guardGallivant.areaMap[3, 2].Should().Be(GuardGallivant.PositionState.kBlocked);
+        guardGallivant.areaMap[9, 9].Should().Be(GuardGallivant.PositionState.kUnVisited);
 
-        position = guardGallivant.areaMap[9, 9];
-        position.Blocked.Should().BeFalse();
-        position.Visits.HasAnySet().Should().BeFalse();
-
-        position = guardGallivant.areaMap[6, 4];
-        position.Blocked.Should().BeFalse();
-        position.Visits.HasAnySet().Should().BeTrue();
-        guardGallivant.startingPosition.Should().Be((6, 4));
+        guardGallivant.areaMap[6, 4].Should().Be(GuardGallivant.PositionState.kVisited);
+        guardGallivant.startingPosition.Should().Be((6, 4, -1, 0));
     }
 
     [TestMethod]
@@ -44,27 +35,5 @@ public sealed class Day06GuardGallivantTests
     {
         var guardGallivant = new GuardGallivant(filePath);
         guardGallivant.PartTwo().Should().Be(expectedNumDistinctPositions);
-    }
-
-    private static void PrintDebugString(GuardGallivant guardGallivant)
-    {
-        for (int r = 0; r < guardGallivant.areaMap.GetLength(0); r++)
-        {
-            for (int c = 0; c < guardGallivant.areaMap.GetLength(1); c++)
-            {
-                var (blocked, visits) = guardGallivant.areaMap[r, c];
-                Console.Write(ToDebugString(blocked, visits));
-            }
-            Console.WriteLine();
-        }
-    }
-
-    private static char ToDebugString(bool blocked, BitArray? visits)
-    {
-        if (blocked)
-            return '#';
-        else if (visits?.HasAnySet() == true)
-            return 'X';
-        return '.';
     }
 }
