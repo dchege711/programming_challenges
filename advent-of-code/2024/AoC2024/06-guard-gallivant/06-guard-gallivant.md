@@ -28,6 +28,11 @@ crates, desks, alchemical reactors, etc., are shown as `#`.
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td></tr>
 </table>
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/06-guard-gallivant/GuardGallivant.Parse.cs"
+  highlight="cs"
+  id="GuardGallivant.Parse.cs" >}}
+
 ## Part One
 
 The guard follows a strict patrol protocol which involves repeatedly following
