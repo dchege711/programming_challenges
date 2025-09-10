@@ -13,26 +13,9 @@ public partial class GuardGallivant
         int numDistinctPositions = 0;
         foreach (PositionState state in areaMap)
             numDistinctPositions += state == PositionState.kVisited ? 1 : 0;
-
-        for (int r = 0; r < areaMap.GetLength(0); r++)
-        {
-            for (int c = 0; c < areaMap.GetLength(1); c++)
-            {
-                Console.Write(ToDebugString(areaMap[r, c]));
-            }
-            Console.WriteLine();
-        }
         
         return numDistinctPositions;
     }
-
-    private static char ToDebugString(PositionState state) => state switch
-    {
-        PositionState.kBlocked => '#',
-        PositionState.kVisited => 'X',
-        PositionState.kUnVisited => '.',
-        _ => throw new ArgumentException($"Unrecognized input: {state}")
-    };
 
     private void SimulateGuardMoves(int r, int c, int dr, int dc)
     {
