@@ -9,15 +9,18 @@ public sealed class Day06GuardGallivantTests
     public void Parsing()
     {
         var guardGallivant = new GuardGallivant("day-06-sample.in.txt");
+        var (RowCount, ColCount, Obstacles) = guardGallivant.AreaMap;
 
-        guardGallivant.areaMap.GetLength(0).Should().Be(10);
-        guardGallivant.areaMap.GetLength(1).Should().Be(10);
+        RowCount.Should().Be(10);
+        ColCount.Should().Be(10);
 
-        guardGallivant.areaMap[3, 2].Should().Be(GuardGallivant.PositionState.kBlocked);
-        guardGallivant.areaMap[9, 9].Should().Be(GuardGallivant.PositionState.kUnVisited);
+        Obstacles.Contains(new GuardGallivant.Coordinate(3, 2)).Should().BeTrue();
+        Obstacles.Contains(new GuardGallivant.Coordinate(9, 9)).Should().BeFalse();
 
-        guardGallivant.areaMap[6, 4].Should().Be(GuardGallivant.PositionState.kVisited);
-        guardGallivant.startingPosition.Should().Be((6, 4, -1, 0));
+        guardGallivant.StartingPosition.Should().BeEquivalentTo(
+            new GuardGallivant.Visit(
+                new GuardGallivant.Coordinate(6, 4),
+                GuardGallivant.Orientation.Up));
     }
 
     [TestMethod]

@@ -2,57 +2,61 @@ namespace AoC2024;
 
 public partial class GuardGallivant
 {
-    public int PartOne()
-    {
-        SimulateGuardMoves(
-            startingPosition.r,
-            startingPosition.c,
-            startingPosition.dr,
-            startingPosition.dc);
-        
-        return areaMap.Cast<PositionState>()
-            .Count(state => state == PositionState.kVisited);;
-    }
+    public int PartOne() => SimulateGuardMovement().NumDistinctPositions;
 
-    private void SimulateGuardMoves(int r, int c, int dr, int dc)
+    private (int NumDistinctPositions, bool IsTrapped) SimulateGuardMovement()
     {
-        var nr = r + dr;
-        var nc = c + dc;
+        HashSet<Visit> visits = [StartingPosition];
+        var orientation = StartingPosition.Orientation;
+        var (dr, dc) = ToVector(orientation);
+        var nr = StartingPosition.Coordinate.R + dr;
+        var nc = StartingPosition.Coordinate.C + dc;
+        var isTrapped = false;
+
         while (InBounds(nr, nc))
         {
-            switch (areaMap[nr, nc]) {
-                case PositionState.kBlocked: {
-                    (nr, nc) = (nr - dr, nc - dc); // Backtrack
-                    (dr, dc) = TurnRight90Degrees(dr, dc); // Re-orient
-                    break;
-                }
-
-                case PositionState.kVisited: {
-                    break;
-                }
-
-                case PositionState.kUnVisited: {
-                    areaMap[nr, nc] = PositionState.kVisited;
-                    break;
-                }
-
-                default:
-                    throw new ArgumentException(
-                        $"Invalid PositionState: {areaMap[nr, nc]}");
+            if (AreaMap.Obstacles.Contains(new(nr, nc)))
+            {
+                (nr, nc) = (nr - dr, nc - dc);
+                orientation = TurnRight90Degrees(orientation);
+                (dr, dc) = ToVector(orientation);
+                continue;
             }
+
+            Visit visit = new(new(nr, nc), orientation);
+
+            if (visits.Contains(visit))
+            {
+                isTrapped = true;
+                break;
+            }
+            
+            visits.Add(visit);
 
             (nr, nc) = (nr + dr, nc + dc);
         }
+
+        // VisualizeMapWithGuardMovement(visits);
+
+        return (visits.GroupBy(visit => visit.Coordinate).Count(), isTrapped);
     }
 
-    private static (int dr, int dc) TurnRight90Degrees(int dr, int dc) => (dr, dc) switch {
-        { dr: > 0, dc: 0 } => (0, -dr),     // Down -> Left
-        { dr: 0, dc: < 0 } => (dc, 0),      // Left -> Up
-        { dr: < 0, dc: 0 } => (0, -dr),     // Up -> Right
-        { dr: 0, dc: > 0 } => (dc, 0),      // Right -> Down
+    private static (int dr, int dc) ToVector(Orientation orientation) => orientation switch {
+        Orientation.Up => (-1, 0),
+        Orientation.Left => (0, -1),
+        Orientation.Right => (0, 1),
+        Orientation.Down => (1, 0),
+        _ => throw new ArgumentException($"Unrecognized input: {orientation}")
+    };
+
+    private static Orientation TurnRight90Degrees(Orientation orientation) => orientation switch {
+        Orientation.Up => Orientation.Right,
+        Orientation.Right => Orientation.Down,
+        Orientation.Down => Orientation.Left,
+        Orientation.Left => Orientation.Up,
         _ => throw new ArgumentException("Invalid direction vector")
     };
 
     private bool InBounds(int r, int c) =>
-        r >= 0 && r < areaMap.GetLength(0) && c >= 0 && c < areaMap.GetLength(1);
+        r >= 0 && r < AreaMap.RowCount && c >= 0 && c < AreaMap.ColCount;
 }
