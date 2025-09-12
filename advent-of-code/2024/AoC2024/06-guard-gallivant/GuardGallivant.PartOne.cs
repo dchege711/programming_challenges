@@ -2,9 +2,9 @@ namespace AoC2024;
 
 public partial class GuardGallivant
 {
-    public int PartOne() => SimulateGuardMovement().NumDistinctPositions;
+    public int PartOne() => SimulateGuardMovement().VisitedPositions.Count();
 
-    private (int NumDistinctPositions, bool IsTrapped) SimulateGuardMovement()
+    private (IEnumerable<Coordinate> VisitedPositions, bool IsTrapped) SimulateGuardMovement()
     {
         HashSet<Visit> visits = [StartingPosition];
         var orientation = StartingPosition.Orientation;
@@ -38,7 +38,9 @@ public partial class GuardGallivant
 
         // VisualizeMapWithGuardMovement(visits);
 
-        return (visits.GroupBy(visit => visit.Coordinate).Count(), isTrapped);
+        return (
+            visits.GroupBy(visit => visit.Coordinate).Select(g => g.Key),
+            isTrapped);
     }
 
     private static (int dr, int dc) ToVector(Orientation orientation) => orientation switch {
