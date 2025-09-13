@@ -43,12 +43,18 @@ one of these interfaces and then trying to add/remove elements will throw
 increased as required. The generic counterpart is `List<T>`. {{% cite ArrayList
 %}}
 
-## Immutability and Thread-Safety
+## Immutability
 
-Collections from `System.Collections.Concurrent` are type-safe, thread-safe, and
-scalable, e.g., `BlockingCollection<T>`, `ConcurrentDictionary<TKey, TValue>`,
-`ConcurrentQueue<T>`, `ConcurrentStack<T>`, `ConcurrentBag<T>`, and
-`IProducerConsumerCollection<T>`. {{% cite ThreadSafeCollections %}}
+`System.Collections.Generic`'s `IReadOnlyCollection<T>` interface is derived by
+interfaces like `System.Collections.Generic.IReadOnly*<T>` and
+`System.Collections.Immutable.Immutable*<T>`. {{% cite
+GenericIReadOnlyCollection %}}
+
+`IReadOnlyList<T>` is read-only in the number and order of elements; the
+contents of the contained elements are not guaranteed to be read-only. {{% cite
+GenericIReadOnlyList %}} Compare this to `ImmutableList<T>` where any mutation
+operation, even `ImmutableList<T>.SetItem(Int32, T)`, returns a new
+`ImmutableList<T>`. {{% cite GenericImmutableList %}}
 
 When building immutable collections, call `CreateBuilder` to get a `Builder`
 object so that you can batch operations in a mutable state. When all mutations
@@ -58,6 +64,17 @@ immutable collection. {{% cite UsingGenericCollections %}}
 Enumerating an `ImmutableList<T>` is less efficient than enumerating a `List<T>`
 because `ImmutableList<T>`'s indexer is \\(\mathcal{O}(log(n))\\) for traversing
 the underlying binary tree. {{% cite CollectionsAndDataStructures %}}
+
+## Thread-Safety
+
+Collections from `System.Collections.Concurrent` are type-safe, thread-safe, and
+scalable, e.g., `BlockingCollection<T>`, `ConcurrentDictionary<TKey, TValue>`,
+`ConcurrentQueue<T>`, `ConcurrentStack<T>`, `ConcurrentBag<T>`, and
+`IProducerConsumerCollection<T>`. {{% cite ThreadSafeCollections %}}
+
+Collections from the `System.Collections.Immutable` namespace are inherently
+thread-safe because operations act on copies of the data. {{% cite
+CollectionsAndDataStructures %}}
 
 ## String Considerations
 
@@ -144,3 +161,21 @@ GenericSortedList %}}
   title="Thread-Safe collections - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/collections/thread-safe/"
   accessed="2025-09-06" >}}
+
+1. {{< citation
+  id="GenericIReadOnlyCollection"
+  title="IReadOnlyCollection<T> Interface (System.Collections.Generic) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlycollection-1?view=net-9.0"
+  accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="GenericIReadOnlyList"
+  title="IReadOnlyList<T> Interface (System.Collections.Generic) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1?view=net-9.0"
+  accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="GenericImmutableList"
+  title="ImmutableList<T> Class (System.Collections.Immutable) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.collections.immutable.immutablelist-1?view=net-9.0"
+  accessed="2025-09-13" >}}
