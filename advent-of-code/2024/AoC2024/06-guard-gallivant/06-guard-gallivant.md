@@ -4,6 +4,7 @@ cited-authors:
 date: 2025-08-23
 domains:
 - adventofcode.com
+- github.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/06-guard-gallivant/06-guard-gallivant/
 title: 'AoC 2024 Day 06: Guard Gallivant'
 ---
