@@ -15,6 +15,11 @@ Each line represents a single equation, e.g., `292: 11 6 16 20`. [Part
 One](#part-one) needs to make a decision based on each line independently.
 Parsing each line into a data structure and yielding that should suffice.
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.Parse.cs"
+  highlight="cs"
+  id="BridgeRepair.Parse.cs" >}}
+
 ## Part One
 
 Using only **add** and **multiply**, evaluated left-to-right (not according to
