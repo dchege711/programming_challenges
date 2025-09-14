@@ -42,4 +42,13 @@ public sealed class Day07BridgeRepairTests
         var calibrationTotal = BridgeRepair.TotalCalibrationResultWithConcat(calibrations);
         calibrationTotal.Should().Be(expectedCalibrationTotal);
     }
+
+    [TestMethod]
+    public void SingleEquation()
+    {
+        IList<BridgeRepair.CalibrationEquation> calibrations = [
+            new(7290L, [6L, 8L, 6L, 15L])];
+        var calibrationTotal = BridgeRepair.TotalCalibrationResultWithConcat(calibrations);
+        calibrationTotal.Should().Be(7291L);
+    }
 }
