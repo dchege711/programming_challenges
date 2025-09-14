@@ -137,6 +137,13 @@ expect that much of a speedup!
   highlight="cs"
   id="BridgeRepair.Alternate.cs" >}}
 
+The recursive `IsValid` has an early return advantage. In a line like
+\\(123456:\ 123\ 456\ 9\\), `IsValid` returns early after evaluating \\(123\ ||\
+456 \\) and noticing that we still have 1 more non-decreasing operator to apply.
+In the `PermutationWithReplacement` approach, we have still generated operators
+for \\(123\ ||\ 456 + 9\\), \\(123\ ||\ 456\ || 9\\), and \\(123\ ||\ 456 \times
+9\\) before abandoning this part of the search space. Again, hindsight is 20/20.
+
 ## References
 
 1. {{< citation
