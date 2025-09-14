@@ -41,18 +41,20 @@ public partial class BridgeRepair
         long result = equation.Operands.First();
         foreach (var (@operator, operand) in Enumerable.Zip(operators, equation.Operands.Skip(1)))
         {
-            result = @operator switch {
-                Operator.Add => result + operand,
-                Operator.Multiply => result * operand,
-                Operator.Concatenate => Concatenate(result, operand),
-                _ => throw new ArgumentException($"Unrecognized op: {@operator}")
-            };
+            result = Apply(result, @operator, operand);
             if (result > equation.Result)
                 break;
         }
 
         return result == equation.Result;
     }
+
+    private static long Apply(long lhs, Operator @operator, long rhs) => @operator switch {
+        Operator.Add => lhs + rhs,
+        Operator.Multiply => lhs * rhs,
+        Operator.Concatenate => Concatenate(lhs, rhs),
+        _ => throw new ArgumentException($"Unrecognized op: {@operator}")
+    };
 
     private enum Operator { Add, Multiply, Concatenate }
 }

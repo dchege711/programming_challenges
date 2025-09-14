@@ -128,6 +128,15 @@ Enumerable.Zip %}}
   highlight="cs"
   id="BridgeRepair.PartTwo.cs" >}}
 
+What if instead using `PermutationWithReplacement`, we have a recursive
+`IsValid` that exits early? Huh, solving part 2 goes from 10s to ~1s; didn't
+expect that much of a speedup!
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.Alternate.cs"
+  highlight="cs"
+  id="BridgeRepair.Alternate.cs" >}}
+
 ## References
 
 1. {{< citation
