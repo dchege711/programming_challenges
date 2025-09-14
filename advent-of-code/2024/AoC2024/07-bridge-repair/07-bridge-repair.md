@@ -5,6 +5,8 @@ date: 2025-08-23
 domains:
 - adventofcode.com
 - docs.python.org
+- en.wikipedia.org
+- learn.microsoft.com
 - stackoverflow.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/07-bridge-repair/
@@ -80,7 +82,12 @@ the time is spent searching the \\(3^N\\) permutations.
 
 What about finding \\(m\\) using \\(\left \lfloor{log_{10}(n)} \right \rfloor +
 1\\) instead of the iterative approach? {{% cite StackOverflow6655754 %}} No
-dice; also runs in ~60s.
+dice; also runs in ~60s. `Math.Pow` returns a `double`, so for the sake of
+avoiding precision loss and casting, reverting to the iterative approach.
+
+Evaluating each `CalibrationEquation` is an embarrassingly parallel problem {{%
+cite WikiEmbarrassinglyParallel %}}. Adding `AsParallel` gets us from 60s to
+30s. {{% cite PLINQ %}}
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.PartTwo.cs"
@@ -106,4 +113,16 @@ dice; also runs in ~60s.
   id="StackOverflow6655754"
   title="algorithm - Finding the number of digits of an integer - Stack Overflow"
   url="https://stackoverflow.com/questions/6655754/finding-the-number-of-digits-of-an-integer"
+  accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="WikiEmbarrassinglyParallel"
+  title="Embarrassingly parallel - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Embarrassingly_parallel"
+  accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="PLINQ"
+  title="Introduction to PLINQ - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/introduction-to-plinq"
   accessed="2025-09-13" >}}

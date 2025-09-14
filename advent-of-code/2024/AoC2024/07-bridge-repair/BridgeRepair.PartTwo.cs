@@ -11,7 +11,9 @@ public partial class BridgeRepair
     
     private static long Concatenate(long a, long b)
     {
-        var powerOf10 = Math.Pow(10, Math.Floor(Math.Log10(b)) + 1);
-        return (a * (long)powerOf10) + b;
+        var (factor, reducedB) = (10L, b);
+        while ((reducedB /= 10) > 0)
+            factor *= 10;
+        return a * factor + b;
     }
 }

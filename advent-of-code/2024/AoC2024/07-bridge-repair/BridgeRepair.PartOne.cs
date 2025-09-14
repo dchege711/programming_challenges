@@ -12,6 +12,7 @@ public partial class BridgeRepair
     private static long TotalCalibrationResult(
         IEnumerable<CalibrationEquation> equations, ImmutableHashSet<Operator> operators) =>
         equations
+            .AsParallel()
             .Where(eq => IsValid(eq, operators))
             .Select(eq => eq.Result)
             .Sum();
