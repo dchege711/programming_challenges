@@ -8,7 +8,6 @@ domains:
 - en.wikipedia.org
 - learn.microsoft.com
 - stackoverflow.com
-draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/07-bridge-repair/
 title: 'AoC 2024 Day 07: Bridge Repair'
 ---
