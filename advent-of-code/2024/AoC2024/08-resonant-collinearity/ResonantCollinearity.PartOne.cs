@@ -42,8 +42,6 @@ public partial class ResonantCollinearity
     }
 
     private bool InBounds(Coordinate p) =>
-        p.R >= 0
-        && p.R < antennasMap.RowCount
-        && p.C >= 0
-        && p.C < antennasMap.ColCount;
+        p.R >= 0 && p.R < antennasMap.RowCount
+        && p.C >= 0 && p.C < antennasMap.ColCount;
 }

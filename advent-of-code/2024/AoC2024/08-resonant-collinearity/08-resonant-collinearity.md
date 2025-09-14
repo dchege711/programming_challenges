@@ -37,10 +37,23 @@ AoC2024Day08 %}}
 with frequency \\(f\\), I need to pairwise match them and compute their
 antinodes. Being able to group all such antennas is useful for this puzzle.
 
+<details>
+<summary>ResonantCollinearity.Parse.cs</summary>
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/08-resonant-collinearity/ResonantCollinearity.Parse.cs"
+  highlight="cs"
+  id="ResonantCollinearity.Parse.cs" >}}
+
+</details>
+
 ## Part One
 
 How many unique locations within the bounds of the map contain an antinode? {{%
 cite AoC2024Day08 %}}
+
+<details>
+<summary>Sample input with answer overlay</summary>
 
 <table>
 <tr><td></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr>
@@ -58,6 +71,8 @@ cite AoC2024Day08 %}}
 <tr><td>11</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td></tr>
 </table>
 
+</details>
+
 Given \\(N\\) antennas with the same frequency, each pairing generates 2
 antinodes. There are \\(\frac{N(N-1)}{2}\\) possible pairings and so we have
 \\(\mathcal{O}(N^2)\\) work to do for each frequency.
@@ -70,6 +85,11 @@ care about are unique antinode positions.
 Because the antenna locations are ordered based on how we encountered them on
 the map, we don't need to cache both \\((r_i, c_i, r_j, c_j)\\) and \\((r_j,
 c_j, r_i, c_i)\\).
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/08-resonant-collinearity/ResonantCollinearity.PartOne.cs"
+  highlight="cs"
+  id="ResonantCollinearity.PartOne.cs" >}}
 
 1. {{< citation
   id="AoC2024Day08"
