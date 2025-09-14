@@ -21,9 +21,9 @@ side where one of the antennas is twice as far away as the other, e.g.
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>a</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>f</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
-<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>a</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>f</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td></tr>
 <tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
@@ -32,6 +32,10 @@ side where one of the antennas is twice as far away as the other, e.g.
 
 Antinodes can occur at locations that contain other antennas. {{% cite
 AoC2024Day08 %}}
+
+[Part One](#part-one) requires computing locations of antinodes. Given antennas
+with frequency \\(f\\), I need to pairwise match them and compute their
+antinodes. Being able to group all such antennas is useful for this puzzle.
 
 ## Part One
 
