@@ -16,10 +16,20 @@ public sealed class Day07BridgeRepairTests
 
         calibrations.First().Should().BeEquivalentTo(
             new BridgeRepair.CalibrationEquation(
-                190, ImmutableList.Create([10, 19])));
+                190, ImmutableList.Create([10L, 19L])));
 
         calibrations.Last().Should().BeEquivalentTo(
             new BridgeRepair.CalibrationEquation(
-                292, ImmutableList.Create([11, 6, 16, 20])));
+                292, ImmutableList.Create([11L, 6L, 16L, 20L])));
+    }
+
+    [TestMethod]
+    [DataRow("day-07-sample.in.txt", 3749L)]
+    [DataRow("day-07-test.in.txt", 2941973819040L)]
+    public void PartOne(string filePath, long expectedCalibrationTotal)
+    {
+        var calibrations = BridgeRepair.Parse(filePath);
+        var calibrationTotal = BridgeRepair.TotalCalibrationResult(calibrations);
+        calibrationTotal.Should().Be(expectedCalibrationTotal);
     }
 }

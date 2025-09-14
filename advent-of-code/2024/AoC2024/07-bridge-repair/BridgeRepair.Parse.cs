@@ -8,19 +8,20 @@ public partial class BridgeRepair
     public static IEnumerable<CalibrationEquation> Parse(string filePath)
     {
         using var inputReader = new StreamReader(filePath);
-        Regex inputLineRegex = NumbersRegex();
 
         string? line;
         while ((line = inputReader.ReadLine()) != null)
         {
-            var numbers = inputLineRegex.Matches(line)
-                .Select(match => int.Parse(match.Value));
+            var numbers = InputLineRegex.Matches(line)
+                .Select(match => long.Parse(match.Value));
             yield return new(numbers.First(), numbers.Skip(1).ToImmutableList());
         }
     }
 
     public readonly record struct CalibrationEquation(
-        int Result, ImmutableList<int> Operands);
+        long Result, ImmutableList<long> Operands);
+
+    private static Regex InputLineRegex = NumbersRegex();
 
     [GeneratedRegex(@"\d+")]
     static private partial Regex NumbersRegex();
