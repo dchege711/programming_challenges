@@ -49,6 +49,39 @@ Does a recursive solution get the job done? Yup!
   highlight="cs"
   id="BridgeRepair.PartOne.cs" >}}
 
+## Part Two
+
+Consider the concatenation operator that combines its left and right operands
+into a single number, e.g., \\(12\ ||\ 345 = 12345\\). For instance, \\(7290: 6\
+8\ 6\ 15\\) can be made true using \\(((6 \times 8)\ ||\ 6) \times 15\\). Of the
+equations that could possibly be true by any combination of the three operators,
+what is the sum of their results? {{% cite AoC2024Day07 %}}
+
+The core algorithm doesn't change, but we now have \\(3^N\\) permutations to
+consider for each `CalibrationEquation`. Why did the runtime go from 2s for part
+1 to 62s for part 2? It shouldn't be that drastic...
+
+Maybe it's in concatenation's implementation? `long.Parse($"{a}{b}")` might be
+too inefficient to call in a hot path. If \\(b\\) has \\(m\\) digits, then \\(a
+\times 10^m + b\\) should be much faster because math operations are faster than
+string parsing operations. Using this implementation:
+
+```cs
+var (factor, reducedB) = (10L, b);
+while ((reducedB /= 10) > 0)
+    factor *= 10;
+return (a * factor) + b;
+```
+
+... still runs in ~60s, implying that `long.Parse($"{a}{b}")` is not the source
+of the slowdown. Either the arithmetic approach is just as slow, or majority of
+the time is spent searching the \\(3^N\\) permutations.
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.PartTwo.cs"
+  highlight="cs"
+  id="BridgeRepair.PartTwo.cs" >}}
+
 ## References
 
 1. {{< citation

@@ -5,17 +5,23 @@ namespace AoC2024;
 public partial class BridgeRepair
 {
     public static long TotalCalibrationResult(IEnumerable<CalibrationEquation> equations) =>
+        TotalCalibrationResult(
+            equations,
+            ImmutableHashSet.Create([Operator.Add, Operator.Multiply]));
+
+    private static long TotalCalibrationResult(
+        IEnumerable<CalibrationEquation> equations, ImmutableHashSet<Operator> operators) =>
         equations
-            .Where(IsValid)
+            .Where(eq => IsValid(eq, operators))
             .Select(eq => eq.Result)
             .Sum();
 
-    private static bool IsValid(CalibrationEquation equation) =>
-        PermutationWithReplacement([], equation.Operands.Count)
+    private static bool IsValid(CalibrationEquation equation, ImmutableHashSet<Operator> operators) =>
+        PermutationWithReplacement(operators, [], equation.Operands.Count)
             .Any(operators => IsValid(equation, operators));
 
     private static IEnumerable<ImmutableList<Operator>> PermutationWithReplacement(
-        ImmutableList<Operator> operators, int desiredLength)
+        ImmutableHashSet<Operator> seedOperators, ImmutableList<Operator> operators, int desiredLength)
     {
         if (operators.Count == desiredLength)
             yield return operators;
@@ -23,11 +29,9 @@ public partial class BridgeRepair
         if (operators.Count > desiredLength)
             yield break;
         
-        foreach (var permutation in PermutationWithReplacement(operators.Add(Operator.Add), desiredLength))
-            yield return permutation;
-        
-        foreach (var permutation in PermutationWithReplacement(operators.Add(Operator.Multiply), desiredLength))
-            yield return permutation;
+        foreach (var @operator in seedOperators)
+            foreach (var permutation in PermutationWithReplacement(seedOperators, operators.Add(@operator), desiredLength))
+                yield return permutation;
     }
 
     private static bool IsValid(
@@ -39,6 +43,7 @@ public partial class BridgeRepair
             result = @operator switch {
                 Operator.Add => result + operand,
                 Operator.Multiply => result * operand,
+                Operator.Concatenate => Concatenate(result, operand),
                 _ => throw new ArgumentException($"Unrecognized op: {@operator}")
             };
             if (result > equation.Result)
@@ -48,8 +53,5 @@ public partial class BridgeRepair
         return result == equation.Result;
     }
 
-    private static ImmutableList<Operator> Operators = ImmutableList.Create(
-        [Operator.Add, Operator.Multiply]);
-
-    private enum Operator { Add, Multiply }
+    private enum Operator { Add, Multiply, Concatenate }
 }

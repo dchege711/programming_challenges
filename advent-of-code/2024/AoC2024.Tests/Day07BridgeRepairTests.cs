@@ -32,4 +32,14 @@ public sealed class Day07BridgeRepairTests
         var calibrationTotal = BridgeRepair.TotalCalibrationResult(calibrations);
         calibrationTotal.Should().Be(expectedCalibrationTotal);
     }
+
+    [TestMethod]
+    [DataRow("day-07-sample.in.txt", 11387L)]
+    [DataRow("day-07-test.in.txt", 249943041417600L)]
+    public void PartTwo(string filePath, long expectedCalibrationTotal)
+    {
+        var calibrations = BridgeRepair.Parse(filePath);
+        var calibrationTotal = BridgeRepair.TotalCalibrationResultWithConcat(calibrations);
+        calibrationTotal.Should().Be(expectedCalibrationTotal);
+    }
 }
