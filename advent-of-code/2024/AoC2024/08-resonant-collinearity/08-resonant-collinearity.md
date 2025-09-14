@@ -9,65 +9,34 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 08: Resonant Collinearity'
 ---
 
-## Problem Statement
+## Parsing
 
-### Part One
+Each antenna in the map is tuned to a frequency indicated by a single lowercase
+letter, uppercase letter, or digit. {{% cite AoC2024Day08 %}}
 
-Scanning across the city, you find that there are actually many such antennas.
-Each antenna is tuned to a specific **frequency** indicated by a single
-lowercase letter, uppercase letter, or digit. You create a map of these
-antennas:
+Two antennas with the same frequency create two collinear antinodes on either
+side where one of the antennas is twice as far away as the other, e.g.
 
-{{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024.Tests/data/day-08-sample.in.txt"
-  highlight="txt" >}}
+<table>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>a</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>a</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+</table>
 
-The signal only applies its nefarious effect at specific **antinodes** based on
-the resonant frequencies of the antennas. In particular, an antinode occurs at
-any point that is perfectly in line with two antennas of the same frequency --
-but only when one of the antennas is twice as far away as the other. This means
-that for any pair of antennas with the same frequency, there are two antinodes,
-one on either side of them.
+Antinodes can occur at locations that contain other antennas. {{% cite
+AoC2024Day08 %}}
 
-So, for these two antennas with frequency `a`, they create the antinodes marked
-with `#`:
+## Part One
 
-```txt
-..........
-...#......
-..........
-....a.....
-..........
-.....a....
-..........
-......#...
-..........
-..........
-```
-
-Adding a third antenna with the same frequency creates several more antinodes.
-It would ideally add four antinodes, but two are off the right side of the map,
-so instead it adds only two:
-
-```txt
-..........
-...#......
-#.........
-....a.....
-........a.
-.....a....
-..#.......
-......#...
-..........
-..........
-```
-
-Antennas with different frequencies don't create antinodes; `A` and `a` count as
-different frequencies. However, antinodes **can** occur at locations that contain
-antennas.
-
-Calculate the impact of the signal. **How many unique locations within the
-bounds of the map contain an antinode?**
+How many unique locations within the bounds of the map contain an antinode? {{%
+cite AoC2024Day08 %}}
 
 1. {{< citation
   id="AoC2024Day08"
