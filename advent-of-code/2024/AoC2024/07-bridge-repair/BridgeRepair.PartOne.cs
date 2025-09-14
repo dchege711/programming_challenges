@@ -18,7 +18,7 @@ public partial class BridgeRepair
             .Sum();
 
     private static bool IsValid(CalibrationEquation equation, ImmutableHashSet<Operator> operators) =>
-        PermutationWithReplacement(operators, [], equation.Operands.Count)
+        PermutationWithReplacement(operators, [], equation.Operands.Count - 1)
             .Any(operators => IsValid(equation, operators));
 
     private static IEnumerable<ImmutableList<Operator>> PermutationWithReplacement(

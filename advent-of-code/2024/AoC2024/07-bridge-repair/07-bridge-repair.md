@@ -44,7 +44,23 @@ less than \\(2^N\\) permutations per `CalibrationEquation`:
 Python's `itertools.product` is a built-in way of generating the \\(2^N\\)
 permutations. {{% cite itertools %}} C# doesn't have an equivalent. Implementing
 `itertools.product` seems non-trivial to do without lots of memory allocations.
-Does a recursive solution get the job done? Yup!
+A recursive implementation of `itertools.product` gets the job done:
+
+```cs
+private static IEnumerable<ImmutableList<Operator>> PermutationWithReplacement(
+    ImmutableHashSet<Operator> seedOperators, ImmutableList<Operator> operators, int desiredLength)
+{
+    if (operators.Count == desiredLength)
+        yield return operators;
+    
+    if (operators.Count > desiredLength)
+        yield break;
+    
+    foreach (var @operator in seedOperators)
+        foreach (var permutation in PermutationWithReplacement(seedOperators, operators.Add(@operator), desiredLength))
+            yield return permutation;
+}
+```
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.PartOne.cs"
@@ -84,9 +100,28 @@ What about finding \\(m\\) using \\(\left \lfloor{log_{10}(n)} \right \rfloor +
 dice; also runs in ~60s. `Math.Pow` returns a `double`, so for the sake of
 avoiding precision loss and casting, reverting to the iterative approach.
 
-Evaluating each `CalibrationEquation` is an embarrassingly parallel problem {{%
-cite WikiEmbarrassinglyParallel %}}. Adding `AsParallel` gets us from 60s to
-30s. {{% cite PLINQ %}}
+Evaluating each `CalibrationEquation` is an embarrassingly parallel problem in
+that no evaluation needs to communicate with any other evaluation {{% cite
+WikiEmbarrassinglyParallel %}}. Adding `AsParallel` gets us from 60s to 30s. {{%
+cite PLINQ %}}
+
+Granted, `PermutationWithReplacement` is inefficient compared to Python's
+`itertools.product` which does not build up intermediate results in memory. {{%
+cite itertools %}} That said, does `PermutationWithReplacement(...).Any(...)`
+stop as early as possible? Logs for \\(7290: 6\ 8\ 6\ 15\\) show that while we
+do stop early, we evaluate the same expression multiple times. Aha, given
+\\(N\\) operands, we're asking `PermutationWithReplacement` to generate
+\\(3^N\\) permutations of operators instead of generating \\(3^{N-1}\\)
+permutations. Fixing that brings us from 30s to 10s. A 3X improvement, but 10s
+still seems slow.
+
+{{% comment %}}
+
+`Enumerable.Zip` stops at the shorter of the two subsequences; there's no
+exception thrown when the two sequences have differing lengths. {{% cite
+Enumerable.Zip %}}
+
+{{% /comment %}}
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.PartTwo.cs"
@@ -103,7 +138,7 @@ cite WikiEmbarrassinglyParallel %}}. Adding `AsParallel` gets us from 60s to
   accessed="2025-08-23" >}}
 
 1. {{< citation
-  id="itertools.product"
+  id="itertools"
   title="itertools — Functions creating iterators for efficient looping — Python 3.13.7 documentation"
   url="https://docs.python.org/3/library/itertools.html"
   accessed="2025-09-13" >}}
@@ -125,3 +160,9 @@ cite WikiEmbarrassinglyParallel %}}. Adding `AsParallel` gets us from 60s to
   title="Introduction to PLINQ - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/introduction-to-plinq"
   accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="Enumerable.Zip"
+  title="Enumerable.Zip Method (System.Linq) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.zip?view=net-9.0"
+  accessed="2025-09-14" >}}
