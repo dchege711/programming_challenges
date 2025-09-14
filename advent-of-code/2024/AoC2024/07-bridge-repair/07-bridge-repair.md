@@ -5,6 +5,7 @@ date: 2025-08-23
 domains:
 - adventofcode.com
 - docs.python.org
+- stackoverflow.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/07-bridge-repair/
 title: 'AoC 2024 Day 07: Bridge Repair'
@@ -77,6 +78,10 @@ return (a * factor) + b;
 of the slowdown. Either the arithmetic approach is just as slow, or majority of
 the time is spent searching the \\(3^N\\) permutations.
 
+What about finding \\(m\\) using \\(\left \lfloor{log_{10}(n)} \right \rfloor +
+1\\) instead of the iterative approach? {{% cite StackOverflow6655754 %}} No
+dice; also runs in ~60s.
+
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/07-bridge-repair/BridgeRepair.PartTwo.cs"
   highlight="cs"
@@ -95,4 +100,10 @@ the time is spent searching the \\(3^N\\) permutations.
   id="itertools.product"
   title="itertools — Functions creating iterators for efficient looping — Python 3.13.7 documentation"
   url="https://docs.python.org/3/library/itertools.html"
+  accessed="2025-09-13" >}}
+
+1. {{< citation
+  id="StackOverflow6655754"
+  title="algorithm - Finding the number of digits of an integer - Stack Overflow"
+  url="https://stackoverflow.com/questions/6655754/finding-the-number-of-digits-of-an-integer"
   accessed="2025-09-13" >}}
