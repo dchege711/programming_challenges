@@ -42,6 +42,35 @@ antinodes. Being able to group all such antennas is useful for this puzzle.
 How many unique locations within the bounds of the map contain an antinode? {{%
 cite AoC2024Day08 %}}
 
+<table>
+<tr><td></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+<tr><td>0</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td></tr>
+<tr><td>1</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>0</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>2</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>0</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td></tr>
+<tr><td>3</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>0</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>4</td><td>.</td><td>.</td><td>.</td><td>.</td><td>0</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td></tr>
+<tr><td>5</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>A</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>6</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>7</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>8</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>A</td><td>.</td><td>.</td><td>.</td></tr>
+<tr><td>9</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>A</td><td>.</td><td>.</td></tr>
+<tr><td>10</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td></tr>
+<tr><td>11</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>#</td><td>.</td></tr>
+</table>
+
+Given \\(N\\) antennas with the same frequency, each pairing generates 2
+antinodes. There are \\(\frac{N(N-1)}{2}\\) possible pairings and so we have
+\\(\mathcal{O}(N^2)\\) work to do for each frequency.
+
+The same \\((r_i, c_i), (r_j, c_j)\\) computes the same antinode positions
+regardless of the associated frequency. Caching \\((r_i, c_i, r_j, c_j)\\) can
+save us from repeating some of the \\(\mathcal{O}(N^2)\\) work because all we
+care about are unique antinode positions.
+
+Because the antenna locations are ordered based on how we encountered them on
+the map, we don't need to cache both \\((r_i, c_i, r_j, c_j)\\) and \\((r_j,
+c_j, r_i, c_i)\\).
+
 1. {{< citation
   id="AoC2024Day08"
   title="Day 08 - Advent of Code 2024: Resonant Collinearity"

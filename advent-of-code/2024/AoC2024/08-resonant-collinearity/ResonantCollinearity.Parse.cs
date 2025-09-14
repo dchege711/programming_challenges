@@ -9,8 +9,10 @@ public partial class ResonantCollinearity
         int RowCount,
         int ColCount,
         IDictionary<char, List<Coordinate>> AntennasByFrequency);
+    
+    public readonly AntennasMap antennasMap;
 
-    public static AntennasMap Parse(string filePath)
+    public ResonantCollinearity(string filePath)
     {
         Dictionary<char, List<Coordinate>> antennasByFrequency = [];
 
@@ -42,7 +44,7 @@ public partial class ResonantCollinearity
             rowCount++;
         }
 
-        return new(rowCount, colCount, antennasByFrequency);
+        antennasMap = new(rowCount, colCount, antennasByFrequency);
     }
 
     private static Regex antennaFrequencyRegex = AntennaFrequencyRegex();

@@ -10,16 +10,26 @@ public sealed class Day08ResonantCollinearityTests
     [TestMethod]
     public void Parse()
     {
-        var antennasMap = ResonantCollinearity.Parse("day-08-sample.in.txt");
+        var resonantCollinearity = new ResonantCollinearity("day-08-sample.in.txt");
 
-        antennasMap.RowCount.Should().Be(12);
-        antennasMap.ColCount.Should().Be(12);
-        antennasMap.AntennasByFrequency.Count.Should().Be(2);
+        resonantCollinearity.antennasMap.RowCount.Should().Be(12);
+        resonantCollinearity.antennasMap.ColCount.Should().Be(12);
+        resonantCollinearity.antennasMap.AntennasByFrequency.Count.Should().Be(2);
 
-        antennasMap.AntennasByFrequency['0'].Should().BeEquivalentTo(
+        resonantCollinearity.antennasMap.AntennasByFrequency['0'].Should().BeEquivalentTo(
             new List<Coordinate>([new(1, 8), new(2, 5), new(3, 7), new(4, 4)]));
 
-        antennasMap.AntennasByFrequency['A'].Should().BeEquivalentTo(
+        resonantCollinearity.antennasMap.AntennasByFrequency['A'].Should().BeEquivalentTo(
             new List<Coordinate>([new(5, 6), new(8, 8), new(9, 9)]));
+    }
+
+    [TestMethod]
+    [DataRow("day-08-sample.in.txt", 14)]
+    [DataRow("day-08-test.in.txt", 273)]
+    public void PartOne(string filePath, int expectedNumDistinctPositions)
+    {
+        var resonantCollinearity = new ResonantCollinearity(filePath);
+        var numDistinctPositions = resonantCollinearity.PartOne();
+        numDistinctPositions.Should().Be(expectedNumDistinctPositions);
     }
 }
