@@ -6,7 +6,7 @@ public partial class ResonantCollinearity
 
     private IEnumerable<Coordinate> CollinearAntinodes(Coordinate p1, Coordinate p2)
     {
-        var (dr, dc) = (p2.R - p1.R, p2.C - p1.C);
+        var (dr, dc) = VectorP1ToP2(p1, p2);
         
         var antinode = p1;
         while (InBounds(antinode))
