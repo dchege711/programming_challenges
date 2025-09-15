@@ -2,7 +2,10 @@ namespace AoC2024;
 
 public partial class ResonantCollinearity
 {
-    public int PartOne()
+    public int PartOne() => NumDistinctAntinodes(CollinearPairedAntinodes);
+
+    private int NumDistinctAntinodes(
+        Func<Coordinate, Coordinate, IEnumerable<Coordinate>> computeAntinodes)
     {
         HashSet<(Coordinate, Coordinate)> computedPairs = [];
         HashSet<Coordinate> antinodeLocations = [];
@@ -17,7 +20,7 @@ public partial class ResonantCollinearity
                     if (computedPairs.Contains((p1, p2)))
                         continue;
                     
-                    foreach (var antinode in AntinodeCoordinates(p1, p2))
+                    foreach (var antinode in computeAntinodes(p1, p2))
                         antinodeLocations.Add(antinode);
                     
                     computedPairs.Add((p1, p2));
@@ -28,17 +31,15 @@ public partial class ResonantCollinearity
         return antinodeLocations.Count;
     }
 
-    private IEnumerable<Coordinate> AntinodeCoordinates(Coordinate p1, Coordinate p2)
+    private IEnumerable<Coordinate> CollinearPairedAntinodes(Coordinate p1, Coordinate p2)
     {
         var (dr, dc) = (p2.R - p1.R, p2.C - p1.C);
-        
-        Coordinate antinode = new(p2.R + dr, p2.C + dc);
-        if (InBounds(antinode))
-            yield return antinode;
-        
-        antinode = new(p1.R - dr, p1.C - dc);
-        if (InBounds(antinode))
-            yield return antinode;
+
+        return new Coordinate[]
+        {
+            new(p2.R + dr, p2.C + dc),
+            new(p1.R - dr, p1.C - dc)
+        }.Where(InBounds);
     }
 
     private bool InBounds(Coordinate p) =>

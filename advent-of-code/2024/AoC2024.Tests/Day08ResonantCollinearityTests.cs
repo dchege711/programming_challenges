@@ -32,4 +32,14 @@ public sealed class Day08ResonantCollinearityTests
         var numDistinctPositions = resonantCollinearity.PartOne();
         numDistinctPositions.Should().Be(expectedNumDistinctPositions);
     }
+
+    [TestMethod]
+    [DataRow("day-08-sample.in.txt", 34)]
+    [DataRow("day-08-test.in.txt", 1017)]
+    public void PartTwo(string filePath, int expectedNumDistinctPositions)
+    {
+        var resonantCollinearity = new ResonantCollinearity(filePath);
+        var numDistinctPositions = resonantCollinearity.PartTwo();
+        numDistinctPositions.Should().Be(expectedNumDistinctPositions);
+    }
 }

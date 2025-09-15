@@ -91,6 +91,26 @@ c_j, r_i, c_i)\\).
   highlight="cs"
   id="ResonantCollinearity.PartOne.cs" >}}
 
+## Part Two
+
+An antinode occurs at any grid position that is collinear with at least two
+antennas of the same frequency. How many unique locations within the bounds of
+the map contain an antinode? {{% cite AoC2024Day08 %}}
+
+The challenge here is in the explosion of antinode locations. For example, in an
+\\(N \times N\\) grid, matching antennas at \\((a, a)\\) and \\((b, b)\\) lead
+to 12 antinode positions along the diagonal.
+
+If the optimizations in [Part One](#part-one) are insufficient, then we might
+want to cache a combination of a unit vector and the top/left cell to avoid
+repeated computation. Turns out [Part One](#part-one)'s optimizations are
+insufficient; won't complicate it further.
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/08-resonant-collinearity/ResonantCollinearity.PartTwo.cs"
+  highlight="cs"
+  id="ResonantCollinearity.PartTwo.cs" >}}
+
 1. {{< citation
   id="AoC2024Day08"
   title="Day 08 - Advent of Code 2024: Resonant Collinearity"
