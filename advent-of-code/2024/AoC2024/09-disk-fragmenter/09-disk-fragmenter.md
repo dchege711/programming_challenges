@@ -19,6 +19,20 @@ Each file has an ID number that is zero-indexed based on the position of the
 file, e.g., the disk map `12345` represents these blocks `0..111....22222`. {{%
 cite AoC2024Day09 %}}
 
+While [Part One](#part-one) will benefit from a concrete collection because it
+needs to access the list from both ends, the parser should return an
+`IEnumerable` and have the client decide which concrete collection to form.
+
+<details>
+<summary>DiskFragmenter.Parse.cs</summary>
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/09-disk-fragmenter/DiskFragmenter.Parse.cs"
+  highlight="cs"
+  id="DiskFragmenter.Parse.cs" >}}
+
+</details>
+
 ## Part One
 
 Move file blocks one at a time from the end of the disk to the leftmost free
