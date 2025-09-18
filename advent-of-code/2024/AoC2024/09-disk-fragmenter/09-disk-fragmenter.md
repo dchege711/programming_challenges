@@ -9,38 +9,20 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 09: Disk Fragmenter'
 ---
 
-## Problem Statement
+## Parsing
 
-### Part One
+A disk map like `12345` represents a 1-block file, 2 blocks of free space, a
+3-block file, 4 blocks of free space, and then a 5-block file. {{% cite
+AoC2024Day09 %}}
 
-You notice an amphipod trying to make more contiguous free space on his computer
-by compacting all of the files, but his program isn't working; you offer to
-help.
+Each file has an ID number that is zero-indexed based on the position of the
+file, e.g., the disk map `12345` represents these blocks `0..111....22222`. {{%
+cite AoC2024Day09 %}}
 
-He shows you the **disk map** he's already generated:
+## Part One
 
-{{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024.Tests/data/day-09-sample.in.txt"
-  highlight="txt" >}}
-
-The disk map uses a dense format to represent the layout of **files** and **free
-space** on the disk. The digits alternate between indicating the length of a
-file and the length of free space.
-
-So, a disk map like `12345` would represent a one-block file, two blocks of free
-space, a three-block file, four blocks of free space, and then a five-block
-file.
-
-Each file on disk also has an **ID number** based on the order of the files as
-they appear **before** they are rearranged, starting with ID `0`. So, the disk
-map `12345` has three files: a one-block file with ID `0`, a three-block file
-with ID `1`, and a five-block file with ID `2`. Using one character for each
-block where digits are the file ID and `.` is free space, the disk map `12345`
-represents these individual blocks: `0..111....22222`
-
-The amphipod would like to **move file blocks one at a time** from the end of
-the disk to the leftmost free space block (until there are no gaps remaining
-between file blocks). For the disk map `12345`, the process looks like this:
+Move file blocks one at a time from the end of the disk to the leftmost free
+space block until there are no gaps remaining between file blocks, e.g.,
 
 ```txt
 0..111....22222
@@ -51,13 +33,15 @@ between file blocks). For the disk map `12345`, the process looks like this:
 022111222......
 ```
 
-The final step of this file-compacting process is to update the **filesystem
-checksum**. To calculate the checksum, add up the result of multiplying each of
-these blocks' position with the file ID number it contains. The leftmost block
-is in position 0. If a block contains free space, skip it instead.
+{{% cite AoC2024Day09 %}}
 
-Compact the amphipod's hard drive using the process he requested. **What is the
-resulting filesystem checksum?**
+Compute the filesystem's checksum by multiplying each of these blocks' position
+with the contained file ID number and summing these values. The leftmost block
+is in position `0`. For example, the checksum of `022111222......` is \\(0 \cdot
+0 + 1 \cdot 2 + 2 \cdot 2 + 3 \cdot 1 + 4 \cdot 1 + 5 \cdot 1 + 6 \cdot 2 + 7
+\cdot 2 + 8 \cdot 2\\). {{% cite AoC2024Day09 %}}
+
+## References
 
 1. {{< citation
   id="AoC2024Day09"
