@@ -55,6 +55,11 @@ is in position `0`. For example, the checksum of `022111222......` is \\(0 \cdot
 0 + 1 \cdot 2 + 2 \cdot 2 + 3 \cdot 1 + 4 \cdot 1 + 5 \cdot 1 + 6 \cdot 2 + 7
 \cdot 2 + 8 \cdot 2\\). {{% cite AoC2024Day09 %}}
 
+The challenge to this problem is the fact that the list expands a great deal,
+e.g., `999` represents `000000000.........111111111`. Can we solve this problem
+without holding the expanded list in memory? Lots of bookkeeping involved in
+such an approach.
+
 ## References
 
 1. {{< citation
