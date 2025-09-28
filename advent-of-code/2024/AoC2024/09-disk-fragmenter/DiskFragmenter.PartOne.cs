@@ -16,51 +16,45 @@ public partial class DiskFragmenter
     
     private static IEnumerable<int> DefragmentExpandedDiskMap(int[] diskMap)
     {
+        // Invariants:
+        // - li is on an index for which we must yield a file block if possible.
+        // - All blocks to the right of ri are free.
         var (li, ri) = (0, diskMap.Length - 1);
-        var expectedSize = diskMap.Count(id => id != FreeBlockCanary);
-        var yieldedSize = 0;
-
-        while (li < diskMap.Length)
-        {
-            if (yieldedSize == expectedSize)
-                break;
-
-            var blockId = diskMap[li];
-
-            // Case 1: An actual file block
-            var isFileBlock = blockId != FreeBlockCanary;
-            if (isFileBlock)
-            {
-                yield return blockId;
-                yieldedSize++;
-                li++;
-                continue;
-            }
-            
-            // Case 2: An empty space: Try moving the right most block
-            blockId = diskMap[ri];
-            isFileBlock = blockId != FreeBlockCanary;
-
-            // Case 2a: Right block is a file block
-            if (isFileBlock)
-            {
-                diskMap[li] = blockId;
-                diskMap[ri] = FreeBlockCanary;
-                ri--;
-                continue;
-            }
-
-            // Case 2b: Right block is free and left pointer has caught up.
-            if (li >= ri)
-                yield break;
-
-            // Case 2c: Right block is free, but left pointer still has some
-            // indices to potentially yield from.
+        while (IsFreeBlock(diskMap[ri]))
             ri--;
-        }
 
-        yield break;
+        while (li <= ri)
+        {
+            var liBlock = diskMap[li];
+            var liIsFileBlock = !IsFreeBlock(liBlock);
+            var riBlock = diskMap[ri];
+            var riIsFileBlock = !IsFreeBlock(riBlock);
+
+            if (liIsFileBlock && riIsFileBlock)
+            {
+                yield return liBlock;
+                li++;
+            }
+            else if (liIsFileBlock && !riIsFileBlock)
+            {
+                yield return liBlock;
+                li++;
+                ri--;
+            }
+            else if (!liIsFileBlock && riIsFileBlock)
+            {
+                yield return riBlock;
+                li++;
+                ri--;
+            }
+            else
+            {
+                ri--;
+            }
+        }
     }
+
+    private static bool IsFreeBlock(int block) => block == FreeBlockCanary;
 
     private static readonly int FreeBlockCanary = -1;
 }
