@@ -69,6 +69,21 @@ approach before dismissing it.
   highlight="cs"
   id="DiskFragmenter.PartOne.cs" >}}
 
+## Part Two
+
+Rather than move whole individual blocks, move whole files instead. Attempt to
+move each file exactly once in order of decreasing file ID number. For example:
+
+```txt
+00...111...2...333.44.5555.6666.777.888899
+0099.111...2...333.44.5555.6666.777.8888..
+0099.1117772...333.44.5555.6666.....8888..
+0099.111777244.333....5555.6666.....8888..
+00992111777.44.333....5555.6666.....8888..
+```
+
+What is the resulting filesystem checksum?
+
 ## References
 
 1. {{< citation

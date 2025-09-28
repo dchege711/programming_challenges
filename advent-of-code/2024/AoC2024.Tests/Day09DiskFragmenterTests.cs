@@ -26,4 +26,14 @@ public sealed class Day09DiskFragmenterTests
         var checksum = DiskFragmenter.PartOne(diskMap);
         checksum.Should().Be(expectedChecksum);
     }
+
+    [TestMethod]
+    [DataRow("day-09-sample.in.txt", 2858L)]
+    // [DataRow("day-09-test.in.txt", 6421128769094L)]
+    public void PartTwo(string filePath, long expectedChecksum)
+    {
+        var diskMap = DiskFragmenter.Parse(filePath);
+        var checksum = DiskFragmenter.PartTwo(diskMap);
+        checksum.Should().Be(expectedChecksum);
+    }
 }

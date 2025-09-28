@@ -3,7 +3,7 @@ namespace AoC2024;
 public partial class DiskFragmenter
 {
     public static long PartOne(IEnumerable<int> diskMap) =>
-        DefragmentExpandedDiskMap(ExpandDiskMap(diskMap).ToArray())
+        DefragmentFileBlocks(ExpandDiskMap(diskMap).ToArray())
             .Select((id, idx) => (long)id * idx)
             .Sum();
 
@@ -14,13 +14,13 @@ public partial class DiskFragmenter
             return Enumerable.Repeat(identifier, blockSize);
         });
     
-    private static IEnumerable<int> DefragmentExpandedDiskMap(int[] diskMap)
+    private static IEnumerable<int> DefragmentFileBlocks(int[] diskMap)
     {
         // Invariants:
         // - li is on an index for which we must yield a file block if possible.
         // - All blocks to the right of ri are free.
         var (li, ri) = (0, diskMap.Length - 1);
-        while (IsFreeBlock(diskMap[ri]))
+        while (IsFreeBlock(diskMap[ri]) && ri >= 0)
             ri--;
 
         while (li <= ri)
