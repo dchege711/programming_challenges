@@ -84,6 +84,11 @@ move each file exactly once in order of decreasing file ID number. For example:
 
 What is the resulting filesystem checksum?
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/09-disk-fragmenter/DiskFragmenter.PartTwo.cs"
+  highlight="cs"
+  id="DiskFragmenter.PartTwo.cs" >}}
+
 ## References
 
 1. {{< citation

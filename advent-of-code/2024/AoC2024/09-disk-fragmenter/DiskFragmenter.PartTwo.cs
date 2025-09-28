@@ -25,13 +25,8 @@ public partial class DiskFragmenter
         while (IsFreeBlock(diskMap[ri]) && ri >= 0)
             ri--;
 
-        Console.Write($"ri={ri,3}: ");
         while (ri > 0)
         {
-            foreach (var block in diskMap)
-                Console.Write(IsFreeBlock(block) ? "  ." : $"{block, 3}");
-            Console.Write($"\nri={ri,3}: ");
-
             var riBlock = diskMap[ri];
             var riBlockSize = ContiguousSizeFromIndex(diskMap, ri, -1);
 
@@ -54,7 +49,6 @@ public partial class DiskFragmenter
             
             ri -= riBlockSize;
         }
-        Console.WriteLine();
 
         return diskMap;
     }
