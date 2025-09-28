@@ -4,6 +4,7 @@ namespace AoC2024.Tests;
 [DeploymentItem("data/day-09-sample.in.txt")]
 [DeploymentItem("data/day-09-sample-2.in.txt")]
 [DeploymentItem("data/day-09-sample-3.in.txt")]
+[DeploymentItem("data/day-09-sample-4.in.txt")]
 [DeploymentItem("data/day-09-test.in.txt")]
 public sealed class Day09DiskFragmenterTests
 {
@@ -29,7 +30,10 @@ public sealed class Day09DiskFragmenterTests
 
     [TestMethod]
     [DataRow("day-09-sample.in.txt", 2858L)]
-    // [DataRow("day-09-test.in.txt", 6421128769094L)]
+    [DataRow("day-09-sample-2.in.txt", 132L)]
+    [DataRow("day-09-sample-3.in.txt", 12L)]
+    [DataRow("day-09-sample-4.in.txt", 31L)]
+    [DataRow("day-09-test.in.txt", 6421128769094L)]
     public void PartTwo(string filePath, long expectedChecksum)
     {
         var diskMap = DiskFragmenter.Parse(filePath);

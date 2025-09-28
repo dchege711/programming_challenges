@@ -20,65 +20,66 @@ public partial class DiskFragmenter
         0099.111777244.333....5555.6666.....8888..
         00992111777.44.333....5555.6666.....8888..
         */
-        var (li, ri) = (0, diskMap.Length - 1);
+
+        var ri = diskMap.Length - 1;
         while (IsFreeBlock(diskMap[ri]) && ri >= 0)
             ri--;
 
-        // Invariant: li is always on an index whose block is yet to be known.
-        while (li < diskMap.Length)
+        Console.Write($"ri={ri,3}: ");
+        while (ri > 0)
         {
-            var liBlock = diskMap[li];
-            var liIsFileBlock = !IsFreeBlock(liBlock);
-            var liBlockSize = ContiguousSizeFromIndex(li, 1, diskMap);
+            foreach (var block in diskMap)
+                Console.Write(IsFreeBlock(block) ? "  ." : $"{block, 3}");
+            Console.Write($"\nri={ri,3}: ");
 
-            // If li is on a file block, yield; nothing else can be here.
-            if (liIsFileBlock)
+            var riBlock = diskMap[ri];
+            var riBlockSize = ContiguousSizeFromIndex(diskMap, ri, -1);
+
+            if (IsFreeBlock(riBlock))
             {
-                for (int i = 0; i < liBlockSize; i++)
-                    yield return liBlock;
-                li += liBlockSize;
+                ri -= riBlockSize;
                 continue;
             }
 
-            var liUsedFreeSpace = false;
-            while (ri > li)
+            var maybeNewLocation = GetFirstAvailableFreeSpace(diskMap, ri - riBlockSize + 1, riBlockSize);
+            if (maybeNewLocation is int newLocation)
             {
-                var riBlock = diskMap[ri];
-                var riIsFileBlock = !IsFreeBlock(riBlock);
-                var riBlockSize = ContiguousSizeFromIndex(ri, -1, diskMap);
-
-                // Found the right-most candidate that fits; defragment. 
-                if (riIsFileBlock && riBlockSize <= liBlockSize)
+                // Defragment ri's block by moving to left-most available block.
+                for (int i = 0; i < riBlockSize; i++)
                 {
-                    for (int i = 0; i < riBlockSize; i++)
-                    {
-                        diskMap[ri - i] = FreeBlockCanary;
-                        yield return riBlock;
-                    }
-                    
-                    li += riBlockSize;
-                    liUsedFreeSpace = true;
-                    break;
+                    diskMap[newLocation + i] = riBlock;
+                    diskMap[ri - i] = FreeBlockCanary;
                 }
-
-                ri -= riBlockSize;
             }
-
-            if (!liUsedFreeSpace)
-            {
-                for (int i = 0; i < liBlockSize; i++)
-                    yield return FreeBlockCanary;
-                li += liBlockSize;
-            }
+            
+            ri -= riBlockSize;
         }
+        Console.WriteLine();
+
+        return diskMap;
     }
 
-    private static int ContiguousSizeFromIndex(int idx, int delta, int[] diskMap)
+    private static int ContiguousSizeFromIndex(int[] diskMap, int idx, int delta)
     {
         var size = 0;
         var target = diskMap[idx];
         for (int i = idx; i < diskMap.Length && i >= 0 && diskMap[i] == target; i += delta)
             size++;
         return size;
+    }
+
+    private static int? GetFirstAvailableFreeSpace(int[] diskMap, int blockStartIdx, int blockSize)
+    {
+        int i = 0;
+        while (i + blockSize <= blockStartIdx)
+        {
+            var currentBlockSize = ContiguousSizeFromIndex(diskMap, i, 1);
+            if (blockSize <= currentBlockSize && IsFreeBlock(diskMap[i]))
+                return i;
+            
+            i += currentBlockSize;
+        }
+
+        return null;
     }
 }
