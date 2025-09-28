@@ -16,9 +16,10 @@ public sealed class Day09DiskFragmenterTests
     }
 
     [TestMethod]
-    [DataRow("day-09-sample.in.txt", 1928)]
-    [DataRow("day-09-sample-2.in.txt", 60)]
-    [DataRow("day-09-sample-3.in.txt", 12)]
+    [DataRow("day-09-sample.in.txt", 1928L)]
+    [DataRow("day-09-sample-2.in.txt", 60L)]
+    [DataRow("day-09-sample-3.in.txt", 12L)]
+    [DataRow("day-09-test.in.txt", 6421128769094L)]
     public void PartOne(string filePath, long expectedChecksum)
     {
         var diskMap = DiskFragmenter.Parse(filePath);

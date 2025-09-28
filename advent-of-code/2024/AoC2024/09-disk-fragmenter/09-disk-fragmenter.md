@@ -60,6 +60,15 @@ e.g., `999` represents `000000000.........111111111`. Can we solve this problem
 without holding the expanded list in memory? Lots of bookkeeping involved in
 such an approach.
 
+Something is buggy with the memory-optimized solution. The non-optimized one
+runs in 30ms, so still pretty fast. Should have tried out the brute force
+approach before dismissing it.
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/09-disk-fragmenter/DiskFragmenter.PartOne.cs"
+  highlight="cs"
+  id="DiskFragmenter.PartOne.cs" >}}
+
 ## References
 
 1. {{< citation
