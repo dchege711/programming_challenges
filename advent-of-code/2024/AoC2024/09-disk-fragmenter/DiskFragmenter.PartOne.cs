@@ -2,12 +2,10 @@ namespace AoC2024;
 
 public partial class DiskFragmenter
 {
-    public static long PartOne(IEnumerable<int> diskMap)
-    {
-        var expandedDiskMap = ExpandDiskMap(diskMap).ToArray();
-        var defragmentedDiskMap = DefragmentedFileBlocksFromExpansion(expandedDiskMap).ToArray();
-        return defragmentedDiskMap.Select((id, idx) => (long)id * idx).Sum();
-    }
+    public static long PartOne(IEnumerable<int> diskMap) =>
+        DefragmentExpandedDiskMap(ExpandDiskMap(diskMap).ToArray())
+            .Select((id, idx) => (long)id * idx)
+            .Sum();
 
     private static IEnumerable<int> ExpandDiskMap(IEnumerable<int> diskMap) =>
         diskMap.SelectMany((blockSize, idx) => {
@@ -16,7 +14,7 @@ public partial class DiskFragmenter
             return Enumerable.Repeat(identifier, blockSize);
         });
     
-    private static IEnumerable<int> DefragmentedFileBlocksFromExpansion(int[] diskMap)
+    private static IEnumerable<int> DefragmentExpandedDiskMap(int[] diskMap)
     {
         var (li, ri) = (0, diskMap.Length - 1);
         var expectedSize = diskMap.Count(id => id != FreeBlockCanary);
