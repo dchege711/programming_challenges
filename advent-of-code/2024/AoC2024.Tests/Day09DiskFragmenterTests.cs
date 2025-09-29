@@ -29,6 +29,18 @@ public sealed class Day09DiskFragmenterTests
     }
 
     [TestMethod]
+    [DataRow("day-09-sample.in.txt", 1928L)]
+    [DataRow("day-09-sample-2.in.txt", 60L)]
+    [DataRow("day-09-sample-3.in.txt", 12L)]
+    [DataRow("day-09-test.in.txt", 6421128769094L)]
+    public void PartOneDeluxe(string filePath, long expectedChecksum)
+    {
+        var diskMap = DiskFragmenter.Parse(filePath);
+        var checksum = DiskFragmenter.PartOneDeluxe(diskMap);
+        checksum.Should().Be(expectedChecksum);
+    }
+
+    [TestMethod]
     [DataRow("day-09-sample.in.txt", 2858L)]
     [DataRow("day-09-sample-2.in.txt", 132L)]
     [DataRow("day-09-sample-3.in.txt", 12L)]
@@ -38,6 +50,19 @@ public sealed class Day09DiskFragmenterTests
     {
         var diskMap = DiskFragmenter.Parse(filePath);
         var checksum = DiskFragmenter.PartTwo(diskMap);
+        checksum.Should().Be(expectedChecksum);
+    }
+
+    [TestMethod]
+    [DataRow("day-09-sample.in.txt", 2858L)]
+    [DataRow("day-09-sample-2.in.txt", 132L)]
+    [DataRow("day-09-sample-3.in.txt", 12L)]
+    [DataRow("day-09-sample-4.in.txt", 31L)]
+    [DataRow("day-09-test.in.txt", 6448168620520L)]
+    public void PartTwoDeluxe(string filePath, long expectedChecksum)
+    {
+        var diskMap = DiskFragmenter.Parse(filePath);
+        var checksum = DiskFragmenter.PartTwoDeluxe(diskMap);
         checksum.Should().Be(expectedChecksum);
     }
 }
