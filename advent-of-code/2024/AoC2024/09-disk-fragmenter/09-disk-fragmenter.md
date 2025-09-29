@@ -4,6 +4,7 @@ cited-authors:
 date: 2025-08-23
 domains:
 - adventofcode.com
+- learn.microsoft.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/09-disk-fragmenter/09-disk-fragmenter/
 title: 'AoC 2024 Day 09: Disk Fragmenter'
@@ -32,6 +33,10 @@ needs to access the list from both ends, the parser should return an
   id="DiskFragmenter.Parse.cs" >}}
 
 </details>
+
+`StreamReader` has an internal buffer whose default size is 4,096 bytes. {{%
+cite StreamReader.Read %}} Therefore, \\(N\\) calls to `Read` translates \\(
+\lceil 4,096/N \rceil \\) system calls; `Read` is well optimized.
 
 ## Part One
 
@@ -97,3 +102,9 @@ What is the resulting filesystem checksum?
   url="https://adventofcode.com/2024/day/9"
   author="Eric Wastl"
   accessed="2025-08-23" >}}
+
+1. {{< citation
+  id="StreamReader.Read"
+  title="StreamReader.Read Method (System.IO) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.io.streamreader.read?view=net-9.0"
+  accessed="2025-09-28" >}}
