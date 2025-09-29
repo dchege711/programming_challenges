@@ -20,8 +20,8 @@ public partial class DiskFragmenter
         // - li is on an index for which we must yield a file block if possible.
         // - All blocks to the right of ri are free.
         var (li, ri) = (0, diskMap.Length - 1);
-        while (IsFreeBlock(diskMap[ri]) && ri >= 0)
-            ri--;
+        if (IsFreeBlock(diskMap[ri]))
+            ri -= ContiguousLeftwardSizeFromIndex(diskMap, ri);
 
         while (li <= ri)
         {
@@ -55,6 +55,24 @@ public partial class DiskFragmenter
     }
 
     private static bool IsFreeBlock(int block) => block == FreeBlockCanary;
+
+    private static int ContiguousLeftwardSizeFromIndex(int[] diskMap, int idx) =>
+        ContiguousSizeFromIndex(diskMap, idx, -1);
+    
+    private static int ContiguousRightwardSizeFromIndex(int[] diskMap, int idx) =>
+        ContiguousSizeFromIndex(diskMap, idx, 1);
+
+    private static int ContiguousSizeFromIndex(int[] diskMap, int idx, int delta)
+    {
+        var (size, i) = (0, idx);
+        var target = diskMap[idx];
+        while (i >= 0 && i < diskMap.Length && diskMap[i] == target)
+        {
+            size++;
+            i += delta;
+        }
+        return size;
+    }
 
     private static readonly int FreeBlockCanary = -1;
 }

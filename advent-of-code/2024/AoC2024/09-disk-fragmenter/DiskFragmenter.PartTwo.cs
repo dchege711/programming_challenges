@@ -14,7 +14,7 @@ public partial class DiskFragmenter
         while (ri > 0)
         {
             var riBlock = diskMap[ri];
-            var riBlockSize = ContiguousSizeFromIndex(diskMap, ri, -1);
+            var riBlockSize = ContiguousLeftwardSizeFromIndex(diskMap, ri);
 
             if (IsFreeBlock(riBlock))
             {
@@ -38,21 +38,12 @@ public partial class DiskFragmenter
         return diskMap;
     }
 
-    private static int ContiguousSizeFromIndex(int[] diskMap, int idx, int delta)
-    {
-        var size = 0;
-        var target = diskMap[idx];
-        for (int i = idx; i < diskMap.Length && i >= 0 && diskMap[i] == target; i += delta)
-            size++;
-        return size;
-    }
-
     private static int? GetFirstAvailableFreeSpace(int[] diskMap, int blockStartIdx, int blockSize)
     {
         int i = 0;
         while (i + blockSize <= blockStartIdx)
         {
-            var currentBlockSize = ContiguousSizeFromIndex(diskMap, i, 1);
+            var currentBlockSize = ContiguousRightwardSizeFromIndex(diskMap, i);
             if (blockSize <= currentBlockSize && IsFreeBlock(diskMap[i]))
                 return i;
             
