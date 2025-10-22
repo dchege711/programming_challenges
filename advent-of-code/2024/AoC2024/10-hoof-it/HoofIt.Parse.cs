@@ -6,7 +6,9 @@ public partial class HoofIt
     public sealed record TopographicMap(
         int[,] Map, IReadOnlyList<Coordinate> TrailEnds);
 
-    public static TopographicMap Parse(string filePath)
+    public readonly TopographicMap topographicMap;
+
+    public HoofIt(string filePath)
     {
         var lines = File.ReadLines(filePath).ToList();
     
@@ -26,7 +28,7 @@ public partial class HoofIt
             }
         }
 
-        return new(map, trailEnds);
+        topographicMap = new(map, trailEnds);
     }
 
     private readonly static int TrailEndHeight = 9;
