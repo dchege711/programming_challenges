@@ -4,7 +4,7 @@ public partial class HoofIt
 {
     public sealed record Coordinate(int r, int c);
     public sealed record TopographicMap(
-        int[,] Map, IReadOnlyList<Coordinate> TrailEnds);
+        int[,] Map, IReadOnlyList<Coordinate> TrailHeads);
 
     public readonly TopographicMap topographicMap;
 
@@ -15,7 +15,7 @@ public partial class HoofIt
         int rowCount = lines.Count;
         int colCount = lines.First().Length;
         int[,] map = new int[rowCount, colCount];
-        List<Coordinate> trailEnds = [];
+        List<Coordinate> trailHeads = [];
 
         for (int r = 0; r < rowCount; r++)
         {
@@ -23,13 +23,13 @@ public partial class HoofIt
             {
                 int height = lines[r][c] - '0';
                 map[r, c] = height;
-                if (height == TrailEndHeight)
-                    trailEnds.Add(new(r, c));
+                if (height == TrailHeadHeight)
+                    trailHeads.Add(new(r, c));
             }
         }
 
-        topographicMap = new(map, trailEnds);
+        topographicMap = new(map, trailHeads);
     }
 
-    private readonly static int TrailEndHeight = 9;
+    private readonly static int TrailHeadHeight = 0;
 }

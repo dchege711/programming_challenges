@@ -19,8 +19,8 @@ public sealed class Day10HoofItTests
             {9, 8, 7, 6}
         };
         topographicMap.Map.Should().BeEquivalentTo(expectedMap);
-        topographicMap.TrailEnds.Should().BeEquivalentTo([
-            new HoofIt.Coordinate(3, 0)
+        topographicMap.TrailHeads.Should().BeEquivalentTo([
+            new HoofIt.Coordinate(0, 0)
         ]);
     }
 

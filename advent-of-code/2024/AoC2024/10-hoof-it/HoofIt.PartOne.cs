@@ -4,22 +4,22 @@ public partial class HoofIt
 {
     public int SumOfTrailHeadsScores()
     {
-        var scores = new Dictionary<Coordinate, int>();
-        foreach (var trailEnd in topographicMap.TrailEnds)
+        var scores = new Dictionary<Coordinate, HashSet<Coordinate>>();
+        foreach (var trailHead in topographicMap.TrailHeads)
         {
-            var toVisit = new HashSet<Coordinate>([trailEnd]);
+            var toVisit = new HashSet<Coordinate>([trailHead]);
             var visited = new HashSet<Coordinate>();
             while (toVisit.Count > 0)
             {
                 var coordinate = toVisit.First();
                 toVisit.Remove(coordinate);
                 visited.Add(coordinate);
-                if (topographicMap.Map[coordinate.r, coordinate.c] == TrailHeadHeight)
+                if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
                 {
-                    if (scores.TryGetValue(coordinate, out var numReachable))
-                        scores[coordinate] = numReachable + 1;
+                    if (scores.TryGetValue(trailHead, out var numReachable))
+                        numReachable.Add(coordinate);
                     else
-                        scores[coordinate] = 1;
+                        scores[trailHead] = new HashSet<Coordinate>([coordinate]);
                     continue;
                 }
 
@@ -29,13 +29,13 @@ public partial class HoofIt
                     .ForEach(newCoord => toVisit.Add(newCoord));
             }
         }
-        return scores.Values.Sum();
+        return scores.Values.Select(reachableEnds => reachableEnds.Count).Sum();
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
     {
         var (r, c) = coordinate;
-        int targetHeight = topographicMap.Map[coordinate.r, coordinate.c] - 1;
+        int targetHeight = topographicMap.Map[coordinate.r, coordinate.c] + 1;
         return Deltas
             .Select(d => new Coordinate(r + d.dr, c + d.dc))
             .Where(IsInBounds)
@@ -53,5 +53,5 @@ public partial class HoofIt
         return r >= 0 && r < rowCount && c >= 0 && c < colCount;
     }
 
-    private readonly static int TrailHeadHeight = 0;
+    private readonly static int TrailEndHeight = 9;
 }
