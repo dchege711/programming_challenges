@@ -2,28 +2,28 @@ namespace AoC2024;
 
 public partial class HoofIt
 {
-    public int SumOfTrailHeadsScores()
-    {
-        var runningSum = 0;
-        foreach (var trailHead in topographicMap.TrailHeads)
-        {
-            var toVisit = new HashSet<Coordinate>([trailHead]);
-            var visited = new HashSet<Coordinate>();
-            while (toVisit.Count > 0)
-            {
-                var coordinate = toVisit.First();
-                toVisit.Remove(coordinate);
-                visited.Add(coordinate);
-                if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
-                    runningSum += 1;
+    public int SumOfTrailHeadsScores() =>
+        topographicMap.TrailHeads.Select(GetTrailHeadScore).Sum();
 
-                PossibleMoves(coordinate)
-                    .Where(newCoord => !visited.Contains(newCoord))
-                    .ToList()
-                    .ForEach(newCoord => toVisit.Add(newCoord));
-            }
+    private int GetTrailHeadScore(Coordinate trailHead)
+    {
+        var runningScore = 0;
+        var toVisit = new HashSet<Coordinate>([trailHead]);
+        var visited = new HashSet<Coordinate>();
+        while (toVisit.Count > 0)
+        {
+            var coordinate = toVisit.First();
+            toVisit.Remove(coordinate);
+            visited.Add(coordinate);
+            if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
+                runningScore += 1;
+
+            PossibleMoves(coordinate)
+                .Where(newCoord => !visited.Contains(newCoord))
+                .ToList()
+                .ForEach(newCoord => toVisit.Add(newCoord));
         }
-        return runningSum;
+        return runningScore;
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
