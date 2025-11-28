@@ -35,8 +35,8 @@ public sealed class Day10HoofItTests
     }
 
     [TestMethod]
-    [DataRow("day-10-sample.in.txt", 1)]
-    // [DataRow("day-10-sample-02.in.txt", 81)]
+    // [DataRow("day-10-sample.in.txt", 2)]
+    [DataRow("day-10-sample-02.in.txt", 81)]
     // [DataRow("day-10-test.in.txt", 574)]
     public void PartTwo(string filePath, int expectedSum)
     {

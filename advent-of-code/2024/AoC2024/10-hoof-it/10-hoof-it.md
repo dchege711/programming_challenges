@@ -44,6 +44,12 @@ trailhead via a hiking trail. What is the sum of the scores of all trailheads?
   highlight="cs"
   id="HoofIt.PartOne.cs" >}}
 
+## Part Two
+
+A trailhead's rating is the number of distinct hiking trails that begin at that
+trailhead. What is the sum of the ratings of all trailheads? {{% cite
+AoC2024Day10 %}}
+
 ## References
 
 1. {{< citation

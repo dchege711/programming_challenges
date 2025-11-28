@@ -1,29 +1,45 @@
 namespace AoC2024;
 
 public partial class HoofIt
-{
+{    
     public int SumOfTrailHeadsScores() =>
-        topographicMap.TrailHeads.Select(GetTrailHeadScore).Sum();
-
-    private int GetTrailHeadScore(Coordinate trailHead)
+        topographicMap
+            .TrailHeads
+            .Select(DistinctCompleteTrails)
+            .Select(x => x.Count())
+            .Sum();
+    
+    private IEnumerable<DistinctPaths> DistinctCompleteTrails(Coordinate trailHead)
     {
-        var runningScore = 0;
+        var numPaths = new Dictionary<Coordinate, int>{{trailHead, 1}};
+        var reachableTrailEnds = new HashSet<Coordinate>();
         var toVisit = new HashSet<Coordinate>([trailHead]);
-        var visited = new HashSet<Coordinate>();
+
         while (toVisit.Count > 0)
         {
             var coordinate = toVisit.First();
+            var numPathsToCoordinate = numPaths[coordinate];
             toVisit.Remove(coordinate);
-            visited.Add(coordinate);
-            if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
-                runningScore += 1;
 
+            if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
+            {
+                reachableTrailEnds.Add(coordinate);
+                continue;
+            }
+            
             PossibleMoves(coordinate)
-                .Where(newCoord => !visited.Contains(newCoord))
                 .ToList()
-                .ForEach(newCoord => toVisit.Add(newCoord));
+                .ForEach(newCoord =>
+                {
+                    var numOldPaths = numPaths.GetValueOrDefault(newCoord, 0);
+                    numPaths[newCoord] = numOldPaths + numPathsToCoordinate;
+                    toVisit.Add(newCoord);
+                });
+
         }
-        return runningScore;
+
+        return reachableTrailEnds
+            .Select(coordinate => new DistinctPaths(coordinate, numPaths[coordinate]));
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
@@ -48,4 +64,6 @@ public partial class HoofIt
     }
 
     private readonly static int TrailEndHeight = 9;
+
+    private record struct DistinctPaths(Coordinate Coordinate, int NumDistinctPaths);
 }
