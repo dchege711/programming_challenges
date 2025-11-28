@@ -9,32 +9,42 @@ local_url: http://localhost:1313/computer-science/programming-challenges/advent-
 title: 'AoC 2024 Day 10: Hoof It'
 ---
 
-## Problem Statement
-
-### Part One
+## Parsing
 
 The topographic map indicates the **height** at each position using a scale from
-`0` (lowest) to `9` (highest):
+`0` (lowest) to `9` (highest), e.g.,
+
+```txt
+0123
+1234
+8765
+9876
+```
+
+{{% cite AoC2024Day10 %}}
+
+A hiking trail is any path that starts at `0`, ends at height `9`, and increases
+by a height of exactly `1` at each step. Hiking trails never include diagonal
+steps -- only up, down, left, or right. A trailhead is any position that starts
+one or more hiking trails. {{% cite AoC2024Day10 %}}
 
 {{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024.Tests/data/day-10-sample.in.txt"
-  highlight="txt" >}}
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/HoofIt.Parse.cs"
+  highlight="cs"
+  id="HoofIt.Parse.cs" >}}
 
-Based on un-scorched scraps of the book, you determine that a good hiking trail
-is **as long as possible** and has an **even, gradual, uphill slope**. For all
-practical purposes, this means that a hiking trail is any path that starts at
-height `0`, ends at height `9`, and always increases by a height of exactly `1`
-at each step. Hiking trails never include diagonal steps - only up, down, left,
-or right (from the perspective of the map).
+## Part One
 
-A **trailhead** is any position that starts one or more hiking trails - here,
-these positions will always have height `0`. Assembling more fragments of pages,
-you establish that a trailhead's **score** is the number of 9-height positions
-reachable from that trailhead via a hiking trail. In the above example, the
-single trailhead in the top left corner has a score of `1` because it can reach
-a single `9` (the one in the bottom left).
+A trailhead's score is the number of `9`-height positions reachable from the
+trailhead via a hiking trail. What is the sum of the scores of all trailheads?
+{{% cite AoC2024Day10 %}}
 
-**What is the sum of the scores of all trailheads on your topographical map?**
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/HoofIt.PartOne.cs"
+  highlight="cs"
+  id="HoofIt.PartOne.cs" >}}
+
+## References
 
 1. {{< citation
   id="AoC2024Day10"
