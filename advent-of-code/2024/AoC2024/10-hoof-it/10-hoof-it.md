@@ -50,6 +50,35 @@ A trailhead's rating is the number of distinct hiking trails that begin at that
 trailhead. What is the sum of the ratings of all trailheads? {{% cite
 AoC2024Day10 %}}
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/HoofIt.PartTwo.cs"
+  highlight="cs"
+  id="HoofIt.PartTwo.cs" >}}
+
+## Counting Distinct Paths from TrailHead to TrailEnd
+
+The grid traversal reminds of some LeetCode problems: {{% cite LCUniquePathsI
+%}} and {{% cite LCUniquePathsII %}}. {{% cite LCUniquePathsI %}} traverses an
+\\(R \times C\\) grid from the top left to the bottom right, moving either right
+or down at each step. We need to move down \\(R - 1\\) times and move right \\(C
+- 1\\) times, resulting in \\(R + C - 2\\) total moves. The number of possible
+paths comes from choosing either when to go down or when to go right {{% cite
+WikiLatticePaths %}}, i.e.,
+
+$$ \binom{R + C - 2}{R - 1} = \binom{R + C - 2}{C - 1} $$
+
+{{% cite LCUniquePathsII %}} imposes the same traversal rules as {{% cite
+LCUniquePathsI %}}, but adds obstacles in the path. The combinatorics solution
+no longer works, and so we fall back to the dynamic programming formulation:
+`dp[r, c] = dp[r - 1, c] + dp[r, c - 1]`.
+
+{{% cite AoC2024Day10 %}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/HoofIt.Common.cs"
+  highlight="cs"
+  id="HoofIt.Common.cs" >}}
+
 ## References
 
 1. {{< citation
@@ -58,3 +87,21 @@ AoC2024Day10 %}}
   url="https://adventofcode.com/2024/day/10"
   author="Eric Wastl"
   accessed="2025-08-23" >}}
+
+1. {{< citation
+  id="LCUniquePathsII"
+  title="Unique Paths II - LeetCode"
+  url="https://leetcode.com/problems/unique-paths-ii/description/"
+  accessed="2025-11-28" >}}
+
+1. {{< citation
+  id="LCUniquePathsI"
+  title="Unique Paths - LeetCode"
+  url="https://leetcode.com/problems/unique-paths/description/"
+  accessed="2025-11-28" >}}
+
+1. {{< citation
+  id="WikiLatticePaths"
+  title="Lattice path - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Lattice_path"
+  accessed="2025-11-28" >}}

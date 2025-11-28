@@ -6,6 +6,6 @@ public partial class HoofIt
         topographicMap
             .TrailHeads
             .Select(DistinctCompleteTrails)
-            .SelectMany(x => x.Select(y => y.NumDistinctPaths))
+            .SelectMany(completeTrails => completeTrails.Select(t => t.NumDistinctPaths))
             .Sum();
 }
