@@ -4,7 +4,7 @@ public partial class HoofIt
 {
     public int SumOfTrailHeadsScores()
     {
-        var scores = new Dictionary<Coordinate, HashSet<Coordinate>>();
+        var runningSum = 0;
         foreach (var trailHead in topographicMap.TrailHeads)
         {
             var toVisit = new HashSet<Coordinate>([trailHead]);
@@ -15,13 +15,7 @@ public partial class HoofIt
                 toVisit.Remove(coordinate);
                 visited.Add(coordinate);
                 if (topographicMap.Map[coordinate.r, coordinate.c] == TrailEndHeight)
-                {
-                    if (scores.TryGetValue(trailHead, out var numReachable))
-                        numReachable.Add(coordinate);
-                    else
-                        scores[trailHead] = new HashSet<Coordinate>([coordinate]);
-                    continue;
-                }
+                    runningSum += 1;
 
                 PossibleMoves(coordinate)
                     .Where(newCoord => !visited.Contains(newCoord))
@@ -29,7 +23,7 @@ public partial class HoofIt
                     .ForEach(newCoord => toVisit.Add(newCoord));
             }
         }
-        return scores.Values.Select(reachableEnds => reachableEnds.Count).Sum();
+        return runningSum;
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
