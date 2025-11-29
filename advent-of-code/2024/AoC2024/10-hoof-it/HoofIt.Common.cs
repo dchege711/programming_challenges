@@ -1,3 +1,6 @@
+using System.Collections.Immutable;
+using System.Diagnostics;
+
 namespace AoC2024;
 
 public partial class HoofIt
@@ -7,7 +10,7 @@ public partial class HoofIt
         Queue<IReadOnlyList<Coordinate>> paths = [];
         paths.Enqueue([trailHead]);
 
-        IReadOnlyList<IReadOnlyList<Coordinate>> trails = [];
+        var hikingTrails = ImmutableList.CreateBuilder<IReadOnlyList<Coordinate>>();
         while (paths.Count > 0)
         {
             var path = paths.Dequeue();
@@ -15,7 +18,8 @@ public partial class HoofIt
 
             if (topographicMap.Map[current.r, current.c] == TrailEndHeight)
             {
-                trails = [..trails, path];
+                Debug.Assert(path.Count == 10);
+                hikingTrails.Add(path);
                 continue;
             }
             
@@ -24,9 +28,9 @@ public partial class HoofIt
                 .ForEach(next => paths.Enqueue([..path, next]));
         }
 
-        return trails
-            .GroupBy(trail => trail[trail.Count - 1])
-            .Select(g => new DistinctPaths(g.Key, g.Count()));
+        return hikingTrails
+            .GroupBy(trail => trail[trail.Count - 1]) // By the end of the trail.
+            .Select(grouping => new DistinctPaths(grouping.Key, grouping.Count()));
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)

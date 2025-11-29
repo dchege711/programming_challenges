@@ -72,7 +72,11 @@ LCUniquePathsI %}}, but adds obstacles in the path. The combinatorics solution
 no longer works, and so we fall back to the dynamic programming formulation:
 `dp[r, c] = dp[r - 1, c] + dp[r, c - 1]`.
 
-{{% cite AoC2024Day10 %}}
+Compared to {{% cite LCUniquePathsII %}}, {{% cite AoC2024Day10 %}} has multiple
+ending positions per origin, and can traverse left and up as well. It's not
+clear to me how to formulate {{% cite AoC2024Day10 %}} as a dynamic programming
+problem for better memory efficiency. This approach is correct and fast enough,
+but we are creating a lot of intermediate arrays:
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/HoofIt.Common.cs"
