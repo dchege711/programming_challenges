@@ -5,7 +5,7 @@ public partial class HoofIt
     public int SumOfTrailHeadsScores() =>
         topographicMap
             .TrailHeads
-            .Select(DistinctCompleteTrails)
-            .Select(completeTrails => completeTrails.Count())
+            .Select(GetTrailEndStats)
+            .Select(trailEnds => trailEnds.Count())
             .Sum();
 }

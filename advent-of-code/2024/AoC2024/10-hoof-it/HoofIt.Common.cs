@@ -5,7 +5,7 @@ namespace AoC2024;
 
 public partial class HoofIt
 {
-    private IEnumerable<DistinctPaths> DistinctCompleteTrails(Coordinate trailHead)
+    private IEnumerable<TrailEndStats> GetTrailEndStats(Coordinate trailHead)
     {
         Queue<IReadOnlyList<Coordinate>> paths = [];
         paths.Enqueue([trailHead]);
@@ -18,19 +18,18 @@ public partial class HoofIt
 
             if (topographicMap.Map[current.r, current.c] == TrailEndHeight)
             {
-                Debug.Assert(path.Count == 10);
+                Debug.Assert(path.Count == TrailLength);
                 hikingTrails.Add(path);
                 continue;
             }
             
-            PossibleMoves(current)
-                .ToList()
-                .ForEach(next => paths.Enqueue([..path, next]));
+            foreach (var next in PossibleMoves(current))
+                paths.Enqueue([..path, next]);
         }
 
         return hikingTrails
             .GroupBy(trail => trail[trail.Count - 1]) // By the end of the trail.
-            .Select(grouping => new DistinctPaths(grouping.Key, grouping.Count()));
+            .Select(grouping => new TrailEndStats(grouping.Key, grouping.Count()));
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
@@ -54,7 +53,8 @@ public partial class HoofIt
         return r >= 0 && r < rowCount && c >= 0 && c < colCount;
     }
 
-    private readonly static int TrailEndHeight = 9;
+    private static readonly int TrailEndHeight = 9;
+    private static readonly int TrailLength = 10;
 
-    private record struct DistinctPaths(Coordinate Coordinate, int NumDistinctPaths);
+    private record struct TrailEndStats(Coordinate TrailEnd, int DistinctPathsCount);
 }
