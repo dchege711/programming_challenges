@@ -8,6 +8,6 @@ public sealed class Day11PlutonianPebblesTests
     public void Parse()
     {
         var stones = PlutonianPebbles.ReadStones("day-11-sample.in.txt");
-        stones.Should().BeEquivalentTo([1, 2024, 1, 0, 9, 9, 2021976]);
+        stones.Should().BeEquivalentTo([125, 17]);
     }
 }
