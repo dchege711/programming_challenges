@@ -33,12 +33,13 @@ public sealed class Day11PlutonianPebblesTests
         PlutonianPebbles.Blink(stone).Should().BeEquivalentTo(expectedStones);
 
     [TestMethod]
-    [DataRow("day-11-sample.in.txt", 55312L)]
-    [Ignore]
-    public void PartOne(string fileName, long expectedNumStones)
+    [DataRow("day-11-sample.in.txt", 25, 55312UL)]
+    [DataRow("day-11-test.in.txt", 25, 235850UL)]
+    [DataRow("day-11-test.in.txt", 75, 235850UL)]
+    public void PartOne(string fileName, int numBlinks, ulong expectedNumStones)
     {
         var stones = PlutonianPebbles.ReadStones(fileName);
-        var numStones = PlutonianPebbles.NumStonesAfter25Blinks(stones);
+        var numStones = PlutonianPebbles.NumStonesAfterBlinks(stones, numBlinks);
         numStones.Should().Be(expectedNumStones);
     }
 }
