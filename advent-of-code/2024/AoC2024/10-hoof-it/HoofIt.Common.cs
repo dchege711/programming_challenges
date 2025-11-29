@@ -4,36 +4,29 @@ public partial class HoofIt
 {
     private IEnumerable<DistinctPaths> DistinctCompleteTrails(Coordinate trailHead)
     {
-        var numPaths = new Dictionary<Coordinate, int>{{trailHead, 1}};
-        var reachableTrailEnds = new HashSet<Coordinate>();
-        var toVisit = new HashSet<Coordinate>([trailHead]);
+        Queue<IReadOnlyList<Coordinate>> paths = [];
+        paths.Enqueue([trailHead]);
 
-        while (toVisit.Count > 0)
+        IReadOnlyList<IReadOnlyList<Coordinate>> trails = [];
+        while (paths.Count > 0)
         {
-            var current = toVisit.First();
-            toVisit.Remove(current);
+            var path = paths.Dequeue();
+            var current = path[path.Count - 1];
 
             if (topographicMap.Map[current.r, current.c] == TrailEndHeight)
             {
-                reachableTrailEnds.Add(current);
+                trails = [..trails, path];
                 continue;
             }
             
-            var currNumPaths = numPaths[current];
             PossibleMoves(current)
                 .ToList()
-                .ForEach(next =>
-                {
-                    var numOldPaths = numPaths.GetValueOrDefault(next, 0);
-                    numPaths[next] = numOldPaths + currNumPaths;
-                    toVisit.Add(next);
-                });
-
+                .ForEach(next => paths.Enqueue([..path, next]));
         }
 
-        var val = reachableTrailEnds
-            .Select(coordinate => new DistinctPaths(coordinate, numPaths[coordinate]));
-        return val;
+        return trails
+            .GroupBy(trail => trail[trail.Count - 1])
+            .Select(g => new DistinctPaths(g.Key, g.Count()));
     }
 
     private IEnumerable<Coordinate> PossibleMoves(Coordinate coordinate)
