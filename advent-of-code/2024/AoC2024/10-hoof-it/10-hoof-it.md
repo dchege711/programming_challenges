@@ -4,6 +4,8 @@ cited-authors:
 date: 2025-08-23
 domains:
 - adventofcode.com
+- en.wikipedia.org
+- leetcode.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/10-hoof-it/10-hoof-it/
 title: 'AoC 2024 Day 10: Hoof It'

@@ -1,6 +1,12 @@
 ---
-title: 'AoC 2024 Day 11: Plutonian Pebbles'
+cited-authors:
+- Wastl, Eric
 date: 2025-11-29
+domains:
+- adventofcode.com
+- learn.microsoft.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/11-plutonian-pebbles/11-plutonian-pebbles/
+title: 'AoC 2024 Day 11: Plutonian Pebbles'
 ---
 
 ## Parsing
