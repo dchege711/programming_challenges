@@ -36,10 +36,21 @@ public sealed class Day11PlutonianPebblesTests
     [DataRow("day-11-sample.in.txt", 25, 55312UL)]
     [DataRow("day-11-test.in.txt", 25, 235850UL)]
     [DataRow("day-11-test.in.txt", 75, 279903140844645UL)]
-    public void PartOne(string fileName, int numBlinks, ulong expectedNumStones)
+    public void Recursive(string fileName, int numBlinks, ulong expectedNumStones)
     {
         var stones = PlutonianPebbles.ReadStones(fileName);
         var numStones = PlutonianPebbles.NumStonesAfterBlinks(stones, numBlinks);
+        numStones.Should().Be(expectedNumStones);
+    }
+
+    [TestMethod]
+    [DataRow("day-11-sample.in.txt", 25, 55312UL)]
+    [DataRow("day-11-test.in.txt", 25, 235850UL)]
+    [DataRow("day-11-test.in.txt", 75, 279903140844645UL)]
+    public void DynamicProgramming(string fileName, int numBlinks, ulong expectedNumStones)
+    {
+        var stones = PlutonianPebbles.ReadStones(fileName);
+        var numStones = PlutonianPebbles.NumStonesAfterBlinksDP(stones, numBlinks);
         numStones.Should().Be(expectedNumStones);
     }
 }
