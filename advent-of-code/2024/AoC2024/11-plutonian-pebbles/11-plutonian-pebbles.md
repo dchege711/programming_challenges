@@ -73,10 +73,10 @@ lockstep.
   highlight="cs"
   id="PlutonianPebbles.DP.cs" >}}
 
-In {{% cite "PlutonianPebbles.Common.cs" %}}, I tried using PLINQ in
-`CountStonesAfterBlinks`, only to find the program ran slower. {{% cite
-PLINQPitfalls %}} notes that over-parallelization is a common pitfall,
-especially in nested queries. PLINQ is probably helpful when:
+I tried using PLINQ in `CountStonesAfterBlinks`, only to find the program ran
+slower. {{% cite PLINQPitfalls %}} notes that over-parallelization is a common
+pitfall, especially in nested queries. PLINQ is probably (general advice is to
+measure) a speedup when:
 
 1. The inner data source is known to be very long.
 2. Each inner computation is expensive.
