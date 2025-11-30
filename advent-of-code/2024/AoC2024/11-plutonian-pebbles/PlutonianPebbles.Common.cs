@@ -11,7 +11,7 @@ public static partial class PlutonianPebbles
         return sum;
     }
 
-    public static IEnumerable<ulong> Blink(ulong stone)
+    public static IReadOnlyList<ulong> Blink(ulong stone)
     {
         if (stone == 0)
             return [1];
@@ -32,16 +32,16 @@ public static partial class PlutonianPebbles
         ulong stone, int blinksRemaining, Dictionary<(ulong, int), ulong> cache)
     {
         var subProblem = (stone, blinksRemaining);
-        if (cache.TryGetValue(subProblem, out var numChildren))
-            return numChildren;
+        if (cache.TryGetValue(subProblem, out var numChildStones))
+            return numChildStones;
 
         if (blinksRemaining <= 0) return 1;
 
         foreach (var child in Blink(stone))
-            numChildren += GetNumChildStones(child, blinksRemaining - 1, cache);
+            numChildStones += GetNumChildStones(child, blinksRemaining - 1, cache);
         
-        cache[subProblem] = numChildren;
-        return numChildren;
+        cache[subProblem] = numChildStones;
+        return numChildStones;
     }
 
     private static int GetNumberOfDigits(ulong n) => n switch
