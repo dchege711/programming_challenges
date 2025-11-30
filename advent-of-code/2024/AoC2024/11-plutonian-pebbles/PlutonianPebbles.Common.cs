@@ -1,14 +1,16 @@
+using System.Collections.Concurrent;
+
 namespace AoC2024;
 
 public static partial class PlutonianPebbles
 {
     public static ulong NumStonesAfterBlinks(IEnumerable<ulong> stones, int numBlinks)
     {
-        var sum = 0UL;
-        var cache = new Dictionary<(ulong, int), ulong>();
-        foreach (var count in stones.Select(stone => GetNumChildStones(stone, numBlinks, cache)))
-            sum += count;
-        return sum;
+        var cache = new ConcurrentDictionary<(ulong, int), ulong>();
+        return stones
+            .AsParallel()
+            .Select(stone => CountStonesAfterBlinks(stone, numBlinks, cache))
+            .Aggregate(0UL, (acc, count) => acc + count);
     }
 
     public static IReadOnlyList<ulong> Blink(ulong stone)
@@ -28,8 +30,8 @@ public static partial class PlutonianPebbles
         return [stone * 2024UL];
     }
 
-    private static ulong GetNumChildStones(
-        ulong stone, int blinksRemaining, Dictionary<(ulong, int), ulong> cache)
+    private static ulong CountStonesAfterBlinks(
+        ulong stone, int blinksRemaining, ConcurrentDictionary<(ulong, int), ulong> cache)
     {
         var subProblem = (stone, blinksRemaining);
         if (cache.TryGetValue(subProblem, out var numChildStones))
@@ -37,8 +39,9 @@ public static partial class PlutonianPebbles
 
         if (blinksRemaining <= 0) return 1;
 
-        foreach (var child in Blink(stone))
-            numChildStones += GetNumChildStones(child, blinksRemaining - 1, cache);
+        numChildStones = Blink(stone)
+            .Select(childStone => CountStonesAfterBlinks(childStone, blinksRemaining - 1, cache))
+            .Aggregate(0UL, (acc, count) => acc + count);
         
         cache[subProblem] = numChildStones;
         return numChildStones;
