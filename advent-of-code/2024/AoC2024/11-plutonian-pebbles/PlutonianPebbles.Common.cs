@@ -46,5 +46,9 @@ public static partial class PlutonianPebbles
         return numChildren;
     }
 
-    private static int GetNumberOfDigits(ulong n) => $"{n}".Length;
+    private static int GetNumberOfDigits(ulong n) => n switch
+    {
+        0 => 1,
+        _ => (int)Math.Floor(Math.Log10(n)) + 1,
+    };
 }
