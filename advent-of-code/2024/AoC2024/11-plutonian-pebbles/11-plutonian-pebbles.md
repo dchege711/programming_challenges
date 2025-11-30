@@ -13,6 +13,18 @@ cite AoC2024Day10 %}}
   highlight="cs"
   id="PlutonianPebbles.Parse.cs" >}}
 
+```cs
+public static IEnumerable<ulong> ReadStones(string filePath)
+{
+    using StreamReader inputReader = new(filePath);
+    return inputReader.ReadLine()?.Split().Select(ulong.Parse) ?? [];
+}
+```
+
+The above snippet contains a subtle bug. The `using` statement disposes the
+`StreamReader` before the `IEnumerable<ulong>` is consumed. However, because
+`ReadLine` eagerly reads the content, there is no bug in this case.
+
 ## Setup
 
 Every time you blink, the stones each simultaneously change based on the first
