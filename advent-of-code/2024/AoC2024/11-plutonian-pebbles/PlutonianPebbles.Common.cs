@@ -6,7 +6,7 @@ public static partial class PlutonianPebbles
     {
         var sum = 0UL;
         var cache = new Dictionary<(ulong, int), ulong>();
-        foreach (var count in stones.Select(stone => GetNumChildStones(stone, 1, numBlinks, cache)))
+        foreach (var count in stones.Select(stone => GetNumChildStones(stone, numBlinks, cache)))
             sum += count;
         return sum;
     }
@@ -29,20 +29,18 @@ public static partial class PlutonianPebbles
     }
 
     private static ulong GetNumChildStones(
-        ulong stone,
-        int iteration,
-        int numBlinks,
-        Dictionary<(ulong, int), ulong> cache)
+        ulong stone, int blinksRemaining, Dictionary<(ulong, int), ulong> cache)
     {
-        if (cache.TryGetValue((stone, iteration), out var numChildren))
+        var subProblem = (stone, blinksRemaining);
+        if (cache.TryGetValue(subProblem, out var numChildren))
             return numChildren;
 
-        if (iteration > numBlinks) return 1;
+        if (blinksRemaining <= 0) return 1;
 
         foreach (var child in Blink(stone))
-            numChildren += GetNumChildStones(child, iteration + 1, numBlinks, cache);
+            numChildren += GetNumChildStones(child, blinksRemaining - 1, cache);
         
-        cache[new(stone, iteration)] = numChildren;
+        cache[subProblem] = numChildren;
         return numChildren;
     }
 
