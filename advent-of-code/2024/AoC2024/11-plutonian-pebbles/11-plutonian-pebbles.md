@@ -5,7 +5,8 @@ date: 2025-11-29
 
 ## Parsing
 
-The stones are in a line, with each stone having a number engraved on it.
+The stones are in a line, with each stone having a number engraved on it. {{%
+cite AoC2024Day10 %}}
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/11-plutonian-pebbles/PlutonianPebbles.Parse.cs"
@@ -24,11 +25,18 @@ applicable rule in this list:
 3. A stone is replaced by a new stone with an engraving equal to that of the old
    stone multiplied by 2024.
 
-No matter how the stones change, their order is preserved.
+No matter how the stones change, their order is preserved. {{% cite AoC2024Day10
+%}}
 
 ## Part One & Two
 
 How many stones will you have after blinking 25 times? How about after 75 times?
+{{% cite AoC2024Day10 %}}
+
+The problem is embarrassingly parallel in that the expansion of each stone can
+be computed independently. However, the same sub-problems (given a stone and a
+number of blinks to perform) might be solved repeatedly. Utilizing a cache in
+this case seems more important than trying to explore parallelism.
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/11-plutonian-pebbles/PlutonianPebbles.Common.cs"
