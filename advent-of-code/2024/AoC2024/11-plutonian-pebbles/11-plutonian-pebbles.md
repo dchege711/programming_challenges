@@ -19,6 +19,11 @@ cite AoC2024Day10 %}}
   highlight="cs"
   id="PlutonianPebbles.Parse.cs" >}}
 
+The snippet below contains a subtle bug. The `using` statement disposes the
+`StreamReader` at the end of the scope {{% cite usingStatement %}}. This happens
+before the `IEnumerable<ulong>` is consumed. However, because `ReadLine` eagerly
+reads the content, there is no exception thrown.
+
 ```cs
 public static IEnumerable<ulong> ReadStones(string filePath)
 {
@@ -26,10 +31,6 @@ public static IEnumerable<ulong> ReadStones(string filePath)
     return inputReader.ReadLine()?.Split().Select(ulong.Parse) ?? [];
 }
 ```
-
-The above snippet contains a subtle bug. The `using` statement disposes the
-`StreamReader` before the `IEnumerable<ulong>` is consumed. However, because
-`ReadLine` eagerly reads the content, there is no bug in this case.
 
 ## Setup
 
@@ -46,7 +47,7 @@ applicable rule in this list:
 No matter how the stones change, their order is preserved. {{% cite AoC2024Day10
 %}}
 
-## Part One & Two
+## Problem
 
 How many stones will you have after blinking 25 times? How about after 75 times?
 {{% cite AoC2024Day10 %}}
@@ -61,12 +62,30 @@ this case seems more important than trying to explore parallelism.
   highlight="cs"
   id="PlutonianPebbles.Common.cs" >}}
 
+{{% comment %}}
+
+Good job to `Claude Sonnet 4.5` for pointing the DP approach below. I was
+pleasantly surprised that it generated the DP solution in one shot and passed
+all the tests. That said, I deleted the generated and tried to implement it
+myself as an exercise. The model was better at this than me on this one.
+
+{{% /comment %}}
+
 Alternatively, we can count the number of stones in each blink. This offers more
 memory efficiency because \\(N\\) stones with the same value are represented
 compactly -- the full array is never expanded. The compact representation also
 avoids repeated computation. Caching in this case doesn't help because we never
 encounter the same sub-problem twice given that we're considering blinks in
 lockstep.
+
+{{% comment %}}
+
+Be on the lookout for such cases. Maintaining a cache and recursing has more
+moving parts. Is there usually an iterative approach that traverses the problem
+space more efficiently, and using an explicit cache is often a crutch for
+inefficient traversal?
+
+{{% /comment %}}
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/11-plutonian-pebbles/PlutonianPebbles.DP.cs"
@@ -99,3 +118,9 @@ parallelization gets in the way.
   title="Potential pitfalls with PLINQ - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/potential-pitfalls-with-plinq"
   accessed="2025-11-29" >}}
+
+1. {{< citation
+  id="usingStatement"
+  title="using statement - ensure the correct use of disposable objects - C# reference | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using"
+  accessed="2025-11-30" >}}
