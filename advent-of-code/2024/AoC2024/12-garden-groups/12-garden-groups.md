@@ -24,7 +24,7 @@ EEEC
 The <dfn>area</dfn> of a region is the number of garden plots the region
 contains. The <dfn>perimeter</dfn> of a region is the number of sides of garden
 plots in the region that do not touch another garden plot in the same region.
-For example, the `C` plans are in a region with area \\(4\\) and perimeter
+For example, the `C` plants are in a region with area \\(4\\) and perimeter
 \\(8\\). {{% cite AoC2024Day12 %}}
 
 ```txt
@@ -55,6 +55,11 @@ OOOOO
 ```
 
 {{% cite AoC2024Day12 %}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.Parse.cs"
+  highlight="cs"
+  id="GardenGroups.Parse.cs" >}}
 
 ## Part One
 
@@ -97,28 +102,48 @@ is too busy, I'll separate out the area and perimeter calculations to their own
 subroutines. In that case,
 
 ```txt
-   0 1 2 3
-        +-+
-0       |A|
-  +-+-+-+ +
-1 |A A A A|
-  +       +
-2 |A A A A|
-  +-+-+-+-+
+   0 1 2 3 4 5 6 7
+  +-+-+       +-+-+
+0 |H H|       |H H|
+  + +-+       +-+ +
+1 |H|           |H|
+  + +-+-+-+-+-+-+ +
+2 |H H H H H H H H|
+  + +-+-+-+-+-+-+ +
+3 |H|           |H|
+  +-+           +-+
 ```
 
-.. can be represented by the column indices:
+...can be represented by the column indices:
 
 ```json
 [
-  [3, 3]
-  [0, 3]
-  [0, 3]
+  [[0, 1], [6, 7]],
+  [[0, 0], [7, 7]],
+  [[0, 7]],
+  [[0, 0], [7, 7]]
 ]
 ```
 
-... and a note that \\(r = 0\\) is the starting row, and `A` is the plant type.
-That information is enough to recreate the original map.
+... and a note that \\(r = 0\\) is the starting row, and `H` is the plant type.
+That information is enough to recreate the original map. The above form is more
+amenable to computing the area than to computing the perimeter.
+
+On the other hand, a representation with a list of vertices in either clockwise
+or counterclockwise order makes it convenient to compute the perimeter. I don't
+know of a representation that supports area and perimeter computations
+simultaneously. It seems easier to transform the column indices into a list of
+vertices than the other way round.
+
+Scratch that. Collecting the "collected component" using breadth first search
+makes it trivial to compute the area during the BFS. BFS also makes it possible
+to compute how much each cell will contribute to the perimeter based on its
+neighbors.
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.Parse.cs"
+  highlight="cs"
+  id="GardenGroups.PartOne.cs" >}}
 
 ## References
 

@@ -1,0 +1,22 @@
+namespace AoC2024.Tests;
+
+[TestClass]
+[DeploymentItem("data/day-12-sample.in.txt")]
+[DeploymentItem("data/day-12-2-sample.in.txt")]
+[DeploymentItem("data/day-12-3-sample.in.txt")]
+[DeploymentItem("data/day-12-4-sample.in.txt")]
+[DeploymentItem("data/day-12-test.in.txt")]
+public sealed class Day12GardenGroupsTests
+{
+    [TestMethod]
+    [DataRow("day-12-sample.in.txt", 1930)]
+    [DataRow("day-12-2-sample.in.txt", 140)]
+    [DataRow("day-12-3-sample.in.txt", 772)]
+    [DataRow("day-12-4-sample.in.txt", 32)]
+    [DataRow("day-12-test.in.txt", 1518548)]
+    public void TotalPrice(string filePath, int expectedPrice)
+    {
+        GardenGroups gardenGroups = new(filePath);
+        gardenGroups.ComputeTotalFencingPrice().Should().Be(expectedPrice);
+    }
+}
