@@ -145,6 +145,12 @@ neighbors.
   highlight="cs"
   id="GardenGroups.PartOne.cs" >}}
 
+## Part Two
+
+Instead of using perimeter, use the number of sides that a region has. What is
+the new total price of fencing all regions on your map? {{% cite AoC2024Day12
+%}}
+
 ## References
 
 1. {{< citation
