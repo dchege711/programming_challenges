@@ -40,20 +40,28 @@ public partial class GardenGroups
             visited[r, c] = true;
             area += 1;
 
-            var neighboringPlots = FourWayDeltas
-                .Select(d => new Coordinate(r + d.r, c + d.c))
-                .Where(IsInBounds)
-                .Where(coord => garden.PlantMap[coord.R, coord.C] == plantType);
-            
-            var perimeterContribution = 4 - neighboringPlots.Count();
-            perimeter += perimeterContribution;
+            var neighboringPlotsCount = 0;
+            foreach (var d in FourWayDeltas)
+            {
+                var (nr, nc) = (r + d.r, c + d.c);
+                if (!IsInBounds(nr, nc))
+                    continue;
+
+                var nPlantType = garden.PlantMap[nr, nc];
+                if (nPlantType != plantType)
+                    continue;
+
+                neighboringPlotsCount++;
+                if (!visited[nr, nc])
+                    toVisit.Enqueue(new(nr, nc));
+            }
+
+            var perimeterContribution = 4 - neighboringPlotsCount;
             if (perimeterContribution > 0)
+            {
+                perimeter += perimeterContribution;
                 vertices += CountVertices(r, c);
-            
-            var unvisitedNeighboringPlots = neighboringPlots
-                .Where(coord => !visited[coord.R, coord.C]);
-            foreach (var coord in unvisitedNeighboringPlots)
-                toVisit.Enqueue(coord);
+            }
         }
     
         return new(plantType, perimeter, area, vertices);
@@ -78,6 +86,7 @@ public partial class GardenGroups
     {
         var matchStates = GetEightDirectionalNeighborsMatchState(r, c).ToArray();
         Debug.Assert(matchStates.Length == 8);
+
         var (nw, n, ne, w, e, sw, s, se) = (
             matchStates[0], matchStates[1], matchStates[2], matchStates[3],
             matchStates[4], matchStates[5], matchStates[6], matchStates[7]);
