@@ -40,8 +40,8 @@ public partial class GardenGroups
             visited[r, c] = true;
             area += 1;
 
-            var neighboringPlots = NavigationDeltas()
-                .Select(d => new Coordinate(r + d.R, c + d.C))
+            var neighboringPlots = FourWayDeltas
+                .Select(d => new Coordinate(r + d.r, c + d.c))
                 .Where(IsInBounds)
                 .Where(coord => garden.PlantMap[coord.R, coord.C] == plantType);
             
@@ -59,14 +59,20 @@ public partial class GardenGroups
         return new(plantType, perimeter, area, vertices);
     }
 
-    private static IReadOnlyList<Coordinate> NavigationDeltas() =>
-        [new(1, 0), new(-1, 0), new(0, 1), new(0, -1)];
+    private static readonly (int r, int c)[] FourWayDeltas =
+        [(1, 0), (-1, 0), (0, 1), (0, -1)];
     
     private bool IsInBounds(Coordinate coordinate) =>
         IsInBounds(coordinate.R, coordinate.C);
     
     private bool IsInBounds(int r, int c) =>
         r >= 0 && r < garden.RowCount && c >= 0 && c < garden.ColCount;
+    
+    private static readonly (int r, int c)[] EightWayDeltasFromNW = [
+        (-1, -1), (-1, 0), (-1, 1),
+         (0, -1),           (0, 1),
+         (1, -1),  (1, 0),  (1, 1)
+    ];
     
     private int CountVertices(int r, int c)
     {
@@ -75,6 +81,7 @@ public partial class GardenGroups
         var (nw, n, ne, w, e, sw, s, se) = (
             matchStates[0], matchStates[1], matchStates[2], matchStates[3],
             matchStates[4], matchStates[5], matchStates[6], matchStates[7]);
+
         IReadOnlyList<bool> cornerTests = [
             !n && !w, // NW corner is an outward facing region corner
             !w && nw && n, // NW corner is an inward facing region corner
@@ -93,18 +100,13 @@ public partial class GardenGroups
     private IEnumerable<bool> GetEightDirectionalNeighborsMatchState(int r, int c)
     {
         var targetPlantType = garden.PlantMap[r, c];
-        foreach (var dR in Enumerable.Range(-1, 3))
-        {
-            foreach (var dC in Enumerable.Range(-1, 3))
-            {
-                if (dR == 0 && dC == 0)
-                    continue;
-                
-                var (nR, nC) = (r + dR, c + dC);
-                yield return IsInBounds(nR, nC) && garden.PlantMap[nR, nC] == targetPlantType;
-            }
-        }
+        return EightWayDeltasFromNW
+            .Select(d => new Coordinate(r + d.r, c + d.c))
+            .Select(coord => MatchesPlantType(coord, targetPlantType));
     }
+
+    private bool MatchesPlantType(Coordinate coord, char targetPlantType) =>
+        IsInBounds(coord.R, coord.C) && garden.PlantMap[coord.R, coord.C] == targetPlantType;
 
     internal record struct Coordinate(int R, int C);
 
