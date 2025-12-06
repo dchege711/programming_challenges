@@ -4,6 +4,7 @@ cited-authors:
 date: 2025-11-30
 domains:
 - adventofcode.com
+- www.reddit.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/12-garden-groups/
 title: 'AoC 2024 Day 12: Garden Groups'
 ---
@@ -161,13 +162,18 @@ learned:
 
 1. The number of corners equals the number of sides in a polygon.
 2. Counting the number of corners, both concave and convex corners, given a cell
-   and the grid, is well-defined.
+   and the grid, is a local operation.
 
 {{% comment %}}
 
 Covered bijections in <em>COS 340: Reasoning about Computation</em> but I don't
 think I had encountered their practicality in the world. In this case, the
 bijection between corners and sides works a lot in my favor.
+
+Look for computations that can be done in a locally without considering the
+whole problem; such computations might be simpler to define, albeit not as
+efficient. In this case, simplicity triumphs optimizations that could come from
+an algorithm that takes in the `Region` as input.
 
 {{% /comment %}}
 
@@ -179,8 +185,8 @@ the optimal solution.
 
 {{% comment %}}
 
-Get in the behavior of designing more than one algorithm that could work. This
-should help exercise the ["Designing Software in Your Head That Could Possibly
+Get in the behavior of designing more than one plausible algorithm. This should
+help exercise the ["Designing Software in Your Head That Could Possibly
 Work"]({{< ref
 "/computer-science/swe-in-practice/2022-06-06-perspectives-on-swe#designing-software-in-your-head-that-could-possibly-work">}})
 muscle.
