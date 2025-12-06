@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using System.Collections.Immutable;
 using System.Diagnostics;
 
@@ -7,8 +8,7 @@ public partial class GardenGroups
 {
     public int ComputeTotalFencingPrice() =>
         ComputeRegions()
-            .Select(region => region.Area * region.Perimeter)
-            .Sum();
+            .Sum(region => region.Area * region.Perimeter);
 
     private IEnumerable<Region> ComputeRegions()
     {
@@ -34,6 +34,7 @@ public partial class GardenGroups
 
         var plantType = garden.PlantMap[start.R, start.C];
         var (area, perimeter) = (0, 0);
+        var vertices = ImmutableList.CreateBuilder<Coordinate>();
         while (toVisit.Count > 0)
         {
             var (r, c) = toVisit.Dequeue();
@@ -46,12 +47,15 @@ public partial class GardenGroups
             visited[r, c] = true;
             area += 1;
 
-            var neighboringPlots = Deltas()
+            var neighboringPlots = NavigationDeltas()
                 .Select(d => new Coordinate(r + d.R, c + d.C))
                 .Where(IsInBounds)
                 .Where(coord => garden.PlantMap[coord.R, coord.C] == plantType);
             
-            perimeter += 4 - neighboringPlots.Count();
+            var perimeterContribution = 4 - neighboringPlots.Count();
+            perimeter += perimeterContribution;
+            if (perimeterContribution > 0)
+                vertices.AddRange(GetVertices(new(r, c), neighboringPlots));
             
             var unvisitedNeighboringPlots = neighboringPlots
                 .Where(coord => !visited[coord.R, coord.C]);
@@ -59,18 +63,44 @@ public partial class GardenGroups
                 toVisit.Enqueue(coord);
         }
     
-        return new(plantType, perimeter, area);
+        return new(plantType, perimeter, area, vertices.ToImmutableList());
     }
 
-    private static IReadOnlyList<Coordinate> Deltas() =>
+    private static IReadOnlyList<Coordinate> NavigationDeltas() =>
         [new(1, 0), new(-1, 0), new(0, 1), new(0, -1)];
     
     private bool IsInBounds(Coordinate coordinate) =>
         coordinate.R >= 0 && coordinate.R < garden.RowCount
         && coordinate.C >= 0 && coordinate.C < garden.ColCount;
+    
+    private static IEnumerable<Coordinate> GetVertices(Coordinate cell, IEnumerable<Coordinate> neighboringCells)
+    {
+        var neighbors = neighboringCells.ToFrozenSet();
+        var (r, c) = cell;
+        return VerticesTests()
+            .Where(v => v.DisqualifyingNeighboringDeltas.All(d => !neighbors.Contains(new(r + d.R, c + d.C))))
+            .Select(v => new Coordinate(r + v.VertexDelta.R, c + v.VertexDelta.C));
+    }
+
+    private static IReadOnlyList<VertexTest> VerticesTests() =>
+        [
+            new(new(0, 0), [new(-1, 0), new(0, -1)]),
+            new(new(0, 1), [new(0, 1), new(-1, 0)]),
+            new(new(1, 1), [new(0, 1), new(1, 0)]),
+            new(new(1, 0), [new(1, 0), new(0, -1)])
+        ];
 
     internal record struct Coordinate(int R, int C);
 
     internal record struct RowBounds(int Left, int Right);
-    internal record struct Region(char PlantType, int Perimeter, int Area);
+
+    internal record struct VertexTest(
+        Coordinate VertexDelta,
+        IReadOnlyList<Coordinate> DisqualifyingNeighboringDeltas);
+
+    internal record struct Region(
+        char PlantType,
+        int Perimeter,
+        int Area,
+        IReadOnlyList<Coordinate> Vertices);
 }

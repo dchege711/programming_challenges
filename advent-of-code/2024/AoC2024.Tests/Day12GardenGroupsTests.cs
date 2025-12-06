@@ -32,6 +32,6 @@ public sealed class Day12GardenGroupsTests
     public void TotalDiscountedPrice(string filePath, int expectedPrice)
     {
         GardenGroups gardenGroups = new(filePath);
-        gardenGroups.ComputeTotalFencingPrice().Should().Be(expectedPrice);
+        gardenGroups.ComputeTotalDiscountedFencingPrice().Should().Be(expectedPrice);
     }
 }
