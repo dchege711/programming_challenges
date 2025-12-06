@@ -156,15 +156,34 @@ the new total price of fencing all regions on your map? {{% cite AoC2024Day12
   highlight="cs"
   id="GardenGroups.PartTwo.cs" >}}
 
-Struggled a lot on this part until I looked at {{% cite rAOCDay12Part2 %}}. That
-the number of corners equals the number of sides in a polygon simplified the
-problem because it's easier to count the corners.
+Struggled a lot on this part until I looked at {{% cite rAOCDay12Part2 %}} and
+learned:
+
+1. The number of corners equals the number of sides in a polygon.
+2. Counting the number of corners, both concave and convex corners, given a cell
+   and the grid, is well-defined.
 
 {{% comment %}}
 
 Covered bijections in <em>COS 340: Reasoning about Computation</em> but I don't
 think I had encountered their practicality in the world. In this case, the
 bijection between corners and sides works a lot in my favor.
+
+{{% /comment %}}
+
+I had some false starts, e.g., trying to compute all perimeter coordinates and
+then do horizontal and vertical sweeps to count the number of sides. This
+approach was easy to draw and intuit, but hard to code. The fact that I vaguely
+remembered some sweeping algorithms from COS 226 biased me to think that it was
+the optimal solution.
+
+{{% comment %}}
+
+Get in the behavior of designing more than one algorithm that could work. This
+should help exercise the ["Designing Software in Your Head That Could Possibly
+Work"]({{< ref
+"/computer-science/swe-in-practice/2022-06-06-perspectives-on-swe#designing-software-in-your-head-that-could-possibly-work">}})
+muscle.
 
 {{% /comment %}}
 
