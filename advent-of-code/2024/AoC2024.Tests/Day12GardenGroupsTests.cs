@@ -27,8 +27,7 @@ public sealed class Day12GardenGroupsTests
     [DataRow("day-12-3-sample.in.txt", 436)]
     [DataRow("day-12-4-sample.in.txt", 16)]
     [DataRow("day-12-5-sample.in.txt", 368)]
-    [DataRow("day-12-5-sample.in.txt", 236)]
-    [DataRow("day-12-test.in.txt", 1518548)]
+    [DataRow("day-12-test.in.txt", 909564)]
     public void TotalDiscountedPrice(string filePath, int expectedPrice)
     {
         GardenGroups gardenGroups = new(filePath);

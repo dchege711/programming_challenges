@@ -141,7 +141,7 @@ to compute how much each cell will contribute to the perimeter based on its
 neighbors.
 
 {{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.Parse.cs"
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.PartOne.cs"
   highlight="cs"
   id="GardenGroups.PartOne.cs" >}}
 
@@ -151,6 +151,30 @@ Instead of using perimeter, use the number of sides that a region has. What is
 the new total price of fencing all regions on your map? {{% cite AoC2024Day12
 %}}
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.PartTwo.cs"
+  highlight="cs"
+  id="GardenGroups.PartTwo.cs" >}}
+
+Struggled a lot on this part until I looked at {{% cite rAOCDay12Part2 %}}. That
+the number of corners equals the number of sides in a polygon simplified the
+problem because it's easier to count the corners.
+
+{{% comment %}}
+
+Covered bijections in <em>COS 340: Reasoning about Computation</em> but I don't
+think I had encountered their practicality in the world. In this case, the
+bijection between corners and sides works a lot in my favor.
+
+{{% /comment %}}
+
+## Core Routines
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/12-garden-groups/GardenGroups.Common.cs"
+  highlight="cs"
+  id="GardenGroups.Common.cs" >}}
+
 ## References
 
 1. {{< citation
@@ -159,3 +183,9 @@ the new total price of fencing all regions on your map? {{% cite AoC2024Day12
   title="Day 12 - Advent of Code 2024: Garden Groups"
   url="https://adventofcode.com/2024/day/12"
   accessed="2025-11-30" >}}
+
+1. {{< citation
+  id="rAOCDay12Part2"
+  title="[2024 Day 12 (Part 2)] What kind of algorithm did you use on part 2? : r/adventofcode"
+  url="https://www.reddit.com/r/adventofcode/comments/1hcpyic/2024_day_12_part_2_what_kind_of_algorithm_did_you/"
+  accessed="2025-12-06" >}}
