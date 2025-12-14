@@ -29,6 +29,26 @@ It costs \\(3\\) tokens to push the \\(A\\) button and \\(1\\) token to push the
 \\(B\\) button. What is the fewest tokens you would have to spend to win all
 possible prizes? {{% cite AoC2024Day13 %}}
 
+A brute force approach would have us start from \\((0, 0)\\), and choose whether
+to push \\(A\\) or \\(B\\) at each step. All of the buttons in the input have
+\\(X > 0\\) and \\(Y > 0\\), and so we don't backtrack. However, it's possible
+that some later path in the exploration yields a less costly path to \\((x,
+y)\\), and we'd need to recompute the sub-paths starting from \\((x, y)\\). This
+can get computationally expensive real fast.
+
+{{% cite AoC2024Day13 %}} reads like a shortest paths graph problem. Some
+properties of this graph:
+
+* The nodes of the graph contain the origin \\((0, 0)\\), and any other points
+  \\((x_i, y_i)\\) that are reachable through some combination of \\(A\\) and
+  \\(B\\) moves.
+* The prize coordinate, \\((x_p, y_p)\\), is not be part of the graph if there
+  is no path to it.
+* There is no need for a node \\((x, y)\\) where \\(x > x_p\\) or \\(y > y_p\\)
+  because we can't reach \\((x_p, y_p)\\) from such a node.
+* The edges have weights of either \\(3\\) or \\(1\\) depending on whether
+  \\(A\\) or \\(B\\) was used to connect the two nodes.
+
 ## References
 
 1. {{< citation
