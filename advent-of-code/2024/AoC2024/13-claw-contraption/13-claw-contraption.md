@@ -49,6 +49,12 @@ properties of this graph:
 * The edges have weights of either \\(3\\) or \\(1\\) depending on whether
   \\(A\\) or \\(B\\) was used to connect the two nodes.
 
+## Part Two
+
+Add 10000000000000 to the \\(X\\) and \\(Y\\) position of every prize. What is
+the fewest tokens you would have to spend to win all possible prizes? {{% cite
+AoC2024Day13 %}}
+
 ## References
 
 1. {{< citation

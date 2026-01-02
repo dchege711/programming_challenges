@@ -4,7 +4,7 @@ namespace AoC2024;
 
 public partial class ClawContraption
 {
-    public sealed record Vector(int X, int Y);
+    public sealed record Vector(ulong X, ulong Y);
     public sealed record Button(Vector Delta, int TokenCost);
     public sealed record MachineConfig(Button A, Button B, Vector Prize);
 
@@ -36,8 +36,8 @@ public partial class ClawContraption
             "B" => 1,
             _ => throw new ArgumentException($"{line} is missing button ID"),
         };
-        int x = int.Parse(match.Groups["X"].Value);
-        int y = int.Parse(match.Groups["Y"].Value);
+        var x = ulong.Parse(match.Groups["X"].Value);
+        var y = ulong.Parse(match.Groups["Y"].Value);
         
         return new(new(x, y), tokenCost);
     }
@@ -52,8 +52,8 @@ public partial class ClawContraption
             throw new ArgumentException($"{line} is not well formatted as a Button");
         
         return new(
-            int.Parse(match.Groups["X"].Value),
-            int.Parse(match.Groups["Y"].Value));
+            ulong.Parse(match.Groups["X"].Value),
+            ulong.Parse(match.Groups["Y"].Value));
     }
     
     [GeneratedRegex(@"Button (?<Type>(A|B)): X\+(?<X>\d+), Y\+(?<Y>\d+)", default, 50)]

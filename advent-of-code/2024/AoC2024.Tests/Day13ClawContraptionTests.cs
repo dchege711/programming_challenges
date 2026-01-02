@@ -28,4 +28,13 @@ public sealed class Day13ClawContraptionTests
         var cost = ClawContraption.PartOne(filePath);
         cost.Should().Be(expectedMinCost);
     }
+
+    [TestMethod]
+    [DataRow("day-13-sample.in.txt", 480)]
+    // [DataRow("day-13-test.in.txt", 31897)]
+    public void PartTwo(string filePath, int expectedMinCost)
+    {
+        var cost = ClawContraption.PartTwo(filePath);
+        cost.Should().Be(expectedMinCost);
+    }
 }
