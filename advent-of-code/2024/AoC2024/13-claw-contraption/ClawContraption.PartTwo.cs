@@ -4,6 +4,7 @@ public partial class ClawContraption
 {
     public static int PartTwo(string filePath) =>
         Parse(filePath)
+            .AsParallel()
             .Select(config => new MachineConfig(config.A, config.B, AddOffset(config.Prize)))
             .Select(GetMinimumCost)
             .Where(cost => cost != int.MaxValue)

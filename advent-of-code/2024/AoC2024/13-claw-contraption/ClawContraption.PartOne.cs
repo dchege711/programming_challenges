@@ -6,6 +6,7 @@ public partial class ClawContraption
 
     public static int PartOne(string filePath) =>
         Parse(filePath)
+            .AsParallel()
             .Select(GetMinimumCost)
             .Where(cost => cost != int.MaxValue)
             .Sum();
