@@ -19,4 +19,13 @@ public sealed class Day13ClawContraptionTests
         sampleConfig.Prize.X.Should().Be(12748);
         sampleConfig.Prize.Y.Should().Be(12176);
     }
+
+    [TestMethod]
+    [DataRow("day-13-sample.in.txt", 480)]
+    [DataRow("day-13-test.in.txt", 31897)]
+    public void PartOne(string filePath, int expectedMinCost)
+    {
+        var cost = ClawContraption.PartOne(filePath);
+        cost.Should().Be(expectedMinCost);
+    }
 }
