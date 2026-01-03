@@ -114,8 +114,8 @@ shaves 23% off the running time and biases towards more `Gen0` collections.
 
 Making `Vector.GetEdges` write to a `Span<DirectedEdge>` owned by the caller
 relieves some memory pressure, but the runtime only decreased by 3%. Reverting
-{{% cite "programming_challenges@33318f0" %}} as the speed boost isn't worth the
-indirection.
+{{% cite programming_challenges-33318f0 %}} as the speed boost isn't worth the
+mutable API.
 
 | Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
 |----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
@@ -157,7 +157,7 @@ way.
   accessed="2025-12-07" >}}
 
 1. {{< citation
-  id="programming_challenges@33318f0"
+  id="programming_challenges-33318f0"
   title="[AoC 2024] [Claw Contraption] Have Vector.GetEdges modify unowned Span · dchege711/programming_challenges@33318f0 · GitHub"
   url="https://github.com/dchege711/programming_challenges/commit/33318f0f1a9fcbffee305e9ed6ce05ac2f0a0d1b"
   accessed="2026-01-02" >}}
