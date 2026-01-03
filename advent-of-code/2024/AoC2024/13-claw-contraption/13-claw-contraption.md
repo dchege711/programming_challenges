@@ -97,6 +97,8 @@ time. Solving the 320 configurations for [part 1](#part-one) takes \\(\approx
 \\(500,000,000\\) factor in [part 2](#part-two) blows up the time and space
 usage beyond practicality.
 
+From `dotnet run -c Release -- -f '*Day13ClawContraption*'`:
+
 | Method           | Mean    | Error    | StdDev   | Gen0        | Gen1        | Gen2       | Allocated |
 |----------------- |--------:|---------:|---------:|------------:|------------:|-----------:|----------:|
 | PartOneBenchmark | 3.834 s | 0.0647 s | 0.0540 s |     589,000 |     193,000 |     40,000 |   3.49 GB |
@@ -116,6 +118,16 @@ indirection.
 | Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
 |----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
 | PartOneBenchmark | 2.853 s | 0.0290 s | 0.0257 s |     490,000 |     31,000 |     22,000 |   3.09 GB |
+
+PLINQ seems to be making the analysis for `dotnet-trace` harder; let's remove
+the `AsParallel` calls for now. We're almost back where we started memory-wise,
+and the running time has ballooned. PLINQ is a winner  for {{% cite
+AoC2024Day13 %}}, an embarrasingly parallel problem; restore `AsParallel` once
+done evaluating the profile traces.
+
+| Method           | Mean    | Error   | StdDev  | Gen0        | Gen1       | Gen2       | Allocated |
+|----------------- |--------:|--------:|--------:|------------:|-----------:|-----------:|----------:|
+| PartOneBenchmark | 13.47 s | 0.016 s | 0.015 s |     665,000 |     92,000 |     49,000 |      4 GB |
 
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"

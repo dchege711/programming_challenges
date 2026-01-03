@@ -66,7 +66,20 @@ collection frequency, e.g.,
 * `-` and `0` are synonymous, e.g., `-` in `Gen X` means no garbage collection
   was performed for generation `X`.
 
-{{% cite MemoryDiagnoser %}}
+{{% cite SitnikMemoryDiagnoser %}}
+
+### Perf Profiles
+
+`BenchmarkDotNet.Diagnostics.Windows` allows collecting ETL traces that show
+where most of the time is spent. However, this package is only available on
+Windows because it internally uses Event Tracing for Windows (ETW) to capture
+stack traces and important .NET Runtime events. {{% cite SitnikEtwProfiler %}}
+
+`BenchmarkDotNet.Diagnostics.dotTrace` can also capture traces using the
+`dotTrace` command-line profiler. However, `dotTrace` is not available for free;
+JetBrains charges for it. {{% cite BenchmarkDotNet.Diagnostics.dotTrace %}}
+
+Trying to use `dotnet-trace` as it's free {{% cite dotnet-trace %}}.
 
 ## References
 
@@ -83,7 +96,8 @@ collection frequency, e.g.,
   accessed="2026-01-02" >}}
 
 1. {{< citation
-  id="MemoryDiagnoser"
+  id="SitnikMemoryDiagnoser"
+  author="Adam Sitnik"
   title="The new MemoryDiagnoser is now better than ever! – Adam Sitnik – .NET Performance and Reliability"
   url="https://adamsitnik.com/the-new-Memory-Diagnoser/"
   accessed="2026-01-02" >}}
@@ -92,4 +106,24 @@ collection frequency, e.g.,
   id="DotNetGCFundamentals"
   title="Fundamentals of garbage collection - .NET | Microsoft Learn"
   url="https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals"
+  accessed="2026-01-02" >}}
+
+1. {{< citation
+  id="SitnikEtwProfiler"
+  author="Adam Sitnik"
+  title="Profiling .NET Code with BenchmarkDotNet – Adam Sitnik – .NET Performance and Reliability"
+  url="https://adamsitnik.com/ETW-Profiler/"
+  accessed="2026-01-02" >}}
+
+1. {{< citation
+  id="BenchmarkDotNet.Diagnostics.dotTrace"
+  title="NuGet Gallery | BenchmarkDotNet.Diagnostics.dotTrace 0.15.8"
+  url="https://www.nuget.org/packages/BenchmarkDotNet.Diagnostics.dotTrace#readme-body-tab"
+  url_2="https://benchmarkdotnet.org/articles/samples/IntroDotTraceDiagnoser.html"
+  accessed="2026-01-02" >}}
+
+1. {{< citation
+  id="dotnet-trace"
+  title="dotnet-trace diagnostic tool - .NET CLI - .NET | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-trace"
   accessed="2026-01-02" >}}
