@@ -108,6 +108,15 @@ shaves 23% off the running time and biases towards more `Gen0` collections.
 |----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
 | PartOneBenchmark | 2.949 s | 0.0583 s | 0.0648 s |     650,000 | 33,000     |     22,000 |      4 GB |
 
+Making `Vector.GetEdges` write to a `Span<DirectedEdge>` owned by the caller
+relieves some memory pressure, but the runtime only decreased by 3%. Reverting
+{{% cite "programming_challenges@33318f0" %}} as the speed boost isn't worth the
+indirection.
+
+| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
+|----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
+| PartOneBenchmark | 2.853 s | 0.0290 s | 0.0257 s |     490,000 |     31,000 |     22,000 |   3.09 GB |
+
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
   highlight="cs"
@@ -121,3 +130,9 @@ shaves 23% off the running time and biases towards more `Gen0` collections.
   title="Day 13 - Advent of Code 2024: Claw Contraption"
   url="https://adventofcode.com/2024/day/13"
   accessed="2025-12-07" >}}
+
+1. {{< citation
+  id="programming_challenges@33318f0"
+  title="[AoC 2024] [Claw Contraption] Have Vector.GetEdges modify unowned Span · dchege711/programming_challenges@33318f0 · GitHub"
+  url="https://github.com/dchege711/programming_challenges/commit/33318f0f1a9fcbffee305e9ed6ce05ac2f0a0d1b"
+  accessed="2026-01-02" >}}
