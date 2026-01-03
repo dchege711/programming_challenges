@@ -47,18 +47,48 @@ properties of this graph:
 * The nodes of the graph contain the origin \\((0, 0)\\), and any other points
   \\((x_i, y_i)\\) that are reachable through some combination of \\(A\\) and
   \\(B\\) moves.
-* The prize coordinate, \\((x_p, y_p)\\), is not be part of the graph if there
+* The prize coordinate, \\((x_p, y_p)\\), is not a part of the graph if there
   is no path to it.
 * There is no need for a node \\((x, y)\\) where \\(x > x_p\\) or \\(y > y_p\\)
   because we can't reach \\((x_p, y_p)\\) from such a node.
 * The edges have weights of either \\(3\\) or \\(1\\) depending on whether
   \\(A\\) or \\(B\\) was used to connect the two nodes.
 
+The [core implementation](#core-implementation) is common to both sub-problems.
+
+{{< readFile
+  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartOne.cs"
+  highlight="cs"
+  id="ClawContraption.PartOne.cs" >}}
+
 ## Part Two
 
 Add 10000000000000 to the \\(X\\) and \\(Y\\) position of every prize. What is
 the fewest tokens you would have to spend to win all possible prizes? {{% cite
 AoC2024Day13 %}}
+
+The [core implementation](#core-implementation) is common to both sub-problems.
+Part Two makes inefficient implementations infeasible because of the sheer
+number of possible \\(A\\) and \\(B\\) moves.
+
+{{< readFile
+  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartTwo.cs"
+  highlight="cs"
+  id="ClawContraption.PartTwo.cs" >}}
+
+## Core Implementation
+
+{{% comment %}}
+
+See [notes on "Shortest Paths in a Graph"]({{< ref
+"/computer-science/algorithms-and-data-structures/graphs/shortest-paths/" >}}).
+
+{{% /comment %}}
+
+{{< readFile
+  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
+  highlight="cs"
+  id="ClawContraption.Common.cs" >}}
 
 ## References
 
