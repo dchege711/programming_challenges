@@ -4,10 +4,6 @@ namespace AoC2024;
 
 public partial class ClawContraption
 {
-    public sealed record Vector(long X, long Y);
-    public sealed record Button(Vector Delta, long TokenCost);
-    public sealed record MachineConfig(Button A, Button B, Vector Prize);
-
     public static IEnumerable<MachineConfig> Parse(string fileName)
     {
         using var inputReader = new StreamReader(fileName);

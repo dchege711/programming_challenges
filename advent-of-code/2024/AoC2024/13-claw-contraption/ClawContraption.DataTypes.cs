@@ -5,6 +5,17 @@ using Button = ClawContraption.Button;
 using MachineConfig = ClawContraption.MachineConfig;
 using DirectedEdge = ClawContraption.DirectedEdge;
 
+public partial class ClawContraption
+{
+    public sealed record Vector(long X, long Y);
+
+    public sealed record Button(Vector Delta, long TokenCost);
+
+    public sealed record MachineConfig(Button A, Button B, Vector Prize);
+
+    public record struct DirectedEdge(Vector From, Vector To, long Cost);
+}
+
 public static class ClawContraptionExtensions
 {
     public static Vector Move(this Vector vector, Button button) =>

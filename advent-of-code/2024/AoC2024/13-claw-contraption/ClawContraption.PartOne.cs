@@ -2,8 +2,6 @@ namespace AoC2024;
 
 public partial class ClawContraption
 {
-    public record struct DirectedEdge(Vector From, Vector To, long Cost);
-
     public static long PartOne(string filePath) =>
         Parse(filePath)
             .AsParallel()

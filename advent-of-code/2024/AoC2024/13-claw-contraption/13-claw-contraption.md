@@ -23,6 +23,11 @@ Button B: X+89, Y+18
 Prize: X=17648, Y=19276
 ```
 
+{{< readFile
+  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.DataTypes.cs"
+  highlight="cs"
+  id="ClawContraption.DataTypes.cs" >}}
+
 ## Part One
 
 It costs \\(3\\) tokens to push the \\(A\\) button and \\(1\\) token to push the
