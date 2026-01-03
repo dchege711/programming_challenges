@@ -101,6 +101,13 @@ usage beyond practicality.
 |----------------- |--------:|---------:|---------:|------------:|------------:|-----------:|----------:|
 | PartOneBenchmark | 3.834 s | 0.0647 s | 0.0540 s |     589,000 |     193,000 |     40,000 |   3.49 GB |
 
+Using `struct` instead of `class` for `Vector`, `Button`, and `MachineConfig`
+shaves 23% off the running time and biases towards more `Gen0` collections.
+
+| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
+|----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
+| PartOneBenchmark | 2.949 s | 0.0583 s | 0.0648 s |     650,000 | 33,000     |     22,000 |      4 GB |
+
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
   highlight="cs"

@@ -7,11 +7,11 @@ using DirectedEdge = ClawContraption.DirectedEdge;
 
 public partial class ClawContraption
 {
-    public sealed record Vector(long X, long Y);
+    public record struct Vector(long X, long Y);
 
-    public sealed record Button(Vector Delta, long TokenCost);
+    public record struct Button(Vector Delta, long TokenCost);
 
-    public sealed record MachineConfig(Button A, Button B, Vector Prize);
+    public record struct MachineConfig(Button A, Button B, Vector Prize);
 
     public record struct DirectedEdge(Vector From, Vector To, long Cost);
 }
