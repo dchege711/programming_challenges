@@ -1,6 +1,14 @@
 ---
-title: "C# Performance Tools"
+cited-authors:
+- Sitnik, Adam
 date: 2026-01-02
+domains:
+- adamsitnik.com
+- benchmarkdotnet.org
+- learn.microsoft.com
+- www.nuget.org
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024.Benchmarks/readme/
+title: C# Performance Tools
 ---
 
 ## BenchmarkDotNet

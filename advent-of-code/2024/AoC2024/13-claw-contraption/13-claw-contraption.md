@@ -4,6 +4,8 @@ cited-authors:
 date: 2025-12-07
 domains:
 - adventofcode.com
+- github.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/13-claw-contraption/
 title: 'AoC 2024 Day 13: Claw Contraption'
 ---
 
@@ -23,8 +25,8 @@ Button B: X+89, Y+18
 Prize: X=17648, Y=19276
 ```
 
-{{< readFile
-  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.DataTypes.cs"
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.DataTypes.cs"
   highlight="cs"
   id="ClawContraption.DataTypes.cs" >}}
 
@@ -56,8 +58,8 @@ properties of this graph:
 
 The [core implementation](#core-implementation) is common to both sub-problems.
 
-{{< readFile
-  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartOne.cs"
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartOne.cs"
   highlight="cs"
   id="ClawContraption.PartOne.cs" >}}
 
@@ -73,8 +75,8 @@ number of possible \\(A\\) and \\(B\\) moves. In [part 1](#part-one), the prize
 was always within \\(20,000\\) of either \\(X\\) or \\(Y\\). Moving the prize
 at least \\(500,000,000\\) times away does not bode well.
 
-{{< readFile
-  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartTwo.cs"
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartTwo.cs"
   highlight="cs"
   id="ClawContraption.PartTwo.cs" >}}
 
@@ -85,15 +87,15 @@ at least \\(500,000,000\\) times away does not bode well.
 Relevant notes:
 
 * [Shortest Paths in a Graph]({{< ref
-  "/computer-science/algorithms-and-data-structures/graphs/shortest-paths/" >}})
+  "/computer-science/algorithms-and-data-structures/graphs/shortest-paths.md" >}})
 * [C# Performance Tools]({{< ref
-  "/computer-science/programming_challenges/advent-of-code/2024/AoC2024.Benchmarks/readme.md">}})
+  "/computer-science/programming-challenges/advent-of-code/2024/AoC2024.Benchmarks/readme.md">}})
 
 {{% /comment %}}
 
-The implementation is too slow to solve [part 2](#part-two) in a reasonable
-time. Solving the 320 configurations for [part 1](#part-one) takes \\(\approx
-3.8s\\), and the memory usage is concerning. Naively assuming the
+The shortest paths implementation is too slow to solve [part 2](#part-two) in a
+reasonable time. Solving the 320 configurations for [part 1](#part-one) takes
+\\(\approx 3.8s\\), and the memory usage is concerning. Naively assuming the
 \\(500,000,000\\) factor in [part 2](#part-two) blows up the time and space
 usage beyond practicality.
 
@@ -130,10 +132,18 @@ done evaluating the profile traces.
 | PartOneBenchmark | 13.47 s | 0.016 s | 0.015 s |     665,000 |     92,000 |     49,000 |      4 GB |
 
 We still get the mutiple threads in the `.speedscope.json` file, and so
-relanding the `AsParallel`.
+re-landing the `AsParallel`. Aha, running `dotnet-trace` on the
+`BenchmarkDotNet` file doesn't yield useful results. Creating a separate console
+application that calls `ClawContraption.PartOne` without any other fluff is the
+way.
 
-{{< readFile
-  file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
+{{< figure
+  src="/img/computer-science/programming-challenges/advent-of-code/2024/day-13-flamegraph.png"
+  caption=`Most of the time is spent in <code>PQWithReplace.Upsert</code>.
+  Should be worthwhile to optimize that method.` >}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
   highlight="cs"
   id="ClawContraption.Common.cs" >}}
 

@@ -1,6 +1,11 @@
 ---
-title: "Remarks on Numeric Types"
 date: 2026-01-02
+domains:
+- en.cppreference.com
+- learn.microsoft.com
+- stackoverflow.com
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/numeric-types/
+title: Remarks on Numeric Types
 ---
 
 ## Inconveniences of Unsigned Types in .NET
