@@ -24,14 +24,14 @@ public static class ClawContraptionExtensions
     public static bool IsBeyondPrizeLocation(this Vector vector, MachineConfig config) =>
         vector.X > config.Prize.X || vector.Y > config.Prize.Y;
     
-    public static IEnumerable<DirectedEdge> GetEdges(this Vector from, MachineConfig config)
+    public static void GetEdges(this Vector from, MachineConfig config, Span<DirectedEdge> outboundEdges)
     {
         var to = from.Move(config.A);
         if (!to.IsBeyondPrizeLocation(config))
-            yield return new(from, to, config.A.TokenCost);
+            outboundEdges[0] = new(from, to, config.A.TokenCost);
         
         to = from.Move(config.B);
         if (!to.IsBeyondPrizeLocation(config))
-            yield return new(from, to, config.B.TokenCost);
+            outboundEdges[1] = new(from, to, config.B.TokenCost);
     }
 }

@@ -7,14 +7,17 @@ public partial class ClawContraption
         var pq = new PQWithReplace();
         pq.Upsert(new(0, 0), 0);
         var distTo = new Dictionary<Vector, long>([new(new(0L, 0L), 0L)]);
+        Span<DirectedEdge> outboundEdges = stackalloc DirectedEdge[2];
 
         while (!pq.IsEmpty())
         {
             var v = pq.Dequeue();
             if (v == config.Prize)
                 break;
-
-            foreach (var edge in v.GetEdges(config))
+            
+            outboundEdges.Clear();
+            v.GetEdges(config, outboundEdges);
+            foreach (var edge in outboundEdges)
             {
                 var prevCost = GetCost(distTo, edge.To);
                 var currCost = GetCost(distTo, v) + edge.Cost;
