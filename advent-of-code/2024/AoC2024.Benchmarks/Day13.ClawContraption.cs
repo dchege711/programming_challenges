@@ -6,6 +6,6 @@ namespace AoC2024.Benchmarks;
 public class Day13ClawContraption
 {    
     [Benchmark]
-    public long PartOneBenchmark() =>
+    public long PartOne() =>
         ClawContraption.PartOne(BenchmarkUtils.GetResourcePath("day-13-test.in.txt"));
 }
