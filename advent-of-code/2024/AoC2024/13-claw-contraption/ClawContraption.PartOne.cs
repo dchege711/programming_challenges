@@ -2,20 +2,20 @@ namespace AoC2024;
 
 public partial class ClawContraption
 {
-    public record struct DirectedEdge(Vector From, Vector To, int Cost);
+    public record struct DirectedEdge(Vector From, Vector To, long Cost);
 
-    public static int PartOne(string filePath) =>
+    public static long PartOne(string filePath) =>
         Parse(filePath)
             .AsParallel()
             .Select(GetMinimumCost)
-            .Where(cost => cost != int.MaxValue)
+            .Where(cost => cost != long.MaxValue)
             .Sum();
 
-    private static int GetMinimumCost(MachineConfig config)
+    private static long GetMinimumCost(MachineConfig config)
     {
         var pq = new PQWithReplace();
         pq.Upsert(new(0, 0), 0);
-        var distTo = new Dictionary<Vector, int>([new(new(0, 0), 0)]);
+        var distTo = new Dictionary<Vector, long>([new(new(0L, 0L), 0L)]);
 
         while (!pq.IsEmpty())
         {
@@ -38,23 +38,23 @@ public partial class ClawContraption
         return GetCost(distTo, config.Prize);
     }
 
-    private static int GetCost(Dictionary<Vector, int> distTo, Vector v)
+    private static long GetCost(Dictionary<Vector, long> distTo, Vector v)
     {
         if (distTo.TryGetValue(v, out var cost))
             return cost;
         
-        return int.MaxValue;
+        return long.MaxValue;
     }
 }
 
 public class PQWithReplace
 {
-    private record struct VectorAndCost(ClawContraption.Vector Vector, int Cost);
+    private record struct VectorAndCost(ClawContraption.Vector Vector, long Cost);
     private SortedSet<VectorAndCost> _set = new(new VectorAndCostComp());
 
     public bool IsEmpty() => _set.Count == 0;
 
-    public void Upsert(ClawContraption.Vector v, int cost)
+    public void Upsert(ClawContraption.Vector v, long cost)
     {
         var matches = _set.Where(vc => vc.Vector == v).ToArray();
         if (matches.Length > 1)
