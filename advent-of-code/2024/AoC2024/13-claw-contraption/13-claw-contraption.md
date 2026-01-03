@@ -129,6 +129,9 @@ done evaluating the profile traces.
 |----------------- |--------:|--------:|--------:|------------:|-----------:|-----------:|----------:|
 | PartOneBenchmark | 13.47 s | 0.016 s | 0.015 s |     665,000 |     92,000 |     49,000 |      4 GB |
 
+We still get the mutiple threads in the `.speedscope.json` file, and so
+relanding the `AsParallel`.
+
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
   highlight="cs"
