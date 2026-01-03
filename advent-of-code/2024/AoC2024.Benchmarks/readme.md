@@ -79,7 +79,28 @@ stack traces and important .NET Runtime events. {{% cite SitnikEtwProfiler %}}
 `dotTrace` command-line profiler. However, `dotTrace` is not available for free;
 JetBrains charges for it. {{% cite BenchmarkDotNet.Diagnostics.dotTrace %}}
 
-Trying to use `dotnet-trace` as it's free {{% cite dotnet-trace %}}.
+Trying to use `dotnet-trace` as it's free. For some reason,
+
+```shell
+dotnet-trace collect --format speedscope -- dotnet run -c Release
+```
+
+... doesn't give me much. `-- <command>` has a disclaimer for commands that
+launch multiple apps, but I don't think it applies here. Running
+`dotnet run -c Release -- -f '*Day13ClawContraption*'` in one terminal and then:
+
+```shell
+dotnet-trace collect --name "AoC2024.Benchmarks" --format speedscope --output advent-of-code/2024/AoC2024.Benchmarks/BenchmarkDotNet.Artifacts/perf-profile.nettrace
+```
+
+... in another seems like a step forward because `dotnet-trace` exits after the
+benchmark exits. {{% cite dotnet-trace %}}
+
+Still no dice though; seeing a lot `UNMANAGED_CODE_TIME` without any actionable
+insights. Creating a separate program that benchmarks the code directly instead
+of going through `BenchmarkDotNet` works! In hindsight, I think I was profiling
+`BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args)` instead of
+my user code. One more `.csproj` it is!
 
 ## References
 
