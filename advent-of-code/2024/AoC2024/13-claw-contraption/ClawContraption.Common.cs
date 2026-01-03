@@ -5,7 +5,7 @@ public partial class ClawContraption
     private static long GetMinimumCost(MachineConfig config)
     {
         var pq = new PQWithReplace();
-        pq.Upsert(new(0, 0), 0);
+        pq.Upsert(new(0, 0), long.MaxValue, 0);
         var distTo = new Dictionary<Vector, long>([new(new(0L, 0L), 0L)]);
 
         while (!pq.IsEmpty())
@@ -21,7 +21,7 @@ public partial class ClawContraption
                 if (prevCost > currCost)
                 {
                     distTo[edge.To] = currCost;
-                    pq.Upsert(edge.To, currCost);
+                    pq.Upsert(edge.To, prevCost, currCost);
                 }
             }
         }
@@ -40,44 +40,47 @@ public partial class ClawContraption
 
 public class PQWithReplace
 {
-    private record struct VectorAndCost(ClawContraption.Vector Vector, long Cost);
-    private SortedSet<VectorAndCost> _set = new(new VectorAndCostComp());
+    private SortedSet<long> _knownCosts = [];
 
-    public bool IsEmpty() => _set.Count == 0;
+    private Dictionary<long, HashSet<ClawContraption.Vector>> _vectors = [];
 
-    public void Upsert(ClawContraption.Vector v, long cost)
+    public bool IsEmpty() => _knownCosts.Count == 0;
+
+    public void Upsert(ClawContraption.Vector v, long prevCost, long cost)
     {
-        var matches = _set.Where(vc => vc.Vector == v).ToArray();
-        if (matches.Length > 1)
-            throw new Exception($"Multiple {v} found in PQ.");
-        
-        if (matches.Length == 1)
-            _set.Remove(matches[0]);
-        
-        _set.Add(new(v, cost));
+        // Remove any previous entry.
+        if (prevCost != long.MaxValue)
+        {
+            var prevSet = _vectors[prevCost];
+            prevSet.Remove(v);
+
+            if (prevSet.Count == 0)
+            {
+                _vectors.Remove(prevCost);
+                _knownCosts.Remove(prevCost);
+            }
+        }
+
+        // Insert new entry.
+        if (!_vectors.ContainsKey(cost))
+            _vectors[cost] = [];
+
+        _vectors[cost].Add(v);
+        _knownCosts.Add(cost);
     }
     
     public ClawContraption.Vector Dequeue() {
-        var vc = _set.First();
-        _set.Remove(vc);
-        return vc.Vector;
-    }
+        var cost = _knownCosts.First();
+        var set = _vectors[cost];
+        var vector = set.First();
+        set.Remove(vector);
 
-    private class VectorAndCostComp : IComparer<VectorAndCost>
-    {
-        public int Compare(VectorAndCost lhs, VectorAndCost rhs)
+        if (set.Count == 0)
         {
-            // First, compare by cost in a PQ fashion.
-            var comp = lhs.Cost.CompareTo(rhs.Cost);
-            if (comp != 0)
-                return comp;
-            
-            // Then compare by vector coordinates.
-            comp = lhs.Vector.X.CompareTo(rhs.Vector.X);
-            if (comp != 0)
-                return comp;
-            
-            return lhs.Vector.Y.CompareTo(rhs.Vector.Y);
+            _vectors.Remove(cost);
+            _knownCosts.Remove(cost);
         }
+
+        return vector;
     }
 }
