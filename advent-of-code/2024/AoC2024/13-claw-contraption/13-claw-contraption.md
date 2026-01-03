@@ -63,13 +63,15 @@ The [core implementation](#core-implementation) is common to both sub-problems.
 
 ## Part Two
 
-Add 10000000000000 to the \\(X\\) and \\(Y\\) position of every prize. What is
-the fewest tokens you would have to spend to win all possible prizes? {{% cite
-AoC2024Day13 %}}
+Add \\(10,000,000,000,000\\) to the \\(X\\) and \\(Y\\) position of every prize.
+What is the fewest tokens you would have to spend to win all possible prizes?
+{{% cite AoC2024Day13 %}}
 
 The [core implementation](#core-implementation) is common to both sub-problems.
 Part Two makes inefficient implementations infeasible because of the sheer
-number of possible \\(A\\) and \\(B\\) moves.
+number of possible \\(A\\) and \\(B\\) moves. In [part 1](#part-one), the prize
+was always within \\(20,000\\) of either \\(X\\) or \\(Y\\). Moving the prize
+at least \\(500,000,000\\) times away does not bode well.
 
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.PartTwo.cs"
@@ -80,10 +82,24 @@ number of possible \\(A\\) and \\(B\\) moves.
 
 {{% comment %}}
 
-See [notes on "Shortest Paths in a Graph"]({{< ref
-"/computer-science/algorithms-and-data-structures/graphs/shortest-paths/" >}}).
+Relevant notes:
+
+* [Shortest Paths in a Graph]({{< ref
+  "/computer-science/algorithms-and-data-structures/graphs/shortest-paths/" >}})
+* [C# Performance Tools]({{< ref
+  "/computer-science/programming_challenges/advent-of-code/2024/AoC2024.Benchmarks/readme.md">}})
 
 {{% /comment %}}
+
+The implementation is too slow to solve [part 2](#part-two) in a reasonable
+time. Solving the 320 configurations for [part 1](#part-one) takes \\(\approx
+3.8s\\), and the memory usage is concerning. Naively assuming the
+\\(500,000,000\\) factor in [part 2](#part-two) blows up the time and space
+usage beyond practicality.
+
+| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1        | Gen2       | Allocated |
+|----------------- |--------:|---------:|---------:|------------:|------------:|-----------:|----------:|
+| PartOneBenchmark | 3.834 s | 0.0647 s | 0.0540 s |     589,000 |     193,000 |     40,000 |   3.49 GB |
 
 {{< readFile
   file="content/computer-science/programming_challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"

@@ -2,6 +2,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace AoC2024.Benchmarks;
 
+[MemoryDiagnoser]
 public class Day13ClawContraption
 {    
     [Benchmark]
