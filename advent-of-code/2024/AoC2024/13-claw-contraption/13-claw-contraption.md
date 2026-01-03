@@ -101,25 +101,25 @@ usage beyond practicality.
 
 From `dotnet run -c Release -- -f '*Day13ClawContraption*'`:
 
-| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1        | Gen2       | Allocated |
-|----------------- |--------:|---------:|---------:|------------:|------------:|-----------:|----------:|
-| PartOneBenchmark | 3.834 s | 0.0647 s | 0.0540 s |     589,000 |     193,000 |     40,000 |   3.49 GB |
+| Method  | Mean    | Error    | StdDev   | Gen0        | Gen1        | Gen2       | Allocated |
+|-------- |--------:|---------:|---------:|------------:|------------:|-----------:|----------:|
+| PartOne | 3.834 s | 0.0647 s | 0.0540 s |     589,000 |     193,000 |     40,000 |   3.49 GB |
 
 Using `struct` instead of `class` for `Vector`, `Button`, and `MachineConfig`
 shaves 23% off the running time and biases towards more `Gen0` collections.
 
-| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
-|----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
-| PartOneBenchmark | 2.949 s | 0.0583 s | 0.0648 s |     650,000 | 33,000     |     22,000 |      4 GB |
+| Method  | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
+|-------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
+| PartOne | 2.949 s | 0.0583 s | 0.0648 s |     650,000 | 33,000     |     22,000 |      4 GB |
 
 Making `Vector.GetEdges` write to a `Span<DirectedEdge>` owned by the caller
 relieves some memory pressure, but the runtime only decreased by 3%. Reverting
 {{% cite programming_challenges-33318f0 %}} as the speed boost isn't worth the
 mutable API.
 
-| Method           | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
-|----------------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
-| PartOneBenchmark | 2.853 s | 0.0290 s | 0.0257 s |     490,000 |     31,000 |     22,000 |   3.09 GB |
+| Method  | Mean    | Error    | StdDev   | Gen0        | Gen1       | Gen2       | Allocated |
+|-------- |--------:|---------:|---------:|------------:|-----------:|-----------:|----------:|
+| PartOne | 2.853 s | 0.0290 s | 0.0257 s |     490,000 |     31,000 |     22,000 |   3.09 GB |
 
 PLINQ seems to be making the analysis for `dotnet-trace` harder; let's remove
 the `AsParallel` calls for now. We're almost back where we started memory-wise,
@@ -127,9 +127,9 @@ and the running time has ballooned. PLINQ is a winner  for {{% cite
 AoC2024Day13 %}}, an embarrasingly parallel problem; restore `AsParallel` once
 done evaluating the profile traces.
 
-| Method           | Mean    | Error   | StdDev  | Gen0        | Gen1       | Gen2       | Allocated |
-|----------------- |--------:|--------:|--------:|------------:|-----------:|-----------:|----------:|
-| PartOneBenchmark | 13.47 s | 0.016 s | 0.015 s |     665,000 |     92,000 |     49,000 |      4 GB |
+| Method  | Mean    | Error   | StdDev  | Gen0        | Gen1       | Gen2       | Allocated |
+|-------- |--------:|--------:|--------:|------------:|-----------:|-----------:|----------:|
+| PartOne | 13.47 s | 0.016 s | 0.015 s |     665,000 |     92,000 |     49,000 |      4 GB |
 
 We still get the mutiple threads in the `.speedscope.json` file, and so
 re-landing the `AsParallel`. Aha, running `dotnet-trace` on the
@@ -141,6 +141,41 @@ way.
   src="/img/computer-science/programming-challenges/advent-of-code/2024/day-13-flamegraph.png"
   caption=`Most of the time is spent in <code>PQWithReplace.Upsert</code>.
   Should be worthwhile to optimize that method.` >}}
+
+Aha, implementing `PQWithReplace` using a `SortedSet<long>` of known costs and
+`Dictionary<long, HashSet<ClawContraption.Vector>>` reduces the runtime by 88%
+while also relieving memory pressure.
+
+| Method  | Mean     | Error   | StdDev  | Gen0        | Gen1       | Gen2       | Allocated |
+|-------- |---------:|--------:|--------:|------------:|-----------:|-----------:|----------:|
+| PartOne | 348.8 ms | 5.14 ms | 4.29 ms |     376,000 |     43,000 |     22,000 |    2.4 GB |
+
+That said, even this improvement is insufficient for [part 2](#part-two).
+
+I reached out for shortest path algorithms, and missed the fact that we're
+solving a system of two linear equations! {{% cite edditAoC-1hd5b6o %}}
+
+For example, given:
+
+```txt
+Button A: X+94, Y+34
+Button B: X+22, Y+67
+Prize: X=8400, Y=5400
+```
+
+... the the system of equations is:
+
+$$ 94A + 22B = 8400 $$
+$$ 34A + 67B = 5400 $$
+
+... and from here it's good old linear algebra. A system of two linear equations
+can have either one (they intersect), none (they're parallel) or infinite (they
+overlap) solutions. That both \\(A\\) and \\(B\\) start from \\((0, 0)\\) means
+that they can't be parallel. Much better now:
+
+| Method  | Mean     | Error     | StdDev    | Median   | Gen0     | Gen1    | Allocated |
+|-------- |---------:|----------:|----------:|---------:|---------:|--------:|----------:|
+| PartOne | 3.044 ms | 0.0868 ms | 0.2558 ms | 3.136 ms | 140.6250 | 27.3438 | 833.52 KB |
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/ClawContraption.Common.cs"
@@ -161,3 +196,9 @@ way.
   title="[AoC 2024] [Claw Contraption] Have Vector.GetEdges modify unowned Span · dchege711/programming_challenges@33318f0 · GitHub"
   url="https://github.com/dchege711/programming_challenges/commit/33318f0f1a9fcbffee305e9ed6ce05ac2f0a0d1b"
   accessed="2026-01-02" >}}
+
+1. {{< citation
+  id="redditAoC-1hd5b6o"
+  title="[2024 Day 13] In the end, math reigns supreme : adventofcode"
+  url="https://old.reddit.com/r/adventofcode/comments/1hd5b6o/2024_day_13_in_the_end_math_reigns_supreme/"
+  accessed="2026-01-03" >}}

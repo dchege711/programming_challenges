@@ -30,9 +30,8 @@ public sealed class Day13ClawContraptionTests
     }
 
     [TestMethod]
-    [Ignore]
-    [DataRow("day-13-sample.in.txt", 480L)]
-    [DataRow("day-13-test.in.txt", 31897L)]
+    [DataRow("day-13-sample.in.txt", 875318608908L)]
+    [DataRow("day-13-test.in.txt", 87596249540359L)]
     public void PartTwo(string filePath, long expectedMinCost)
     {
         var cost = ClawContraption.PartTwo(filePath);
