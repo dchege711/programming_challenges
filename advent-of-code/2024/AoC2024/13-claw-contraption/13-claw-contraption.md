@@ -5,6 +5,7 @@ date: 2025-12-07
 domains:
 - adventofcode.com
 - github.com
+- old.reddit.com
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/13-claw-contraption/13-claw-contraption/
 title: 'AoC 2024 Day 13: Claw Contraption'
 ---
