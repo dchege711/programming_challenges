@@ -17,8 +17,22 @@ public sealed class Day14RestroomRedoubtTests
     }
 
     [TestMethod]
-    [Ignore]
+    public void RobotMove()
+    {
+        var (W, H) = (11, 7);
+
+        var robot = new Robot(new(0, 0), new(-2, 4));
+        robot.Move(1, W, H).Position.Should().Be(new Vector(9, 4));
+        robot.Move(2, W, H).Position.Should().Be(new Vector(7, 1));
+        robot.Move(3, W, H).Position.Should().Be(new Vector(5, 5));
+
+        robot = new Robot(new(0, 0), new(11, 7));
+        robot.Move(1, W, H).Position.Should().Be(new Vector(0, 0));
+    }
+
+    [TestMethod]
     [DataRow("day-14-sample.in.txt", 11, 7, 12)]
+    [DataRow("day-14-test.in.txt", 101, 103, 12)]
     public void PartOne(
         string filePath, int areaWidth, int areaHeight, int expectedSafetyFactor)
     {
