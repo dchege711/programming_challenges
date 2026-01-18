@@ -1,6 +1,11 @@
 ---
-title: "AoC 2024 Day 14: Restroom Redoubt"
+cited-authors:
+- Wastl, Eric
 date: 2026-01-03
+domains:
+- adventofcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/14-restroom-redoubt/
+title: 'AoC 2024 Day 14: Restroom Redoubt'
 ---
 
 ## Parsing
