@@ -1,3 +1,4 @@
+// See https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-included-usage
 {
     // Sourced from https://github.com/devcontainers/templates/tree/main/src/dotnet
 	"name": "C# (.NET)",
