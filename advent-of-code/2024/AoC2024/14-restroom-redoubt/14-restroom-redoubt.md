@@ -4,6 +4,7 @@ cited-authors:
 date: 2026-01-03
 domains:
 - adventofcode.com
+- en.wikipedia.org
 local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/14-restroom-redoubt/
 title: 'AoC 2024 Day 14: Restroom Redoubt'
 ---
@@ -20,10 +21,15 @@ p=9,2 v=-1,-2
 
 {{% cite AoC2024Day14 %}}
 
-In \\((x, y)\\), \\(x\\) represents the number of tiles away from the left wall,
-and similarly for \\(y\\) from the top wall (when viewed from above). The
-top-left corner of the space is \\((0, 0)\\). The velocity is given in tiles
-per second. {{% cite AoC2024Day14 %}}
+\\(x\\) represents the number of tiles away from the left wall, and similarly
+for \\(y\\) from the top wall (when viewed from above). The top-left corner of
+the space is \\((0, 0)\\). The velocity is given in tiles per second. {{% cite
+AoC2024Day14 %}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/RestroomRedoubt.DataTypes.cs"
+  highlight="cs"
+  id="RestroomRedoubt.DataTypes.cs" >}}
 
 ## Part One
 
@@ -44,6 +50,21 @@ Some properties of the problem:
   computable in \\(\mathcal{O}(1)\\) time.
 * Wrapping around edges is equivalent to performing modular arithmetic.
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/RestroomRedoubt.PartOne.cs"
+  highlight="cs"
+  id="RestroomRedoubt.PartOne.cs" >}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/RestroomRedoubt.Extensions.cs"
+  highlight="cs"
+  id="RestroomRedoubt.Extensions.cs" >}}
+
+Modulo operator with negative numbers varies in different programming languages.
+Implementing `is_odd` as `n % 2 == 1` would fail in a language where \\(-1 \mod
+2 = -1\\); instead `n % 2 != 0` would work because remainder 0 is the same
+regardless of signs. C# defines \\(-1 \mod 2 = -1\\)  {{% cite WikiModulo %}}.
+
 ## References
 
 1. {{< citation
@@ -52,3 +73,9 @@ Some properties of the problem:
   title="Day 14 - Advent of Code 2024"
   url="https://adventofcode.com/2024/day/14"
   accessed="2026-01-03" >}}
+
+1. {{< citation
+  id="WikiModulo"
+  title="Modulo - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Modulo"
+  accessed="2026-02-28" >}}
