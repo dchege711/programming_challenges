@@ -65,6 +65,24 @@ Implementing `is_odd` as `n % 2 == 1` would fail in a language where \\(-1 \mod
 2 = -1\\); instead `n % 2 != 0` would work because remainder 0 is the same
 regardless of signs. C# defines \\(-1 \mod 2 = -1\\)  {{% cite WikiModulo %}}.
 
+## Part Two
+
+Very rarely, most of the robots should arrange themselves into a picture of a
+Christmas tree. What is the fewest number of seconds that must elapse for the
+robots to display the Easter egg? {{% cite AoC2024Day14 %}}
+
+Without a reference picture, plotting the positions after every second seems
+like the best option.
+
+{{% comment %}}
+
+That {{% cite AoC2024Day14 %}} asks for the fewest number of seconds implies
+that the position configurations repeat after some period \\(T\\). Intuitively,
+it seems more likely that \\(T \lt \infty\\), kind of like a Least Common
+Multiple of configurations, however that may be defined.
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
