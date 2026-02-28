@@ -3,8 +3,8 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-01-sample.in.txt")]
-[DeploymentItem("data/day-01-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-01-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-01-test.in.txt")]
 public sealed class Day01HistorianHysteriaTests
 {
     [TestMethod]

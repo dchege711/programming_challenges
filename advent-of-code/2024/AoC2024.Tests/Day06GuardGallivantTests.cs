@@ -1,8 +1,8 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-06-sample.in.txt")]
-[DeploymentItem("data/day-06-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-06-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-06-test.in.txt")]
 public sealed class Day06GuardGallivantTests
 {
     [TestMethod]

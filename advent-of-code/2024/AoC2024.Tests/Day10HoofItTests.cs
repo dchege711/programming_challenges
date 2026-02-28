@@ -1,9 +1,9 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-10-sample.in.txt")]
-[DeploymentItem("data/day-10-sample-02.in.txt")]
-[DeploymentItem("data/day-10-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-10-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-10-sample-02.in.txt")]
+[DeploymentItem("data/scratchpad/day-10-test.in.txt")]
 public sealed class Day10HoofItTests
 {
     [TestMethod]

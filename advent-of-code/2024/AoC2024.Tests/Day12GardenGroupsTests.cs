@@ -1,12 +1,12 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-12-sample.in.txt")]
-[DeploymentItem("data/day-12-2-sample.in.txt")]
-[DeploymentItem("data/day-12-3-sample.in.txt")]
-[DeploymentItem("data/day-12-4-sample.in.txt")]
-[DeploymentItem("data/day-12-5-sample.in.txt")]
-[DeploymentItem("data/day-12-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-2-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-3-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-4-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-5-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-12-test.in.txt")]
 public sealed class Day12GardenGroupsTests
 {
     [TestMethod]

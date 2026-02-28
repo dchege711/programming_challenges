@@ -3,8 +3,8 @@ using Coordinate = AoC2024.ResonantCollinearity.Coordinate;
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-08-sample.in.txt")]
-[DeploymentItem("data/day-08-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-08-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-08-test.in.txt")]
 public sealed class Day08ResonantCollinearityTests
 {
     [TestMethod]

@@ -3,8 +3,8 @@ using AoC2024;
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-04-sample.in.txt")]
-[DeploymentItem("data/day-04-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-04-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-04-test.in.txt")]
 public sealed class Day04CeresSearchTests
 {
     [TestMethod]

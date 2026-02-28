@@ -3,8 +3,8 @@ using System.Collections.Immutable;
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-07-sample.in.txt")]
-[DeploymentItem("data/day-07-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-07-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-07-test.in.txt")]
 public sealed class Day07BridgeRepairTests
 {
     [TestMethod]

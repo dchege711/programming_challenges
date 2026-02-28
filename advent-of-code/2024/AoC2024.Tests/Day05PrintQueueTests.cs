@@ -1,8 +1,8 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-05-sample.in.txt")]
-[DeploymentItem("data/day-05-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-05-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-05-test.in.txt")]
 public sealed class Day05PrintQueueTests
 {
     [TestMethod]

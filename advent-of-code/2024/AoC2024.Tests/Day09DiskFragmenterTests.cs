@@ -1,11 +1,11 @@
 namespace AoC2024.Tests;
 
 [TestClass]
-[DeploymentItem("data/day-09-sample.in.txt")]
-[DeploymentItem("data/day-09-sample-2.in.txt")]
-[DeploymentItem("data/day-09-sample-3.in.txt")]
-[DeploymentItem("data/day-09-sample-4.in.txt")]
-[DeploymentItem("data/day-09-test.in.txt")]
+[DeploymentItem("data/scratchpad/day-09-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-09-sample-2.in.txt")]
+[DeploymentItem("data/scratchpad/day-09-sample-3.in.txt")]
+[DeploymentItem("data/scratchpad/day-09-sample-4.in.txt")]
+[DeploymentItem("data/scratchpad/day-09-test.in.txt")]
 public sealed class Day09DiskFragmenterTests
 {
     [TestMethod]
