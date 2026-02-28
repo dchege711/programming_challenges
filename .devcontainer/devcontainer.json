@@ -1,5 +1,14 @@
 {
     // Sourced from https://github.com/devcontainers/templates/tree/main/src/dotnet
 	"name": "C# (.NET)",
-	"image": "mcr.microsoft.com/devcontainers/dotnet:2-10.0-noble"
+    "image": "mcr.microsoft.com/devcontainers/dotnet:2-10.0-noble",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit"
+            ]
+        }
+    }
 }
