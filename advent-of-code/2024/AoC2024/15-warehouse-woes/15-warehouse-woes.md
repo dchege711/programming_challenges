@@ -45,6 +45,23 @@ top edge of a map plus its distance from the left edge of the map. After the
 robot is finished moving, what is the sum of all boxes' GPS coordinates? {{%
 cite AoC2024Day15 %}}
 
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.PartOne.cs"
+  highlight="cs"
+  id="WarehouseWoes.PartOne.cs" >}}
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Extensions.cs"
+  highlight="cs"
+  id="WarehouseWoes.Extensions.cs" >}}
+
+## Part Two
+
+Everything except the robot is twice as wide: `#` -> `##`, `O` -> `[]`, `.` ->
+`..`, and `@` -> `@.`. For these larger boxes, distances are measured from the
+edge of the map to the closest edge of the box in question. What is the sum of
+all boxes' final GPS coordinates? {{% cite AoC2024Day15 %}}
+
 ## References
 
 1. {{< citation
