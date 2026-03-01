@@ -62,6 +62,12 @@ Everything except the robot is twice as wide: `#` -> `##`, `O` -> `[]`, `.` ->
 edge of the map to the closest edge of the box in question. What is the sum of
 all boxes' final GPS coordinates? {{% cite AoC2024Day15 %}}
 
+How much of [Part One](#part-one) still applies? We now need to consider two
+cells at a time, e.g., need to move `[]` together. Instead of `CellType.Box`, we
+could have `CellType.BoxStart` and `CellType.BoxEnd`. GPS coordinates can be
+measured in terms of `CellType.BoxStart`. I think there's promise here; let's
+see how it looks.
+
 ## References
 
 1. {{< citation
