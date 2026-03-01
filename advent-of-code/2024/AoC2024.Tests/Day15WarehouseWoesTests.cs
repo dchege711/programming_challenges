@@ -32,8 +32,9 @@ public sealed class Day15WarehouseWoesTests
         moves.Last().Should().Be(Direction.Up);
     }
 
-    // [DataRow("day-15-sample.in.txt", 10092)]
+    [DataRow("day-15-sample.in.txt", 10092)]
     [DataRow("day-15-sample-2.in.txt", 2028)]
+    [DataRow("day-15-test.in.txt", 1486930)]
     [TestMethod]
     public void PartOne(string filePath, int expectedSum)
     {

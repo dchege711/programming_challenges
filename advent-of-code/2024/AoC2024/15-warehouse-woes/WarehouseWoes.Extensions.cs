@@ -20,4 +20,7 @@ public static class WarehouseWoesExtensions
         Direction.Right => new(0, 1),
         _ => throw ExhaustiveMatch.Failed(direction)
     };
+
+    public static int ToGpsCoordinate(this Coordinate coordinate) =>
+        (coordinate.R * 100) + coordinate.C;
 }
