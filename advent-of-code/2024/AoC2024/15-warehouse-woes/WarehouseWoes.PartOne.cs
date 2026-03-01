@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AoC2024.WarehouseWoesDataTypes;
 using ExhaustiveMatching;
 
@@ -16,7 +17,7 @@ public partial class WarehouseWoes
         Visualize(grid, robotPosition);
         foreach (var direction in ParseMoves(filePath))
         {
-            Console.WriteLine($"Moving {direction}");
+            Debug.WriteLine($"Moving {direction}");
             robotPosition = Move(grid, robotPosition, direction);
             Visualize(grid, robotPosition);
         }
@@ -101,7 +102,7 @@ public partial class WarehouseWoes
             {
                 if (r == robotPosition.R && c == robotPosition.C)
                 {
-                    Console.Write('@');
+                    Debug.Write('@');
                     continue;
                 }
                 
@@ -114,10 +115,10 @@ public partial class WarehouseWoes
                     CellType.BoxEnd => ']',
                     _ => throw ExhaustiveMatch.Failed(grid[r, c])
                 };
-                Console.Write(val);
+                Debug.Write(val);
             }
-            Console.Write('\n');
+            Debug.Write('\n');
         }
-        Console.WriteLine();
+        Debug.WriteLine("");
     }
 }
