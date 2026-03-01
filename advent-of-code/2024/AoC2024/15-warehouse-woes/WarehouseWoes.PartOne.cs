@@ -30,6 +30,7 @@ public partial class WarehouseWoes
         IEnumerable<Coordinate>? maybeFreeSpots = null;
 
         var delta = direction.ToDelta();
+        var isLateralMove = direction.IsLateral();
         Delta reverseDelta = delta.Reverse();
         Delta leftDelta = new(0, -1);
         Delta rightDelta = leftDelta.Reverse();
@@ -55,8 +56,8 @@ public partial class WarehouseWoes
                 Coordinate[] res = ct switch
                 {
                     CellType.Box => [coord.Move(delta)],
-                    CellType.BoxStart => [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
-                    CellType.BoxEnd => [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
+                    CellType.BoxStart => isLateralMove ? [coord.Move(delta)] : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
+                    CellType.BoxEnd => isLateralMove ? [coord.Move(delta)] : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
                     CellType.Wall => throw new ArgumentException("Walls should have exited the loop already"),
                     CellType.Free => [],
                     _ => throw ExhaustiveMatch.Failed(ct)

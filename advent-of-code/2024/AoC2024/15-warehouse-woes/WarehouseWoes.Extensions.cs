@@ -23,6 +23,9 @@ public static class WarehouseWoesExtensions
 
     public static Delta Reverse(this Delta delta) =>
         new(delta.dR * -1, delta.dC * -1);
+    
+    public static bool IsLateral(this Direction direction) =>
+        direction == Direction.Left || direction == Direction.Right;
 
     public static int ToGpsCoordinate(this Coordinate coordinate) =>
         (coordinate.R * 100) + coordinate.C;
