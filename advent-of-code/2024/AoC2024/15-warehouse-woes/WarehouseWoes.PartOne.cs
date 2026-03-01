@@ -10,36 +10,20 @@ public partial class WarehouseWoes
         var (grid, robotPosition) = ParseGrid(filePath);
 
         foreach (var direction in ParseMoves(filePath))
-            robotPosition = MoveInGrid(grid, robotPosition, direction);
+            robotPosition = Move(grid, robotPosition, direction);
 
         return SumBoxGpsCoordinates(grid);
     }
 
-    private static Coordinate MoveInGrid(CellType[,] grid, Coordinate origin, Direction direction)
-    {
-        var delta = direction.ToDelta();
-        var next = origin.Move(delta);
-
-        if (!next.IsInBounds(grid))
-            return origin;
-        
-        return grid[next.R, next.C] switch
-        {
-            CellType.Wall => origin,
-            CellType.Free => next,
-            CellType.Box => PushBoxes(grid, origin, delta),
-            _ => throw ExhaustiveMatch.Failed(grid[next.R, next.C])
-        };
-    }
-
-    private static Coordinate PushBoxes(CellType[,] grid, Coordinate origin, Delta delta)
+    private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
     {
         Coordinate? maybeFreeSpot = null;
+
+        var delta = direction.ToDelta();
         Coordinate next = origin.Move(delta);
         while (next.IsInBounds(grid))
         {
             var cellType = grid[next.R, next.C];
-
             if (cellType == CellType.Wall)
                 break;
 
