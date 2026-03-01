@@ -5,7 +5,7 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public static (CellType[,], Coordinate) ParseGrid(string filePath)
+    public static (CellType[,], Coordinate) ParseGrid(string filePath, bool isWideVersion)
     {
         using StreamReader inputReader = new(filePath);
 
@@ -21,10 +21,10 @@ public partial class WarehouseWoes
             {
                 var c = line.IndexOf('@');
                 if (c != -1)
-                   maybeStartingPosition = new(rows.Count, c);
+                   maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
             }
 
-            rows.Add([.. line.Select(ToCellType)]);
+            rows.Add([.. line.SelectMany(c => ToCellTypes(c, isWideVersion))]);
         }
 
         if (maybeStartingPosition is not Coordinate startingPosition)
@@ -72,14 +72,30 @@ public partial class WarehouseWoes
         throw ExhaustiveMatch.Failed(c);
     }
 
-    private static CellType ToCellType(char c)
+    private static IEnumerable<CellType> ToCellTypes(char c, bool isWideVersion) =>
+        isWideVersion ? ToCellTypesWide(c) : ToCellTypesNarrow(c);
+
+    private static IEnumerable<CellType> ToCellTypesNarrow(char c)
     {
         switch (c)
         {
-            case '#': return CellType.Wall;
-            case 'O': return CellType.Box;
-            case '.': return CellType.Free;
-            case '@': return CellType.Free;
+            case '#': return [CellType.Wall];
+            case 'O': return [CellType.Box];
+            case '.': return [CellType.Free];
+            case '@': return [CellType.Free];
+        }
+        
+        throw ExhaustiveMatch.Failed(c);
+    }
+
+    private static IEnumerable<CellType> ToCellTypesWide(char c)
+    {
+        switch (c)
+        {
+            case '#': return [CellType.Wall, CellType.Wall];
+            case 'O': return [CellType.BoxStart, CellType.BoxEnd];
+            case '.': return [CellType.Free, CellType.Free];
+            case '@': return [CellType.Free, CellType.Free];
         }
         
         throw ExhaustiveMatch.Failed(c);

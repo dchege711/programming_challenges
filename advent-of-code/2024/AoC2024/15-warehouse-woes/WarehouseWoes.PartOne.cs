@@ -7,7 +7,7 @@ public partial class WarehouseWoes
 {
     public static int PartOne(string filePath)
     {
-        var (grid, robotPosition) = ParseGrid(filePath);
+        var (grid, robotPosition) = ParseGrid(filePath, false);
 
         foreach (var direction in ParseMoves(filePath))
             robotPosition = Move(grid, robotPosition, direction);

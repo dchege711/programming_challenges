@@ -6,4 +6,4 @@ public record struct Coordinate(int R, int C);
 
 public record struct Delta(int dR, int dC);
 
-public enum CellType { Wall, Box, Free }
+public enum CellType { Wall, Box, Free, BoxStart, BoxEnd }
