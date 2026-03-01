@@ -68,6 +68,34 @@ could have `CellType.BoxStart` and `CellType.BoxEnd`. GPS coordinates can be
 measured in terms of `CellType.BoxStart`. I think there's promise here; let's
 see how it looks.
 
+The `Move` operation is more complicated because of a domino effect. For
+example, `^` doesn't succeed because the top-right `]` can't move.
+
+```txt
+##############
+##......##..##
+##...[][]...##
+##....[]....##
+##.....@....##
+##..........##
+##############
+```
+
+Similar argument for trying a `^` here:
+
+```txt
+##############
+##......##..##
+##.....[]...##
+##....[]....##
+##.....@....##
+##..........##
+##############
+```
+
+For an upward \\(r \to r-1\\) move to succeed row \\(r-1\\) must have enough
+space for all affected boxes in row \\(r\\).
+
 ## References
 
 1. {{< citation
