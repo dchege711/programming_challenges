@@ -13,8 +13,13 @@ public partial class WarehouseWoes
     {
         var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);
 
+        Visualize(grid, robotPosition);
         foreach (var direction in ParseMoves(filePath))
+        {
+            Console.WriteLine($"Moving {direction}");
             robotPosition = Move(grid, robotPosition, direction);
+            Visualize(grid, robotPosition);
+        }
 
         return SumBoxGpsCoordinates(grid);
     }
@@ -87,4 +92,32 @@ public partial class WarehouseWoes
                 .Select(c => new Coordinate(r, c)))
             .Where(coordinate => grid[coordinate.R, coordinate.C] is CellType.Box or CellType.BoxStart)
             .Sum(WarehouseWoesExtensions.ToGpsCoordinate);
+
+    private static void Visualize(CellType[,] grid, Coordinate robotPosition)
+    {
+        for (int r = 0; r < grid.GetLength(0); r++)
+        {
+            for (int c = 0; c < grid.GetLength(1); c++)
+            {
+                if (r == robotPosition.R && c == robotPosition.C)
+                {
+                    Console.Write('@');
+                    continue;
+                }
+                
+                var val = grid[r, c] switch
+                {
+                    CellType.Wall => '#',
+                    CellType.Box => 'O',
+                    CellType.Free => '.',
+                    CellType.BoxStart => '[',
+                    CellType.BoxEnd => ']',
+                    _ => throw ExhaustiveMatch.Failed(grid[r, c])
+                };
+                Console.Write(val);
+            }
+            Console.Write('\n');
+        }
+        Console.WriteLine();
+    }
 }
