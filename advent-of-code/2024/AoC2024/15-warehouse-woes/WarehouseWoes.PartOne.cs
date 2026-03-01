@@ -27,62 +27,110 @@ public partial class WarehouseWoes
 
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
     {
-        IEnumerable<Coordinate>? maybeFreeSpots = null;
-
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
         Delta reverseDelta = delta.Reverse();
         Delta leftDelta = new(0, -1);
         Delta rightDelta = leftDelta.Reverse();
 
-        Coordinate[] start = [ origin ];
-        IEnumerable<Coordinate> nextCoords = start.Select(coordinate => coordinate.Move(delta));
-        while (nextCoords.All(coord => coord.IsInBounds(grid)))
+        IEnumerable<Coordinate> moveFrontier = [];
+
+        IEnumerable<Coordinate> targetCoords = [ origin.Move(delta) ];
+        while (targetCoords.All(coord => coord.IsInBounds(grid)))
         {
-            var cellTypes = nextCoords.Select(coord => grid[coord.R, coord.C]);
+            var cellTypes = targetCoords.Select(coord => grid[coord.R, coord.C]);
             if (cellTypes.Any(ct => ct == CellType.Wall))
                 break;
 
             if (cellTypes.All(ct => ct == CellType.Free))
             {
-                maybeFreeSpots = nextCoords;
+                moveFrontier = targetCoords;
                 break;
             }
 
-            nextCoords = nextCoords.SelectMany(coord =>
+            targetCoords = targetCoords.SelectMany(coord =>
             {
-                var ct = grid[coord.R, coord.C];
-
-                Coordinate[] res = ct switch
+                Coordinate[] res = grid[coord.R, coord.C] switch
                 {
                     CellType.Box => [coord.Move(delta)],
-                    CellType.BoxStart => isLateralMove ? [coord.Move(delta)] : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
-                    CellType.BoxEnd => isLateralMove ? [coord.Move(delta)] : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
-                    CellType.Wall => throw new ArgumentException("Walls should have exited the loop already"),
+
+                    CellType.BoxStart => isLateralMove
+                        ? [coord.Move(delta)]
+                        : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
+
+                    CellType.BoxEnd => isLateralMove
+                        ? [coord.Move(delta)]
+                        : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
+
+                    CellType.Wall => throw new ArgumentException(
+                        "Walls should have exited the loop already"),
+
                     CellType.Free => [],
-                    _ => throw ExhaustiveMatch.Failed(ct)
+
+                    _ => throw ExhaustiveMatch.Failed(grid[coord.R, coord.C])
                 };
                 return res;
-            });            
+            });
         }
 
-        if (maybeFreeSpots is not IEnumerable<Coordinate> freeSpots)
+        if (!moveFrontier.Any())
             return origin;
-        
-        if (!freeSpots.Any())
-            return origin;
-        
-        while (freeSpots.Any(coord => coord != origin))
+
+        while (moveFrontier.Any(coord => coord != origin))
         {
-            var previousSpots = freeSpots.Select(coord => coord.Move(reverseDelta));
-            freeSpots
-                .Zip(previousSpots)
-                .ToList()
-                .ForEach(pair =>
+            Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
+            HashSet<Coordinate> previousMoveFrontier = [];
+            foreach (var target in moveFrontier)
+            {
+                var source = target.Move(reverseDelta);
+                var sourceCellType = grid[source.R, source.C];
+                switch (sourceCellType)
                 {
-                    grid[pair.First.R, pair.First.C] = grid[pair.Second.R, pair.Second.C];
-                });
-            freeSpots = previousSpots;
+                    case CellType.Box:
+                        {
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
+                            break;
+                        }
+
+                    case CellType.BoxStart:
+                        {
+                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(rightDelta));
+                            if (!canMove)
+                                break;
+
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
+                            break;
+                        }
+
+                    case CellType.BoxEnd:
+                        {
+                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(leftDelta));
+                            if (!canMove)
+                                break;
+
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
+                            break;
+                        }
+
+                    case CellType.Free:
+                        break;
+
+                    case CellType.Wall:
+                        throw new ArgumentException("Walls should have exited the loop already");
+
+                    default:
+                        throw ExhaustiveMatch.Failed(sourceCellType);
+                };
+            }
+            Visualize(grid, origin);
+
+            moveFrontier = previousMoveFrontier;
         }
 
         return origin.Move(delta);
@@ -106,7 +154,7 @@ public partial class WarehouseWoes
                     Debug.Write('@');
                     continue;
                 }
-                
+
                 var val = grid[r, c] switch
                 {
                     CellType.Wall => '#',
