@@ -96,6 +96,36 @@ Similar argument for trying a `^` here:
 For an upward \\(r \to r-1\\) move to succeed row \\(r-1\\) must have enough
 space for all affected boxes in row \\(r\\).
 
+Keeping the 2D array representation is introducing a lot of bookkeeping and
+pitfalls. For example, it shouldn't be possible to partially move a box, but the
+2D array representation allows it.
+
+{{% comment %}}
+
+A couple of mantras to make this learning moment memorable:
+
+> Bad programmers worry about the code. Good programmers worry about data
+> structures and their relationships.
+>
+> - Linus Torvalds
+
+> Data is more tractable than program logic. It follows that where you see a
+> choice between complexity in data structures and complexity in code, choose
+> the former. More: in evolving a design, you should actively seek ways to shift
+> complexity from code to data.
+>
+> - The Art of Unix Programming
+
+> Show me your flowcharts [code], and conceal your tables [schema], and I shall
+> continue to be mystified; show me your tables [schema] and I won't usually
+> need your flowcharts [code]: they'll be obvious.
+>
+> - Fred Brooks, "The Mythical Man Month"
+
+{{% cite SE163185 %}}
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -104,3 +134,9 @@ space for all affected boxes in row \\(r\\).
   title="Day 15 - Advent of Code 2024: Warehouse Woes"
   url="https://adventofcode.com/2024/day/15"
   accessed="2026-02-28" >}}
+
+1. {{< citation
+  id="SE163185"
+  title="Torvalds' quote about good programmer [closed]"
+  url="https://softwareengineering.stackexchange.com/questions/163185/torvalds-quote-about-good-programmer"
+  accessed="2026-03-01" >}}
