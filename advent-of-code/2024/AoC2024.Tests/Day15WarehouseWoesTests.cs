@@ -4,6 +4,7 @@ namespace AoC2024.Tests;
 
 [TestClass]
 [DeploymentItem("data/scratchpad/day-15-sample.in.txt")]
+[DeploymentItem("data/scratchpad/day-15-sample-2.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-test.in.txt")]
 public sealed class Day15WarehouseWoesTests
 {
