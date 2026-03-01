@@ -7,6 +7,8 @@ public partial class WarehouseWoes
 {
     public static int PartOne(string filePath) => MoveAndSumGps(filePath, false);
 
+    public static int PartTwo(string filePath) => MoveAndSumGps(filePath, true);
+
     private static int MoveAndSumGps(string filePath, bool isWideVersion)
     {
         var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);

@@ -58,4 +58,13 @@ public sealed class Day15WarehouseWoesTests
         var sumGpsCoordinates = WarehouseWoes.PartOne(filePath);
         sumGpsCoordinates.Should().Be(expectedSum);
     }
+
+    [DataRow("day-15-sample.in.txt", 9021)]
+    [DataRow("day-15-test.in.txt", 1486930)]
+    [TestMethod]
+    public void PartTwo(string filePath, int expectedSum)
+    {
+        var sumGpsCoordinates = WarehouseWoes.PartTwo(filePath);
+        sumGpsCoordinates.Should().Be(expectedSum);
+    }
 }
