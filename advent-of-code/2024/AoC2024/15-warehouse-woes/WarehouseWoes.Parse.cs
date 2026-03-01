@@ -41,7 +41,7 @@ public partial class WarehouseWoes
         return (grid, startingPosition);
     }
 
-    public static IEnumerable<Move> ParseMoves(string filePath)
+    public static IEnumerable<Direction> ParseMoves(string filePath)
     {
         using var inputReader = new StreamReader(filePath);
 
@@ -59,14 +59,14 @@ public partial class WarehouseWoes
         }
     }
 
-    private static Move ToMove(char c)
+    private static Direction ToMove(char c)
     {
         switch (c)
         {
-            case '<': return Move.Left;
-            case '>': return Move.Right;
-            case '^': return Move.Up;
-            case 'v': return Move.Down;
+            case '<': return Direction.Left;
+            case '>': return Direction.Right;
+            case '^': return Direction.Up;
+            case 'v': return Direction.Down;
         }
         
         throw ExhaustiveMatch.Failed(c);

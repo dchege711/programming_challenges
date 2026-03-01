@@ -21,4 +21,21 @@ public sealed class Day15WarehouseWoesTests
         grid[4, 4].Should().Be(CellType.Free);
         grid[5, 1].Should().Be(CellType.Box);
     }
+
+    [TestMethod]
+    public void ParseMoves()
+    {
+        var moves = WarehouseWoes.ParseMoves("day-15-sample.in.txt").ToArray();
+        moves.Length.Should().Be(700);
+        moves.First().Should().Be(Direction.Left);
+        moves.Last().Should().Be(Direction.Up);
+    }
+
+    [DataRow("day-15-sample.in.txt", 10092)]
+    [TestMethod]
+    public void PartOne(string filePath, int expectedSum)
+    {
+        var sumGpsCoordinates = WarehouseWoes.PartOne(filePath);
+        sumGpsCoordinates.Should().Be(expectedSum);
+    }
 }
