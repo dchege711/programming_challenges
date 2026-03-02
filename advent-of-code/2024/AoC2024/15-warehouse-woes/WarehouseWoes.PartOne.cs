@@ -18,7 +18,7 @@ public partial class WarehouseWoes
         foreach (var direction in ParseMoves(filePath))
         {
             Debug.WriteLine($"Moving {direction}");
-            Move(grid, direction);
+            grid = Move(grid, direction);
             grid.Visualize();
         }
 
@@ -37,7 +37,7 @@ public partial class WarehouseWoes
 
         IEnumerable<Coordinate> moveFrontier = [];
 
-        HashSet<Coordinate> targetCoords = [origin.Move(delta)];
+        HashSet<Coordinate> targetCoords = [origin.Add(delta)];
         while (targetCoords.All(grid.IsInBounds))
         {
             if (targetCoords.Any(grid.IsWall))
@@ -52,12 +52,12 @@ public partial class WarehouseWoes
             targetCoords = targetCoords
                 .Select(coord =>
                     {
-                        var nextTarget = coord.Move(delta);
+                        var nextTarget = coord.Add(delta);
                         Coordinate? res = grid.GetCellType(coord) switch
                         {
                             CellType.Box => nextTarget,
                             CellType.BoxStart => nextTarget,
-                            CellType.BoxEnd => nextTarget.Move(leftDelta),
+                            CellType.BoxEnd => nextTarget.Add(leftDelta),
                             CellType.Wall => throw new ArgumentException(
                                 "Walls should have exited the loop already"),
                             CellType.Free => null,
@@ -75,44 +75,42 @@ public partial class WarehouseWoes
         while (moveFrontier.Any(coord => coord != origin))
         {
             Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
-            HashSet<Coordinate> previousMoveFrontier = [];
-            foreach (var target in moveFrontier)
+            HashSet<Coordinate> nextMoveFrontier = [];
+            foreach (var outerTarget in moveFrontier)
             {
-                var source = target.Move(reverseDelta);
-                var sourceCellType = grid.GetCellType(source);
+                Debug.WriteLine($"Processing {outerTarget} from the move frontier");
+                if (!grid.IsFree(outerTarget))
+                    throw new InvalidOperationException($"Frontier ({outerTarget.R}, {outerTarget.C}) is not empty: {grid.GetCellType(outerTarget)}");
+
+                var innerSource = outerTarget.Add(reverseDelta);
+                var sourceCellType = grid.GetCellType(innerSource);
                 switch (sourceCellType)
                 {
                     case CellType.Box:
                         {
-                            grid.Boxes.Remove(source);
-                            grid.Boxes.Add(target);
-                            previousMoveFrontier.Add(source);
+                            grid.Boxes.Remove(innerSource);
+                            grid.Boxes.Add(outerTarget);
+                            nextMoveFrontier.Add(innerSource);
                             break;
                         }
 
                     case CellType.BoxStart:
                         {
-                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(rightDelta));
+                            var outerTargetBoxEnd = outerTarget.Add(RightDelta);
+                            var canMove = isLateralMove || grid.IsFree(outerTargetBoxEnd);
                             if (!canMove)
                                 break;
 
-                            grid.Boxes.Remove(source);
-                            grid.Boxes.Add(target);
-                            previousMoveFrontier.Add(source);
+                            grid.Boxes.Remove(innerSource);
+                            grid.Boxes.Add(outerTarget);
+
+                            nextMoveFrontier.Add(
+                                isLateralMove ? outerTarget.Add(RightDelta).Add(RightDelta) : innerSource);
                             break;
                         }
 
                     case CellType.BoxEnd:
-                        {
-                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(leftDelta));
-                            if (!canMove)
-                                break;
-
-                            grid.Boxes.Remove(source);
-                            grid.Boxes.Add(target);
-                            previousMoveFrontier.Add(source);
-                            break;
-                        }
+                        throw new ArgumentException($"BoxEnds should not be in the frontier; found {innerSource}");
 
                     case CellType.Free:
                         break;
@@ -123,14 +121,16 @@ public partial class WarehouseWoes
                     default:
                         throw ExhaustiveMatch.Failed(sourceCellType);
                 };
+                grid.Visualize();
             }
-            grid.Visualize();
-            moveFrontier = previousMoveFrontier;
+            moveFrontier = nextMoveFrontier;
         }
 
-        return grid with { RobotPosition = origin.Move(delta) };
+        return grid with { RobotPosition = origin.Add(delta) };
     }
 
     private static int SumBoxGpsCoordinates(Grid grid) =>
         grid.Boxes.Sum(WarehouseWoesExtensions.ToGpsCoordinate);
+
+    private static Delta RightDelta = new(0, 1);
 }

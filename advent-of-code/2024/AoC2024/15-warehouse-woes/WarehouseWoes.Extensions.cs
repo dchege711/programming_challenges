@@ -6,7 +6,7 @@ namespace AoC2024;
 
 public static class WarehouseWoesExtensions
 {
-    public static Coordinate Move(this Coordinate coordinate, Delta delta) =>
+    public static Coordinate Add(this Coordinate coordinate, Delta delta) =>
         new(coordinate.R + delta.dR, coordinate.C + delta.dC);
 
     public static Delta ToDelta(this Direction direction) => direction switch
@@ -37,7 +37,7 @@ public static class WarehouseWoesExtensions
             return CellType.Wall;
         else if (grid.Boxes.Contains(coord))
             return grid.BoxWidth == 1 ? CellType.Box : CellType.BoxStart;
-        else if (grid.BoxWidth == 2 && grid.Boxes.Contains(coord.Move(new(0, -1))))
+        else if (grid.BoxWidth == 2 && grid.Boxes.Contains(coord.Add(new(0, -1))))
             return CellType.BoxEnd;
         else
             return CellType.Free;
@@ -52,12 +52,13 @@ public static class WarehouseWoesExtensions
     public static bool HasWallOrBox(this Grid grid, Coordinate coord) =>
         grid.Walls.Contains(coord)
         || grid.Boxes.Contains(coord)
-        || (grid.BoxWidth == 2 && grid.Boxes.Contains(coord.Move(new(0, -1))));
+        || (grid.BoxWidth == 2 && grid.Boxes.Contains(coord.Add(new(0, -1))));
 
     public static void Visualize(this Grid grid)
     {
         for (int r = 0; r < grid.RowCount; r++)
         {
+            Debug.Write($"{r}: ");
             for (int c = 0; c < grid.ColCount; c++)
             {
                 Coordinate coord = new(r, c);
