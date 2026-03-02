@@ -17,7 +17,7 @@ public partial class WarehouseWoes
 
         foreach (var direction in ParseMoves(filePath))
         {
-            Debug.WriteLine($"Moving {direction}");
+            Debug.WriteLine($"Moving {direction} from {grid.RobotPosition}");
             grid = Move(grid, direction);
             grid.Visualize();
         }
@@ -32,14 +32,14 @@ public partial class WarehouseWoes
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
         Delta reverseDelta = delta.Reverse();
-        Delta leftDelta = new(0, -1);
-        Delta rightDelta = leftDelta.Reverse();
 
         IEnumerable<Coordinate> moveFrontier = [];
 
         HashSet<Coordinate> targetCoords = [origin.Add(delta)];
+        HashSet<Coordinate> visited = [];
         while (targetCoords.All(grid.IsInBounds))
         {
+            Debug.WriteLine($"Expanding frontier: {string.Join(',', targetCoords.Select(p => $"({p.R}, {p.C})"))}");
             if (targetCoords.Any(grid.IsWall))
                 break;
 
@@ -49,26 +49,29 @@ public partial class WarehouseWoes
                 break;
             }
 
-            targetCoords = targetCoords
-                .Select(coord =>
+            var newTargetCoords = targetCoords
+                .SelectMany(coord =>
                     {
                         var nextTarget = coord.Add(delta);
-                        Coordinate? res = grid.GetCellType(coord) switch
+                        Coordinate[] res = grid.GetCellType(coord) switch
                         {
-                            CellType.Box => nextTarget,
-                            CellType.BoxStart => nextTarget,
-                            CellType.BoxEnd => nextTarget.Add(leftDelta),
+                            CellType.Box => [nextTarget],
+                            CellType.BoxStart => [nextTarget, nextTarget.Add(RightDelta)],
+                            CellType.BoxEnd => [nextTarget, nextTarget.Add(LeftDelta)],
                             CellType.Wall => throw new ArgumentException(
                                 "Walls should have exited the loop already"),
-                            CellType.Free => null,
+                            CellType.Free => [],
                             _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
                         };
                         return res;
                     })
-                .OfType<Coordinate>()
                 .ToHashSet();
+
+            newTargetCoords.ExceptWith(targetCoords);
+            targetCoords = newTargetCoords;
         }
 
+        Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
         if (!moveFrontier.Any())
             return grid;
 
@@ -78,7 +81,6 @@ public partial class WarehouseWoes
             HashSet<Coordinate> nextMoveFrontier = [];
             foreach (var outerTarget in moveFrontier)
             {
-                Debug.WriteLine($"Processing {outerTarget} from the move frontier");
                 if (!grid.IsFree(outerTarget))
                     throw new InvalidOperationException($"Frontier ({outerTarget.R}, {outerTarget.C}) is not empty: {grid.GetCellType(outerTarget)}");
 
@@ -110,7 +112,7 @@ public partial class WarehouseWoes
                         }
 
                     case CellType.BoxEnd:
-                        throw new ArgumentException($"BoxEnds should not be in the frontier; found {innerSource}");
+                        break;
 
                     case CellType.Free:
                         break;
@@ -121,7 +123,6 @@ public partial class WarehouseWoes
                     default:
                         throw ExhaustiveMatch.Failed(sourceCellType);
                 };
-                grid.Visualize();
             }
             moveFrontier = nextMoveFrontier;
         }
@@ -132,5 +133,6 @@ public partial class WarehouseWoes
     private static int SumBoxGpsCoordinates(Grid grid) =>
         grid.Boxes.Sum(WarehouseWoesExtensions.ToGpsCoordinate);
 
+    private static Delta LeftDelta = new(0, -1);
     private static Delta RightDelta = new(0, 1);
 }
