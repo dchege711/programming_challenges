@@ -35,21 +35,21 @@ public partial class WarehouseWoes
 
         IEnumerable<Coordinate> moveFrontier = [];
 
-        HashSet<Coordinate> targetCoords = [origin.Add(delta)];
+        HashSet<Coordinate> frontierCandidates = [origin.Add(delta)];
         HashSet<Coordinate> visited = [];
-        while (targetCoords.All(grid.IsInBounds))
+        while (frontierCandidates.All(grid.IsInBounds))
         {
-            Debug.WriteLine($"Expanding frontier: {string.Join(',', targetCoords.Select(p => $"({p.R}, {p.C})"))}");
-            if (targetCoords.Any(grid.IsWall))
+            Debug.WriteLine($"Expanding frontier: {string.Join(',', frontierCandidates.Select(p => $"({p.R}, {p.C})"))}");
+            if (frontierCandidates.Any(grid.IsWall))
                 break;
 
-            if (targetCoords.All(grid.IsFree))
+            if (frontierCandidates.All(grid.IsFree))
             {
-                moveFrontier = targetCoords;
+                moveFrontier = frontierCandidates;
                 break;
             }
 
-            var newTargetCoords = targetCoords
+            var newFrontierCandidates = frontierCandidates
                 .SelectMany(coord =>
                     {
                         var nextTarget = coord.Add(delta);
@@ -58,8 +58,7 @@ public partial class WarehouseWoes
                             CellType.Box => [nextTarget],
                             CellType.BoxStart => [nextTarget, nextTarget.Add(RightDelta)],
                             CellType.BoxEnd => [nextTarget, nextTarget.Add(LeftDelta)],
-                            CellType.Wall => throw new ArgumentException(
-                                "Walls should have exited the loop already"),
+                            CellType.Wall => throw new ArgumentException("Walls should be frontier candidates"),
                             CellType.Free => [],
                             _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
                         };
@@ -67,8 +66,10 @@ public partial class WarehouseWoes
                     })
                 .ToHashSet();
 
-            newTargetCoords.ExceptWith(targetCoords);
-            targetCoords = newTargetCoords;
+            if (frontierCandidates.SetEquals(newFrontierCandidates))
+                break;
+
+            frontierCandidates = newFrontierCandidates;
         }
 
         Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
