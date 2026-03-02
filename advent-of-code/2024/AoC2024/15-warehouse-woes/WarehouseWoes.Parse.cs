@@ -5,40 +5,56 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public static (CellType[,], Coordinate) ParseGrid(string filePath, bool isWideVersion)
+    public static Grid ParseGrid(string filePath, bool isWideVersion)
     {
         using StreamReader inputReader = new(filePath);
 
-        List<CellType[]> rows = [];
         string? line = null;
         Coordinate? maybeStartingPosition = null;
+        int rowIndex = -1;
+        int? maybeColCount = null;
+        HashSet<Coordinate> walls = [];
+        HashSet<Coordinate> boxes = [];
         while ((line = inputReader.ReadLine()) != null)
         {
             if (line.Length == 0)
                 break;
-            
-            if (maybeStartingPosition is null)
+
+            rowIndex++;
+
+            line = isWideVersion ? ExpandGridLine(line) : line;
+            if (maybeColCount is null)
             {
-                var c = line.IndexOf('@');
-                if (c != -1)
-                   maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
+                maybeColCount = line.Length;
+            }
+            else if (line.Length != maybeColCount)
+            {
+                throw new ArgumentException(
+                    $"Mismatch in column count {line.Length} vs. {maybeColCount}");
             }
 
-            rows.Add([.. line.SelectMany(c => ToCellTypes(c, isWideVersion))]);
+            if (maybeStartingPosition is null)
+            {
+                var cIdx = line.IndexOf('@');
+                if (cIdx != -1)
+                   maybeStartingPosition = new(rowIndex, cIdx);
+            }
+
+            walls.UnionWith(GetWalls(line, rowIndex));
+            boxes.UnionWith(GetBoxes(line, rowIndex));
         }
+
+        int rowCount = rowIndex + 1;
+        if (rowCount <= 0)
+            throw new ArgumentException("Did not parse any rows");
+
+        if (maybeColCount is not int colCount)
+            throw new ArgumentException("Did not establish the column count");
 
         if (maybeStartingPosition is not Coordinate startingPosition)
             throw new ArgumentException("Did not find starting position");
 
-        int R = rows.Count;
-        int C = rows.First().Length;
-
-        var grid = new CellType[R, C];
-        for (int r = 0; r < R; r++)
-            for (int c = 0; c < C; c++)
-                grid[r, c] = rows[r][c];
-
-        return (grid, startingPosition);
+        return new(rowCount, colCount, startingPosition, walls, boxes, isWideVersion ? 2 : 1);
     }
 
     public static IEnumerable<Direction> ParseMoves(string filePath)
@@ -68,36 +84,28 @@ public partial class WarehouseWoes
             case '^': return Direction.Up;
             case 'v': return Direction.Down;
         }
-        
+
         throw ExhaustiveMatch.Failed(c);
     }
 
-    private static IEnumerable<CellType> ToCellTypes(char c, bool isWideVersion) =>
-        isWideVersion ? ToCellTypesWide(c) : ToCellTypesNarrow(c);
-
-    private static IEnumerable<CellType> ToCellTypesNarrow(char c)
+    private static string ExpandGridLine(string s)
     {
-        switch (c)
+        return string.Concat(s.Select(c =>
         {
-            case '#': return [CellType.Wall];
-            case 'O': return [CellType.Box];
-            case '.': return [CellType.Free];
-            case '@': return [CellType.Free];
-        }
-        
-        throw ExhaustiveMatch.Failed(c);
+            switch (c)
+            {
+                case '#': return "##";
+                case 'O': return "[]";
+                case '.': return "..";
+                case '@': return "@.";
+            }
+            throw ExhaustiveMatch.Failed(c);
+        }));
     }
 
-    private static IEnumerable<CellType> ToCellTypesWide(char c)
-    {
-        switch (c)
-        {
-            case '#': return [CellType.Wall, CellType.Wall];
-            case 'O': return [CellType.BoxStart, CellType.BoxEnd];
-            case '.': return [CellType.Free, CellType.Free];
-            case '@': return [CellType.Free, CellType.Free];
-        }
-        
-        throw ExhaustiveMatch.Failed(c);
-    }
+    private static IEnumerable<Coordinate> GetWalls(string s, int r) =>
+        s.Index().Where(p => p.Item == '#').Select(p => new Coordinate(r, p.Index));
+
+    private static IEnumerable<Coordinate> GetBoxes(string s, int r) =>
+        s.Index().Where(p => p.Item is 'O' or '[').Select(p => new Coordinate(r, p.Index));
 }

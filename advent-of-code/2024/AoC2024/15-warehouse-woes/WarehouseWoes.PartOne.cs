@@ -12,21 +12,23 @@ public partial class WarehouseWoes
 
     private static int MoveAndSumGps(string filePath, bool isWideVersion)
     {
-        var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);
+        var grid = ParseGrid(filePath, isWideVersion);
+        grid.Visualize();
 
-        Visualize(grid, robotPosition);
         foreach (var direction in ParseMoves(filePath))
         {
             Debug.WriteLine($"Moving {direction}");
-            robotPosition = Move(grid, robotPosition, direction);
-            Visualize(grid, robotPosition);
+            Move(grid, direction);
+            grid.Visualize();
         }
 
         return SumBoxGpsCoordinates(grid);
     }
 
-    private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
+    private static Grid Move(Grid grid, Direction direction)
     {
+        var origin = grid.RobotPosition;
+
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
         Delta reverseDelta = delta.Reverse();
@@ -36,13 +38,12 @@ public partial class WarehouseWoes
         IEnumerable<Coordinate> moveFrontier = [];
 
         IEnumerable<Coordinate> targetCoords = [ origin.Move(delta) ];
-        while (targetCoords.All(coord => coord.IsInBounds(grid)))
+        while (targetCoords.All(grid.IsInBounds))
         {
-            var cellTypes = targetCoords.Select(coord => grid[coord.R, coord.C]);
-            if (cellTypes.Any(ct => ct == CellType.Wall))
+            if (targetCoords.Any(grid.IsWall))
                 break;
 
-            if (cellTypes.All(ct => ct == CellType.Free))
+            if (targetCoords.All(grid.IsFree))
             {
                 moveFrontier = targetCoords;
                 break;
@@ -50,7 +51,7 @@ public partial class WarehouseWoes
 
             targetCoords = targetCoords.SelectMany(coord =>
             {
-                Coordinate[] res = grid[coord.R, coord.C] switch
+                Coordinate[] res = grid.GetCellType(coord) switch
                 {
                     CellType.Box => [coord.Move(delta)],
 
@@ -67,14 +68,14 @@ public partial class WarehouseWoes
 
                     CellType.Free => [],
 
-                    _ => throw ExhaustiveMatch.Failed(grid[coord.R, coord.C])
+                    _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
                 };
                 return res;
             });
         }
 
         if (!moveFrontier.Any())
-            return origin;
+            return grid;
 
         while (moveFrontier.Any(coord => coord != origin))
         {
@@ -83,13 +84,13 @@ public partial class WarehouseWoes
             foreach (var target in moveFrontier)
             {
                 var source = target.Move(reverseDelta);
-                var sourceCellType = grid[source.R, source.C];
+                var sourceCellType = grid.GetCellType(source);
                 switch (sourceCellType)
                 {
                     case CellType.Box:
                         {
-                            grid[target.R, target.C] = sourceCellType;
-                            grid[source.R, source.C] = CellType.Free;
+                            grid.Boxes.Remove(source);
+                            grid.Boxes.Add(target);
                             previousMoveFrontier.Add(source);
                             break;
                         }
@@ -100,8 +101,8 @@ public partial class WarehouseWoes
                             if (!canMove)
                                 break;
 
-                            grid[target.R, target.C] = sourceCellType;
-                            grid[source.R, source.C] = CellType.Free;
+                            grid.Boxes.Remove(source);
+                            grid.Boxes.Add(target);
                             previousMoveFrontier.Add(source);
                             break;
                         }
@@ -112,8 +113,8 @@ public partial class WarehouseWoes
                             if (!canMove)
                                 break;
 
-                            grid[target.R, target.C] = sourceCellType;
-                            grid[source.R, source.C] = CellType.Free;
+                            grid.Boxes.Remove(source);
+                            grid.Boxes.Add(target);
                             previousMoveFrontier.Add(source);
                             break;
                         }
@@ -128,46 +129,13 @@ public partial class WarehouseWoes
                         throw ExhaustiveMatch.Failed(sourceCellType);
                 };
             }
-            Visualize(grid, origin);
-
+            grid.Visualize();
             moveFrontier = previousMoveFrontier;
         }
 
-        return origin.Move(delta);
+        return grid with { RobotPosition = origin.Move(delta) };
     }
 
-    private static int SumBoxGpsCoordinates(CellType[,] grid) =>
-        Enumerable.Range(0, grid.GetLength(0))
-            .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
-                .Select(c => new Coordinate(r, c)))
-            .Where(coordinate => grid[coordinate.R, coordinate.C] is CellType.Box or CellType.BoxStart)
-            .Sum(WarehouseWoesExtensions.ToGpsCoordinate);
-
-    private static void Visualize(CellType[,] grid, Coordinate robotPosition)
-    {
-        for (int r = 0; r < grid.GetLength(0); r++)
-        {
-            for (int c = 0; c < grid.GetLength(1); c++)
-            {
-                if (r == robotPosition.R && c == robotPosition.C)
-                {
-                    Debug.Write('@');
-                    continue;
-                }
-
-                var val = grid[r, c] switch
-                {
-                    CellType.Wall => '#',
-                    CellType.Box => 'O',
-                    CellType.Free => '.',
-                    CellType.BoxStart => '[',
-                    CellType.BoxEnd => ']',
-                    _ => throw ExhaustiveMatch.Failed(grid[r, c])
-                };
-                Debug.Write(val);
-            }
-            Debug.Write('\n');
-        }
-        Debug.WriteLine("");
-    }
+    private static int SumBoxGpsCoordinates(Grid grid) =>
+        grid.Boxes.Sum(WarehouseWoesExtensions.ToGpsCoordinate);
 }
