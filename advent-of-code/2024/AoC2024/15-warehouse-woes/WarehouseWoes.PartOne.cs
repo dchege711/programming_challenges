@@ -49,27 +49,9 @@ public partial class WarehouseWoes
                 break;
             }
 
-            var newFrontierCandidates = frontierCandidates
-                .SelectMany(coord =>
-                    {
-                        var nextTarget = coord.Add(delta);
-                        Coordinate[] res = grid.GetCellType(coord) switch
-                        {
-                            CellType.Box => [nextTarget],
-                            CellType.BoxStart => [nextTarget, nextTarget.Add(RightDelta)],
-                            CellType.BoxEnd => [nextTarget, nextTarget.Add(LeftDelta)],
-                            CellType.Wall => throw new ArgumentException("Walls should be frontier candidates"),
-                            CellType.Free => [],
-                            _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
-                        };
-                        return res;
-                    })
+            frontierCandidates = frontierCandidates
+                .SelectMany(coord => GetNextFrontier(grid, coord, direction, delta))
                 .ToHashSet();
-
-            if (frontierCandidates.SetEquals(newFrontierCandidates))
-                break;
-
-            frontierCandidates = newFrontierCandidates;
         }
 
         Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
@@ -129,6 +111,52 @@ public partial class WarehouseWoes
         }
 
         return grid with { RobotPosition = origin.Add(delta) };
+    }
+
+    private static IEnumerable<Coordinate> GetNextFrontier(Grid grid, Coordinate start, Direction direction, Delta delta)
+    {
+        var target = start.Add(delta);
+        var cellType = grid.GetCellType(start);
+        Debug.WriteLine($"Evaluating next frontier for {start} -> {target} w/ start={cellType}");
+        IEnumerable<Coordinate> res = cellType switch
+        {
+            CellType.Box => [target],
+            CellType.BoxStart => [target],
+            CellType.BoxEnd => GetNextFrontierForBoxEnd(grid, target, direction),
+            CellType.Wall => [],
+            CellType.Free => [target],
+            _ => throw ExhaustiveMatch.Failed(cellType)
+        };
+        return res;
+    }
+
+    private static IEnumerable<Coordinate> GetNextFrontierForBoxEnd(
+        Grid grid, Coordinate candidate, Direction direction)
+    {
+        Debug.WriteLine($"Evaluating pickups for BoxEnd at {candidate}");
+        if (grid.GetCellType(candidate) is not CellType.BoxEnd)
+            throw new ArgumentException($"Expected BoxEnd at {candidate} but got {grid.GetCellType(candidate) }");
+
+        var boxStartCell = candidate.Add(LeftDelta);
+
+        if (direction.IsLateral())
+            return [boxStartCell];
+
+        var pickAlong = candidate.Add(RightDelta);
+        if (!grid.IsInBounds(pickAlong))
+            return [boxStartCell];
+
+        var pickAlongCellType = grid.GetCellType(pickAlong);
+        IEnumerable<Coordinate> res = pickAlongCellType switch
+        {
+            CellType.Box => throw new InvalidDataException("Cannot mix Box w/ BoxEnd"),
+            CellType.BoxStart => [boxStartCell, pickAlong],
+            CellType.BoxEnd => throw new InvalidDataException($"{pickAlong} next to BoxEnd {candidate} cannot also be a BoxEnd"),
+            CellType.Wall => [boxStartCell, pickAlong],
+            CellType.Free => [boxStartCell],
+            _ => throw ExhaustiveMatch.Failed(pickAlongCellType)
+        };
+        return res;
     }
 
     private static int SumBoxGpsCoordinates(Grid grid) =>
