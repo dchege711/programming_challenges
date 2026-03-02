@@ -37,7 +37,7 @@ public partial class WarehouseWoes
 
         IEnumerable<Coordinate> moveFrontier = [];
 
-        IEnumerable<Coordinate> targetCoords = [ origin.Move(delta) ];
+        HashSet<Coordinate> targetCoords = [origin.Move(delta)];
         while (targetCoords.All(grid.IsInBounds))
         {
             if (targetCoords.Any(grid.IsWall))
@@ -49,29 +49,24 @@ public partial class WarehouseWoes
                 break;
             }
 
-            targetCoords = targetCoords.SelectMany(coord =>
-            {
-                Coordinate[] res = grid.GetCellType(coord) switch
-                {
-                    CellType.Box => [coord.Move(delta)],
-
-                    CellType.BoxStart => isLateralMove
-                        ? [coord.Move(delta)]
-                        : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
-
-                    CellType.BoxEnd => isLateralMove
-                        ? [coord.Move(delta)]
-                        : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
-
-                    CellType.Wall => throw new ArgumentException(
-                        "Walls should have exited the loop already"),
-
-                    CellType.Free => [],
-
-                    _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
-                };
-                return res;
-            });
+            targetCoords = targetCoords
+                .Select(coord =>
+                    {
+                        var nextTarget = coord.Move(delta);
+                        Coordinate? res = grid.GetCellType(coord) switch
+                        {
+                            CellType.Box => nextTarget,
+                            CellType.BoxStart => nextTarget,
+                            CellType.BoxEnd => nextTarget.Move(leftDelta),
+                            CellType.Wall => throw new ArgumentException(
+                                "Walls should have exited the loop already"),
+                            CellType.Free => null,
+                            _ => throw ExhaustiveMatch.Failed(grid.GetCellType(coord))
+                        };
+                        return res;
+                    })
+                .OfType<Coordinate>()
+                .ToHashSet();
         }
 
         if (!moveFrontier.Any())
