@@ -12,38 +12,33 @@ public sealed class Day15WarehouseWoesTests
     [TestMethod]
     public void ParseGrid()
     {
-        var grid = WarehouseWoes.ParseGrid("day-15-sample.in.txt", false);
+        var (grid, startingPosition) = WarehouseWoes.ParseGrid("day-15-sample.in.txt", false);
 
-        grid.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 4));
+        startingPosition.Should().BeEquivalentTo(new Coordinate(4, 4));
 
-        grid.RowCount.Should().Be(10);
-        grid.ColCount.Should().Be(10);
-        grid.BoxWidth.Should().Be(1);
+        grid.GetLength(0).Should().Be(10);
+        grid.GetLength(1).Should().Be(10);
 
-        grid.Walls.Should().Contain(new Coordinate(0, 0));
-        grid.Walls.Should().NotContain(new Coordinate(4, 4));
-
-        grid.Boxes.Should().Contain(new Coordinate(5, 1));
-        grid.Boxes.Should().NotContain(new Coordinate(4, 4));
+        grid[0, 0].Should().Be(CellType.Wall);
+        grid[4, 4].Should().Be(CellType.Free);
+        grid[5, 1].Should().Be(CellType.Box);
     }
 
     [TestMethod]
     public void ParseWideGrid()
     {
-        var grid = WarehouseWoes.ParseGrid("day-15-sample.in.txt", true);
+        var (grid, startingPosition) = WarehouseWoes.ParseGrid("day-15-sample.in.txt", true);
 
-        grid.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 8));
+        startingPosition.Should().BeEquivalentTo(new Coordinate(4, 8));
 
-        grid.RowCount.Should().Be(10);
-        grid.ColCount.Should().Be(20);
-        grid.BoxWidth.Should().Be(2);
+        grid.GetLength(0).Should().Be(10);
+        grid.GetLength(1).Should().Be(20);
 
-        grid.Walls.Should().Contain(new Coordinate(1, 0));
-        grid.Walls.Should().Contain(new Coordinate(1, 1));
-        grid.Walls.Should().NotContain(new Coordinate(4, 9));
-
-        grid.Boxes.Should().Contain(new Coordinate(5, 2));
-        grid.Boxes.Should().NotContain(new Coordinate(4, 9));
+        grid[1, 0].Should().Be(CellType.Wall);
+        grid[1, 1].Should().Be(CellType.Wall);
+        grid[4, 9].Should().Be(CellType.Free);
+        grid[5, 2].Should().Be(CellType.BoxStart);
+        grid[5, 3].Should().Be(CellType.BoxEnd);
     }
 
     [TestMethod]
@@ -57,7 +52,7 @@ public sealed class Day15WarehouseWoesTests
 
     [DataRow("day-15-sample.in.txt", 10092)]
     [DataRow("day-15-sample-2.in.txt", 2028)]
-    // [DataRow("day-15-test.in.txt", 1486930)]
+    [DataRow("day-15-test.in.txt", 1486930)]
     [TestMethod]
     public void PartOne(string filePath, int expectedSum)
     {

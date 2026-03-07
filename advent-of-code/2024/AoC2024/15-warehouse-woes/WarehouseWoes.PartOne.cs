@@ -12,90 +12,111 @@ public partial class WarehouseWoes
 
     private static int MoveAndSumGps(string filePath, bool isWideVersion)
     {
-        var grid = ParseGrid(filePath, isWideVersion);
-        grid.Visualize();
+        var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);
 
+        Visualize(grid, robotPosition);
         foreach (var direction in ParseMoves(filePath))
         {
-            Debug.WriteLine($"Moving {direction} from {grid.RobotPosition}");
-            grid = Move(grid, direction);
-            grid.Visualize();
+            Debug.WriteLine($"Moving {direction}");
+            robotPosition = Move(grid, robotPosition, direction);
+            Visualize(grid, robotPosition);
         }
 
         return SumBoxGpsCoordinates(grid);
     }
 
-    private static Grid Move(Grid grid, Direction direction)
+    private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
     {
-        var origin = grid.RobotPosition;
-
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
         Delta reverseDelta = delta.Reverse();
+        Delta leftDelta = new(0, -1);
+        Delta rightDelta = leftDelta.Reverse();
 
         IEnumerable<Coordinate> moveFrontier = [];
 
-        HashSet<Coordinate> frontierCandidates = [origin.Add(delta)];
-        HashSet<Coordinate> visited = [];
-        while (frontierCandidates.All(grid.IsInBounds))
+        IEnumerable<Coordinate> targetCoords = [ origin.Move(delta) ];
+        while (targetCoords.All(coord => coord.IsInBounds(grid)))
         {
-            Debug.WriteLine($"Expanding frontier: {string.Join(',', frontierCandidates.Select(p => $"({p.R}, {p.C})"))}");
-            if (frontierCandidates.Any(grid.IsWall))
+            var cellTypes = targetCoords.Select(coord => grid[coord.R, coord.C]);
+            if (cellTypes.Any(ct => ct == CellType.Wall))
                 break;
 
-            if (frontierCandidates.All(grid.IsFree))
+            if (cellTypes.All(ct => ct == CellType.Free))
             {
-                moveFrontier = frontierCandidates;
+                moveFrontier = targetCoords;
                 break;
             }
 
-            frontierCandidates = frontierCandidates
-                .SelectMany(coord => GetNextFrontier(grid, coord, direction, delta))
-                .ToHashSet();
+            targetCoords = targetCoords.SelectMany(coord =>
+            {
+                Coordinate[] res = grid[coord.R, coord.C] switch
+                {
+                    CellType.Box => [coord.Move(delta)],
+
+                    CellType.BoxStart => isLateralMove
+                        ? [coord.Move(delta)]
+                        : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
+
+                    CellType.BoxEnd => isLateralMove
+                        ? [coord.Move(delta)]
+                        : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
+
+                    CellType.Wall => throw new ArgumentException(
+                        "Walls should have exited the loop already"),
+
+                    CellType.Free => [],
+
+                    _ => throw ExhaustiveMatch.Failed(grid[coord.R, coord.C])
+                };
+                return res;
+            });
         }
 
-        Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
         if (!moveFrontier.Any())
-            return grid;
+            return origin;
 
         while (moveFrontier.Any(coord => coord != origin))
         {
             Debug.WriteLine($"Move frontier: {string.Join(',', moveFrontier.Select(p => $"({p.R}, {p.C})"))}");
-            HashSet<Coordinate> nextMoveFrontier = [];
-            foreach (var outerTarget in moveFrontier)
+            HashSet<Coordinate> previousMoveFrontier = [];
+            foreach (var target in moveFrontier)
             {
-                if (!grid.IsFree(outerTarget))
-                    throw new InvalidOperationException($"Frontier ({outerTarget.R}, {outerTarget.C}) is not empty: {grid.GetCellType(outerTarget)}");
-
-                var innerSource = outerTarget.Add(reverseDelta);
-                var sourceCellType = grid.GetCellType(innerSource);
+                var source = target.Move(reverseDelta);
+                var sourceCellType = grid[source.R, source.C];
                 switch (sourceCellType)
                 {
                     case CellType.Box:
                         {
-                            grid.Boxes.Remove(innerSource);
-                            grid.Boxes.Add(outerTarget);
-                            nextMoveFrontier.Add(innerSource);
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
                             break;
                         }
 
                     case CellType.BoxStart:
                         {
-                            var outerTargetBoxEnd = outerTarget.Add(RightDelta);
-                            var canMove = isLateralMove || grid.IsFree(outerTargetBoxEnd);
+                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(rightDelta));
                             if (!canMove)
                                 break;
 
-                            grid.Boxes.Remove(innerSource);
-                            grid.Boxes.Add(outerTarget);
-
-                            nextMoveFrontier.Add(
-                                isLateralMove ? outerTarget.Add(RightDelta).Add(RightDelta) : innerSource);
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
                             break;
                         }
 
                     case CellType.BoxEnd:
-                        break;
+                        {
+                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(leftDelta));
+                            if (!canMove)
+                                break;
+
+                            grid[target.R, target.C] = sourceCellType;
+                            grid[source.R, source.C] = CellType.Free;
+                            previousMoveFrontier.Add(source);
+                            break;
+                        }
 
                     case CellType.Free:
                         break;
@@ -107,61 +128,46 @@ public partial class WarehouseWoes
                         throw ExhaustiveMatch.Failed(sourceCellType);
                 };
             }
-            moveFrontier = nextMoveFrontier;
+            Visualize(grid, origin);
+
+            moveFrontier = previousMoveFrontier;
         }
 
-        return grid with { RobotPosition = origin.Add(delta) };
+        return origin.Move(delta);
     }
 
-    private static IEnumerable<Coordinate> GetNextFrontier(Grid grid, Coordinate start, Direction direction, Delta delta)
+    private static int SumBoxGpsCoordinates(CellType[,] grid) =>
+        Enumerable.Range(0, grid.GetLength(0))
+            .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
+                .Select(c => new Coordinate(r, c)))
+            .Where(coordinate => grid[coordinate.R, coordinate.C] is CellType.Box or CellType.BoxStart)
+            .Sum(WarehouseWoesExtensions.ToGpsCoordinate);
+
+    private static void Visualize(CellType[,] grid, Coordinate robotPosition)
     {
-        var target = start.Add(delta);
-        var cellType = grid.GetCellType(start);
-        Debug.WriteLine($"Evaluating next frontier for {start} -> {target} w/ start={cellType}");
-        IEnumerable<Coordinate> res = cellType switch
+        for (int r = 0; r < grid.GetLength(0); r++)
         {
-            CellType.Box => [target],
-            CellType.BoxStart => [target],
-            CellType.BoxEnd => GetNextFrontierForBoxEnd(grid, target, direction),
-            CellType.Wall => [],
-            CellType.Free => [target],
-            _ => throw ExhaustiveMatch.Failed(cellType)
-        };
-        return res;
+            for (int c = 0; c < grid.GetLength(1); c++)
+            {
+                if (r == robotPosition.R && c == robotPosition.C)
+                {
+                    Debug.Write('@');
+                    continue;
+                }
+
+                var val = grid[r, c] switch
+                {
+                    CellType.Wall => '#',
+                    CellType.Box => 'O',
+                    CellType.Free => '.',
+                    CellType.BoxStart => '[',
+                    CellType.BoxEnd => ']',
+                    _ => throw ExhaustiveMatch.Failed(grid[r, c])
+                };
+                Debug.Write(val);
+            }
+            Debug.Write('\n');
+        }
+        Debug.WriteLine("");
     }
-
-    private static IEnumerable<Coordinate> GetNextFrontierForBoxEnd(
-        Grid grid, Coordinate candidate, Direction direction)
-    {
-        Debug.WriteLine($"Evaluating pickups for BoxEnd at {candidate}");
-        if (grid.GetCellType(candidate) is not CellType.BoxEnd)
-            throw new ArgumentException($"Expected BoxEnd at {candidate} but got {grid.GetCellType(candidate) }");
-
-        var boxStartCell = candidate.Add(LeftDelta);
-
-        if (direction.IsLateral())
-            return [boxStartCell];
-
-        var pickAlong = candidate.Add(RightDelta);
-        if (!grid.IsInBounds(pickAlong))
-            return [boxStartCell];
-
-        var pickAlongCellType = grid.GetCellType(pickAlong);
-        IEnumerable<Coordinate> res = pickAlongCellType switch
-        {
-            CellType.Box => throw new InvalidDataException("Cannot mix Box w/ BoxEnd"),
-            CellType.BoxStart => [boxStartCell, pickAlong],
-            CellType.BoxEnd => throw new InvalidDataException($"{pickAlong} next to BoxEnd {candidate} cannot also be a BoxEnd"),
-            CellType.Wall => [boxStartCell, pickAlong],
-            CellType.Free => [boxStartCell],
-            _ => throw ExhaustiveMatch.Failed(pickAlongCellType)
-        };
-        return res;
-    }
-
-    private static int SumBoxGpsCoordinates(Grid grid) =>
-        grid.Boxes.Sum(WarehouseWoesExtensions.ToGpsCoordinate);
-
-    private static Delta LeftDelta = new(0, -1);
-    private static Delta RightDelta = new(0, 1);
 }
