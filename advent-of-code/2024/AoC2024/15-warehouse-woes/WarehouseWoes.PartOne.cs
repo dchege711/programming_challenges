@@ -36,10 +36,11 @@ public partial class WarehouseWoes
         if (cellsToShiftOver.Count == 0)
             return origin;
 
-        foreach (var cell in cellsToShiftOver.Reverse())
+        foreach (var source in cellsToShiftOver.Reverse())
         {
-            var source = cell - delta;
-            grid[cell.R, cell.C] = grid[source.R, source.C];
+            var target = source + delta;
+            grid[target.R, target.C] = grid[source.R, source.C];
+            grid[source.R, source.C] = CellType.Free;
         }
 
         return origin + delta;
@@ -52,7 +53,7 @@ public partial class WarehouseWoes
 
         IReadOnlyList<Coordinate> candidates = GetCellsAffectedByMove(grid, origin, direction);
         var cellsToShift = ImmutableList.CreateBuilder<Coordinate>();
-        cellsToShift.AddRange(candidates);
+        cellsToShift.Add(origin);
         while (candidates.All(coord => coord.IsInBounds(grid)))
         {
             var cellTypes = candidates.Select(coord => grid[coord.R, coord.C]).ToArray();
@@ -63,10 +64,10 @@ public partial class WarehouseWoes
             if (cellTypes.All(ct => ct is CellType.Free))
                 return cellsToShift.ToList();
 
+            cellsToShift.AddRange(candidates);
             candidates = candidates
                 .SelectMany(coord => GetCellsAffectedByMove(grid, coord, direction))
                 .ToList();
-            cellsToShift.AddRange(candidates);
         }
 
         return [];
@@ -85,15 +86,18 @@ public partial class WarehouseWoes
             return [target];
 
         var cellType = grid[target.R, target.C];
-        return cellType switch
+        IReadOnlyList<Coordinate> affectedCells = cellType switch
         {
             CellType.Wall => [target],
             CellType.Box => [target],
             CellType.Free => [target],
             CellType.BoxStart => [target, target + RightDelta],
-            CellType.BoxEnd => [target, target + LeftDelta],
+            CellType.BoxEnd => [target + LeftDelta, target],
             _ => throw ExhaustiveMatch.Failed(cellType)
         };
+
+        Debug.WriteLine($"Moving {origin} {direction} affects: {string.Join(',', affectedCells)}");
+        return affectedCells;
     }
 
     private static Delta LeftDelta = new(0, -1);
