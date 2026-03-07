@@ -32,7 +32,7 @@ public partial class WarehouseWoes
         var isLateralMove = direction.IsLateral();
 
         var cellsToShiftOver = GetCellsToShiftOver(grid, origin, direction);
-        Debug.WriteLine($"Moving: {string.Join(',', cellsToShiftOver.Reverse().Select(p => $"({p.R}, {p.C})"))}");
+        Debug.WriteLine($"Shifting Over: {string.Join(',', cellsToShiftOver.Reverse())}");
         if (cellsToShiftOver.Count == 0)
             return origin;
 
