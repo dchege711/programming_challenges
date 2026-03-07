@@ -39,6 +39,11 @@ public partial class WarehouseWoes
         foreach (var source in cellsToShiftOver.Reverse())
         {
             var target = source + delta;
+            if (grid[target.R, target.C] != CellType.Free)
+            {
+                throw new InvalidOperationException(
+                    $"Cannot shift {source} to {target} because of {grid[target.R, target.C]}");
+            }
             grid[target.R, target.C] = grid[source.R, source.C];
             grid[source.R, source.C] = CellType.Free;
         }
@@ -51,7 +56,7 @@ public partial class WarehouseWoes
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
 
-        IReadOnlyList<Coordinate> candidates = GetCellsAffectedByMove(grid, origin, direction);
+        IEnumerable<Coordinate> candidates = GetCellsAffectedBySingleMove(grid, origin, direction);
         var cellsToShift = ImmutableList.CreateBuilder<Coordinate>();
         cellsToShift.Add(origin);
         while (candidates.All(coord => coord.IsInBounds(grid)))
@@ -66,38 +71,50 @@ public partial class WarehouseWoes
 
             cellsToShift.AddRange(candidates);
             candidates = candidates
-                .SelectMany(coord => GetCellsAffectedByMove(grid, coord, direction))
-                .ToList();
+                .SelectMany(coord => GetCellsAffectedBySingleMove(grid, coord, direction))
+                .ToHashSet();
         }
 
         return [];
     }
 
-    private static IReadOnlyList<Coordinate> GetCellsAffectedByMove(
+    private static IEnumerable<Coordinate> GetCellsAffectedBySingleMove(
         CellType[,] grid, Coordinate origin, Direction direction)
     {
         var delta = direction.ToDelta();
         var target = origin + delta;
 
         if (direction.IsLateral())
-            return [target];
+        {
+            yield return target;
+            yield break;
+        }
 
         if (!target.IsInBounds(grid))
-            return [target];
+        {
+            yield return target;
+            yield break;
+        }
 
         var cellType = grid[target.R, target.C];
-        IReadOnlyList<Coordinate> affectedCells = cellType switch
+        switch (cellType)
         {
-            CellType.Wall => [target],
-            CellType.Box => [target],
-            CellType.Free => [target],
-            CellType.BoxStart => [target, target + RightDelta],
-            CellType.BoxEnd => [target + LeftDelta, target],
-            _ => throw ExhaustiveMatch.Failed(cellType)
-        };
-
-        Debug.WriteLine($"Moving {origin} {direction} affects: {string.Join(',', affectedCells)}");
-        return affectedCells;
+            case CellType.Wall:
+            case CellType.Box:
+            case CellType.Free:
+                yield return target;
+                yield break;
+            case CellType.BoxStart:
+                yield return target;
+                yield return target + RightDelta;
+                yield break;
+            case CellType.BoxEnd:
+                yield return target + LeftDelta;
+                yield return target;
+                yield break;
+            default:
+                throw ExhaustiveMatch.Failed(cellType);
+        }
     }
 
     private static Delta LeftDelta = new(0, -1);
