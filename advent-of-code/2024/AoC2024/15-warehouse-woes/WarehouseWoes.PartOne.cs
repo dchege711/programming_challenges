@@ -29,13 +29,12 @@ public partial class WarehouseWoes
     {
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();
-        Delta reverseDelta = delta.Reverse();
         Delta leftDelta = new(0, -1);
         Delta rightDelta = leftDelta.Reverse();
 
         IEnumerable<Coordinate> moveFrontier = [];
 
-        IEnumerable<Coordinate> targetCoords = [ origin.Move(delta) ];
+        IEnumerable<Coordinate> targetCoords = [ origin + delta ];
         while (targetCoords.All(coord => coord.IsInBounds(grid)))
         {
             var cellTypes = targetCoords.Select(coord => grid[coord.R, coord.C]);
@@ -52,15 +51,15 @@ public partial class WarehouseWoes
             {
                 Coordinate[] res = grid[coord.R, coord.C] switch
                 {
-                    CellType.Box => [coord.Move(delta)],
+                    CellType.Box => [coord + delta],
 
                     CellType.BoxStart => isLateralMove
-                        ? [coord.Move(delta)]
-                        : [coord.Move(delta), coord.Move(rightDelta).Move(delta)],
+                        ? [coord + delta]
+                        : [coord + delta, coord + rightDelta + delta],
 
                     CellType.BoxEnd => isLateralMove
-                        ? [coord.Move(delta)]
-                        : [coord.Move(delta), coord.Move(leftDelta).Move(delta)],
+                        ? [coord + delta]
+                        : [coord + delta, coord + leftDelta + delta],
 
                     CellType.Wall => throw new ArgumentException(
                         "Walls should have exited the loop already"),
@@ -82,7 +81,7 @@ public partial class WarehouseWoes
             HashSet<Coordinate> previousMoveFrontier = [];
             foreach (var target in moveFrontier)
             {
-                var source = target.Move(reverseDelta);
+                var source = target - delta;
                 var sourceCellType = grid[source.R, source.C];
                 switch (sourceCellType)
                 {
@@ -96,7 +95,7 @@ public partial class WarehouseWoes
 
                     case CellType.BoxStart:
                         {
-                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(rightDelta));
+                            var canMove = isLateralMove || moveFrontier.Contains(target + rightDelta);
                             if (!canMove)
                                 break;
 
@@ -108,7 +107,7 @@ public partial class WarehouseWoes
 
                     case CellType.BoxEnd:
                         {
-                            var canMove = isLateralMove || moveFrontier.Contains(target.Move(leftDelta));
+                            var canMove = isLateralMove || moveFrontier.Contains(target + leftDelta);
                             if (!canMove)
                                 break;
 
@@ -133,6 +132,6 @@ public partial class WarehouseWoes
             moveFrontier = previousMoveFrontier;
         }
 
-        return origin.Move(delta);
+        return origin + delta;
     }
 }

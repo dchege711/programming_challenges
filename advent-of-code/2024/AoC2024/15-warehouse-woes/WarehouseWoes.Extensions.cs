@@ -6,8 +6,14 @@ namespace AoC2024;
 
 public static class WarehouseWoesExtensions
 {
-    public static Coordinate Move(this Coordinate coordinate, Delta delta) =>
-        new(coordinate.R + delta.dR, coordinate.C + delta.dC);
+    extension(Coordinate source)
+    {
+        public static Coordinate operator +(Coordinate coord, Delta delta) =>
+            new(coord.R + delta.dR, coord.C + delta.dC);
+
+        public static Coordinate operator -(Coordinate coord, Delta delta) =>
+            new(coord.R - delta.dR, coord.C - delta.dC);
+    }
 
     public static bool IsInBounds(this Coordinate coordinate, CellType[,] grid) =>
         coordinate.R >= 0 && coordinate.R < grid.GetLength(0)
