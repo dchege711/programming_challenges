@@ -1,12 +1,12 @@
 {
-    "github.copilot.enable": {
-      "*": false,
-    },
-    "editor.minimap.enabled": false,
-    "markdownlint.config": {
-        "no-bare-urls": false
-    },
-    "pylint.args": [
-      "--rcfile=${workspaceFolder}/.pylintrc"
-    ]
+  "github.copilot.enable": {
+    "*": false,
+  },
+  "editor.minimap.enabled": false,
+  "markdownlint.config": {
+    "no-bare-urls": false
+  },
+  "pylint.args": [
+    "--rcfile=${workspaceFolder}/.pylintrc"
+  ]
 }
