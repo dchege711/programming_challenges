@@ -14,15 +14,15 @@ public partial class WarehouseWoes
     {
         var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);
 
-        Visualize(grid, robotPosition);
+        grid.Visualize(robotPosition);
         foreach (var direction in ParseMoves(filePath))
         {
             Debug.WriteLine($"Moving {direction}");
             robotPosition = Move(grid, robotPosition, direction);
-            Visualize(grid, robotPosition);
+            grid.Visualize(robotPosition);
         }
 
-        return SumBoxGpsCoordinates(grid);
+        return grid.SumBoxGpsCoordinates();
     }
 
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
@@ -128,46 +128,11 @@ public partial class WarehouseWoes
                         throw ExhaustiveMatch.Failed(sourceCellType);
                 };
             }
-            Visualize(grid, origin);
+            grid.Visualize(origin);
 
             moveFrontier = previousMoveFrontier;
         }
 
         return origin.Move(delta);
-    }
-
-    private static int SumBoxGpsCoordinates(CellType[,] grid) =>
-        Enumerable.Range(0, grid.GetLength(0))
-            .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
-                .Select(c => new Coordinate(r, c)))
-            .Where(coordinate => grid[coordinate.R, coordinate.C] is CellType.Box or CellType.BoxStart)
-            .Sum(WarehouseWoesExtensions.ToGpsCoordinate);
-
-    private static void Visualize(CellType[,] grid, Coordinate robotPosition)
-    {
-        for (int r = 0; r < grid.GetLength(0); r++)
-        {
-            for (int c = 0; c < grid.GetLength(1); c++)
-            {
-                if (r == robotPosition.R && c == robotPosition.C)
-                {
-                    Debug.Write('@');
-                    continue;
-                }
-
-                var val = grid[r, c] switch
-                {
-                    CellType.Wall => '#',
-                    CellType.Box => 'O',
-                    CellType.Free => '.',
-                    CellType.BoxStart => '[',
-                    CellType.BoxEnd => ']',
-                    _ => throw ExhaustiveMatch.Failed(grid[r, c])
-                };
-                Debug.Write(val);
-            }
-            Debug.Write('\n');
-        }
-        Debug.WriteLine("");
     }
 }
