@@ -97,5 +97,5 @@ public partial class WarehouseWoes
     }
 
     private static Delta LeftDelta = new(0, -1);
-    private static Delta RightDelta = new(0, -1);
+    private static Delta RightDelta = new(0, 1);
 }
