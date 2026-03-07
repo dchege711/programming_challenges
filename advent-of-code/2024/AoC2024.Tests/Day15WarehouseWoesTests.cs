@@ -60,8 +60,8 @@ public sealed class Day15WarehouseWoesTests
         sumGpsCoordinates.Should().Be(expectedSum);
     }
 
-    // [DataRow("day-15-sample.in.txt", 9021)]
-    [DataRow("day-15-sample-3.in.txt", 618)]
+    [DataRow("day-15-sample.in.txt", 9021)]
+    // [DataRow("day-15-sample-3.in.txt", 618)]
     // [DataRow("day-15-test.in.txt", 1486930)]
     [TestMethod]
     public void PartTwo(string filePath, int expectedSum)
