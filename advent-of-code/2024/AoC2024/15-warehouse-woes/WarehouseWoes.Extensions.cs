@@ -31,15 +31,27 @@ public static class WarehouseWoesExtensions
     public static bool IsLateral(this Direction direction) =>
         direction == Direction.Left || direction == Direction.Right;
 
-    public static int ToGpsCoordinate(this Coordinate coordinate) =>
-        (coordinate.R * 100) + coordinate.C;
-
-    public static int SumBoxGpsCoordinates(this CellType[,] grid) =>
-        Enumerable.Range(0, grid.GetLength(0))
-            .SelectMany(r => Enumerable.Range(0, grid.GetLength(1))
-                .Select(c => new Coordinate(r, c)))
-            .Where(coordinate => grid[coordinate.R, coordinate.C] is CellType.Box or CellType.BoxStart)
-            .Sum(ToGpsCoordinate);
+    public static int SumBoxGpsCoordinates(this CellType[,] grid)
+    {
+        var sum = 0;
+        for (int r = 0; r < grid.GetLength(0); r++)
+        {
+            for (int c = 0; c < grid.GetLength(1); c++)
+            {
+                var cellType = grid[r, c];
+                switch (cellType)
+                {
+                    case CellType.BoxStart:
+                    case CellType.Box:
+                        sum += r * 100 + c;
+                        break;
+                    default:
+                        continue;
+                }
+            }
+        }
+        return sum;
+    }
 
     public static void Visualize(this CellType[,] grid, Coordinate robotPosition)
     {
