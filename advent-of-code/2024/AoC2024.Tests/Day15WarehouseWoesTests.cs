@@ -16,14 +16,14 @@ public sealed class Day15WarehouseWoesTests
     {
         var warehouseWoes = new WarehouseWoes("day-15-sample-no-moves.in.txt", false);
 
-        warehouseWoes.robotPosition.Should().BeEquivalentTo(new Coordinate(4, 4));
+        warehouseWoes.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 4));
 
-        warehouseWoes.grid.GetLength(0).Should().Be(10);
-        warehouseWoes.grid.GetLength(1).Should().Be(10);
+        warehouseWoes.Grid.GetLength(0).Should().Be(10);
+        warehouseWoes.Grid.GetLength(1).Should().Be(10);
 
-        warehouseWoes.grid[0, 0].Should().Be(CellType.Wall);
-        warehouseWoes.grid[4, 4].Should().Be(CellType.Free);
-        warehouseWoes.grid[5, 1].Should().Be(CellType.Box);
+        warehouseWoes.Grid[0, 0].Should().Be(CellType.Wall);
+        warehouseWoes.Grid[4, 4].Should().Be(CellType.Free);
+        warehouseWoes.Grid[5, 1].Should().Be(CellType.Box);
     }
 
     [TestMethod]
@@ -31,16 +31,16 @@ public sealed class Day15WarehouseWoesTests
     {
         var warehouseWoes = new WarehouseWoes("day-15-sample-no-moves.in.txt", true);
 
-        warehouseWoes.robotPosition.Should().BeEquivalentTo(new Coordinate(4, 8));
+        warehouseWoes.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 8));
 
-        warehouseWoes.grid.GetLength(0).Should().Be(10);
-        warehouseWoes.grid.GetLength(1).Should().Be(20);
+        warehouseWoes.Grid.GetLength(0).Should().Be(10);
+        warehouseWoes.Grid.GetLength(1).Should().Be(20);
 
-        warehouseWoes.grid[1, 0].Should().Be(CellType.Wall);
-        warehouseWoes.grid[1, 1].Should().Be(CellType.Wall);
-        warehouseWoes.grid[4, 9].Should().Be(CellType.Free);
-        warehouseWoes.grid[5, 2].Should().Be(CellType.BoxStart);
-        warehouseWoes.grid[5, 3].Should().Be(CellType.BoxEnd);
+        warehouseWoes.Grid[1, 0].Should().Be(CellType.Wall);
+        warehouseWoes.Grid[1, 1].Should().Be(CellType.Wall);
+        warehouseWoes.Grid[4, 9].Should().Be(CellType.Free);
+        warehouseWoes.Grid[5, 2].Should().Be(CellType.BoxStart);
+        warehouseWoes.Grid[5, 3].Should().Be(CellType.BoxEnd);
     }
 
     [DataRow("day-15-sample.in.txt", false, 10092)]
@@ -53,7 +53,7 @@ public sealed class Day15WarehouseWoesTests
     public void SumGpsCoordinates(string filePath, bool isWideVersion, int expectedSum)
     {
         var warehouseWoes = new WarehouseWoes(filePath, isWideVersion);
-        var sumGpsCoordinates = warehouseWoes.grid.SumBoxGpsCoordinates();
+        var sumGpsCoordinates = warehouseWoes.Grid.SumBoxGpsCoordinates();
         sumGpsCoordinates.Should().Be(expectedSum);
     }
 
@@ -62,14 +62,14 @@ public sealed class Day15WarehouseWoesTests
     {
         var warehouseWoes = new WarehouseWoes("day-15-sample-5.in.txt", false);
 
-        warehouseWoes.robotPosition.Should().Be(new Coordinate(5, 7));
-        warehouseWoes.grid[7, 5].Should().Be(CellType.BoxStart);
-        warehouseWoes.grid[7, 6].Should().Be(CellType.BoxEnd);
-        warehouseWoes.grid[6, 6].Should().Be(CellType.BoxStart);
-        warehouseWoes.grid[6, 7].Should().Be(CellType.BoxEnd);
-        warehouseWoes.grid[7, 7].Should().Be(CellType.BoxStart);
-        warehouseWoes.grid[7, 8].Should().Be(CellType.BoxEnd);
-        warehouseWoes.grid[8, 7].Should().Be(CellType.Free);
-        warehouseWoes.grid[8, 8].Should().Be(CellType.Free);
+        warehouseWoes.RobotPosition.Should().Be(new Coordinate(5, 7));
+        warehouseWoes.Grid[7, 5].Should().Be(CellType.BoxStart);
+        warehouseWoes.Grid[7, 6].Should().Be(CellType.BoxEnd);
+        warehouseWoes.Grid[6, 6].Should().Be(CellType.BoxStart);
+        warehouseWoes.Grid[6, 7].Should().Be(CellType.BoxEnd);
+        warehouseWoes.Grid[7, 7].Should().Be(CellType.BoxStart);
+        warehouseWoes.Grid[7, 8].Should().Be(CellType.BoxEnd);
+        warehouseWoes.Grid[8, 7].Should().Be(CellType.Free);
+        warehouseWoes.Grid[8, 8].Should().Be(CellType.Free);
     }
 }

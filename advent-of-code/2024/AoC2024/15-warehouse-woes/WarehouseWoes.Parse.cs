@@ -5,8 +5,8 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public readonly CellType[,] grid;
-    public Coordinate robotPosition;
+    public CellType[,] Grid { get; }
+    public Coordinate RobotPosition { get; private set; }
 
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
@@ -24,7 +24,7 @@ public partial class WarehouseWoes
             {
                 var c = line.IndexOf('@');
                 if (c != -1)
-                   maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
+                    maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
             }
 
             rows.Add([.. line.SelectMany(c => ToCellTypes(c, isWideVersion))]);
@@ -32,20 +32,20 @@ public partial class WarehouseWoes
 
         if (maybeStartingPosition is not Coordinate startingPosition)
             throw new ArgumentException("Did not find starting position");
-        robotPosition = startingPosition;
+        RobotPosition = startingPosition;
 
         int R = rows.Count;
         int C = rows.First().Length;
 
-        grid = new CellType[R, C];
+        Grid = new CellType[R, C];
         for (int r = 0; r < R; r++)
             for (int c = 0; c < C; c++)
-                grid[r, c] = rows[r][c];
+                Grid[r, c] = rows[r][c];
 
         while ((line = inputReader.ReadLine()) != null)
         {
             foreach (var direction in line.Select(ToDirection))
-                robotPosition = Move(grid, robotPosition, direction);
+                RobotPosition = Move(Grid, RobotPosition, direction);
         }
     }
 
