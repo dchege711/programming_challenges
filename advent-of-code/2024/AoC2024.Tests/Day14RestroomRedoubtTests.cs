@@ -32,7 +32,7 @@ public sealed class Day14RestroomRedoubtTests
 
     [TestMethod]
     [DataRow("day-14-sample.in.txt", 11, 7, 12)]
-    [DataRow("day-14-test.in.txt", 101, 103, 12)]
+    [DataRow("day-14-test.in.txt", 101, 103, 232589280)]
     public void PartOne(
         string filePath, int areaWidth, int areaHeight, int expectedSafetyFactor)
     {
