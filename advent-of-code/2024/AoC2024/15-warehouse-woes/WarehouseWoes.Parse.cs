@@ -6,18 +6,6 @@ public partial class WarehouseWoes
 {
     public Coordinate RobotPosition { get; private set; }
 
-    public CellType[,] Grid
-    {
-        get
-        {
-            int rows = _grid.GetLength(0);
-            int cols = _grid.GetLength(1);
-            CellType[,] copy = new CellType[rows, cols];
-            Array.Copy(_grid, copy, _grid.Length);
-            return copy;
-        }
-    }
-
     private readonly CellType[,] _grid;
     private readonly IReadOnlyList<Direction> _directions;
 
@@ -62,6 +50,15 @@ public partial class WarehouseWoes
         while ((line = inputReader.ReadLine()) != null)
             directions.AddRange(line.Select(ToDirection));
         _directions = directions;
+    }
+
+    public CellType[,] GetGridSnapshot()
+    {
+        int rows = _grid.GetLength(0);
+        int cols = _grid.GetLength(1);
+        CellType[,] copy = new CellType[rows, cols];
+        Array.Copy(_grid, copy, _grid.Length);
+        return copy;
     }
 
     private static Direction ToDirection(char c) => c switch
