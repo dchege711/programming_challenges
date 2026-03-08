@@ -53,10 +53,10 @@ public sealed class Day15WarehouseWoesTests
 
     [DataRow("day-15-sample.in.txt", false, 10092)]
     [DataRow("day-15-sample-2.in.txt", false, 2028)]
-    // [DataRow("day-15-test.in.txt", false, 1486930)]
+    [DataRow("day-15-test.in.txt", false, 1486930)]
     [DataRow("day-15-sample.in.txt", true, 9021)]
-    // [DataRow("day-15-sample-3.in.txt", true, 618)]
-    // [DataRow("day-15-test.in.txt", true, 1486930)]
+    [DataRow("day-15-sample-3.in.txt", true, 618)]
+    [DataRow("day-15-test.in.txt", true, 1486930)]
     [TestMethod]
     public void SumGpsCoordinates(string filePath, bool isWideVersion, int expectedSum)
     {
