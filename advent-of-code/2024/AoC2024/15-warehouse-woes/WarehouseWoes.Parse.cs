@@ -17,29 +17,32 @@ public partial class WarehouseWoes
 
         List<CellType[]> rows = [];
         string? line = null;
-        Coordinate? maybeStartingPosition = null;
+        Coordinate? maybeRobotPosition = null;
         while ((line = inputReader.ReadLine()) != null)
         {
             if (line.Length == 0)
                 break;
 
-            if (maybeStartingPosition is null)
+            if (maybeRobotPosition is null)
             {
                 var c = line.IndexOf('@');
                 if (c != -1)
-                    maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
+                    maybeRobotPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
             }
 
             rows.Add(line.SelectMany(c => ToCellTypes(c, isWideVersion)).ToArray());
         }
 
-        if (maybeStartingPosition is not Coordinate startingPosition)
+        if (maybeRobotPosition is not Coordinate robotPosition)
             throw new ArgumentException("Did not find starting position");
-        RobotPosition = startingPosition;
+
+        RobotPosition = robotPosition;
 
         int R = rows.Count;
-        int C = rows.First().Length;
+        if (R <= 0)
+            throw new ArgumentException("Did not find a grid");
 
+        int C = rows[0].Length;
         Grid = new CellType[R, C];
         for (int r = 0; r < R; r++)
             for (int c = 0; c < C; c++)
