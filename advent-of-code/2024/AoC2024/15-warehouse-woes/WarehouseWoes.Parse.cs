@@ -1,6 +1,4 @@
-using ExhaustiveMatching;
 using AoC2024.WarehouseWoesDataTypes;
-using System.Collections.Immutable;
 
 namespace AoC2024;
 
@@ -9,7 +7,7 @@ public partial class WarehouseWoes
     public CellType[,] Grid { get; }
     public Coordinate RobotPosition { get; private set; }
 
-    private readonly IReadOnlyList<Direction> Directions;
+    private readonly IReadOnlyList<Direction> _directions;
 
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
@@ -51,7 +49,7 @@ public partial class WarehouseWoes
         List<Direction> directions = [];
         while ((line = inputReader.ReadLine()) != null)
             directions.AddRange(line.Select(ToDirection));
-        Directions = directions;
+        _directions = directions;
     }
 
     private static Direction ToDirection(char c) => c switch

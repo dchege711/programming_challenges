@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using AoC2024.WarehouseWoesDataTypes;
 using ExhaustiveMatching;
 
@@ -8,7 +7,7 @@ public partial class WarehouseWoes
 {
     public int Solve()
     {
-        foreach (var direction in Directions)
+        foreach (var direction in _directions)
             RobotPosition = Move(Grid, RobotPosition, direction);
         return Grid.SumBoxGpsCoordinates();
     }
@@ -37,9 +36,9 @@ public partial class WarehouseWoes
         var isLateralMove = direction.IsLateral();
 
         IEnumerable<Coordinate> candidates = GetCellsAffectedBySingleMove(grid, origin, direction);
-        var cellsToShift = ImmutableList.CreateBuilder<Coordinate>();
+        List<Coordinate> cellsToShift = [];
         cellsToShift.Add(origin);
-        while (candidates.All(coord => grid.IsInBounds(coord)))
+        while (candidates.All(grid.IsInBounds))
         {
             var cellTypes = candidates.Select(coord => grid[coord.R, coord.C]).ToArray();
 
