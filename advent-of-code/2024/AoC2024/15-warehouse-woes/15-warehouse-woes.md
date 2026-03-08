@@ -103,7 +103,7 @@ overall complexity.
 <figure>
     <img
       width="100%"
-      src='/img/computer-science/programming-challenges/advent-of-code/2024/day-13-sample-9021-buggy.gif'
+      src='/img/computer-science/programming-challenges/advent-of-code/2024/day-15-sample-9021-buggy.gif'
       alt='Buggy solution for part 2.'
       loading="lazy">
     <figcaption>
