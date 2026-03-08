@@ -11,16 +11,14 @@ public partial class WarehouseWoes
 
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
-        using StreamReader inputReader = new(filePath);
+        var gridAndMoves = File.ReadAllText(filePath).Split("\n\n", 2);
+        if (gridAndMoves.Length != 2)
+            throw new ArgumentException($"{filePath} lacks either a grid or moves section");
 
         List<CellType[]> rows = [];
-        string? line = null;
         Coordinate? maybeRobotPosition = null;
-        while ((line = inputReader.ReadLine()) != null)
+        foreach (var line in gridAndMoves[0].Split('\n'))
         {
-            if (line.Length == 0)
-                break;
-
             if (maybeRobotPosition is null)
             {
                 var c = line.IndexOf('@');
@@ -47,7 +45,7 @@ public partial class WarehouseWoes
                 _grid[r, c] = rows[r][c];
 
         List<Direction> directions = [];
-        while ((line = inputReader.ReadLine()) != null)
+        foreach (var line in gridAndMoves[1].Split('\n'))
             directions.AddRange(line.Select(ToDirection));
         _directions = directions;
     }
