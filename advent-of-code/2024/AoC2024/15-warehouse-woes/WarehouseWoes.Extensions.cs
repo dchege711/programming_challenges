@@ -28,9 +28,6 @@ public static class WarehouseWoesExtensions
         _ => throw ExhaustiveMatch.Failed(direction)
     };
 
-    public static Delta Reverse(this Delta delta) =>
-        new(delta.dR * -1, delta.dC * -1);
-
     public static bool IsLateral(this Direction direction) =>
         direction == Direction.Left || direction == Direction.Right;
 
