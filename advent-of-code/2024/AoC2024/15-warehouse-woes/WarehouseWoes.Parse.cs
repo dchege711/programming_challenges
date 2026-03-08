@@ -5,8 +5,14 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public static (CellType[,], Coordinate) ParseGrid(string filePath, bool isWideVersion)
+    public readonly CellType[,] grid;
+    public Coordinate robotPosition;
+
+    private readonly string _filePath;
+
+    public WarehouseWoes(string filePath, bool isWideVersion)
     {
+        _filePath = filePath;
         using StreamReader inputReader = new(filePath);
 
         List<CellType[]> rows = [];
@@ -16,7 +22,7 @@ public partial class WarehouseWoes
         {
             if (line.Length == 0)
                 break;
-            
+
             if (maybeStartingPosition is null)
             {
                 var c = line.IndexOf('@');
@@ -29,16 +35,15 @@ public partial class WarehouseWoes
 
         if (maybeStartingPosition is not Coordinate startingPosition)
             throw new ArgumentException("Did not find starting position");
+        robotPosition = startingPosition;
 
         int R = rows.Count;
         int C = rows.First().Length;
 
-        var grid = new CellType[R, C];
+        grid = new CellType[R, C];
         for (int r = 0; r < R; r++)
             for (int c = 0; c < C; c++)
                 grid[r, c] = rows[r][c];
-
-        return (grid, startingPosition);
     }
 
     public static IEnumerable<Direction> ParseMoves(string filePath)
@@ -68,7 +73,7 @@ public partial class WarehouseWoes
             case '^': return Direction.Up;
             case 'v': return Direction.Down;
         }
-        
+
         throw ExhaustiveMatch.Failed(c);
     }
 
@@ -81,10 +86,12 @@ public partial class WarehouseWoes
         {
             case '#': return [CellType.Wall];
             case 'O': return [CellType.Box];
+            case '[': return [CellType.BoxStart];
+            case ']': return [CellType.BoxEnd];
             case '.': return [CellType.Free];
             case '@': return [CellType.Free];
         }
-        
+
         throw ExhaustiveMatch.Failed(c);
     }
 
@@ -97,7 +104,7 @@ public partial class WarehouseWoes
             case '.': return [CellType.Free, CellType.Free];
             case '@': return [CellType.Free, CellType.Free];
         }
-        
+
         throw ExhaustiveMatch.Failed(c);
     }
 }

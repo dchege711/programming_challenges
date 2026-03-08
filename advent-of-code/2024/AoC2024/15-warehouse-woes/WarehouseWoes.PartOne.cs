@@ -7,23 +7,15 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public static int PartOne(string filePath) => MoveAndSumGps(filePath, false);
-
-    public static int PartTwo(string filePath) => MoveAndSumGps(filePath, true);
-
-    private static int MoveAndSumGps(string filePath, bool isWideVersion)
+    public void SimulateRobotMoves()
     {
-        var (grid, robotPosition) = ParseGrid(filePath, isWideVersion);
-
         grid.Visualize(robotPosition);
-        foreach (var direction in ParseMoves(filePath))
+        foreach (var direction in ParseMoves(_filePath))
         {
             Debug.WriteLine($"Moving {direction}");
             robotPosition = Move(grid, robotPosition, direction);
             grid.Visualize(robotPosition);
         }
-
-        return grid.SumBoxGpsCoordinates();
     }
 
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
