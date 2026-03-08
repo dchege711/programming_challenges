@@ -54,47 +54,35 @@ public partial class WarehouseWoes
         Directions = directions.ToArray();
     }
 
-    private static Direction ToDirection(char c)
+    private static Direction ToDirection(char c) => c switch
     {
-        switch (c)
-        {
-            case '<': return Direction.Left;
-            case '>': return Direction.Right;
-            case '^': return Direction.Up;
-            case 'v': return Direction.Down;
-        }
-
-        throw ExhaustiveMatch.Failed(c);
-    }
+        '<' => Direction.Left,
+        '>' => Direction.Right,
+        '^' => Direction.Up,
+        'v' => Direction.Down,
+        _ => throw new ArgumentException($"{c} cannot be parsed into a Direction.")
+    };
 
     private static IEnumerable<CellType> ToCellTypes(char c, bool isWideVersion) =>
         isWideVersion ? ToCellTypesWide(c) : ToCellTypesNarrow(c);
 
-    private static IEnumerable<CellType> ToCellTypesNarrow(char c)
+    private static IEnumerable<CellType> ToCellTypesNarrow(char c) => c switch
     {
-        switch (c)
-        {
-            case '#': return [CellType.Wall];
-            case 'O': return [CellType.Box];
-            case '[': return [CellType.BoxStart];
-            case ']': return [CellType.BoxEnd];
-            case '.': return [CellType.Free];
-            case '@': return [CellType.Free];
-        }
+        '#' => [CellType.Wall],
+        'O' => [CellType.Box],
+        '[' => [CellType.BoxStart],
+        ']' => [CellType.BoxEnd],
+        '.' => [CellType.Free],
+        '@' => [CellType.Free],
+        _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")
+    };
 
-        throw ExhaustiveMatch.Failed(c);
-    }
-
-    private static IEnumerable<CellType> ToCellTypesWide(char c)
+    private static IEnumerable<CellType> ToCellTypesWide(char c) => c switch
     {
-        switch (c)
-        {
-            case '#': return [CellType.Wall, CellType.Wall];
-            case 'O': return [CellType.BoxStart, CellType.BoxEnd];
-            case '.': return [CellType.Free, CellType.Free];
-            case '@': return [CellType.Free, CellType.Free];
-        }
-
-        throw ExhaustiveMatch.Failed(c);
-    }
+        '#' => [CellType.Wall, CellType.Wall],
+        'O' => [CellType.BoxStart, CellType.BoxEnd],
+        '.' => [CellType.Free, CellType.Free],
+        '@' => [CellType.Free, CellType.Free],
+        _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")
+    };
 }
