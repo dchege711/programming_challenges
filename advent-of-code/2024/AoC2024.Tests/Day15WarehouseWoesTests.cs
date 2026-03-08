@@ -6,6 +6,7 @@ namespace AoC2024.Tests;
 [DeploymentItem("data/scratchpad/day-15-sample.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-sample-2.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-sample-3.in.txt")]
+[DeploymentItem("data/scratchpad/day-15-sample-5.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-test.in.txt")]
 public sealed class Day15WarehouseWoesTests
 {
@@ -66,9 +67,19 @@ public sealed class Day15WarehouseWoesTests
     }
 
     [TestMethod]
-    public void PartTwo(string filePath, int expectedSum)
+    public void ZigZagEdgeCase()
     {
-        var sumGpsCoordinates = WarehouseWoes.PartTwo(filePath);
-        sumGpsCoordinates.Should().Be(expectedSum);
+        var warehouseWoes = new WarehouseWoes("day-15-sample-5.in.txt", false);
+        warehouseWoes.SimulateRobotMoves();
+
+        warehouseWoes.robotPosition.Should().Be(new Coordinate(5, 7));
+        warehouseWoes.grid[7, 5].Should().Be(CellType.BoxStart);
+        warehouseWoes.grid[7, 6].Should().Be(CellType.BoxEnd);
+        warehouseWoes.grid[6, 6].Should().Be(CellType.BoxStart);
+        warehouseWoes.grid[6, 7].Should().Be(CellType.BoxEnd);
+        warehouseWoes.grid[7, 7].Should().Be(CellType.BoxStart);
+        warehouseWoes.grid[7, 8].Should().Be(CellType.BoxEnd);
+        warehouseWoes.grid[8, 7].Should().Be(CellType.Free);
+        warehouseWoes.grid[8, 8].Should().Be(CellType.Free);
     }
 }

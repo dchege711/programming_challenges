@@ -93,8 +93,9 @@ public partial class WarehouseWoes
         {
             case CellType.Wall:
             case CellType.Box:
-            case CellType.Free:
                 yield return target;
+                yield break;
+            case CellType.Free:
                 yield break;
             case CellType.BoxStart:
                 yield return target;
