@@ -1,5 +1,4 @@
 using System.Collections.Immutable;
-using System.Diagnostics;
 using AoC2024.WarehouseWoesDataTypes;
 using ExhaustiveMatching;
 
@@ -9,13 +8,8 @@ public partial class WarehouseWoes
 {
     public void SimulateRobotMoves()
     {
-        grid.Visualize(robotPosition);
         foreach (var direction in ParseMoves(_filePath))
-        {
-            Debug.WriteLine($"Moving {direction}");
             robotPosition = Move(grid, robotPosition, direction);
-            grid.Visualize(robotPosition);
-        }
     }
 
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
@@ -24,18 +18,12 @@ public partial class WarehouseWoes
         var isLateralMove = direction.IsLateral();
 
         var cellsToShiftOver = GetCellsToShiftOver(grid, origin, direction);
-        Debug.WriteLine($"Shifting Over: {string.Join(',', cellsToShiftOver.Reverse())}");
         if (cellsToShiftOver.Count == 0)
             return origin;
 
         foreach (var source in cellsToShiftOver.Reverse())
         {
             var target = source + delta;
-            if (grid[target.R, target.C] != CellType.Free)
-            {
-                throw new InvalidOperationException(
-                    $"Cannot shift {source} to {target} because of {grid[target.R, target.C]}");
-            }
             grid[target.R, target.C] = grid[source.R, source.C];
             grid[source.R, source.C] = CellType.Free;
         }
