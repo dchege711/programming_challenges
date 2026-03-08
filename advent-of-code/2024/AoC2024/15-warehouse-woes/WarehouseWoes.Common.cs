@@ -39,7 +39,7 @@ public partial class WarehouseWoes
         IEnumerable<Coordinate> candidates = GetCellsAffectedBySingleMove(grid, origin, direction);
         var cellsToShift = ImmutableList.CreateBuilder<Coordinate>();
         cellsToShift.Add(origin);
-        while (candidates.All(coord => coord.IsInBounds(grid)))
+        while (candidates.All(coord => grid.IsInBounds(coord)))
         {
             var cellTypes = candidates.Select(coord => grid[coord.R, coord.C]).ToArray();
 
@@ -70,7 +70,7 @@ public partial class WarehouseWoes
             yield break;
         }
 
-        if (!target.IsInBounds(grid))
+        if (!grid.IsInBounds(target))
         {
             yield return target;
             yield break;

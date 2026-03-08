@@ -15,7 +15,7 @@ public static class WarehouseWoesExtensions
             new(coord.R - delta.dR, coord.C - delta.dC);
     }
 
-    public static bool IsInBounds(this Coordinate coordinate, CellType[,] grid) =>
+    public static bool IsInBounds(this CellType[,] grid, Coordinate coordinate) =>
         coordinate.R >= 0 && coordinate.R < grid.GetLength(0)
         && coordinate.C >= 0 && coordinate.C < grid.GetLength(1);
 
