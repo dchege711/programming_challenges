@@ -63,10 +63,10 @@ public partial class WarehouseWoes
         _ => throw new ArgumentException($"{c} cannot be parsed into a Direction.")
     };
 
-    private static IEnumerable<CellType> ToCellTypes(char c, bool isWideVersion) =>
+    private static CellType[] ToCellTypes(char c, bool isWideVersion) =>
         isWideVersion ? ToCellTypesWide(c) : ToCellTypesNarrow(c);
 
-    private static IEnumerable<CellType> ToCellTypesNarrow(char c) => c switch
+    private static CellType[] ToCellTypesNarrow(char c) => c switch
     {
         '#' => [CellType.Wall],
         'O' => [CellType.Box],
@@ -77,7 +77,7 @@ public partial class WarehouseWoes
         _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")
     };
 
-    private static IEnumerable<CellType> ToCellTypesWide(char c) => c switch
+    private static CellType[] ToCellTypesWide(char c) => c switch
     {
         '#' => [CellType.Wall, CellType.Wall],
         'O' => [CellType.BoxStart, CellType.BoxEnd],
