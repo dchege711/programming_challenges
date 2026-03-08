@@ -6,21 +6,13 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public void SimulateRobotMoves()
-    {
-        foreach (var direction in ParseMoves(_filePath))
-            robotPosition = Move(grid, robotPosition, direction);
-    }
-
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
     {
-        var delta = direction.ToDelta();
-        var isLateralMove = direction.IsLateral();
-
         var cellsToShiftOver = GetCellsToShiftOver(grid, origin, direction);
         if (cellsToShiftOver.Count == 0)
             return origin;
 
+        var delta = direction.ToDelta();
         foreach (var source in cellsToShiftOver.Reverse())
         {
             var target = source + delta;
@@ -31,7 +23,8 @@ public partial class WarehouseWoes
         return origin + delta;
     }
 
-    private static IReadOnlyList<Coordinate> GetCellsToShiftOver(CellType[,] grid, Coordinate origin, Direction direction)
+    private static IReadOnlyList<Coordinate> GetCellsToShiftOver(
+        CellType[,] grid, Coordinate origin, Direction direction)
     {
         var delta = direction.ToDelta();
         var isLateralMove = direction.IsLateral();

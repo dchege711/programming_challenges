@@ -8,11 +8,8 @@ public partial class WarehouseWoes
     public readonly CellType[,] grid;
     public Coordinate robotPosition;
 
-    private readonly string _filePath;
-
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
-        _filePath = filePath;
         using StreamReader inputReader = new(filePath);
 
         List<CellType[]> rows = [];
@@ -44,27 +41,15 @@ public partial class WarehouseWoes
         for (int r = 0; r < R; r++)
             for (int c = 0; c < C; c++)
                 grid[r, c] = rows[r][c];
-    }
-
-    public static IEnumerable<Direction> ParseMoves(string filePath)
-    {
-        using var inputReader = new StreamReader(filePath);
-
-        string? line = null;
-        while ((line = inputReader.ReadLine()) != null)
-        {
-            if (line.Length == 0)
-                break;
-        }
 
         while ((line = inputReader.ReadLine()) != null)
         {
-            foreach (var move in line.Select(ToMove))
-                yield return move;
+            foreach (var direction in line.Select(ToDirection))
+                robotPosition = Move(grid, robotPosition, direction);
         }
     }
 
-    private static Direction ToMove(char c)
+    private static Direction ToDirection(char c)
     {
         switch (c)
         {
