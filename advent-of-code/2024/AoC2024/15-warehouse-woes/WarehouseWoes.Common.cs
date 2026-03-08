@@ -6,6 +6,13 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
+    public int Solve()
+    {
+        foreach (var direction in Directions)
+            RobotPosition = Move(Grid, RobotPosition, direction);
+        return Grid.SumBoxGpsCoordinates();
+    }
+
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
     {
         var cellsToShiftOver = GetCellsToShiftOver(grid, origin, direction);

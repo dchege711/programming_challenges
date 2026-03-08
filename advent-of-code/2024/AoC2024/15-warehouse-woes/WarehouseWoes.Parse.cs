@@ -1,5 +1,6 @@
 using ExhaustiveMatching;
 using AoC2024.WarehouseWoesDataTypes;
+using System.Collections.Immutable;
 
 namespace AoC2024;
 
@@ -7,6 +8,8 @@ public partial class WarehouseWoes
 {
     public CellType[,] Grid { get; }
     public Coordinate RobotPosition { get; private set; }
+
+    private IReadOnlyList<Direction> Directions;
 
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
@@ -27,7 +30,7 @@ public partial class WarehouseWoes
                     maybeStartingPosition = new(rows.Count, c * (isWideVersion ? 2 : 1));
             }
 
-            rows.Add([.. line.SelectMany(c => ToCellTypes(c, isWideVersion))]);
+            rows.Add(line.SelectMany(c => ToCellTypes(c, isWideVersion)).ToArray());
         }
 
         if (maybeStartingPosition is not Coordinate startingPosition)
@@ -42,11 +45,10 @@ public partial class WarehouseWoes
             for (int c = 0; c < C; c++)
                 Grid[r, c] = rows[r][c];
 
+        var directions = ImmutableArray.CreateBuilder<Direction>();
         while ((line = inputReader.ReadLine()) != null)
-        {
-            foreach (var direction in line.Select(ToDirection))
-                RobotPosition = Move(Grid, RobotPosition, direction);
-        }
+            directions.AddRange(line.Select(ToDirection));
+        Directions = directions.ToArray();
     }
 
     private static Direction ToDirection(char c)

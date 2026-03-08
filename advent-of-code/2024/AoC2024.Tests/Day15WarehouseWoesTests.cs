@@ -4,7 +4,6 @@ namespace AoC2024.Tests;
 
 [TestClass]
 [DeploymentItem("data/scratchpad/day-15-sample.in.txt")]
-[DeploymentItem("data/scratchpad/day-15-sample-no-moves.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-sample-2.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-sample-3.in.txt")]
 [DeploymentItem("data/scratchpad/day-15-sample-5.in.txt")]
@@ -14,7 +13,7 @@ public sealed class Day15WarehouseWoesTests
     [TestMethod]
     public void ParseGrid()
     {
-        var warehouseWoes = new WarehouseWoes("day-15-sample-no-moves.in.txt", false);
+        var warehouseWoes = new WarehouseWoes("day-15-sample.in.txt", false);
 
         warehouseWoes.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 4));
 
@@ -29,7 +28,7 @@ public sealed class Day15WarehouseWoesTests
     [TestMethod]
     public void ParseWideGrid()
     {
-        var warehouseWoes = new WarehouseWoes("day-15-sample-no-moves.in.txt", true);
+        var warehouseWoes = new WarehouseWoes("day-15-sample.in.txt", true);
 
         warehouseWoes.RobotPosition.Should().BeEquivalentTo(new Coordinate(4, 8));
 
@@ -53,7 +52,7 @@ public sealed class Day15WarehouseWoesTests
     public void SumGpsCoordinates(string filePath, bool isWideVersion, int expectedSum)
     {
         var warehouseWoes = new WarehouseWoes(filePath, isWideVersion);
-        var sumGpsCoordinates = warehouseWoes.Grid.SumBoxGpsCoordinates();
+        var sumGpsCoordinates = warehouseWoes.Solve();
         sumGpsCoordinates.Should().Be(expectedSum);
     }
 
@@ -61,6 +60,7 @@ public sealed class Day15WarehouseWoesTests
     public void ZigZagEdgeCase()
     {
         var warehouseWoes = new WarehouseWoes("day-15-sample-5.in.txt", false);
+        warehouseWoes.Solve();
 
         warehouseWoes.RobotPosition.Should().Be(new Coordinate(5, 7));
         warehouseWoes.Grid[7, 5].Should().Be(CellType.BoxStart);
