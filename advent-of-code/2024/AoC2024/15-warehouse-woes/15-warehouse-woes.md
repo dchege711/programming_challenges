@@ -46,9 +46,9 @@ robot is finished moving, what is the sum of all boxes' GPS coordinates? {{%
 cite AoC2024Day15 %}}
 
 {{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.PartOne.cs"
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Common.cs"
   highlight="cs"
-  id="WarehouseWoes.PartOne.cs" >}}
+  id="WarehouseWoes.Common.cs" >}}
 
 {{< readfile
   file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Extensions.cs"
