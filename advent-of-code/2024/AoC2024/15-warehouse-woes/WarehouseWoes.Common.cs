@@ -33,7 +33,6 @@ public partial class WarehouseWoes
         CellType[,] grid, Coordinate origin, Direction direction)
     {
         var delta = direction.ToDelta();
-        var isLateralMove = direction.IsLateral();
 
         IEnumerable<Coordinate> candidates = GetCellsAffectedBySingleMove(grid, origin, direction);
         List<Coordinate> cellsToShift = [];
@@ -46,7 +45,7 @@ public partial class WarehouseWoes
                 return [];
 
             if (cellTypes.All(ct => ct is CellType.Free))
-                return cellsToShift.ToList();
+                return cellsToShift;
 
             cellsToShift.AddRange(candidates);
             candidates = candidates
