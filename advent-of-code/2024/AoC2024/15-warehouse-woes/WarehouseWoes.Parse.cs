@@ -4,9 +4,21 @@ namespace AoC2024;
 
 public partial class WarehouseWoes
 {
-    public CellType[,] Grid { get; }
     public Coordinate RobotPosition { get; private set; }
 
+    public CellType[,] Grid
+    {
+        get
+        {
+            int rows = _grid.GetLength(0);
+            int cols = _grid.GetLength(1);
+            CellType[,] copy = new CellType[rows, cols];
+            Array.Copy(_grid, copy, _grid.Length);
+            return copy;
+        }
+    }
+
+    private readonly CellType[,] _grid;
     private readonly IReadOnlyList<Direction> _directions;
 
     public WarehouseWoes(string filePath, bool isWideVersion)
@@ -41,10 +53,10 @@ public partial class WarehouseWoes
             throw new ArgumentException("Did not find a grid");
 
         int C = rows[0].Length;
-        Grid = new CellType[R, C];
+        _grid = new CellType[R, C];
         for (int r = 0; r < R; r++)
             for (int c = 0; c < C; c++)
-                Grid[r, c] = rows[r][c];
+                _grid[r, c] = rows[r][c];
 
         List<Direction> directions = [];
         while ((line = inputReader.ReadLine()) != null)
@@ -68,8 +80,8 @@ public partial class WarehouseWoes
     {
         '#' => NarrowWall,
         'O' => NarrowBox,
-        '[' => NarrowBoxStart,
-        ']' => NarrowBoxEnd,
+        '[' => NarrowBoxStart, // Support already expanded inputs for debugging.
+        ']' => NarrowBoxEnd,   // Support already expanded inputs for debugging.
         '.' => NarrowFree,
         '@' => NarrowFree,
         _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")

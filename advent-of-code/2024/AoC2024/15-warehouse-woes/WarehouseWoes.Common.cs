@@ -8,8 +8,8 @@ public partial class WarehouseWoes
     public int Solve()
     {
         foreach (var direction in _directions)
-            RobotPosition = Move(Grid, RobotPosition, direction);
-        return Grid.SumBoxGpsCoordinates();
+            RobotPosition = Move(_grid, RobotPosition, direction);
+        return _grid.SumBoxGpsCoordinates();
     }
 
     private static Coordinate Move(CellType[,] grid, Coordinate origin, Direction direction)
