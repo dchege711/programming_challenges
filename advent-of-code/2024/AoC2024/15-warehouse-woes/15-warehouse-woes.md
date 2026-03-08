@@ -62,7 +62,7 @@ in `WarehouseWoes.Extensions.cs` without considering any algorithms:
 * Convert a direction, e.g., `^` to a \\((dr, dc)\\) vector.
 * Given a coordinate \\((r, c)\\), add/subtract \\((dr, dc)\\) to/from it.
 * Test if a coordinate \\((r, c)\\) is in bounds.
-* Tell if a direction is lateral (`<`, `>`) or medial (`^`, `v`).
+* Tell if a direction is horizontal (`<`, `>`) or vertical (`^`, `v`).
 
 <details>
 <summary>WarehouseWoes.Extensions.cs</summary>
@@ -89,16 +89,25 @@ move:
 ##############
 ```
 
-*Data is more tractable than program logic. It follows that where you see a
-choice between complexity in data structures and complexity in code, choose the
-former. More: in evolving a design, you should actively seek ways to shift
-complexity from code to data.* - The Art of Unix Programming. {{% cite SE163185
-%}} I had a costly detour away from the 2D array with the desire to make it
-impossible to move `[` and `]` independently. However, even though the data
-structure collapsed `[]` into a single C# `record`, the algorithm was gnarly and
-still performing a lot of vector arithmetic. Keeping the 2D array and then
-simplifying the algorithm worked better here. Remember, the goal is to reduce
-overall complexity.
+I overindexed on: *Bad programmers worry about the code. Good programmers worry
+about data structures and their relationships.* {{% cite SE163185 %}} I had a
+costly detour away from the 2D array with the desire to make it impossible to
+move `[` and `]` independently. However, even though the data structure
+collapsed `[]` into a single C# `record`, the algorithm was gnarly and still
+performing a lot of vector arithmetic. Keeping the 2D array and then simplifying
+the algorithm worked better here. Remember, the goal is to reduce overall
+complexity.
+
+I initially had two equally complex phases. Starting from \\((r_0, c_0)\\), I
+tried computing the final "move frontier" of cells that would be affected by the
+move in question. Then in the second phase, I'd walk back and apply the shifts
+by computing which cells needed to change on the way back. So much bookkeeping
+of edge cases.
+
+`WarehouseWoes.Common.cs` final solution trades off algorithmic complexity by
+incurring extra memory overhead. In the initial phase of a move, I collect all
+of the \\((r_i, c_i)\\) that can shift over. Applying the actual move phase is
+now a simpler swap operation starting from the farthest cells out.
 
 <figure>
     <img
