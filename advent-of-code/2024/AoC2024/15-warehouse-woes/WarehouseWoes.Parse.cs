@@ -9,7 +9,7 @@ public partial class WarehouseWoes
     public CellType[,] Grid { get; }
     public Coordinate RobotPosition { get; private set; }
 
-    private IReadOnlyList<Direction> Directions;
+    private readonly IReadOnlyList<Direction> Directions;
 
     public WarehouseWoes(string filePath, bool isWideVersion)
     {
@@ -48,10 +48,10 @@ public partial class WarehouseWoes
             for (int c = 0; c < C; c++)
                 Grid[r, c] = rows[r][c];
 
-        var directions = ImmutableArray.CreateBuilder<Direction>();
+        List<Direction> directions = [];
         while ((line = inputReader.ReadLine()) != null)
             directions.AddRange(line.Select(ToDirection));
-        Directions = directions.ToArray();
+        Directions = directions;
     }
 
     private static Direction ToDirection(char c) => c switch
@@ -68,21 +68,30 @@ public partial class WarehouseWoes
 
     private static CellType[] ToCellTypesNarrow(char c) => c switch
     {
-        '#' => [CellType.Wall],
-        'O' => [CellType.Box],
-        '[' => [CellType.BoxStart],
-        ']' => [CellType.BoxEnd],
-        '.' => [CellType.Free],
-        '@' => [CellType.Free],
+        '#' => NarrowWall,
+        'O' => NarrowBox,
+        '[' => NarrowBoxStart,
+        ']' => NarrowBoxEnd,
+        '.' => NarrowFree,
+        '@' => NarrowFree,
         _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")
     };
 
     private static CellType[] ToCellTypesWide(char c) => c switch
     {
-        '#' => [CellType.Wall, CellType.Wall],
-        'O' => [CellType.BoxStart, CellType.BoxEnd],
-        '.' => [CellType.Free, CellType.Free],
-        '@' => [CellType.Free, CellType.Free],
+        '#' => WideWall,
+        'O' => WideBox,
+        '.' => WideFree,
+        '@' => WideFree,
         _ => throw new ArgumentException($"{c} cannot be parsed into a CellType.")
     };
+
+    private static readonly CellType[] NarrowWall = [CellType.Wall];
+    private static readonly CellType[] NarrowBox = [CellType.Box];
+    private static readonly CellType[] NarrowFree = [CellType.Free];
+    private static readonly CellType[] NarrowBoxStart = [CellType.BoxStart];
+    private static readonly CellType[] NarrowBoxEnd = [CellType.BoxEnd];
+    private static readonly CellType[] WideWall = [CellType.Wall, CellType.Wall];
+    private static readonly CellType[] WideBox = [CellType.BoxStart, CellType.BoxEnd];
+    private static readonly CellType[] WideFree = [CellType.Free, CellType.Free];
 }
