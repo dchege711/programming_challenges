@@ -2,7 +2,10 @@
 cited-authors:
 - Wastl, Eric
 date: 2026-02-28
-local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/14-restroom-redoubt/14-restroom-redoubt/
+domains:
+- adventofcode.com
+- softwareengineering.stackexchange.com
+local_url: http://localhost:1313/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/15-warehouse-woes/
 title: 'AoC 2024 Day 15: Warehouse Woes'
 ---
 
@@ -35,8 +38,7 @@ is \\(50 \times 50\\) with \\(396\\) walls and \\(613\\) boxes, and thus
 
 Given a move, I need to look up and update the \\(R \times C\\) region in at
 most \\(R-2\\) or \\(C-2\\) cells. These lookups and updates need to be fast. A
-2D array will have good cache locality especially when processing `<`s and `>`s.
-Will go with a 2D array.
+2D array will have good cache locality especially when processing lateral moves.
 
 ## Part One
 
@@ -45,16 +47,6 @@ top edge of a map plus its distance from the left edge of the map. After the
 robot is finished moving, what is the sum of all boxes' GPS coordinates? {{%
 cite AoC2024Day15 %}}
 
-{{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Common.cs"
-  highlight="cs"
-  id="WarehouseWoes.Common.cs" >}}
-
-{{< readfile
-  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Extensions.cs"
-  highlight="cs"
-  id="WarehouseWoes.Extensions.cs" >}}
-
 ## Part Two
 
 Everything except the robot is twice as wide: `#` -> `##`, `O` -> `[]`, `.` ->
@@ -62,26 +54,30 @@ Everything except the robot is twice as wide: `#` -> `##`, `O` -> `[]`, `.` ->
 edge of the map to the closest edge of the box in question. What is the sum of
 all boxes' final GPS coordinates? {{% cite AoC2024Day15 %}}
 
-How much of [Part One](#part-one) still applies? We now need to consider two
-cells at a time, e.g., need to move `[]` together. Instead of `CellType.Box`, we
-could have `CellType.BoxStart` and `CellType.BoxEnd`. GPS coordinates can be
-measured in terms of `CellType.BoxStart`. I think there's promise here; let's
-see how it looks.
+## Solution
 
-The `Move` operation is more complicated because of a domino effect. For
-example, `^` doesn't succeed because the top-right `]` can't move.
+There are some stateless operations that can be solved first and independently
+in `WarehouseWoes.Extensions.cs` without considering any algorithms:
 
-```txt
-##############
-##......##..##
-##...[][]...##
-##....[]....##
-##.....@....##
-##..........##
-##############
-```
+* Convert a direction, e.g., `^` to a \\((dr, dc)\\) vector.
+* Given a coordinate \\((r, c)\\), add/subtract \\((dr, dc)\\) to/from it.
+* Test if a coordinate \\((r, c)\\) is in bounds.
+* Tell if a direction is lateral (`<`, `>`) or medial (`^`, `v`).
 
-Similar argument for trying a `^` here:
+<details>
+<summary>WarehouseWoes.Extensions.cs</summary>
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Extensions.cs"
+  highlight="cs"
+  id="WarehouseWoes.Extensions.cs" >}}
+
+</details>
+
+Compared to [Part One](#part-one), [Part Two](#part-two)'s `Move` operation is
+more complicated because `[` and `]` need to move as a unit. Furthermore, there
+is a domino effect, e.g., `^` doesn't succeed because the top-right `]` can't
+move:
 
 ```txt
 ##############
@@ -93,38 +89,16 @@ Similar argument for trying a `^` here:
 ##############
 ```
 
-For an upward \\(r \to r-1\\) move to succeed row \\(r-1\\) must have enough
-space for all affected boxes in row \\(r\\).
-
-Keeping the 2D array representation is introducing a lot of bookkeeping and
-pitfalls. For example, it shouldn't be possible to partially move a box, but the
-2D array representation allows it.
-
-{{% comment %}}
-
-A couple of mantras to make this learning moment memorable:
-
-> Bad programmers worry about the code. Good programmers worry about data
-> structures and their relationships.
->
-> - Linus Torvalds
-
-> Data is more tractable than program logic. It follows that where you see a
-> choice between complexity in data structures and complexity in code, choose
-> the former. More: in evolving a design, you should actively seek ways to shift
-> complexity from code to data.
->
-> - The Art of Unix Programming
-
-> Show me your flowcharts [code], and conceal your tables [schema], and I shall
-> continue to be mystified; show me your tables [schema] and I won't usually
-> need your flowcharts [code]: they'll be obvious.
->
-> - Fred Brooks, "The Mythical Man Month"
-
-{{% cite SE163185 %}}
-
-{{% /comment %}}
+*Data is more tractable than program logic. It follows that where you see a
+choice between complexity in data structures and complexity in code, choose the
+former. More: in evolving a design, you should actively seek ways to shift
+complexity from code to data.* - The Art of Unix Programming. {{% cite SE163185
+%}} I had a costly detour away from the 2D array with the desire to make it
+impossible to move `[` and `]` independently. However, even though the data
+structure collapsed `[]` into a single C# `record`, the algorithm was gnarly and
+still performing a lot of vector arithmetic. Keeping the 2D array and then
+simplifying the algorithm worked better here. Remember, the goal is to reduce
+overall complexity.
 
 <figure>
     <img
@@ -132,8 +106,23 @@ A couple of mantras to make this learning moment memorable:
       src='/img/computer-science/programming-challenges/advent-of-code/2024/day-13-sample-9021-buggy.gif'
       alt='Buggy solution for part 2.'
       loading="lazy">
-    <figcaption>Buggy solution for part 2.</figcaption>
+    <figcaption>
+      Buggy solution for part 2. Visualizing the result helped me spot and <a
+        href="https://github.com/dchege711/programming_challenges/commit/164062cbf0d55bd81c8ead51a240d940a052f713">
+      fix the zigzag pattern</a>. <code>GPT 5.3-Codex</code> wrote this script
+      using the <code>SixLabors.ImageSharp</code> pattern.
+    </figcaption>
 </figure>
+
+<details>
+<summary>WarehouseWoes.Common.cs</summary>
+
+{{< readfile
+  file="content/computer-science/programming-challenges/advent-of-code/2024/AoC2024/15-warehouse-woes/WarehouseWoes.Common.cs"
+  highlight="cs"
+  id="WarehouseWoes.Common.cs" >}}
+
+</details>
 
 ## References
 
