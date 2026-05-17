@@ -3,6 +3,7 @@ cited-authors:
 - Wilson, Greg
 date: 2026-05-16
 domains:
+- en.wikipedia.org
 - third-bit.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/dict-based-impl-of-objects-and-class-python/
 title: Dictionary-Based Implementation of Classes and Objects (Python)
@@ -241,6 +242,21 @@ def make(_cls, *args, **kwargs):
 
 {{% cite SDXPyObjectsAndClasses %}}
 
+## Dynamic Dispatch
+
+`find_method`'s dynamic dispatch can be improved by adding a `_cache` dictionary
+to each object, where the keys are the names of methods that have been called in
+the past, and the values are the functions that were found to implement those
+methods. {{% cite SDXPyObjectsAndClasses %}}
+
+C++'s compiler generates a virtual function table, an array of virtual function
+pointers. Each virtual function is assigned a fixed integer index. Instances of
+that type store a pointer to the vtable as part of their instance data. Because
+C++ does not support late binding, the vtable cannot be modified at runtime. At
+runtime, calling `shape->area()` is a matter of calling `vptr[i]` where `i` is
+the index assigned to `area`. {{% cite DynamicDispatchWiki %}} {{% cite
+vTableWiki %}}
+
 ## References
 
 1. {{< citation
@@ -248,4 +264,16 @@ def make(_cls, *args, **kwargs):
   author="Greg Wilson"
   title="Objects and Classes"
   url="https://third-bit.com/sdxpy/oop/"
+  accessed="2026-05-16" >}}
+
+1. {{< citation
+  id="DynamicDispatchWiki"
+  title="Dynamic dispatch - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Dynamic_dispatch"
+  accessed="2026-05-16" >}}
+
+1. {{< citation
+  id="vTableWiki"
+  title="Virtual method table - Wikipedia"
+  url="https://en.wikipedia.org/wiki/Virtual_method_table"
   accessed="2026-05-16" >}}
