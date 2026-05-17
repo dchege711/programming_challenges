@@ -4,18 +4,16 @@ cited-authors:
 date: 2026-05-16
 domains:
 - third-bit.com
-local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/objects-and-classes/
-title: Objects and Classes in Python
-weight: 1
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/dict-based-impl-of-objects-and-class-python/
+title: Dictionary-Based Implementation of Classes and Objects (Python)
 ---
 
-## Objects
+{{% cite SDXPyObjectsAndClasses %}} implements a toy version of Python's object
+system using dictionaries that contain references to properties, functions and
+other dictionaries. Consider two shapes, `Square` and `Circle`, with the methods
+`perimeter`, `area`, and `density`.
 
-Consider two `Shape`s, `Square` and `Circle`, with the methods `perimeter`,
-`area`, and `density`. Polymorphism reduces cognitive load by allowing clients
-using related things to ignore their differences. In this case, we'll implement
-a toy version of polymorphism using dictionaries. {{% cite
-SDXPyObjectsAndClasses %}}
+## Objects
 
 A function is an object, where the bytes in a function are instructions. For
 example:
