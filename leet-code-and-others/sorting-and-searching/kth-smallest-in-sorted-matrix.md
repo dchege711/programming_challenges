@@ -7,15 +7,11 @@ domains:
 - en.cppreference.com
 - leetcode.com
 - www.cse.yorku.ca
-local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/sorting-and-searching/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/sorting-and-searching/kth-smallest-in-sorted-matrix/
 publications:
 - Information Processing Letters
-title: Sorting and Searching
+title: K-th Smallest Element in Sorted Matrix
 ---
-
-## Order Statistics
-
-### K-th Smallest Element in Sorted Matrix
 
 > Given an \\(N \times N\\) matrix, where each of the rows and columns
 > are sorted in ascending order, return the \\(k^{th}\\) smallest
@@ -143,8 +139,6 @@ the BFS + MinPQ version. And more surprisingly, a straight up iteration
 over the grid while keeping a MinPQ beats the BFS that tries to
 judiciously add items to the PQ. Maybe this question's cost is dominated
 by cache locality? After all, the run time is \\(\le\\) 100ms.
-
-## References
 
 1. {{< citation
   id="LCKthSmallestElemInSortedMatrix"
