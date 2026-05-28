@@ -1,6 +1,7 @@
 ---
 date: 2026-05-28
 domains:
+- learn.microsoft.com
 - leetcode.com
 local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/strings-and-1d-arrays/is-subsequence/
 title: Is Subsequence
@@ -42,6 +43,24 @@ public class Solution {
 ```
 
 ... where `_s` and `_t` avoid unnecessary string copies in the recursion tree.
+
+{{% comment %}}
+
+C# supports local functions, e.g.,
+
+```cs
+public bool IsSubsequence(string s, string t) {
+  return IsReachable(0, 0);
+
+  bool IsReachable(int si, int ti) { ... }
+}
+```
+
+They are efficient for writing nested functions that can only be called from the
+context of another method. Local functions are defined at compile time. {{% cite
+DotNetLocalFunctions %}}
+
+{{% /comment %}}
 
 {{% cite LCIsSubsequence6743977 %}}'s iterative solution is much cleaner. Trying
 to implement it myself:
@@ -107,4 +126,10 @@ satisfied `a` from index \\(0\\).
   id="LCIsSubsequence6743977"
   title="Is Subsequence - LeetCode > Two Pointer Solution"
   url="https://leetcode.com/problems/is-subsequence/solutions/6743977/video-two-pointer-solution-by-niits-7igj"
+  accessed="2026-05-28" >}}
+
+1. {{< citation
+  id="DotNetLocalFunctions"
+  title="Local functions - C# | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions"
   accessed="2026-05-28" >}}
