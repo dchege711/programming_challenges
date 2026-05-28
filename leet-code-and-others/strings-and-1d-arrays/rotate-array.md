@@ -2,7 +2,7 @@
 date: 2026-05-28
 domains:
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/arrays/rotate-array/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/strings-and-1d-arrays/rotate-array/
 title: Rotate Array
 ---
 

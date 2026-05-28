@@ -3,7 +3,7 @@ date: 2024-07-21
 domains:
 - en.wikipedia.org
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/strings/minimum-penalty-for-a-shop/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/strings-and-1d-arrays/minimum-penalty-for-a-shop/
 tags:
 - prefix-sum
 title: Minimum Penalty for a Shop
