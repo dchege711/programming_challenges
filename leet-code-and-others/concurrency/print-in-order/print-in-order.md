@@ -1,6 +1,9 @@
 ---
-title: "Print in Order"
 date: 2026-06-01
+domains:
+- leetcode.com
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/concurrency/print-in-order/print-in-order/
+title: Print in Order
 ---
 
 Suppose we have a class:
