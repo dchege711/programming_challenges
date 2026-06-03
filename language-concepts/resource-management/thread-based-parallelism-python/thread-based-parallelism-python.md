@@ -201,6 +201,18 @@ waiting. `notify_all()` wakes up all threads waiting on this condition. In a
 typical producer-consumer situation, adding one item to the buffer only needs to
 wake up one consumer thread. {{% cite threadingPy %}}
 
+## Semaphore Objects
+
+`Semaphore` manages an internal counter which is decremented by each
+`acquire(blocking=True, timeout=None)` and incremented by each `release()`. When
+the counter is \\(0\\) on an `acquire()` call, the semaphore blocks, waiting
+until some other thread calls `release(n=1)`. {{% cite threadingPy %}}
+
+`BoundedSemaphore(value=1)` checks that its counter never exceeds its initial
+value, and raises `ValueError` if it does. `BoundedSemaphore`s guard resources
+with limited capacity; releasing too many times is a sign of a bug. {{% cite
+threadingPy %}}
+
 ## Event Objects
 
 `threading.Event` affords a simple communication mechanism: one thread signals
