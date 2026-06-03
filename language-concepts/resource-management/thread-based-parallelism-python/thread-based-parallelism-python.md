@@ -201,6 +201,65 @@ waiting. `notify_all()` wakes up all threads waiting on this condition. In a
 typical producer-consumer situation, adding one item to the buffer only needs to
 wake up one consumer thread. {{% cite threadingPy %}}
 
+## Event Objects
+
+`threading.Event` affords a simple communication mechanism: one thread signals
+an event and other threads wait for it. `Event` manages a flag that can be
+modified via `set()` and `clear()` and queried via `is_set()`.
+`wait(timeout=None)` blocks as long as `ev.is_set() == False` and the timeout,
+if given, has not expired. {{% cite threadingPy %}}
+
+## Timer Objects
+
+`Timer` subclasses `Thread` and represents an action that should be run only
+after a certain amount of time has passed, e.g.,
+
+```py
+def hello(name):
+  print(f"hello, {name}")
+
+t = Timer(30.0, hello, args=("Chege",))
+t.start() # After 30s, "hello, world" will be printed. We can cancel() before 30s elapses.
+```
+
+{{% cite threadingPy %}}
+
+## Barrier Objects
+
+`Barrier` is a synchronization primitive for use by \\(n\\) threads that need to
+wait for each other, e.g.,
+
+```py
+b = Barrier(2, timeout=None, action=None)
+
+def server():
+  start_server()
+  b.wait()
+  while True:
+    connection = accept_connection()
+    process_server_connection(connection)
+
+def client():
+  b.wait()
+  while True:
+    connection = make_connection()
+    process_client_connection(connection)
+```
+
+{{% cite threadingPy %}}
+
+`wait(timeout=None)` passes the barrier. When all \\(n\\) threads call `wait()`,
+they are all released simultaneously. `wait` returns an integer \\(x \in [0,
+N)\\), which can be used for housekeeping, e.g., printing something. If `action`
+was passed in the constructor, one of the threads will have called it prior to
+being released. {{% cite threadingPy %}}
+
+A `Barrier` transitions into a broken state if `action` throws, or `abort()` is
+called. Any active and future `wait()` calls fail with `BrokenBarrierError`.
+Instead of aborting, it's simpler to specify a sensible timeout value. `reset()`
+returns the barrier to the default, empty state and raises `BrokenBarrierError`
+for waiting threads. {{% cite threadingPy %}}
+
 ## References
 
 1. {{< citation
