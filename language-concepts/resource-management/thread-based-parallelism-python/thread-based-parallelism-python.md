@@ -102,6 +102,57 @@ thread.join()
 
 ... where `mydata.number == 11`. {{% cite threadingPy %}}
 
+## `Lock` Objects
+
+A `Lock` is a synchronization primitive that assumes one of two states: `locked`
+and `unlocked`. It is not owned by a particular thread when locked. {{% cite
+threadingPy %}}
+
+If `acquire(blocking=True, timeout=-1)` returns `True`, then `l.locked() ==
+True`. Using `blocking=True` blocks until the lock is unlocked, and then locks
+it and returns `True`. If `blocking=False`, then `acquire` only locks if `l` was
+already unlocked. `timeout=-1` specifies an unbounded wait; it's an error to do
+`l.acquire(blocking=False, timeout=2.5)`. {{% cite threadingPy %}}
+
+`release()` releases a lock, and can be called from any thread. `l.release()` on
+an already unlocked `Lock` raises a `RuntimeError`. If any other threads are
+blocked waiting on `l` to become unlocked, `l.release()` allows exactly one of
+them to proceed. {{% cite threadingPy %}}
+
+## `RLock` Objects
+
+A reentrant lock is a synchronization primitive that may be acquired multiple
+times by the same thread. It is owned by a particular thread when locked; in the
+unlocked state, no thread owns it. {{% cite threadingPy %}}
+
+`acquire()`/`release()` must be called in pairs. Failing to call `release()` as
+many times as `acquire()` can lead to dreadlock. {{% cite threadingPy %}}
+
+`acquire(blocking=True, timeout=-1)`. If no thread owns `l`, acquire the lock
+and return `True`. If the same thread owns `l`, acquire the lock again and
+return `True` (`Lock` would have blocked until `l` can be acquired). If another
+thread owns the lock:
+
+* If `blocking=True`, block until we can acquire the lock, while respecting
+  `timeout`.
+* Otherwise, return `False` as we cannot acquire the lock.
+
+{{% cite threadingPy %}}
+
+{{% comment %}}
+
+Doesn't reentrancy on `Lock` always cause dreadlock? If `t` locked `l`, how can
+`t` unlock `l` while its own execution is blocked waiting for "someone" to
+unlock `t`? Ah, some other thread `t2` can call `l.release()`.
+
+{{% /comment %}}
+
+`release()` decrements the recursion level. If the new recursion level is zero,
+`l` is unlocked (not owned by any thread) and exactly one of any pending threads
+proceed. If the recursion level is still non-zero, `l` remains locked and owned
+by the calling thread. `RuntimeError` results if `release()` is called on a lock
+that is not acquired. {{% cite threadingPy %}}
+
 ## References
 
 1. {{< citation
