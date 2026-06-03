@@ -153,6 +153,54 @@ proceed. If the recursion level is still non-zero, `l` remains locked and owned
 by the calling thread. `RuntimeError` results if `release()` is called on a lock
 that is not acquired. {{% cite threadingPy %}}
 
+## Condition Variables
+
+A condition variable is always associated with some kind of lock, e.g.,
+
+```py
+cv = thread.Condition(lock=l) # cv has acquire(), release(), and locked() targeting l
+
+with cv:
+  while not an_item_is_available(): # Can be replaced w/ cv.wait_for(an_item_is_available)
+    cv.wait()
+  get_an_available_item()
+
+with cv:
+  make_an_item_available()
+  cv.notify()
+```
+
+{{% cite threadingPy %}}
+
+`wait(timeout=None)` releases the underlying lock (`RuntimeError` is the lock
+had not been acquired) and blocks until another thread awakens it via a
+`notify()`/`notify_call()` call. Once awakened, `wait()` re-acquires the lock
+and returns. `wait_for(predicate, timeout=None)` follows the same rules as
+`wait`. {{% cite threadingPy %}}
+
+{{% comment %}}
+
+Think in terms of invariants. The calling thread owns the lock before `wait()`
+and after `wait()`, no matter what happens.
+
+{{% /comment %}}
+
+The `while` loop (and the `cv.wait_for` utility) is needed because `wait()` can
+return after an arbitrary long time, and the condition that prompted `notify()`
+may no longer hold true. This is inherent to multi-threaded programming. {{%
+cite threadingPy %}}
+
+`notify(n=1)` and `notify_all()` don't release the lock (and so awakened threads
+don't return from their `wait()` call immediately). The thread that called
+`notify()` needs to relinquish ownership of the lock. `RuntimeError` if the
+calling thread hasn't acquired the lock when calling `notify*()`. {{% cite
+threadingPy %}}
+
+`notify(n=1)` wakes up at most \\(n\\) threads, and no-ops if no threads are
+waiting. `notify_all()` wakes up all threads waiting on this condition. In a
+typical producer-consumer situation, adding one item to the buffer only needs to
+wake up one consumer thread. {{% cite threadingPy %}}
+
 ## References
 
 1. {{< citation
