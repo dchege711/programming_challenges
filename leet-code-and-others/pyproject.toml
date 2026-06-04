@@ -1,0 +1,13 @@
+[project]
+name = "leet-code-and-others"
+version = "0.1.0"
+description = "Interview prep problems"
+readme = "_index.md"
+requires-python = ">=3"
+dependencies = [
+    "pytest>=4.6.11",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+addopts = "--import-mode=importlib"
