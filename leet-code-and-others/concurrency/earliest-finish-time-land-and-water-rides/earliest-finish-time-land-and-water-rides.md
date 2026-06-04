@@ -32,14 +32,21 @@ How can we solve this without synchronization primitives?
       1. Compute \\(t_{candidate} = max(l_{end}, w_{end})\\)
       2. Update \\(t_{earliest} \leftarrow min(t_{candidate}, t_{earliest})\\)
 
-This algorithm would run in \\(\mathcal{O}(WN)\\), which is quadratic.
+This algorithm would run in \\(\mathcal{O}(WN)\\), which is quadratic. Let's try
+the \\(\mathcal{O}(WN)\\) solution and see how much perf is needed for {{% cite
+LCEarliestFinishTime %}}. Welp, \\(\mathcal{O}(WN)\\) is too slow.
 
-Can sorting help? I don't see how it helps. Step 2.1 above needs to look at all
-non-overlapping \\(w_j\\) except those that overlap with the chosen \\(l_i\\).
-Binary search wouldn't help here.
+Can sorting help reduce the search space so that we run in less than
+\\(\mathcal{O}(WN)\\) time?
 
-Let's try the \\(\mathcal{O}(WN)\\) solution and see how much perf is needed for
-{{% cite LCEarliestFinishTime %}}.
+<details>
+<summary>Implementation: O(WN)</summary>
+
+{{< readfile
+   file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/earliest-finish-time-land-and-water-rides/quadratic_solution.py"
+   highlight="py" >}}
+
+</details>
 
 ## References
 
