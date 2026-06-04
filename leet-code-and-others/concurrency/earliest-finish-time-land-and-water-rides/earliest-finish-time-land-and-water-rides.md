@@ -27,8 +27,8 @@ How can we solve this without synchronization primitives?
 1. Initialize \\(t_{earliest} \leftarrow \infty\\)
 2. For ride \\(l \in L\\), choose \\(l\\) such that \\(l_{start} <
    t_{earliest}\\).
-   1. Choose \\(w \in W\\) such that \\((w_{start}, w_{end})\\) has no overlap
-      with \\((l_{start}, l_{end})\\).
+   1. For each \\(w \in W\\), choose whether to take the ride before or
+      after \\(l\\), preferring before whenever possible.
       1. Compute \\(t_{candidate} = max(l_{end}, w_{end})\\)
       2. Update \\(t_{earliest} \leftarrow min(t_{candidate}, t_{earliest})\\)
 
