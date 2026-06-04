@@ -2,6 +2,8 @@ from math import inf
 
 from typing import List, NamedTuple
 
+import pytest
+
 
 class Ride(NamedTuple):
     available_time: int
@@ -47,7 +49,25 @@ class Solution:
         )
 
 
-if __name__ == "__main__":
-    solution = Solution()
-    print(solution.earliest_finish_time([5], [3], [1], [10]) == 14)
-    print(solution.earliest_finish_time([2, 8], [4, 1], [6], [3]) == 9)
+class RidesConfiguration(NamedTuple):
+    land_available_times: List[int]
+    land_durations: List[int]
+    water_available_times: List[int]
+    water_durations: List[int]
+
+
+@pytest.mark.parametrize(
+    "rides_config,expected",
+    [
+        (RidesConfiguration([5], [3], [1], [10]), 14),
+        (RidesConfiguration([2, 8], [4, 1], [6], [3]), 9),
+    ],
+)
+def test_cases(rides_config: RidesConfiguration, expected: int):
+    res = Solution().earliest_finish_time(
+        rides_config.land_available_times,
+        rides_config.land_durations,
+        rides_config.water_available_times,
+        rides_config.water_durations,
+    )
+    assert res == expected
