@@ -126,7 +126,7 @@ times by the same thread. It is owned by a particular thread when locked; in the
 unlocked state, no thread owns it. {{% cite threadingPy %}}
 
 `acquire()`/`release()` must be called in pairs. Failing to call `release()` as
-many times as `acquire()` can lead to dreadlock. {{% cite threadingPy %}}
+many times as `acquire()` can lead to deadlock. {{% cite threadingPy %}}
 
 `acquire(blocking=True, timeout=-1)`. If no thread owns `l`, acquire the lock
 and return `True`. If the same thread owns `l`, acquire the lock again and
@@ -141,7 +141,7 @@ thread owns the lock:
 
 {{% comment %}}
 
-Doesn't reentrancy on `Lock` always cause dreadlock? If `t` locked `l`, how can
+Doesn't reentrancy on `Lock` always cause deadlock? If `t` locked `l`, how can
 `t` unlock `l` while its own execution is blocked waiting for "someone" to
 unlock `t`? Ah, some other thread `t2` can call `l.release()`.
 

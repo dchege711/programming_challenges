@@ -28,6 +28,23 @@ class FooBar:
 Thread `A` will call `foo()` while thread `B` will call `bar()`. Modify the
 program to output `foobar` `n` times. {{% cite LCPrintFooBarAlternately %}}
 
+## Solution
+
+We can use two `Event`s to communicate whose turn it is to print.
+
+<details>
+<summary>Implementation: Two <code>Event</code>s</summary>
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/print_foobar_alternately.py"
+  highlight="py" >}}
+
+</details>
+
+But I feel like there's a concept that I'm missing. The two-event system is
+primarily a system for communicating ownership, and that's what `Lock`s are
+for.
+
 ## References
 
 1. {{< citation
