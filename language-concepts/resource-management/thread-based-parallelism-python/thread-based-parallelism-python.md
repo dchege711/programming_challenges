@@ -260,6 +260,9 @@ def client():
 
 {{% cite threadingPy %}}
 
+A `Barrier` can be reused any number of times for the same number of threads.
+{{% cite threadingPy %}}
+
 `wait(timeout=None)` passes the barrier. When all \\(n\\) threads call `wait()`,
 they are all released simultaneously. `wait` returns an integer \\(x \in [0,
 N)\\), which can be used for housekeeping, e.g., printing something. If `action`

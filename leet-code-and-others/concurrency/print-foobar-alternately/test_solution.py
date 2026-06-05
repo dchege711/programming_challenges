@@ -5,8 +5,8 @@ import pytest
 
 from .print_foobar_alternately import FooBar
 
-@pytest.mark.parametrize("call_a_first", [True, False])
-def test_solution(call_a_first: bool):
+@pytest.mark.parametrize("call_foo_first", [True, False])
+def test_solution(call_foo_first: bool):
     n = 2
     foo_bar = FooBar(n)
 
@@ -27,7 +27,7 @@ def test_solution(call_a_first: bool):
     thread_a = Thread(target=call_foo)
     thread_b = Thread(target=call_bar)
 
-    threads = (thread_a, thread_b) if call_a_first else  (thread_b, thread_a)
+    threads = (thread_a, thread_b) if call_foo_first else  (thread_b, thread_a)
 
     for t in threads:
         t.start()

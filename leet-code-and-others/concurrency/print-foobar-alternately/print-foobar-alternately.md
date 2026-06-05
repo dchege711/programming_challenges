@@ -30,6 +30,8 @@ program to output `foobar` `n` times. {{% cite LCPrintFooBarAlternately %}}
 
 ## Solution
 
+### Two `Event`s
+
 We can use two `Event`s to communicate whose turn it is to print.
 
 <details>
@@ -68,22 +70,116 @@ class FooBar:
 
 </details>
 
-But I feel like there's a concept that I'm missing. The two-event system is
-primarily a system for communicating ownership, and that's what `Lock`s are
-for.
+{{% comment %}}
 
-However, a single `Lock` expresses mutual exclusion, but doesn't encode whose
-turn is next. Using a `Condition` is more idiomatic, and would scale better as
-\\(N > 2\\).
+But I feel like there's a concept that I'm missing. The two-event system is
+primarily a system for communicating ownership, and that's what `Lock`s are for.
+However, a single `Lock` proved awkward to reason about.
+
+{{% /comment %}}
+
+### `Condition` Variable
+
+Using a `Condition` is more idiomatic, and would scale better as \\(N > 2\\).
 
 <details>
 <summary>Implementation: One <code>Condition</code></summary>
 
+```py
+from threading import Condition
+from enum import Enum
+from functools import partial
+from typing import Callable
+
+class Turn(Enum):
+    FOO = 1
+    BAR = 2
+
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.condition = Condition()
+        self.current_turn = Turn.FOO
+
+    def foo(self, printFoo: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            with self.condition:
+                self.condition.wait_for(partial(self._is_turn, Turn.FOO))
+                printFoo()
+                self.current_turn = Turn.BAR
+                self.condition.notify()
+
+    def bar(self, printBar: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            with self.condition:
+                self.condition.wait_for(partial(self._is_turn, Turn.BAR))
+                printBar()
+                self.current_turn = Turn.FOO
+                self.condition.notify()
+
+    def _is_turn(self, turn: Turn) -> bool:
+        return self.current_turn == turn
+```
+
+</details>
+
+{{% comment %}}
+
+{{% cite LCPrintFooBarAlternatelyAlex %}} has 5 solutions for `Barrier`, `Lock`,
+`Semaphore`, `Condition`, and `Event`. Solving this problem in all 5 different
+ways should help me digest [Thread-Based Parallelism in Python]({{< ref
+"/computer-science/programming-challenges/language-concepts/resource-management/thread-based-parallelism-python/thread-based-parallelism-python"
+>}}) further.
+
+{{% /comment %}}
+
+### Buggy `Barrier`
+
+How can this be solved using `Barrier`s? It seems awkward to do because
+`Barrier`s don't convey turn-based semantics; they read like one-way trap doors.
+Aha, I missed the fact that a `Barrier` can be reused any number of times for
+the same number of threads.
+
+<details>
+<summary>Implementation: One <code>Barrier</code></summary>
+
+```py
+from threading import Barrier
+from typing import Callable
+
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.barrier = Barrier(2)
+
+    def foo(self, printFoo: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            printFoo()
+            self.barrier.wait()
+
+    def bar(self, printBar: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.barrier.wait()
+            printBar()
+```
+
+</details>
+
+However, a `Barrier` is sufficient because it has the invariant "both reached
+this point" and not turn order "foo then bar before next foo". Although {{% cite
+LCPrintFooBarAlternately %}} accepts the above solution, `test_solution.py`
+exposes a bug when `foo` is called first.
+
+<details>
+<summary><code>test_solution.py</code></summary>
+
 {{< readfile
-  file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/print_foobar_alternately.py"
+  file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/test_solution.py"
   highlight="py" >}}
 
 </details>
+
+### `Semaphore`
 
 ## References
 
@@ -91,4 +187,11 @@ turn is next. Using a `Condition` is more idiomatic, and would scale better as
   id="LCPrintFooBarAlternately"
   title="Print FooBar Alternately"
   url="https://leetcode.com/problems/print-foobar-alternately/description/"
+  accessed="2026-06-04" >}}
+
+1. {{< citation
+  id="LCPrintFooBarAlternatelyAlex"
+  author="Alex Usewik"
+  title="Print FooBar Alternately"
+  url="https://leetcode.com/problems/print-foobar-alternately/solutions/336629/5-python-threading-solutions-barrier-eve-jmla/"
   accessed="2026-06-04" >}}
