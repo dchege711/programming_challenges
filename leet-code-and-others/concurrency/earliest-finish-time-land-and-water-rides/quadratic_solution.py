@@ -24,6 +24,9 @@ class QuadraticSolution:
             for fixed_ride in fixed_rides:
                 # Start `fixed_ride` as soon as it's available.
                 fixed_ride_finish_time = fixed_ride.available_time + fixed_ride.duration
+                if fixed_ride_finish_time >= earliest_finish_time:
+                    continue
+
                 for variable_ride in variable_rides:
                     combined_finish_time = inf
                     if (

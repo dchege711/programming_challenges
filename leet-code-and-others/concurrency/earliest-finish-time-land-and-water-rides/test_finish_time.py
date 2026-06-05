@@ -3,6 +3,7 @@ from typing import List, NamedTuple
 import pytest
 
 from .quadratic_solution import QuadraticSolution
+from .linear_solution import LinearSolution
 
 
 class RidesConfiguration(NamedTuple):
@@ -20,8 +21,18 @@ all_ride_configs = [
 
 
 @pytest.mark.parametrize("rides_config,expected", all_ride_configs)
-def test_cases(rides_config: RidesConfiguration, expected: int):
+def test_quadratic_solution(rides_config: RidesConfiguration, expected: int):
     res = QuadraticSolution().earliest_finish_time(
+        rides_config.land_available_times,
+        rides_config.land_durations,
+        rides_config.water_available_times,
+        rides_config.water_durations,
+    )
+    assert res == expected
+
+@pytest.mark.parametrize("rides_config,expected", all_ride_configs)
+def test_linear_solution(rides_config: RidesConfiguration, expected: int):
+    res = LinearSolution().earliest_finish_time(
         rides_config.land_available_times,
         rides_config.land_durations,
         rides_config.water_available_times,
