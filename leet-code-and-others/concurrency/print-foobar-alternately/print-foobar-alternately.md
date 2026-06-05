@@ -64,10 +64,6 @@ class FooBar:
             self.foos_turn.set()
 ```
 
-{{< readfile
-  file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/print_foobar_alternately.py"
-  highlight="py" >}}
-
 </details>
 
 {{% comment %}}
@@ -212,6 +208,45 @@ class FooBar:
 ```
 
 </details>
+
+### Two `Lock`s
+
+`Lock` is appropriate here. `RLock` comes with a notion of recursion, and that
+would complicate things unnecessarily.
+
+<details>
+<summary>Implementation: Two <code>Lock</code>s</summary>
+
+```py
+from threading import Lock
+from typing import Callable
+
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.foo_lock = Lock()
+        self.bar_lock = Lock()
+        self.bar_lock.acquire()
+
+    def foo(self, printFoo: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.foo_lock.acquire()
+            printFoo()
+            self.bar_lock.release()
+
+    def bar(self, printBar: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.bar_lock.acquire()
+            printBar()
+            self.foo_lock.release()
+```
+
+</details>
+
+### Remarks
+
+Of the solutions, I like `Condition` the most because it supports \\(N > 2\\)
+threads in a sane manner and the code itself reads closer to the scenario.
 
 ## References
 

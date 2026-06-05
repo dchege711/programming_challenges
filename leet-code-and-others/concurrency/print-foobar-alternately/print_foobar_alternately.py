@@ -1,21 +1,21 @@
-from threading import BoundedSemaphore
+from threading import Lock
 from typing import Callable
 
 class FooBar:
     def __init__(self, n):
         self.n = n
-        self.foo_gate = BoundedSemaphore(1)
-        self.bar_gate = BoundedSemaphore(1)
-        self.bar_gate.acquire()
+        self.foo_lock = Lock()
+        self.bar_lock = Lock()
+        self.bar_lock.acquire()
 
     def foo(self, printFoo: "Callable[[], None]") -> None:
         for _ in range(self.n):
-            self.foo_gate.acquire()
+            self.foo_lock.acquire()
             printFoo()
-            self.bar_gate.release()
+            self.bar_lock.release()
 
     def bar(self, printBar: "Callable[[], None]") -> None:
         for _ in range(self.n):
-            self.bar_gate.acquire()
+            self.bar_lock.acquire()
             printBar()
-            self.foo_gate.release()
+            self.foo_lock.release()
