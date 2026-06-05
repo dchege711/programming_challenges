@@ -6,7 +6,5 @@
   "markdownlint.config": {
     "no-bare-urls": false
   },
-  "pylint.args": [
-    "--rcfile=${workspaceFolder}/.pylintrc"
-  ]
+  "python.defaultInterpreterPath": "${workspaceFolder}/leet-code-and-others/.venv/bin/python",
 }
