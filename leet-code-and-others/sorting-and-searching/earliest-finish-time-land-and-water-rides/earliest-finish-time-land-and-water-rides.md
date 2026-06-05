@@ -4,7 +4,9 @@ cited-authors:
 date: 2026-06-03
 domains:
 - leetcode.com
-local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/concurrency/earliest-finish-time-land-and-water-rides/earliest-finish-time-land-and-water-rides/
+local_url: http://localhost:1313/computer-science/programming-challenges/leet-code-and-others/sorting-and-searching/earliest-finish-time-land-and-water-rides/earliest-finish-time-land-and-water-rides/
+tags:
+- greedy-algorithm
 title: Earliest Finish Time for Land and Water Rides
 ---
 
@@ -20,11 +22,7 @@ LCEarliestFinishTime %}}
 
 ## Solution
 
-That {{% cite LCEarliestFinishTime %}} is tagged concurrency makes me think that
-I need some synchronization primitives for this. Having a hard time framing {{%
-cite LCEarliestFinishTime %}} as a multi-threading problem though.
-
-How can we solve this without synchronization primitives?
+When in doubt, brute-force:
 
 1. Initialize \\(t_{earliest} \leftarrow \infty\\)
 2. For ride \\(l \in L\\), choose \\(l\\) such that \\(l_{start} <
@@ -61,7 +59,7 @@ algorithm. Suppose we take a ride \\(l \in L\\) first. If \\(l\\) finishes at
 start at \\(\max(l_{finish}, w_{available})\\), and finish at \\(w_{finish} =
 \max(l_{finish}, w_{available}) + w_{duration}\\). \\(w_{finish}\\) is minimized
 by minimizing \\(l_{finish}\\). The same reasoning applies when finishing a
-water ride first.
+water ride first. {{% tag greedy-algorithm %}}
 
 My confusion came from "... a \\(w \in W\\) can only start at
 \\(\max(l_{finish}, w_{available})\\)...". While it's possible to have a \\(w\\)
