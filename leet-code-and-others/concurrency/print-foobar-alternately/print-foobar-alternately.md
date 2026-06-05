@@ -1,4 +1,6 @@
 ---
+cited-authors:
+- Usewik, Alex
 date: 2026-06-04
 domains:
 - leetcode.com
