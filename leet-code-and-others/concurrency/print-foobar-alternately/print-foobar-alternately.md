@@ -35,6 +35,33 @@ We can use two `Event`s to communicate whose turn it is to print.
 <details>
 <summary>Implementation: Two <code>Event</code>s</summary>
 
+```py
+from threading import Event
+from typing import Callable
+
+
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.foos_turn = Event()
+        self.bars_turn = Event()
+        self.foos_turn.set()
+
+    def foo(self, printFoo: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.foos_turn.wait()
+            printFoo()
+            self.foos_turn.clear()
+            self.bars_turn.set()
+
+    def bar(self, printBar: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.bars_turn.wait()
+            printBar()
+            self.bars_turn.clear()
+            self.foos_turn.set()
+```
+
 {{< readfile
   file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/print_foobar_alternately.py"
   highlight="py" >}}
@@ -44,6 +71,19 @@ We can use two `Event`s to communicate whose turn it is to print.
 But I feel like there's a concept that I'm missing. The two-event system is
 primarily a system for communicating ownership, and that's what `Lock`s are
 for.
+
+However, a single `Lock` expresses mutual exclusion, but doesn't encode whose
+turn is next. Using a `Condition` is more idiomatic, and would scale better as
+\\(N > 2\\).
+
+<details>
+<summary>Implementation: One <code>Condition</code></summary>
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-foobar-alternately/print_foobar_alternately.py"
+  highlight="py" >}}
+
+</details>
 
 ## References
 

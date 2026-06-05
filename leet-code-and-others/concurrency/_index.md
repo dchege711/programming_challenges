@@ -5,5 +5,5 @@ title: Concurrency
 ---
 
 See [Resource Management]({{< ref
-"/Users/dchege711/blog/content/computer-science/programming-challenges/language-concepts/resource-management/"
+"/computer-science/programming-challenges/language-concepts/resource-management/"
 >}}) for a concepts overview.

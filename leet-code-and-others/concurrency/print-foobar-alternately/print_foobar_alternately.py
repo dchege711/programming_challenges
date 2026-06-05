@@ -1,24 +1,33 @@
-from threading import Event
+from threading import Condition
+from enum import Enum
+from functools import partial
 from typing import Callable
 
+class Turn(Enum):
+    FOO = 1
+    BAR = 2
 
 class FooBar:
     def __init__(self, n):
         self.n = n
-        self.foos_turn = Event()
-        self.bars_turn = Event()
-        self.foos_turn.set()
+        self.condition = Condition()
+        self.current_turn = Turn.FOO
 
     def foo(self, printFoo: "Callable[[], None]") -> None:
         for _ in range(self.n):
-            self.foos_turn.wait()
-            printFoo()
-            self.foos_turn.clear()
-            self.bars_turn.set()
+            with self.condition:
+                self.condition.wait_for(partial(self._is_turn, Turn.FOO))
+                printFoo()
+                self.current_turn = Turn.BAR
+                self.condition.notify()
 
     def bar(self, printBar: "Callable[[], None]") -> None:
         for _ in range(self.n):
-            self.bars_turn.wait()
-            printBar()
-            self.bars_turn.clear()
-            self.foos_turn.set()
+            with self.condition:
+                self.condition.wait_for(partial(self._is_turn, Turn.BAR))
+                printBar()
+                self.current_turn = Turn.FOO
+                self.condition.notify()
+
+    def _is_turn(self, turn: Turn) -> bool:
+        return self.current_turn == turn
