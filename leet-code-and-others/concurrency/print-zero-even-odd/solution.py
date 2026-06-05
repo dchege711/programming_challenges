@@ -13,7 +13,7 @@ class ZeroEvenOdd:
     def __init__(self, n: int):
         self.n = n
         self.condition = Condition()
-        self.indexToPrint = 1 # 1-based for easier arithmetic in _is_turn
+        self.indexToPrint = 1 # 1-based for easier arithmetic in _is_turn_or_terminated
 
     def _get_current_turn(self) -> Turn:
         if self.indexToPrint > self.n * 2:
@@ -24,19 +24,23 @@ class ZeroEvenOdd:
             return Turn.EVEN
         return Turn.ODD
 
-    def _is_turn(self, turn: Turn) -> bool:
-        return self._get_current_turn() == turn
+    def _is_turn_or_terminated(self, turn: Turn) -> bool:
+        current_turn = self._get_current_turn()
+        return current_turn == turn or current_turn == Turn.TERMINATED
 
-    def _print_and_increment(self, printNumber: 'Callable[[int], None]'):
+    def _maybe_print_and_increment(self, printNumber: 'Callable[[int], None]'):
+        if self._get_current_turn() == Turn.TERMINATED:
+            return
+
         num_to_print = 0 if self.indexToPrint % 2 == 1 else int(self.indexToPrint / 2)
         printNumber(num_to_print)
         self.indexToPrint += 1
 
     def _wait_for_turn_and_print(self, printNumber: 'Callable[[int], None]', turn: Turn):
-        while not self._is_turn(Turn.TERMINATED):
+        while not self._is_turn_or_terminated(Turn.TERMINATED):
             with self.condition:
-                self.condition.wait_for(partial(self._is_turn, turn))
-                self._print_and_increment(printNumber)
+                self.condition.wait_for(partial(self._is_turn_or_terminated, turn))
+                self._maybe_print_and_increment(printNumber)
                 self.condition.notify_all()
 
     def zero(self, printNumber: 'Callable[[int], None]') -> None:

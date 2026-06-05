@@ -17,7 +17,9 @@ passed to three different threads, where thread A calls `zero()`, thread B calls
 
 ## Solution
 
-Use a `Condition` to pass the baton between `zero`, `even`, and `odd`.
+Use a `Condition` to pass the baton between `zero`, `even`, and `odd`. I had
+trouble setting up the correct loop-exit conditions. Debugging deadlocks takes
+some getting used to!
 
 {{< readfile
   file="/content/computer-science/programming-challenges/leet-code-and-others/concurrency/print-zero-even-odd/solution.py"

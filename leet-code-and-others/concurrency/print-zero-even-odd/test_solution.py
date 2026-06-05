@@ -8,7 +8,7 @@ from .solution import ZeroEvenOdd
 
 thread_execution_order = list(permutations(["zero", "even", "odd"]))
 
-@pytest.mark.parametrize(("n", "thread_ids"), list(product([5], thread_execution_order)))
+@pytest.mark.parametrize(("n", "thread_ids"), list(product([1, 2, 5], thread_execution_order)))
 def test_solution(n: int, thread_ids: Tuple[str, str, str]):
 
     printed_numbers: list[int] = []
