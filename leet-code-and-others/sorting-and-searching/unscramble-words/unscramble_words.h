@@ -18,7 +18,8 @@ namespace unscramble_words
     };
 
     std::vector<UnscrambledPair> unscramble(
-        std::vector<std::string> scrambled, std::vector<std::string> word_list);
+        const std::vector<std::string>& scrambled,
+        const std::vector<std::string>& word_list);
 
 }  // namespace unscramble_words
 

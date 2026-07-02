@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 
 #include "unscramble_words.h"
@@ -16,27 +16,28 @@ void PrintTo(const UnscrambledPair& pair, std::ostream* os) {
 }
 
 std::vector<UnscrambledPair> unscramble(
-        std::vector<std::string> scrambled, std::vector<std::string> word_list) {
-    std::map<std::string, std::vector<std::string>> word_list_index{};
+        const std::vector<std::string>& scrambled, const std::vector<std::string>& word_list) {
+    // Pre-process `word_list` into a lookup table keyed by sorted anagrams.
+    std::unordered_map<std::string, std::vector<std::string>> word_list_index{};
+    word_list_index.reserve(word_list.size());
     for (const auto& word : word_list) {
         std::string k = word;
         std::ranges::sort(k);
-        if (word_list_index.contains(k)) {
-            word_list_index.at(k).push_back(word);
-        } else {
-            word_list_index[k] = {word};
-        }
+        word_list_index[k].push_back(word);
     }
 
+    // Iterate through `scrambled` and locate pairs.
     std::vector<UnscrambledPair> pairs{};
+    pairs.reserve(scrambled.size());
     for (const auto& word : scrambled) {
         std::string k = word;
         std::ranges::sort(k);
 
-        if (!word_list_index.contains(k))
+        const auto it = word_list_index.find(k);
+        if (it == word_list_index.end())
             continue;
 
-        pairs.emplace_back(UnscrambledPair{word, word_list_index[k]});
+        pairs.emplace_back(UnscrambledPair{word, it->second});
     }
     return pairs;
 }
