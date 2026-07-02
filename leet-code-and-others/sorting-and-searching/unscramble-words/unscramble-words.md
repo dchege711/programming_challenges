@@ -13,6 +13,12 @@ Write a program that will take these scrambled words from
 them, e.g., `sleewa` unscrambles to `weasel`. For bonus points, sort the
 words by length when you are finished. {{% cite DailyProgrammer03 %}}
 
+## Solution
+
+{{< readfile
+  file="/content/computer-science/programming-challenges/leet-code-and-others/sorting-and-searching/unscramble-words/unscramble_words.cpp"
+  highlight="cpp" >}}
+
 ## References
 
 1. {{< citation

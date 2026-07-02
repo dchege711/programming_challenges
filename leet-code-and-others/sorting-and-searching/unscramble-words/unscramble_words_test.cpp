@@ -1,4 +1,5 @@
 #include <string_view>
+#include <algorithm>
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
@@ -35,5 +36,6 @@ TEST(UnscrambleWordsTest, SampleInput) {
     const std::vector<std::string> word_list = utils::read_lines_from_file("data/wordlist.txt");
     std::vector<UnscrambledPair> pairings = unscramble(scrambled, word_list);
     std::vector<UnscrambledPair> expected_pairings = read_pairings("data/unscrambled.txt");
+    std::ranges::sort(expected_pairings);
     EXPECT_THAT(pairings, ::testing::WhenSorted(expected_pairings));
 }
