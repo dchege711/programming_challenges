@@ -1,0 +1,20 @@
+#ifndef LEET_CODE_AND_OTHERS_SORTING_AND_SEARCHING_UNSCRAMBLE_WORDS_UNSCRAMBLE_WORDS_H
+#define LEET_CODE_AND_OTHERS_SORTING_AND_SEARCHING_UNSCRAMBLE_WORDS_UNSCRAMBLE_WORDS_H
+
+#include <string>
+#include <vector>
+
+namespace unscramble_words
+{
+
+    struct UnscrambledPair {
+        std::string scrambled_word;
+        std::vector<std::string> unscrambled_words;
+    };
+
+    std::vector<UnscrambledPair> unscramble(
+        std::vector<std::string> scrambled, std::vector<std::string> word_list);
+
+}  // namespace unscramble_words
+
+#endif  // LEET_CODE_AND_OTHERS_SORTING_AND_SEARCHING_UNSCRAMBLE_WORDS_UNSCRAMBLE_WORDS_H

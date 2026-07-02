@@ -2,6 +2,10 @@
 
 #include <fstream>
 #include <stdexcept>
+#include <ranges>
+#include <string_view>
+
+namespace utils {
 
 std::vector<std::string> read_lines_from_file(const std::string& file_path) {
     std::ifstream input_file(file_path);
@@ -22,3 +26,19 @@ std::vector<std::string> read_lines_from_file(const std::string& file_path) {
 
     return lines;
 }
+
+std::vector<std::vector<std::string>> read_delimited_lines_from_file(
+        const std::string& file_path, const std::basic_string_view<char> pattern) {
+    std::vector<std::string> lines = read_lines_from_file(file_path);
+    std::vector<std::vector<std::string>> delimited_lines{};
+    for (const std::string& line : lines) {
+        std::vector<std::string> parts{};
+        for (const auto part : std::views::split(line, pattern)) {
+            parts.push_back(std::string(part.begin(), part.end()));
+        }
+        delimited_lines.push_back(parts);
+    }
+    return delimited_lines;
+}
+
+}  // namespace utils

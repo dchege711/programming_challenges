@@ -7,6 +7,8 @@
 
 #include "file_utils.h"
 
+using utils::read_lines_from_file;
+
 namespace {
 
 // Writes `contents` to a uniquely named temporary file and returns its path.
