@@ -24,7 +24,7 @@ namespace {
             pairings.emplace_back(
                 UnscrambledPair{
                     raw_pairing.front(),
-                    {raw_pairing.begin(), raw_pairing.end()}});
+                    {raw_pairing.begin() + 1, raw_pairing.end()}});
         }
         return pairings;
     }
