@@ -231,6 +231,36 @@ need to catch `OperationCanceledException`s, guard it with
 `cts.IsCancellationRequested` and not `ex.CancellationToken == cts.Token`. {{%
 cite Cleary2022-03 %}}
 
+## Responding to Cancellation via Polling
+
+```cs
+void DoSomethingAsync(CancellationToken cancellationToken)
+{
+  while (!done)
+  {
+    cancellationToken.ThrowIfCancellationRequested();
+    ... // Do work
+  }
+}
+
+void DoSomethingAntiPatternAsync(CancellationToken cancellationToken)
+{
+  while (!cancellationToken.IsCancellationRequested)
+  {
+    ... // Do work
+  }
+  // Anti-pattern because we don't throw OperationCanceledException on
+  // cancellation. Caller can't know if the operation ran to completion.
+}
+```
+
+{{% cite Cleary2022-04 %}}
+
+How often to call `ThrowIfCancellationRequested` is an art. For CPU-bound code,
+it's a matter of testing what cancellation feels responsive enough. Another rule
+of thumb is checking right before doing something expensive. {{% cite
+Cleary2022-04 %}}
+
 ## References
 
 1. {{< citation
