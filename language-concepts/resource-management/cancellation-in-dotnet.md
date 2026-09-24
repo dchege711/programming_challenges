@@ -261,6 +261,37 @@ it's a matter of testing what cancellation feels responsive enough. Another rule
 of thumb is checking right before doing something expensive. {{% cite
 Cleary2022-04 %}}
 
+## Responding to Cancellation via Registration
+
+This is the common approach for asynchronous code, e.g.,
+
+```cs
+async Task DoSomethingAsync(CancellationToken cancellationToken)
+{
+  // Always clean up your registration to avoid resource leaks.
+  using var registration = cancellationToken.Register(() => StopSomething());
+  StartSomething();
+  await SomethingCompletedTask;
+}
+```
+
+{{% cite Cleary2024 %}}
+
+Expect that your registration can (and mostly will) be invoked synchronously.
+For example, any registered callbacks are invoked immediately and synchronously
+by the `Cancel` method before it returns. Your callbacks shouldn't perform any
+blocking operations or throw exceptions. {{% cite Cleary2024 %}}
+
+If a callback is ever added to a `CancellationToken` that is already invoked,
+then that callback is immediately and synchronously invoked. In the example
+above, `StopSomething` can be called before `cancellationToken.Register(() =>
+StopSomething())` returns. {{% cite Cleary2024 %}}
+
+`CancellationTokenSource.CancelAsync` immediately transitions to the cancelled
+state, and then queues the callback invocations on a thread pool thread. The
+returned task completes when all callbacks have completed. {{% cite Cleary2024
+%}}
+
 ## References
 
 1. {{< citation
