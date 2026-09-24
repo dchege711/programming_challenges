@@ -292,6 +292,87 @@ state, and then queues the callback invocations on a thread pool thread. The
 returned task completes when all callbacks have completed. {{% cite Cleary2024
 %}}
 
+## Linked Cancellation Tokens
+
+Linked `CancellationToken`s are useful when you need code to be cancelled if
+"A or B". For example, if the business logic has a timeout-and-retry pattern,
+while also allowing the end-user to cancel all retries with a single button
+click. {{% cite Cleary2024-02 %}}
+
+Instead of doing:
+
+```cs
+async Task DoSomethingAsync(CancellationToken cancellationToken)
+{
+  using var cts = new CancellationTokenSource();
+  using var registration = cancellationToken.Register(cts.Cancel);
+  var task = DoSomethingElseAsync(cts.Token);
+  ... // Do something while `task` is in progress, possibly calling `cts.Cancel()`
+  await task;
+}
+```
+
+... one can do:
+
+```cs
+async Task DoSomethingAsync(CancellationToken cancellationToken)
+{
+  using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+  var task = DoSomethingElseAsync(cts.Token);
+  ... // Do something while `task` is in progress, possibly calling `cts.Cancel()`
+  await task;
+}
+```
+
+... where `CancellationTokenSource.CreateLinkedTokenSource` can take any number
+of `CancellationToken`s, and the `CancellationTokenSource` will be cancelled
+when any of the tokens are cancelled. {{% cite Cleary2024-02 %}}
+
+`Polly` makes use of linked cancellation tokens, e.g.,
+
+```cs
+async Task ExecuteWithTimeoutAsync(CancellationToken cancellationToken)
+{
+  ResiliencePipeline pipeline = new ResiliencePipelineBuilder()
+    .AddTimeout(TimeSpan.FromSeconds(10))
+    .Build();
+
+  await pipeline.ExecuteAsync(async token =>
+  {
+    ... // Code that uses `token` (not `cancellationToken`)
+  }, cancellationToken);
+}
+```
+
+... `token` is linked to both `Polly`'s pipeline (cancelled after 10s) and the
+outer `cancellationToken` that you own. {{% cite Cleary2024-02 %}}
+
+Linked cancellation tokens illustrate the folly of checking
+`ex.CancellationToken == cts.Token` instead of `cts.IsCancellationRequested`. If
+`DoSomethingElseAsync` internally uses a linked `CancellationTokenSource`, then
+it's possible that `ex.CancellationToken != cts.Token`. If you must:
+
+```cs
+async Task DoSomethingAsync(CancellationToken cancellationToken)
+{
+  using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+  cts.CancelAfter(TimeSpan.FromSeconds(10));
+
+  try
+  {
+    await DoSomethingElseAsync(cts.Token);
+  }
+  catch (OperationCanceledException ex)
+    when (cts.IsCancellationRequested && !cancellationToken.IsCancellationRequested)
+  {
+    ... // Do some recovery specific to the timeout
+    throw;
+  }
+}
+```
+
+{{% cite Cleary2024-02 %}}
+
 ## References
 
 1. {{< citation
