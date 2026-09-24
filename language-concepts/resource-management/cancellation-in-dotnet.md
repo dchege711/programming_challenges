@@ -200,6 +200,37 @@ attached listeners). This cleanup happens either on
 Ensure at least one of the two happens in a `CancellationTokenSource`'s
 lifetime. {{% cite Cleary2022-02 %}}
 
+## Detecting Cancellation
+
+By convention, methods that take `CancellationToken` throw
+`OperationCanceledException` when they are cancelled. The typical response is:
+
+```cs
+async Task TryDoSomethingAsync()
+{
+  using CancellationTokenSource cts = new();
+  ... // Wire up something that may cancel `cts`.
+
+  try
+  {
+    await DoThingAsync(cts.Token);
+  }
+  catch (Exception ex) when (ex is not OperationCanceledException)
+  {
+    ... // Normal error handling; logging, etc.
+  }
+}
+```
+
+... because handling `OperationCanceledException`s is outside the norm. {{% cite
+Cleary2022-03 %}}
+
+While `OperationCanceledException` has a `CancellationToken` property, this may
+not match the token from your `CancellationTokenSource`. If for some reason you
+need to catch `OperationCanceledException`s, guard it with
+`cts.IsCancellationRequested` and not `ex.CancellationToken == cts.Token`. {{%
+cite Cleary2022-03 %}}
+
 ## References
 
 1. {{< citation
