@@ -64,6 +64,142 @@ async Task DoSomethingAsync(CancellationToken cancellationToken)
 ... Instead, use the `cancellationToken` inside the delegate. {{% cite
 Cleary2022 %}}
 
+## Requesting Cancellation
+
+In most cases, the framework you're using provides the `CancellationToken`,
+e.g., ASP.NET provides a `CancellationToken` that represents an unexpected
+client disconnect. Use `CancellationTokenSource` when you need to provide your
+own `CancellationToken` that can be cancelled later. {{% cite Cleary2022-02 %}}
+
+Each `CancellationToken` created from a `CancellationTokenSource` is a small
+`struct` that refers back to its `CancellationTokenSource`. A
+`CancellationToken` can only respond to cancellation request. To request a
+cancellation, keep a reference to the `CancellationTokenSource` and request
+cancellations through it. {{% cite Cleary2022-02 %}}
+
+For the common case of requesting cancellation after a timeout:
+
+```cs
+async Task DoSomethingWithTimeoutAsync()
+{
+  using CancellationTokenSource cts = new(TimeSpan.FromMinutes(5));
+  await DoSomethingAsync(cts.Token);
+
+  // At the end of this method, the CTS is disposed and its tokens should not
+  // be used after this point.
+}
+```
+
+... or call `CancelAfter` on an existing `CancellationTokenSource`. {{% cite
+Cleary2022-02 %}}
+
+Consider a GUI application with a "Cancel" button:
+
+```cs
+Constructor() => CancelButton.Enabled = false;
+
+private CancellationTokenSource? _cts;
+
+async void StartButton_Click(...)
+{
+  // Requirement: Either the Start or Cancel button can be enabled at any given time.
+  StartButton.Enabled = false;
+  CancelButton.Enabled = true;
+
+  using var cts = _cts = new();
+
+  try
+  {
+    await DoSomethingAsync(_cts.Token);
+    ... // Display success in the UI.
+  }
+  catch (Exception ex)
+  {
+    ... // Display error in the UI.
+  }
+  finally
+  {
+    // Requirement: Start button remain disabled until operation completes
+    // successfully, or with an Exception (including OperationCanceledException).
+    StartButton.Enabled = true;
+    CancelButton.Enabled = false;
+  }
+}
+
+async void CancelButton_Click(...)
+{
+  if (_cts is not CancellationTokenSource cts)
+    throw new IllegalOperationException("Cancel called without a prior operation");
+
+  // Requirement: After cancellation, the Cancel button remains enabled but is a noop.
+  cts.Cancel();
+}
+```
+
+{{% cite leary2022-02 %}}
+
+What if the user should be able to start a new operation as soon as the old
+operation is cancelled, without waiting for the old operation to complete?
+
+```cs
+Constructor() => CancelButton.Enabled = false;
+
+private CancellationTokenSource? _cts;
+
+async void StartButton_Click(...)
+{
+  StartButton.Enabled = false;
+  CancelButton.Enabled = true;
+
+  using var cts = _cts = new();
+
+  // Requirement: Only show updates when we're the current operation. Use
+  // `cts == _cts` because `_cts` changes every time StartButton is clicked.
+  try
+  {
+    await DoSomethingAsync(_cts.Token);
+    if (cts == _cts)
+    {
+      ... // Display success in the UI.
+    }
+    catch (Exception ex)
+    {
+      if (cts == _cts)
+      {
+        ... // Display error in the UI.
+      }
+    }
+    finally
+    {
+      StartButton.Enabled = true;
+      CancelButton.Enabled = false;
+    }
+  }
+}
+
+async void CancelButton_Click(...)
+{
+  StartButton.Enabled = true; // NEW
+  CancelButton.Enabled = false; // NEW
+
+  if (_cts is not CancellationTokenSource cts)
+    throw new IllegalOperationException("Cancel called without a prior operation");
+
+  cts.Cancel();
+
+  // Requirement: Cancelled operations do not update the UI with success/errors
+  _cts = null; // NEW
+}
+```
+
+{{% cite Cleary2022-02 %}}
+
+Always clean up `CancellationTokenSource`'s resources (e.g., timeout timers,
+attached listeners). This cleanup happens either on
+`CancellationTokenSource.Dispose()` or on `CancellationTokenSource.Cancel()`.
+Ensure at least one of the two happens in a `CancellationTokenSource`'s
+lifetime. {{% cite Cleary2022-02 %}}
+
 ## References
 
 1. {{< citation
