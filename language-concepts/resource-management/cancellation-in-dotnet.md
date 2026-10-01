@@ -1,6 +1,11 @@
 ---
-title: "Cancellation in .NET"
+cited-authors:
+- Cleary, Stephen
 date: 2026-09-23
+domains:
+- blog.stephencleary.com
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/cancellation-in-dotnet/
+title: Cancellation in .NET
 ---
 
 ## Overview
