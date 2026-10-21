@@ -2,8 +2,8 @@
 date: 2026-06-02
 domains:
 - docs.python.org
-local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/thread-based-parallelism-python/thread-based-parallelism-python/
-title: Thread-Based Parallelism in Python
+local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/low-level-concurrency/sync-primitives-w-python-specifics/
+title: Synchronization Primitives with Python Specifics
 ---
 
 {{% priors %}}
