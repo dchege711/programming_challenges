@@ -2,6 +2,8 @@
 date: 2026-06-02
 domains:
 - docs.python.org
+- learn.microsoft.com
+- www.hellointerview.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/low-level-concurrency/sync-primitives-w-python-specifics/
 title: Synchronization Primitives with Python Specifics
 ---
@@ -106,7 +108,8 @@ thread.join()
 
 A `Lock` is a synchronization primitive that assumes one of two states: `locked`
 and `unlocked`. It is not owned by a particular thread when locked. {{% cite
-threadingPy %}}
+threadingPy %}} A lock creates a critical section where only one thread executes
+at a time. {{% cite ConcurrencyHelloInterview %}}
 
 If `acquire(blocking=True, timeout=-1)` returns `True`, then `l.locked() ==
 True`. Using `blocking=True` blocks until the lock is unlocked, and then locks
@@ -118,6 +121,36 @@ already unlocked. `timeout=-1` specifies an unbounded wait; it's an error to do
 an already unlocked `Lock` raises a `RuntimeError`. If any other threads are
 blocked waiting on `l` to become unlocked, `l.release()` allows exactly one of
 them to proceed. {{% cite threadingPy %}}
+
+The main variants for locks are coarse-grained (one lock for everything),
+fine-grained (per-resource locks), and read-write (multiple readers OR one
+writer). {{% cite ConcurrencyHelloInterview %}}
+
+## Atomics
+
+Atomics provide thread-safe operations on single variables without locks, e.g.,
+
+```cs
+using System.Threading;
+
+int counter = 0;
+Interlocked.Increment(ref counter);
+```
+
+... which use uninterruptible CPU instructions like compare-and-swap (CAS).
+Python lacks these, and you'd have to use manually use locks. {{% cite
+ConcurrencyHelloInterview %}}
+
+{{% comment %}}
+
+Some languages, e.g., C#, support specifying variables as `volatile`. This tells
+the compiler that a field might be modified by multiple concurrent threads, and
+thus the compiler excludes that variable from certain kinds of optimizations.
+`volatile` does not provide atomicity for operations other than assignment,
+doesn't prevent race conditions, nor provide ordering guarantees for other
+memory operations. {{% cite VolatileDotNet %}}
+
+{{% /comment %}}
 
 ## `RLock` Objects
 
@@ -154,6 +187,9 @@ by the calling thread. `RuntimeError` results if `release()` is called on a lock
 that is not acquired. {{% cite threadingPy %}}
 
 ## Condition Variables
+
+Condition variables let threads wait efficiently for a condition to become true.
+{{% cite ConcurrencyHelloInterview %}}
 
 A condition variable is always associated with some kind of lock, e.g.,
 
@@ -212,6 +248,9 @@ until some other thread calls `release(n=1)`. {{% cite threadingPy %}}
 value, and raises `ValueError` if it does. `BoundedSemaphore`s guard resources
 with limited capacity; releasing too many times is a sign of a bug. {{% cite
 threadingPy %}}
+
+Semaphores are useful for limiting concurrent operations, e.g., at most 10 API
+calls at a given time. {{% cite ConcurrencyHelloInterview %}}
 
 ## Event Objects
 
@@ -275,6 +314,34 @@ Instead of aborting, it's simpler to specify a sensible timeout value. `reset()`
 returns the barrier to the default, empty state and raises `BrokenBarrierError`
 for waiting threads. {{% cite threadingPy %}}
 
+## Blocking Queues
+
+Blocking queues provide thread-safe producer-consumer handoff. Producers call
+`q.put(item, block=True, timeout=None)` to add items, with the `block=True`
+blocking if there's no free spot available by the end of `timeout`.
+`q.get(block=True, timeout=None)` removes and returns an item from the queue,
+with `block=True` blocking for `timeout` until an item is available for removal.
+{{% cite QueuePy %}}
+
+`q.shutdown(immediate=False)` makes `put` calls raise `ShutDown` exceptions, and
+`immediate=False` allows `get` calls to succeed until there are no more items.
+{{% cite QueuePy %}}
+
+`q.join()` blocks until all items in the queue have been gotten and processed;
+the count of unfinished tasks goes up whenever an item is added, and goes down
+whenever a consumer thread calls `q.task_done()` to indicate the item was
+retrieved and all work on it is complete. {{% cite QueuePy %}}
+
+{{% comment %}}
+
+Some languages, e.g., C# and Go, have channels that are modern versions of
+blocking queues. See [Passing Data Asynchronously Between Producers and
+Consumers (.NET)]({{< ref
+"/computer-science/algorithms-and-data-structures/derived-data/stream-processing/dotnet-threading-channels/"
+>}}) for more about .NET's `Channel<T>` data structure.
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -282,3 +349,21 @@ for waiting threads. {{% cite threadingPy %}}
   title="threading — Thread-based parallelism — Python 3.14.5 documentation"
   url="https://docs.python.org/3/library/threading.html"
   accessed="2026-06-02" >}}
+
+1. {{< citation
+  id="ConcurrencyHelloInterview"
+  title="Introduction to Concurrency | Hello Interview Low Level Design"
+  url="https://www.hellointerview.com/learn/low-level-design/concurrency/intro"
+  accessed="2026-10-21" >}}
+
+1. {{< citation
+  id="VolatileDotNet"
+  title="volatile keyword - C# reference | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/volatile"
+  accessed="2026-10-21" >}}
+
+1. {{< citation
+  id="QueuePy"
+  title="queue — A synchronized queue class — Python 3.15.0 documentation"
+  url="https://docs.python.org/3/library/queue.html"
+  accessed="2026-10-21" >}}
