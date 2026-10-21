@@ -126,7 +126,7 @@ class FooBar:
 {{% cite LCPrintFooBarAlternatelyAlex %}} has 5 solutions for `Barrier`, `Lock`,
 `Semaphore`, `Condition`, and `Event`. Solving this problem in all 5 different
 ways should help me digest [Thread-Based Parallelism in Python]({{< ref
-"/computer-science/programming-challenges/language-concepts/resource-management/thread-based-parallelism-python/thread-based-parallelism-python"
+"/computer-science/programming-challenges/language-concepts/resource-management/low-level-concurrency/sync-primitives-w-python-specifics/"
 >}}) further.
 
 {{% /comment %}}

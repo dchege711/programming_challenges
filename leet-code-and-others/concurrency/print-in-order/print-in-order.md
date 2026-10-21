@@ -22,7 +22,7 @@ A will call `first()`, thread B will call `second()` and thread C will call
 `third()` is executed after `second()`. {{% cite LCPrintInOrder %}}
 
 See [Thread-Based Parallelism - Python]({{< ref
-"/computer-science/programming-challenges/language-concepts/resource-management/thread-based-parallelism-python/thread-based-parallelism-python"
+"/computer-science/programming-challenges/language-concepts/resource-management/low-level-concurrency/sync-primitives-w-python-specifics/"
 >}}) for a quick primer on Python's synchronization primitives.
 
 {{< readfile
