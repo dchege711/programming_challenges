@@ -342,6 +342,39 @@ Consumers (.NET)]({{< ref
 
 {{% /comment %}}
 
+{{% comment %}}
+
+A lost-wakeup bug can be demonstrated using a toy implementation of a blocking
+queue. Suppose the consumer runs:
+
+```cpp
+lock.lock()
+bool empty = queue.isEmpty();
+lock.unlock();
+
+if (empty)
+  event.waitForSignal();
+```
+
+... and the producer runs:
+
+```cpp
+lock.lock();
+queue.add(item);
+lock.unlock();
+
+event.signal();
+```
+
+... then the producer can add an item and signal after the consumer's check, but
+before its wait. In that case, the consumer sleeps even though work is
+available. Correct usage involves checking the predicate in a `while` loop while
+holding the lock and calling a condition variable's `await()` (which atomically
+releases that same lock and parks the thread). {{% cite
+CoordinationHelloInterview %}}
+
+{{% /comment %}}
+
 ## References
 
 1. {{< citation
@@ -367,3 +400,9 @@ Consumers (.NET)]({{< ref
   title="queue — A synchronized queue class — Python 3.15.0 documentation"
   url="https://docs.python.org/3/library/queue.html"
   accessed="2026-10-21" >}}
+
+1. {{< citation
+  id="CoordinationHelloInterview"
+  title="Coordination in Low Level Design | Hello Interview Low Level Design"
+  url="https://www.hellointerview.com/learn/low-level-design/concurrency/coordination"
+  accessed="2026-10-22" >}}

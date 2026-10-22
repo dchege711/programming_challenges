@@ -145,9 +145,11 @@ public class EmailService
 {{% cite CoordinationHelloInterview %}}
 
 Bound `BlockingCollection`'s capacity to tradeoff between throughput and memory
-load, e.g., if workers can handle 100 tasks/sec, and you want to absorb a 10s
-spike, set a capacity of \\(100 \times 10 = 1,000\\). {{% cite
-CoordinationHelloInterview %}}
+load, e.g., if workers can handle 1,000 tasks/sec, set a capacity of \\(1000
+\times 15 = 15,000\\) to absorb a 15s spike. A capacity of 1,000 faced with a
+15s spike of 1,200 tasks/sec spike for 15s would have a backlog growing at 200
+tasks/second, consuming the queue capacity in 5s. After 5s, all producers would
+be blocked. {{% cite CoordinationHelloInterview %}}
 
 When the queue fills up, there are three options. If slowdown is acceptable,
 then block producers and have them wait. If you can't stall, return a `429 (Too
@@ -161,6 +163,13 @@ with `queue.take()`, use `queue.poll(timeout)` to return `null` if no task shows
 up within `timeout`, allowing your worker to check a shutdown flag periodically.
 Alternatively, define a poison pill task that means "shut down"; when a worker
 pulls this, it should exit its loop. {{% cite CoordinationHelloInterview %}}
+
+Beware of submitting tasks to the same pool and then blocking on that. Suppose
+you have a fixed-size pool of 10 workers, and a queue with a capacity of 30. If
+every worker submitted a task to the same pool (this succeeds as the queue has
+capacity), and then each worker blocks on the subtasks, you'll have a deadlock.
+All 10 workers are waiting for subtasks to complete, but there's no worker
+available to run the subtasks! {{% cite CoordinationHelloInterview %}}
 
 ## Message Passing Coordination Using Actors
 
