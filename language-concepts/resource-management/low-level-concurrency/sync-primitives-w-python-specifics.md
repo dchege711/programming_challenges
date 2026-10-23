@@ -107,6 +107,12 @@ thread.join()
 
 ## `Lock` Objects
 
+{{% comment %}}
+
+Also referred to as a mutex in other languages, i.e., a mutual exclusion lock.
+
+{{% /comment %}}
+
 A `Lock` is a synchronization primitive that assumes one of two states: `locked`
 and `unlocked`. It is not owned by a particular thread when locked. {{% cite
 threadingPy %}} A lock creates a critical section where only one thread executes
