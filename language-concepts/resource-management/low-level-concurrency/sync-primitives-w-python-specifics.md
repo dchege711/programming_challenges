@@ -6,6 +6,7 @@ domains:
 - www.hellointerview.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/resource-management/low-level-concurrency/sync-primitives-w-python-specifics/
 title: Synchronization Primitives with Python Specifics
+weight: -1
 ---
 
 {{% priors %}}
