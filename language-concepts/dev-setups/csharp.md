@@ -1,5 +1,9 @@
 ---
+cited-authors:
+- Reilly, John
 date: 2026-11-01
+domains:
+- johnnyreilly.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/dev-setups/csharp/
 title: Dev Environment for C#
 ---
