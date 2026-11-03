@@ -58,6 +58,16 @@ public class RequestCounterBroken
 ... where threads `A` and `B` both read `5`, and both increment to `6`, even
 though the final count should be `7`. {{% cite HelloInterviewCorrectness %}}
 
+{{% comment %}}
+
+Don't conflate idempotency for thread-safety. For example, adding the same key
+to a `HashSet` is idempotent, in that two sequential additions have the same
+effect. However, two concurrent additions of the same key are not thread-safe,
+e.g., the first call may embark on a rebalancing of the underlying binary tree,
+and the second concurrent call might corrupt the binary tree itself.
+
+{{% /comment %}}
+
 ## Solutions
 
 ### Atomic Variables
