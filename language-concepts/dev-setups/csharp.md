@@ -62,6 +62,21 @@ dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.IDE0058.severity = none
 ```
 
+Each `.csproj` has these in the `<PropertyGroup>`:
+
+```xml
+<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+<GenerateDocumentationFile>true</GenerateDocumentationFile>
+<NoWarn>$(NoWarn);1591</NoWarn>
+```
+
+... where:
+
+* `EnforceCodeStyleInBuild` makes linter errors surface as build errors.
+* `GenerateDocumentationFile` enables rules like "remove unnecessary usings".
+* Suppressing `CS1591: Missing XML comment for publicly visible type or member`
+  is worthwhile because we're not publishing a library.
+
 ## References
 
 1. {{< citation
