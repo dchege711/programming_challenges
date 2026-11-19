@@ -21,6 +21,9 @@ dotnet solution Foo.slnx add Foo/Foo.csproj
 dotnet solution Foo.slnx add Foo.Tests/Foo.Tests.csproj
 ```
 
+`dotnet add package FluentAssertions` in the tests project for more ergonomic
+test assertion style.
+
 ## Formatting and Linting
 
 ```sh
@@ -29,6 +32,35 @@ dotnet new editorconfig --empty true
 
 ... and have `<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>` in the
 `.csproj`. {{% cite Reilly2022 %}}
+
+My base setup has been:
+
+```yaml
+root = true
+
+[*.cs]
+csharp_style_namespace_declarations = file_scoped
+csharp_style_expression_bodied_methods = true;
+csharp_style_var_for_built_in_types = true
+csharp_style_var_when_type_is_apparent = true
+dotnet_style_prefer_conditional_expression_over_return = false
+
+dotnet_analyzer_diagnostic.severity = error
+```
+
+... with an override in the tests project:
+
+```yaml
+[*.cs]
+
+# CA1707: Identifiers should not contain underscores
+# Allow test names to have underscores.
+dotnet_diagnostic.CA1707.severity = none
+
+# Remove unnecessary expression value (IDE0058)
+# Allow Fluent assertions like: myCollection.Should().BeEqualTo([...])
+dotnet_diagnostic.IDE0058.severity = none
+```
 
 ## References
 
