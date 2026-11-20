@@ -21,6 +21,12 @@ dotnet solution Foo.slnx add Foo/Foo.csproj
 dotnet solution Foo.slnx add Foo.Tests/Foo.Tests.csproj
 ```
 
+Packages worth adding:
+
+```sh
+dotnet add package ExhaustiveMatching.Analyzer
+```
+
 `dotnet add package FluentAssertions` in the tests project for more ergonomic
 test assertion style.
 
