@@ -3,6 +3,7 @@ cited-authors:
 - Reilly, John
 date: 2026-11-01
 domains:
+- github.com
 - johnnyreilly.com
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/dev-setups/csharp/
 title: Dev Environment for C#
@@ -83,6 +84,24 @@ Each `.csproj` has these in the `<PropertyGroup>`:
 * Suppressing `CS1591: Missing XML comment for publicly visible type or member`
   is worthwhile because we're not publishing a library.
 
+## LLM Setup
+
+The .NET team curates portable skills and agents. Install them via:
+
+```shell
+/plugin marketplace add dotnet/skills
+/plugin install dotnet@dotnet-agent-skills
+/plugin install dotnet-advanced@dotnet-agent-skills
+/plugin install dotnet-test@dotnet-agent-skills
+/plugin install dotnet11@dotnet-agent-skills
+```
+
+{{% cite DotNetSkills %}}
+
+{{< detail-readFile
+  file="/content/computer-science/programming-challenges/.github/instructions/csharp.instructions.md"
+  highlight="md" >}}
+
 ## References
 
 1. {{< citation
@@ -92,3 +111,9 @@ Each `.csproj` has these in the `<PropertyGroup>`:
   title="ESLint your C# in VS Code with Roslyn Analyzers | johnnyreilly"
   url="https://johnnyreilly.com/eslint-your-csharp-in-vs-code-with-roslyn-analyzers"
   accessed="2026-11-01" >}}
+
+1. {{< citation
+  id="DotNetSkills"
+  title="dotnet/skills: Repository for skills to assist AI coding agents with .NET and C#"
+  url="https://github.com/dotnet/skills"
+  accessed="2026-11-22" >}}
