@@ -13,15 +13,4 @@ internal static class Converters
             return new(deliveryEvent.Id, status, time);
         }
     }
-
-    extension(DeliveryStatus deliveryStatus)
-    {
-        internal DeliveryTerminalStatus ToTerminalStatus() => deliveryStatus switch
-        {
-            DeliveryStatus.Accepted => throw new ArgumentException("Accepted is not a terminal status."),
-            DeliveryStatus.Delivered => DeliveryTerminalStatus.Delivered,
-            DeliveryStatus.Cancelled => DeliveryTerminalStatus.Cancelled,
-            _ => throw new ArgumentException($"Unknown DeliveryStatus: {deliveryStatus}."),
-        };
-    }
 }
