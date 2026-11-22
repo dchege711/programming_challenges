@@ -4,7 +4,7 @@ domains:
 - www.hellointerview.com
 draft: true
 local_url: http://localhost:1313/computer-science/programming-challenges/low-level-design/dasher-payout/dasher-payout/
-title: 'Low Level Design: API for Dasher Payout Calculation System'
+title: 'API for Dasher Payout Calculation System'
 ---
 
 ## Problem Statement

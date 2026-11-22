@@ -7,7 +7,7 @@ domains:
 - towardsdev.com
 - www.hellointerview.com
 local_url: http://localhost:1313/computer-science/programming-challenges/low-level-design/amazon-locker/amazon-locker/
-title: 'Low Level Design: Amazon Locker'
+title: 'Amazon Locker'
 ---
 
 Design a locker system like Amazon Locker where delivery drivers can deposit
