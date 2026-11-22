@@ -3,7 +3,7 @@ date: 2026-11-01
 domains:
 - www.hellointerview.com
 local_url: http://localhost:1313/computer-science/programming-challenges/low-level-design/elevator/elevator/
-title: 'Elevator Control System'
+title: Elevator Control
 ---
 
 Design an elevator control system for a building. The system should handle

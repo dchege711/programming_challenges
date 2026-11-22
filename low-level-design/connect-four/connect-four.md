@@ -4,7 +4,7 @@ domains:
 - doc.rust-lang.org
 - www.hellointerview.com
 local_url: http://localhost:1313/computer-science/programming-challenges/low-level-design/connect-four/connect-four/
-title: 'Connect Four'
+title: Connect Four
 ---
 
 ## Problem Statement
