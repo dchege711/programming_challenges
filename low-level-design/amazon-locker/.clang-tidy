@@ -1,0 +1,14 @@
+Checks: >
+  -*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  portability-*,
+  google-*,
+  readability-*,
+  -readability-identifier-length,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard
+WarningsAsErrors: '*'
+HeaderFilterRegex: '(^|.*/)src/.*'

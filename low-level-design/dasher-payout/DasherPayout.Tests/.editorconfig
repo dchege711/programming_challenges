@@ -1,0 +1,9 @@
+[*.cs]
+
+# CA1707: Identifiers should not contain underscores
+# Allow test names to have underscores.
+dotnet_diagnostic.CA1707.severity = none
+
+# Remove unnecessary expression value (IDE0058)
+# Allow Fluent assertions like: myCollection.Should().BeEqualTo([...])
+dotnet_diagnostic.IDE0058.severity = none

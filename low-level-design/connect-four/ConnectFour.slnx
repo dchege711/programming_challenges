@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ConnectFour.Tests/ConnectFour.Tests.csproj" />
+  <Project Path="ConnectFour/ConnectFour.csproj" />
+</Solution>

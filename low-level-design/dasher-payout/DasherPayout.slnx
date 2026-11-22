@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DasherPayout.Tests/DasherPayout.Tests.csproj" />
+  <Project Path="DasherPayout/DasherPayout.csproj" />
+</Solution>

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Elevator.Tests/Elevator.Tests.csproj" />
+  <Project Path="Elevator/Elevator.csproj" />
+</Solution>
