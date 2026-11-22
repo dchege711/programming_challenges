@@ -7,8 +7,9 @@ domains:
 - justinfagnani.com
 - lit.dev
 - stackoverflow.com
+- typing.python.org
 local_url: http://localhost:1313/computer-science/programming-challenges/language-concepts/type-systems/user-defined-types/inheritance/
-title: Inheritance
+title: Inheritance (and Ways to Avoid It)
 ---
 
 ## Mixins
@@ -51,6 +52,51 @@ cite mixinUsefulnessSO %}} Mixins are rarely useful as standalone
 objects. One can think of it as an interface with an associated
 implementation. {{% cite mixinVsInheritanceSO %}}
 
+## Structural Sub-Typing
+
+Python's `Protocol` exists to support structural subtyping, e.g., given
+the `SupportsClose` protocol:
+
+```py
+from typing import Protocol
+
+class SupportsClose(Protocol):
+  def close(self) -> None:
+    pass
+```
+
+... and some class with a `close` method whose type signature is assignable to
+`SupportsClose.close`:
+
+```py
+class Resource:
+  # ...
+  def close(self) -> None:
+    self.file.close()
+    self.lock.release()
+```
+
+... and a function like:
+
+```py
+def close_all(things: Iterable[SupportsClose]) -> None:
+  for t in things:
+    t.close()
+```
+
+... then this successfully type-checks:
+
+```py
+f = open("foo.txt")
+r = Resource()
+close_all([f, r])
+```
+
+... and notice that neither `Resource` nor `IO` (from the `open` call)
+explicitly reference `SupportsClose`. {{% cite PythonProtocols %}}
+
+## References
+
 1. {{< citation
   id="mixinsLit"
   title="Mixins – Lit"
@@ -82,3 +128,9 @@ implementation. {{% cite mixinVsInheritanceSO %}}
   title="OOP - Mixin vs inheritance - Stack Overflow"
   url="https://stackoverflow.com/questions/860245/mixin-vs-inheritance"
   accessed="2024-05-05" >}}
+
+1. {{< citation
+  id="PythonProtocols"
+  title="Protocols — typing documentation"
+  url="https://typing.python.org/en/latest/spec/protocol.html"
+  accessed="2026-11-22" >}}
