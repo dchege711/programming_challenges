@@ -52,6 +52,25 @@ timestamps as strings is a weird choice on {{% cite DasherPayoutHelloInterview
 
 {{% /comment %}}
 
+Using a `double` for money introduces rounding errors that are not appropriate
+for financial calculations, which require large numbers and no round-off errors.
+.NET's `Decimal` fills this gap, supporting values in the range \\([-(2^{96} -
+1), 2^{96} - 1]\\):
+
+```cs
+Console.WriteLine(0.1  + 0.2  == 0.3);  // False: double
+Console.WriteLine(0.1m + 0.2m == 0.3m); // True: decimal
+```
+
+{{% cite DotNetDecimal %}}
+
+{{% open-comment %}}
+
+Find practice problems that demand an understanding of rounding off errors to
+further cement this.
+
+{{% /open-comment %}}
+
 ### Payout Calculation
 
 I initially "reduced" this problem to a harder problem where I parsed the
@@ -102,4 +121,10 @@ pointer in each list, while computing the overlapping intervals along the way.
   id="DasherPayoutAtb0a598c"
   title="blog/content/computer-science/low-level-design/exercises/dasher-payout/DasherPayout/DasherPayout.cs at b0a598c99f9611ca66fad95b53e6b2c25217caba · dchege711/blog"
   url="https://github.com/dchege711/blog/blob/b0a598c99f9611ca66fad95b53e6b2c25217caba/content/computer-science/low-level-design/exercises/dasher-payout/DasherPayout/DasherPayout.cs"
+  accessed="2026-11-22" >}}
+
+1. {{< citation
+  id="DotNetDecimal"
+  title="Decimal Struct (System) | Microsoft Learn"
+  url="https://learn.microsoft.com/en-us/dotnet/api/system.decimal?view=net-10.0"
   accessed="2026-11-22" >}}

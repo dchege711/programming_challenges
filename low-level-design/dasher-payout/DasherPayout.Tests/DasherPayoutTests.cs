@@ -13,8 +13,8 @@ public sealed class DasherPayoutTests
             new("D1", "delivered", "10:30"),
         ];
 
-        const int baseRate = 10;
-        const double bonusFactor = 0.25;
+        const decimal baseRate = 10;
+        const decimal bonusFactor = 0.25M;
 
         var payout = DasherPayout.CalculatePayout(deliveryEvents, baseRate, bonusFactor);
         payout.Should().Be(baseRate * (1 + (bonusFactor * 1)));
@@ -32,8 +32,8 @@ public sealed class DasherPayoutTests
             new("D3", "delivered", "12:30"),
         ];
 
-        const int baseRate = 10;
-        const double bonusFactor = 0.25;
+        const decimal baseRate = 10;
+        const decimal bonusFactor = 0.25M;
 
         var payout = DasherPayout.CalculatePayout(deliveryEvents, baseRate, bonusFactor);
         payout.Should().Be(
@@ -54,8 +54,8 @@ public sealed class DasherPayoutTests
             new("D3", "delivered", "11:30"),
         ];
 
-        const int baseRate = 10;
-        const double bonusFactor = 0.25;
+        const decimal baseRate = 10;
+        const decimal bonusFactor = 0.25M;
 
         var payout = DasherPayout.CalculatePayout(deliveryEvents, baseRate, bonusFactor);
         payout.Should().Be(

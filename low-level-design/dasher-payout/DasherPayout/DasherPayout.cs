@@ -4,10 +4,10 @@ namespace DasherPayout;
 
 public class DasherPayout
 {
-    public static double CalculatePayout(IEnumerable<External.DeliveryEvent> externalEvents, int baseRate, double bonusFactor) =>
+    public static decimal CalculatePayout(IEnumerable<External.DeliveryEvent> externalEvents, decimal baseRate, decimal bonusFactor) =>
         CalculatePayout(externalEvents.Select(e => e.ToInternal()), baseRate, bonusFactor);
 
-    private static double CalculatePayout(IEnumerable<DeliveryEvent> events, int baseRate, double bonusFactor)
+    private static decimal CalculatePayout(IEnumerable<DeliveryEvent> events, decimal baseRate, decimal bonusFactor)
     {
         // Can't assume that events come in order. In a real system, network delays
         // might cause events to come out of order. Someone, e.g., our events store,
@@ -16,7 +16,7 @@ public class DasherPayout
 
         var concurrentCount = 0;
         Dictionary<string, int> multiplierByDeliveryId = [];
-        var runningPayout = 0.0;
+        decimal runningPayout = 0;
 
         HashSet<string> deliveryIdsPendingClosure = [];
 
