@@ -63,4 +63,26 @@ public sealed class DasherPayoutTests
             + (baseRate * (1 + (bonusFactor * 2)))
             + (baseRate * (1 + (bonusFactor * 3))));
     }
+
+    [TestMethod]
+    public void SimultaneousDeliveries_AreOrderIndependent()
+    {
+        List<External.DeliveryEvent> deliveryEvents = [
+            new("D1", "accepted", "10:00"),
+            new("D1", "delivered", "11:00"),
+            new("D2", "accepted", "11:00"),
+            new("D2", "delivered", "12:00"),
+            new("D3", "accepted", "11:00"),
+            new("D3", "delivered", "12:00"),
+        ];
+
+        const decimal baseRate = 10;
+        const decimal bonusFactor = 0.25M;
+
+        var payout1 = DasherPayout.CalculatePayout(deliveryEvents, baseRate, bonusFactor);
+        var payout2 = DasherPayout.CalculatePayout(
+            deliveryEvents.Reverse<External.DeliveryEvent>(), baseRate, bonusFactor);
+
+        payout1.Should().Be(payout2);
+    }
 }

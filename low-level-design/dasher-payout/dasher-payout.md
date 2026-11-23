@@ -92,10 +92,6 @@ However, the sweep ends up re-creating the original events, e.g.,
 `Delivery.Start` is the original `Delivery.Accepted` event! Processing the
 `DeliveryEvent`s in increasing `Time` order gets us there:
 
-{{< detail-readFile
-  file="/content/computer-science/programming-challenges/low-level-design/dasher-payout/DasherPayout/DasherPayout.cs"
-  highlight="cs" >}}
-
 {{% comment %}}
 
 The failure mode here was having just enough information to trip myself up. I
@@ -108,6 +104,15 @@ pointer in each list, while computing the overlapping intervals along the way.
 {{% cite DasherPayoutAtb0a598c %}}
 
 {{% /comment %}}
+
+Define the simultaneity contract when processing a sequence of events w.r.t.
+time. For example, define that a delivery is active over `[accepted, closed)`.
+That way, if `D2` ends at `11:00` and `D3` starts at `11:00`, then `D3` payout
+will not be affected by when we processed `D2`'s end event.
+
+{{< readFile
+  file="/content/computer-science/programming-challenges/low-level-design/dasher-payout/DasherPayout/DasherPayout.cs"
+  highlight="cs" >}}
 
 ## References
 
